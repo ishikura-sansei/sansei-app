@@ -345,7 +345,7 @@ const INIT = {
   {cat:'機器追加', name:'DR自然BOX', unit:'式', note:'', p1:15000},
   {cat:'機器追加', name:'EVコンセント設置', unit:'式', note:'', p1:15000},
   {cat:'機器追加', name:'リレーボックス設置', unit:'式', note:'旧¥15,000→¥20,000統一', p1:20000},
-  {cat:'機器追加', name:'MCBえ60A以下）', unit:'式', note:'', p1:10000},
+  {cat:'機器追加', name:'MCB（60A以下）', unit:'式', note:'', p1:10000},
   {cat:'機器追加', name:'MCB（60A以上）', unit:'式', note:'', p1:15000},
   // 配線・ダクト
   {cat:'配線・ダクト', name:'屋内モール', unit:'式', note:'長さに応じて選択', p1:10000,
@@ -392,14 +392,14 @@ const INIT = {
   {cat:'屋根', name:'3階足場無', unit:'式', note:'', p1:15000},
   {cat:'屋根', name:'急勾配（6.5寸以上）', unit:'式', note:'', p1:25000},
   {cat:'屋根', name:'パネル超過', unit:'枚', note:'21枚目以降', p1:1500,
-   variants:[{l:'通常パネル ¥1,500/枚',p:1500},{l:'台形・ハーフ ¥750/枚（安ざ方優先）',p:750}]},
+   variants:[{l:'通常パネル ¥1,500/枚',p:1500},{l:'台形・ハーフ ¥750/枚（安い方優先）',p:750}]},
   {cat:'屋根', name:'パネル手上げ', unit:'式', note:'手上げ写真必須', p1:15000,
    variants:[{l:'基本 ¥15,000',p:15000},{l:'困難 ¥20,000',p:20000}]},
   {cat:'屋根', name:'パネル搬入困難', unit:'式', note:'現場判断', p1:5000,
    variants:[{l:'¥5,000',p:5000},{l:'困難 ¥10,000',p:10000}]},
   {cat:'屋根', name:'3面以降の追加面', unit:'面', note:'3面以降1面ずつ', p1:5000},
   {cat:'蓄電池', name:'幹線張り替え', unit:'式', note:'', p1:10000},
-  {cat:'蓄電池', name:'PCS追加（ELB‼込み）', unit:'式', note:'付随ELBは別請求不可', p1:20000},
+  {cat:'蓄電池', name:'PCS追加（ELB込み）', unit:'式', note:'付随ELBは別請求不可', p1:20000},
   {cat:'蓄電池', name:'重量蓄電池', unit:'式', note:'', p1:5000},
   {cat:'蓄電池', name:'蓄電池階段搬入', unit:'式', note:'', p1:5000},
   {cat:'蓄電池', name:'蓄電池搬入困難', unit:'式', note:'現場判断', p1:5000,
@@ -418,7 +418,7 @@ const INIT = {
   {cat:'配線', name:'MDダクト', unit:'m', note:'全長課金', p1:1000},
   {cat:'配線', name:'MD役物', unit:'個', note:'T型(チーズ)は不請求', p1:550},
   {cat:'配線', name:'DC線延長', unit:'系統m', note:'系統数×長さ', p1:600},
-  {cat:'配線', name:'VVGォーブル', unit:'m', note:'全長課金', p1:800},
+  {cat:'配線', name:'VVFケーブル', unit:'m', note:'全長課金', p1:800},
   {cat:'配線', name:'配線困難費', unit:'式', note:'', p1:5000},
   {cat:'分電盤', name:'MCB', unit:'個', note:'特定負荷・追加PCS付随は不請求', p1:8500,
    variants:[{l:'MCB15A ¥8,500',p:8500},{l:'MCB40A ¥8,500',p:8500},{l:'MCB50A ¥8,500',p:8500},{l:'MCB60A ¥12,000',p:12000}]},
@@ -497,9 +497,9 @@ const INIT = {
  {cat:'付帯追加',name:'温水ソーラー撤去',unit:'式',note:'処分費別途',p1:70000},
  {cat:'付帯追加',name:'事前先行基礎工事',unit:'式',note:'蓄電池・EQサイズ基礎',p1:70000},
  {cat:'配線・ダクト',name:'配管延長（4m以上/m）',unit:'m',note:'各配管4m超過分',p1:2000},
- {cat:'配線・ダクト',mame:'リモコン線延長',unit:'m',note:'',p1:1500},
+ {cat:'配線・ダクト',name:'リモコン線延長',unit:'m',note:'',p1:1500},
  {cat:'配線・ダクト',name:'電気配線延長（10m以上/m）',unit:'m',note:'本数関係なし',p1:1500},
- {cat:'配線・ダクト',mame:'専用コンセント増設',unit:'箇所',note:'屋内外同一',p1:15000},
+ {cat:'配線・ダクト',name:'専用コンセント増設',unit:'箇所',note:'屋内外同一',p1:15000},
  {cat:'配線・ダクト',name:'幹線張替延長（10m以上）',unit:'m',note:'CV14',p1:2000},
  {cat:'配線・ダクト',name:'ハイブリッド蓄電池 系統組み換え',unit:'式',note:'パネル20枚まで',p1:100000},
  {cat:'分電盤',name:'分電盤交換',unit:'台',note:'機器代別途',p1:40000},
@@ -523,7 +523,7 @@ const INIT = {
 };
 
 const CAT_C={'主項目':'#1F4E79','基本工事':'#1F4E79','太陽光（基本）':'#1F4E79','追加人工':'#375623','大項目':'#375623','付帯追加':'#375623','機器追加':'#833C00','EQ・IH':'#C55A11','エコキュート・IH':'#C55A11','配線・ダクト':'#2E75B6','配線':'#2E75B6','ダクト':'#2E75B6','電気配線・分電盤':'#0070C0','蓄電池':'#7030A0','屋根':'#833C00','分電盤':'#0070C0','足場':'#375623','撤去・処分':'#595959','交通・その他':'#595959','付帯項目':'#595959','現調':'#595959','その他':'#595959'};
-const cc=c=>CAT_C[c]}|'#404040';
+const cc=c=>CAT_C[c]||'#404040';
 const fmt=n=>n==null||isNaN(n)?'—':'¥'+Math.round(n).toLocaleString();
 const fd=d=>{if(!d)return'';const[y,m,dd]=d.split('-');return`${y}年${+m}月${+dd}日`};
 
@@ -689,7 +689,7 @@ function clearEst(){if(confirm('見積をクリアしますか？')){E.items=[];
 
 // ─ LINE報告テキスト生成 ─
 function genLine(){
-  const CLI_FULL={'リケンエナジー':'リケンエナジー有限会社','ATEL":'ATEL株式会社','株式会社キョウエイ':'株式会社キョウエイ','ライズサポート':'ライズサポート株式会社'};
+  const CLI_FULL={'リケンエナジー':'リケンエナジー有限会社','ATEL':'ATEL株式会社','株式会社キョウエイ':'株式会社キョウエイ','ライズサポート':'ライズサポート株式会社'};
   const cFull=c=>CLI_FULL[c]||c;
   const dtype = document.getElementById('docType').value;
   const ddate = document.getElementById('docDate').value;
@@ -697,7 +697,7 @@ function genLine(){
   const drmk  = document.getElementById('docRmk').value;
   const ta    = document.getElementById('lineText');
 
-  // 今日の日付をデフォルト
+  // 今日の日付をデフォルトセット
   if(!ddate){
     const t=new Date().toISOString().slice(0,10);
     document.getElementById('docDate').value=t;
