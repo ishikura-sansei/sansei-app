@@ -306,221 +306,44 @@ body{font-family:'Meiryo UI','Meiryo','Yu Gothic',sans-serif;color:var(--text);f
 //  データ定義
 //  variants: [{label, p1}] → プルダウン選択
 // ════════════════════════════════════
-const INIT = {
- 'リケンエナジー': [
-  // 主項目
-  {cat:'主項目', name:'パネル＋蓄電池工事一式', unit:'式', note:'スレート基本', p1:275000,
-   variants:[
-    {l:'〜4kW　スレート',p:275000},{l:'5kW　スレート',p:285000},{l:'6kW　スレート',p:295000},
-    {l:'7kW　スレート',p:305000},{l:'8kW　スレート',p:315000},{l:'9kW　スレート',p:325000},
-    {l:'10kW　スレート',p:335000},{l:'11kW　スレート',p:345000}]},
-  {cat:'主項目', name:'太陽光単体工事', unit:'式', note:'', p1:150000,
-   variants:[
-    {l:'〜4kW',p:150000},{l:'5kW',p:160000},{l:'6kW',p:170000},{l:'7kW',p:180000},
-    {l:'8kW',p:190000},{l:'9kW',p:200000},{l:'10kW',p:210000},{l:'11kW',p:220000}]},
-  {cat:'主項目', name:'蓄電池単体工事', unit:'式', note:'¥170,000統一', p1:170000},
-  {cat:'主項目', name:'パネル＋蓄電池＋エコキュート', unit:'式', note:'', p1:415000},
-  {cat:'主項目', name:'蓄電池＋V2H工事一式', unit:'式', note:'', p1:315000},
-  {cat:'主項目', name:'現調費用', unit:'件', note:'1件目 ¥10,000 / 2件目以降（同日）¥5,000', p1:10000,
-   variants:[{l:'1件目',p:10000},{l:'2件目以降（同日）',p:5000}]},
-  {cat:'主項目', name:'PV撤去費（処分費含む）', unit:'式', note:'', p1:120000},
-  // 追加人工・機器
-  {cat:'追加人工', name:'追加人工（汎用）', unit:'人', note:'', p1:25000},
-  {cat:'追加人工', name:'瓦屋根施工 追加人工', unit:'人', note:'基本工事とは別計上', p1:25000},
-  {cat:'追加人工', name:'屋根急勾配（6寸以上）追加人工', unit:'人', note:'', p1:25000},
-  {cat:'追加人工', name:'屋根異勾配 追加人工', unit:'人', note:'', p1:25000},
-  {cat:'追加人工', name:'搬入困難 追加人工', unit:'人', note:'旧¥5,000→¥25,000統一', p1:25000},
-  {cat:'追加人工', name:'搬入困難（宅内搬入）', unit:'式', note:'', p1:25000},
-  {cat:'追加人工', name:'蓄電池屋内搬入 追加人工', unit:'人', note:'ベランダ等', p1:25000},
-  {cat:'追加人工', name:'蓄電池2段ラック', unit:'式', note:'', p1:25000},
-  {cat:'追加人工', name:'3F施工（危険作業費）', unit:'人', note:'', p1:25000},
-  {cat:'追加人工', name:'電気工事難工事一式', unit:'式', note:'難工事まとめ計上', p1:50000},
-  {cat:'追加人工', name:'別工程日費用', unit:'式', note:'', p1:50000},
-  // 機器
-  {cat:'機器追加', name:'追加PCS', unit:'台', note:'', p1:25000},
-  {cat:'機器追加', name:'エネレッツァ追加材料費', unit:'式', note:'', p1:15000},
-  {cat:'機器追加', name:'エネレッツァ追加人工', unit:'人', note:'', p1:25000},
-  {cat:'機器追加', name:'ニチコン19.9追加人工', unit:'人', note:'', p1:25000},
-  {cat:'機器追加', name:'AiSEG', unit:'式', note:'', p1:20000},
-  {cat:'機器追加', name:'DR自然BOX', unit:'式', note:'', p1:15000},
-  {cat:'機器追加', name:'EVコンセント設置', unit:'式', note:'', p1:15000},
-  {cat:'機器追加', name:'リレーボックス設置', unit:'式', note:'旧¥15,000→¥20,000統一', p1:20000},
-  {cat:'機器追加', name:'MCB（60A以下）', unit:'式', note:'', p1:10000},
-  {cat:'機器追加', name:'MCB（60A以上）', unit:'式', note:'', p1:15000},
-  // 配線・ダクト
-  {cat:'配線・ダクト', name:'屋内モール', unit:'式', note:'長さに応じて選択', p1:10000,
-   variants:[
-    {l:'2〜3m',p:10000},{l:'4〜5m',p:15000},{l:'6〜7m',p:20000},{l:'8〜10m',p:30000},
-    {l:'11〜15m',p:35000},{l:'16〜19m',p:40000},{l:'20m（ホワイト）',p:50000}]},
-  {cat:'配線・ダクト', name:'スリムダクト一式', unit:'式', note:'', p1:10000},
-  {cat:'配線・ダクト', name:'MDダクト一式', unit:'式', note:'', p1:10000},
-  {cat:'配線・ダクト', name:'PCS〜蓄電池配線', unit:'式', note:'', p1:20000,
-   variants:[{l:'15〜20m',p:20000},{l:'20〜30m',p:30000}]},
-  {cat:'配線・ダクト', name:'屋根〜PCS 15〜20m 追加', unit:'式', note:'', p1:10000},
-  {cat:'配線・ダクト', name:'屋外配線困難一式', unit:'式', note:'難工事まとめ計上', p1:50000},
-  {cat:'配線・ダクト', name:'面違いダクト', unit:'面', note:'', p1:15000},
-  {cat:'配線・ダクト', name:'コア抜き', unit:'箇所', note:'', p1:15000},
-  {cat:'配線・ダクト', name:'穴あけ困難（コア・タイル等）', unit:'箇所', note:'', p1:15000},
-  {cat:'配線・ダクト', name:'床下配線', unit:'式', note:'', p1:10000},
-  {cat:'配線・ダクト', name:'ジャバラ', unit:'本', note:'', p1:1500},
-  {cat:'配線・ダクト', name:'立面L', unit:'個', note:'', p1:1500},
-  // 撤去・処分
-  {cat:'撤去・処分', name:'宅内PCS撤去・処分', unit:'台', note:'旧¥10,000→¥20,000統一', p1:20000},
-  {cat:'撤去・処分', name:'蓄電池撤去処分費（2人工込）', unit:'式', note:'', p1:65000},
-  {cat:'撤去・処分', name:'パネル撤去4枚＋宅内機器撤去', unit:'式', note:'', p1:75000},
-  {cat:'撤去・処分', name:'処分費', unit:'式', note:'', p1:50000},
-  // その他
-  {cat:'交通・その他', name:'別日交通費', unit:'式', note:'', p1:10000,
-   variants:[{l:'片道',p:10000},{l:'往復',p:20000}]},
-  {cat:'交通・その他', name:'遠方交通費（50km以上）', unit:'式', note:'50kmまで基本', p1:10000},
-  {cat:'交通・その他', name:'土間打ち', unit:'箇所', note:'', p1:30000},
-  {cat:'交通・その他', name:'ブロック嵩上げ', unit:'式', note:'', p1:6000},
-  {cat:'交通・その他', name:'追加行程分（足場あり蓄電池工事不可）', unit:'式', note:'', p1:30000},
-  {cat:'交通・その他', name:'屋内既存リモコンメクラ処理', unit:'式', note:'', p1:1000},
-  {cat:'交通・その他', name:'防犯カメラ電源移植（簡易）', unit:'式', note:'', p1:20000},
- ],
- 'ATEL': [
-  {cat:'基本工事', name:'P.T（太陽光＋蓄電池）20枚迄', unit:'式', note:'21枚〜はパネル超過で別計上', p1:240000},
-  {cat:'基本工事', name:'T（蓄電池単体）', unit:'式', note:'', p1:150000},
-  {cat:'基本工事', name:'P.T.E（太陽光＋蓄電池＋エコ）', unit:'式', note:'', p1:320000},
-  {cat:'基本工事', name:'P.T.E.I（フルセット）', unit:'式', note:'', p1:360000},
-  {cat:'基本工事', name:'T.E（蓄電池＋エコ）', unit:'式', note:'', p1:240000},
-  {cat:'基本工事', name:'PEI（パネル+エコ+IH）', unit:'式', note:'蓄電池なし', p1:260000},
-  {cat:'基本工事', name:'EQ', unit:'式', note:'', p1:120000, variants:[{l:'EQ単体',p:120000},{l:'EQセット（同時注文）',p:100000}]},
-  {cat:'基本工事', name:'IH', unit:'式', note:'', p1:40000, variants:[{l:'IH単体',p:40000},{l:'IHセット（同時注文）',p:20000}]},
-  {cat:'屋根', name:'瓦施工', unit:'式', note:'屋根材が瓦の場合', p1:15000},
-  {cat:'屋根', name:'3階足場無', unit:'式', note:'', p1:15000},
-  {cat:'屋根', name:'急勾配（6.5寸以上）', unit:'式', note:'', p1:25000},
-  {cat:'屋根', name:'パネル超過', unit:'枚', note:'21枚目以降', p1:1500,
-   variants:[{l:'通常パネル ¥1,500/枚',p:1500},{l:'台形・ハーフ ¥750/枚（安い方優先）',p:750}]},
-  {cat:'屋根', name:'パネル手上げ', unit:'式', note:'手上げ写真必須', p1:15000,
-   variants:[{l:'基本 ¥15,000',p:15000},{l:'困難 ¥20,000',p:20000}]},
-  {cat:'屋根', name:'パネル搬入困難', unit:'式', note:'現場判断', p1:5000,
-   variants:[{l:'¥5,000',p:5000},{l:'困難 ¥10,000',p:10000}]},
-  {cat:'屋根', name:'3面以降の追加面', unit:'面', note:'3面以降1面ずつ', p1:5000},
-  {cat:'蓄電池', name:'幹線張り替え', unit:'式', note:'', p1:10000},
-  {cat:'蓄電池', name:'PCS追加（ELB込み）', unit:'式', note:'付随ELBは別請求不可', p1:20000},
-  {cat:'蓄電池', name:'重量蓄電池', unit:'式', note:'', p1:5000},
-  {cat:'蓄電池', name:'蓄電池階段搬入', unit:'式', note:'', p1:5000},
-  {cat:'蓄電池', name:'蓄電池搬入困難', unit:'式', note:'現場判断', p1:5000,
-   variants:[{l:'¥5,000',p:5000},{l:'困難 ¥10,000',p:10000}]},
-  {cat:'蓄電池', name:'床下配線', unit:'式', note:'', p1:5000},
-  {cat:'蓄電池', name:'2段ラック', unit:'式', note:'', p1:5000},
-  {cat:'蓄電池', name:'リレーボックス', unit:'式', note:'', p1:8000},
-  {cat:'蓄電池', name:'エコベースセメント', unit:'式', note:'セメント処理時のみ', p1:2000},
-  {cat:'配線', name:'CV-5.5', unit:'m', note:'基本10m、超過分のみ', p1:800},
-  {cat:'配線', name:'CV-8', unit:'m', note:'基本10m、超過分のみ', p1:1000},
-  {cat:'配線', name:'CV-14', unit:'m', note:'全長課金', p1:1200},
-  {cat:'配線', name:'PFD16', unit:'m', note:'基本10m、超過分のみ', p1:850},
-  {cat:'配線', name:'PFD28', unit:'m', note:'基本10m、超過分のみ', p1:800},
-  {cat:'配線', name:'PFD36', unit:'m', note:'基本5m、超過分のみ', p1:1200},
-  {cat:'配線', name:'スリムダクト', unit:'m', note:'基本10m、超過分のみ', p1:1000},
-  {cat:'配線', name:'MDダクト', unit:'m', note:'全長課金', p1:1000},
-  {cat:'配線', name:'MD役物', unit:'個', note:'T型(チーズ)は不請求', p1:550},
-  {cat:'配線', name:'DC線延長', unit:'系統m', note:'系統数×長さ', p1:600},
-  {cat:'配線', name:'VVFケーブル', unit:'m', note:'全長課金', p1:800},
-  {cat:'配線', name:'配線困難費', unit:'式', note:'', p1:5000},
-  {cat:'分電盤', name:'MCB', unit:'個', note:'特定負荷・追加PCS付随は不請求', p1:8500,
-   variants:[{l:'MCB15A ¥8,500',p:8500},{l:'MCB40A ¥8,500',p:8500},{l:'MCB50A ¥8,500',p:8500},{l:'MCB60A ¥12,000',p:12000}]},
-  {cat:'分電盤', name:'ELB', unit:'式', note:'特定負荷は不請求', p1:8500,
-   variants:[{l:'ELB40A ¥8,500',p:8500},{l:'ELB50A ¥8,500',p:8500},{l:'ELB交換75Aまで ¥15,000',p:15000}]},
-  {cat:'分電盤', name:'スリムブレーカー30A', unit:'式', note:'', p1:2000},
-  {cat:'分電盤', name:'端子台', unit:'個', note:'', p1:4000},
-  {cat:'分電盤', name:'メーター統一', unit:'式', note:'', p1:10000},
-  {cat:'分電盤', name:'EQ1次→2次変更', unit:'式', note:'', p1:3500},
-  {cat:'分電盤', name:'送信ユニット', unit:'式', note:'', p1:1000},
- ],'ライズサポート': [
- {cat:'太陽光（基本）',name:'基本設置 〜4kW スレート屋根',unit:'式',note:'5寸まで',p1:200000},
- {cat:'太陽光（基本）',name:'基本設置 〜4kW 瓦屋根',unit:'式',note:'5寸まで',p1:230000},
- {cat:'太陽光（基本）',name:'基本設置 5kW以上 スレート屋根',unit:'式',note:'5寸まで',p1:240000},
- {cat:'太陽光（基本）',name:'基本設置 5kW以上 瓦屋根',unit:'式',note:'5寸まで',p1:270000},
- {cat:'太陽光（基本）',name:'6kW以上 追加（kW毎加算）',unit:'式',note:'上記5kW以上単価に加算',p1:40000},
- {cat:'足場',name:'足場 2Fまで',unit:'式',note:'足場必須',p1:170000},
- {cat:'足場',name:'屋根足場',unit:'式',note:'',p1:220000},
- {cat:'蓄電池',name:'蓄電池設置 単機能',unit:'式',note:'標準エコベース使用',p1:200000},
- {cat:'蓄電池',name:'蓄電池設置 ハイブリッド',unit:'式',note:'標準エコベース使用',p1:220000},
- {cat:'蓄電池',name:'ネット接続 無線中継器',unit:'式',note:'',p1:15000},
- {cat:'エコキュート・IH',name:'エコキュート設置',unit:'式',note:'標準エコベース・現調費別途20,000円',p1:160000},
- {cat:'エコキュート・IH',name:'IHクッキングヒーター設置',unit:'式',note:'現調費別途20,000円',p1:70000},
- {cat:'付帯追加',name:'遠方交通費（50km以上 片道）',unit:'回',note:'本工事時1回限り',p1:10000},
- {cat:'付帯追加',name:'PV多面設置（4面目〜1面毎）',unit:'面',note:'',p1:15000},
- {cat:'付帯追加',name:'急勾配工事（6寸〜）',unit:'式',note:'7寸以上は別途相談',p1:30000},
- {cat:'付帯追加',name:'野地板裏補強工事（5kWまで）',unit:'式',note:'追加補強',p1:50000},
- {cat:'付帯追加',name:'パワコン新規2台設置',unit:'式',note:'同時設置',p1:30000},
- {cat:'付帯追加',name:'アンテナ移設・撤去',unit:'式',note:'',p1:30000},
- {cat:'付帯追加',name:'新築先行配線・配管',unit:'式',note:'',p1:50000},
- {cat:'付帯追加',name:'温水ソーラー撤去',unit:'式',note:'処分費別途',p1:70000},
- {cat:'付帯追加',name:'事前先行基礎工事',unit:'式',note:'蓄電池・EQサイズ基礎',p1:70000},
- {cat:'配線・ダクト',name:'配管延長（4m以上/m）',unit:'m',note:'各配管4m超過分',p1:2000},
- {cat:'配線・ダクト',name:'リモコン線延長',unit:'m',note:'',p1:1500},
- {cat:'配線・ダクト',name:'電気配線延長（10m以上/m）',unit:'m',note:'本数関係なし',p1:1500},
- {cat:'配線・ダクト',name:'専用コンセント増設',unit:'箇所',note:'屋内外同一',p1:15000},
- {cat:'配線・ダクト',name:'幹線張替延長（10m以上）',unit:'m',note:'CV14',p1:2000},
- {cat:'配線・ダクト',name:'ハイブリッド蓄電池 系統組み換え',unit:'式',note:'パネル20枚まで',p1:100000},
- {cat:'分電盤',name:'分電盤交換',unit:'台',note:'機器代別途',p1:40000},
- {cat:'分電盤',name:'MCCB交換（60Aまで）',unit:'台',note:'',p1:15000},
- {cat:'分電盤',name:'ELB交換（75Aまで）',unit:'台',note:'',p1:30000},
- {cat:'分電盤',name:'メーターBOX',unit:'台',note:'',p1:5000},
- {cat:'撤去・処分',name:'コンクリート基礎コア抜き',unit:'箇所',note:'',p1:30000},
- {cat:'その他',name:'リモコン追加・移設',unit:'台',note:'',p1:10000},
- {cat:'その他',name:'加圧ポンプ設置',unit:'式',note:'本体支給または現地調達',p1:15000},
- {cat:'その他',name:'砂こし器設置',unit:'式',note:'本体支給または現地調達',p1:15000},
- {cat:'その他',name:'エコキュートヒーターバンド',unit:'m',note:'',p1:3000},
- {cat:'その他',name:'エアコン室外機移設',unit:'台',note:'2m以上は追加',p1:70000},
- {cat:'その他',name:'レンジフード交換',unit:'台',note:'',p1:70000},
- {cat:'その他',name:'電気式オーブン設置',unit:'台',note:'',p1:70000},
- {cat:'その他',name:'ヒートポンプ2段架台設置',unit:'台',note:'架台費別途実費',p1:5000},
- {cat:'その他',name:'点検口',unit:'式',note:'',p1:10000},
- {cat:'その他',name:'風呂循環口交換',unit:'箇所',note:'',p1:10000},
- {cat:'現調',name:'現調費（EQ/IH）',unit:'回',note:'EQ/IH案件必須',p1:20000},
- {cat:'現調',name:'現調キャンセル費',unit:'回',note:'現調後キャンセル時',p1:25000}
-],'株式会社キョウエイ': [
- {cat:'太陽光（基本）',name:'基本設置 〜4kW スレート屋根',unit:'式',note:'5寸まで',p1:200000},
- {cat:'太陽光（基本）',name:'基本設置 〜4kW 瓦屋根',unit:'式',note:'5寸まで',p1:230000},
- {cat:'太陽光（基本）',name:'基本設置 5kW以上 スレート屋根',unit:'式',note:'5寸まで',p1:240000},
- {cat:'太陽光（基本）',name:'基本設置 5kW以上 瓦屋根',unit:'式',note:'5寸まで',p1:270000},
- {cat:'太陽光（基本）',name:'6kW以上 追加（kW毎加算）',unit:'式',note:'上記5kW以上単価に加算',p1:40000},
- {cat:'足場',name:'足場 2Fまで',unit:'式',note:'足場必須',p1:170000},
- {cat:'足場',name:'屋根足場',unit:'式',note:'',p1:220000},
- {cat:'蓄電池',name:'蓄電池設置 単機能',unit:'式',note:'標準エコベース使用',p1:200000},
- {cat:'蓄電池',name:'蓄電池設置 ハイブリッド',unit:'式',note:'標準エコベース使用',p1:220000},
- {cat:'蓄電池',name:'ネット接続 無線中継器',unit:'式',note:'',p1:15000},
- {cat:'エコキュート・IH',name:'エコキュート設置',unit:'式',note:'標準エコベース・現調費別途20,000円',p1:160000},
- {cat:'エコキュート・IH',name:'IHクッキングヒーター設置',unit:'式',note:'現調費別途20,000円',p1:70000},
- {cat:'付帯追加',name:'遠方交通費（50km以上 片道）',unit:'回',note:'本工事時1回限り',p1:10000},
- {cat:'付帯追加',name:'PV多面設置（4面目〜1面毎）',unit:'面',note:'',p1:15000},
- {cat:'付帯追加',name:'急勾配工事（6寸〜）',unit:'式',note:'7寸以上は別途相談',p1:30000},
- {cat:'付帯追加',name:'野地板裏補強工事（5kWまで）',unit:'式',note:'追加補強',p1:50000},
- {cat:'付帯追加',name:'パワコン新規2台設置',unit:'式',note:'同時設置',p1:30000},
- {cat:'付帯追加',name:'アンテナ移設・撤去',unit:'式',note:'',p1:30000},
- {cat:'付帯追加',name:'新築先行配線・配管',unit:'式',note:'',p1:50000},
- {cat:'付帯追加',name:'温水ソーラー撤去',unit:'式',note:'処分費別途',p1:70000},
- {cat:'付帯追加',name:'事前先行基礎工事',unit:'式',note:'蓄電池・EQサイズ基礎',p1:70000},
- {cat:'配線・ダクト',name:'配管延長（4m以上/m）',unit:'m',note:'各配管4m超過分',p1:2000},
- {cat:'配線・ダクト',name:'リモコン線延長',unit:'m',note:'',p1:1500},
- {cat:'配線・ダクト',name:'電気配線延長（10m以上/m）',unit:'m',note:'本数関係なし',p1:1500},
- {cat:'配線・ダクト',name:'専用コンセント増設',unit:'箇所',note:'屋内外同一',p1:15000},
- {cat:'配線・ダクト',name:'幹線張替延長（10m以上）',unit:'m',note:'CV14',p1:2000},
- {cat:'配線・ダクト',name:'ハイブリッド蓄電池 系統組み換え',unit:'式',note:'パネル20枚まで',p1:100000},
- {cat:'分電盤',name:'分電盤交換',unit:'台',note:'機器代別途',p1:40000},
- {cat:'分電盤',name:'MCCB交換（60Aまで）',unit:'台',note:'',p1:15000},
- {cat:'分電盤',name:'ELB交換（75Aまで）',unit:'台',note:'',p1:30000},
- {cat:'分電盤',name:'メーターBOX',unit:'台',note:'',p1:5000},
- {cat:'撤去・処分',name:'コンクリート基礎コア抜き',unit:'箇所',note:'',p1:30000},
- {cat:'その他',name:'リモコン追加・移設',unit:'台',note:'',p1:10000},
- {cat:'その他',name:'加圧ポンプ設置',unit:'式',note:'本体支給または現地調達',p1:15000},
- {cat:'その他',name:'砂こし器設置',unit:'式',note:'本体支給または現地調達',p1:15000},
- {cat:'その他',name:'エコキュートヒーターバンド',unit:'m',note:'',p1:3000},
- {cat:'その他',name:'エアコン室外機移設',unit:'台',note:'2m以上は追加',p1:70000},
- {cat:'その他',name:'レンジフード交換',unit:'台',note:'',p1:70000},
- {cat:'その他',name:'電気式オーブン設置',unit:'台',note:'',p1:70000},
- {cat:'その他',name:'ヒートポンプ2段架台設置',unit:'台',note:'架台費別途実費',p1:5000},
- {cat:'その他',name:'点検口',unit:'式',note:'',p1:10000},
- {cat:'その他',name:'風呂循環口交換',unit:'箇所',note:'',p1:10000},
- {cat:'現調',name:'現調費（EQ/IH）',unit:'回',note:'EQ/IH案件必須',p1:20000},
- {cat:'現調',name:'現調キャンセル費',unit:'回',note:'現調後キャンセル時',p1:25000}
-]
-};
+// ════════════════════════════════════════════
+//  単価データ — GitHub JSONから動的取得
+//  https://raw.githubusercontent.com/ishikura-sansei/sansei-app/main/sansei_prices.json
+// ════════════════════════════════════════════
+const JSON_URL = 'https://raw.githubusercontent.com/ishikura-sansei/sansei-app/main/sansei_prices.json';
+
+// クライアント名マッピング（JSON → アプリ表示名）
+const CLI_MAP = {'リケン':'リケンエナジー','キョウエイ':'株式会社キョウエイ','ライズ':'ライズサポート','ATEL':'ATEL'};
+
+// JSON形式 → アプリ形式に変換
+function convertJson(raw) {
+  const result = {};
+  for (const [key, items] of Object.entries(raw)) {
+    const cliName = CLI_MAP[key] || key;
+    result[cliName] = items.map(it => ({
+      cat: it.category,
+      name: it.name,
+      p1: it.price1,
+      p2: it.price2 > 0 ? it.price2 : undefined,
+      unit: it.unit,
+      note: it.note || '',
+      inputType: it.inputType
+    }));
+  }
+  return result;
+}
+
+async function fetchMaster() {
+  try {
+    const r = await fetch(JSON_URL + '?t=' + Date.now());
+    if (!r.ok) throw new Error('HTTP ' + r.status);
+    const raw = await r.json();
+    return convertJson(raw);
+  } catch(e) {
+    console.warn('JSON fetch failed:', e);
+    return null;
+  }
+}
 
 const CAT_C={'主項目':'#1F4E79','基本工事':'#1F4E79','太陽光（基本）':'#1F4E79','追加人工':'#375623','大項目':'#375623','付帯追加':'#375623','機器追加':'#833C00','EQ・IH':'#C55A11','エコキュート・IH':'#C55A11','配線・ダクト':'#2E75B6','配線':'#2E75B6','ダクト':'#2E75B6','電気配線・分電盤':'#0070C0','蓄電池':'#7030A0','屋根':'#833C00','分電盤':'#0070C0','足場':'#375623','撤去・処分':'#595959','交通・その他':'#595959','付帯項目':'#595959','現調':'#595959','その他':'#595959'};
 const cc=c=>CAT_C[c]||'#404040';
@@ -529,7 +352,7 @@ const fd=d=>{if(!d)return'';const[y,m,dd]=d.split('-');return`${y}年${+m}月${+
 
 // ─ 状態 ─
 const LM='sm3',LE='se3';
-let M=JSON.parse(localStorage.getItem(LM)||'null')||JSON.parse(JSON.stringify(INIT));
+let M={}; // 起動時にfetchMasterで上書き
 let E=JSON.parse(localStorage.getItem(LE)||'null')||{cli:'リケンエナジー',items:[]};
 let curC=Object.keys(M)[0], actCat='all', pend=null;
 const sM=()=>localStorage.setItem(LM,JSON.stringify(M));
@@ -794,11 +617,13 @@ function importCSV(input){
   input.value='';
 }
 
-function resetMaster(){
-  if(confirm('マスターデータを初期データに戻しますか？')){
-    M=JSON.parse(JSON.stringify(INIT));
-    sM(); buildCatRow(); renderList();
-    alert('初期データに戻しました');
+async function resetMaster(){
+  if(confirm('GitHubから最新の単価データを再取得しますか？')){
+    document.getElementById('loadOverlay').style.display='flex';
+    const fresh = await fetchMaster();
+    document.getElementById('loadOverlay').style.display='none';
+    if(fresh){ M=fresh; sM(); curC=Object.keys(M)[0]; buildCliSel(); buildCatRow(); renderList(); alert('最新データに更新しました'); }
+    else { alert('取得に失敗しました。ネットワークを確認してください。'); }
   }
 }
 
@@ -806,11 +631,32 @@ function closePreview(){
   document.getElementById('prevLayer').style.display='none';
 }
 
-window.addEventListener('DOMContentLoaded',()=>{
+window.addEventListener('DOMContentLoaded', async ()=>{
+  document.getElementById('loadOverlay').style.display='flex';
+  const fetched = await fetchMaster();
+  if (fetched) {
+    M = fetched;
+  } else {
+    // フェッチ失敗時はlocalStorageのキャッシュを使用
+    const cached = localStorage.getItem(LM);
+    if (cached) { try { M = JSON.parse(cached); } catch(e){} }
+  }
+  if (Object.keys(M).length > 0) {
+    curC = Object.keys(M)[0];
+    sM();
+  }
+  document.getElementById('loadOverlay').style.display='none';
   buildCliSel();
   switchClient(curC);
   updBdg();
 });
 </script>
+
+<!-- 読み込み中オーバーレイ -->
+<div id="loadOverlay" style="display:none;position:fixed;inset:0;background:rgba(31,78,121,0.85);z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:#fff">
+  <div style="width:48px;height:48px;border:4px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin 0.9s linear infinite"></div>
+  <div style="font-size:15px;font-weight:600">単価データを読み込み中…</div>
+</div>
+<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 </body>
 </html>
