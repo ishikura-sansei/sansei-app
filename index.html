@@ -206,7 +206,7 @@ body{font-family:'Meiryo UI','Meiryo','Yu Gothic',sans-serif;color:var(--text);f
   <div class="scroll" id="estArea"><div class="empty-msg">← 単価一覧から<br>項目をタップして追加</div></div>
   <div class="est-foot">
     <button class="btn btn-out" style="flex:1" onclick="goS('s1')">＋ 項目追加</button>
-    <button class="btn btn-navy" style="flex:1" onclick="goS('s3')">📄 見積書</button>
+    <button class="btn btn-navy" style="flex:1" onclick="goS('s3')">📋 明細確認</button>
     <button class="btn btn-out" style="flex:1;border-color:var(--safe);color:var(--safe)" onclick="goKanko()">✅ 完工報告</button>
   </div>
 </div>
@@ -219,23 +219,31 @@ body{font-family:'Meiryo UI','Meiryo','Yu Gothic',sans-serif;color:var(--text);f
       <div class="doc-form">
         <div class="fg2">
           <div class="fld"><label>施工日</label>
-            <input type="date" id="kankoDate" onchange="genKankoLine(c=>({'リケンエナジー':'リケンエナジー有限会社','ATEL':'ATEL株式会社','株式会社キョウエイ':'株式会社キョウエイ','ライズサポート':'ライズサポート株式会社'}[c]||c))">
+            <input type="date" id="kankoDate" onchange="updateKankoText()">
           </div>
         </div>
         <div class="fld"><label>現場名</label>
-          <input id="kankoSubj" placeholder="例: 山田太郎様邸" oninput="genKankoLine(c=>({'リケンエナジー':'リケンエナジー有限会社','ATEL':'ATEL株式会社','株式会社キョウエイ':'株式会社キョウエイ','ライズサポート':'ライズサポート株式会社'}[c]||c))">
-        </div>
-        <div class="fld"><label>特記事項</label>
-          <textarea id="kankoRmk" rows="2" placeholder="任意" oninput="genKankoLine(c=>({'リケンエナジー':'リケンエナジー有限会社','ATEL':'ATEL株式会社','株式会社キョウエイ':'株式会社キョウエイ','ライズサポート':'ライズサポート株式会社'}[c]||c))"></textarea>
+          <input id="kankoSubj" placeholder="例: 山田太郎様邸" oninput="updateKankoText()">
         </div>
       </div>
+      <!-- 書類チェックリスト -->
       <div style="padding:0 10px 8px">
-        <div style="font-size:12px;font-weight:700;color:var(--sub);margin-bottom:6px">📋 完工報告テキスト</div>
-        <textarea id="kankoText" readonly rows="18"
+        <div style="font-size:12px;font-weight:700;color:var(--sub);margin-bottom:8px">📋 書類・資料チェック</div>
+        <div id="docChecklist" style="display:flex;flex-direction:column;gap:8px"></div>
+      </div>
+      <div class="doc-form" style="padding-top:0">
+        <div class="fld"><label>特記事項</label>
+          <textarea id="kankoRmk" rows="2" placeholder="任意" oninput="updateKankoText()"></textarea>
+        </div>
+      </div>
+      <!-- テキスト出力 -->
+      <div style="padding:0 10px 8px">
+        <div style="font-size:12px;font-weight:700;color:var(--sub);margin-bottom:6px">📱 LINEに貼り付けるテキスト</div>
+        <textarea id="kankoText" readonly rows="16"
           style="width:100%;padding:12px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:12px;font-family:'Meiryo UI','Meiryo',monospace;line-height:1.75;resize:none;background:#f8f9fc;color:var(--text)"></textarea>
       </div>
       <div style="padding:0 10px 12px;display:flex;gap:8px">
-        <button class="btn btn-ghost" style="flex:1" onclick="document.getElementById('kankoSection').style.display='none';document.getElementById('lineSection').style.display='block'">← 見積書へ</button>
+        <button class="btn btn-ghost" style="flex:1" onclick="document.getElementById('kankoSection').style.display='none';document.getElementById('lineSection').style.display='block'">← 明細確認へ</button>
         <button class="btn btn-primary" style="flex:1;font-size:15px;padding:14px" onclick="copyKanko()">📋 コピーする</button>
       </div>
     </div>
@@ -625,12 +633,85 @@ function genLine(){
 
 
 // ─ 完工報告ナビ ─
+const CLI_FULL_K={'リケンエナジー':'リケンエナジー有限会社','ATEL':'ATEL株式会社','株式会社キョウエイ':'株式会社キョウエイ','ライズサポート':'ライズサポート株式会社'};
+
 function goKanko(){
   goS('s3');
-  // 完工報告専用UIを表示
   document.getElementById('kankoSection').style.display='block';
   document.getElementById('lineSection').style.display='none';
-  genKankoLine(c=>({'リケンエナジー':'リケンエナジー有限会社','ATEL':'ATEL株式会社','株式会社キョウエイ':'株式会社キョウエイ','ライズサポート':'ライズサポート株式会社'}[c]||c));
+  // 今日の日付をデフォルト
+  const kd=document.getElementById('kankoDate');
+  if(!kd.value) kd.value=new Date().toISOString().slice(0,10);
+  buildDocChecklist();
+  updateKankoText();
+}
+
+function buildDocChecklist(){
+  const cli=E.cli||curC;
+  const filtered=DOCS.filter(d=>d.target==='共通'||d.target==='各社記入'||d.target===cli||d.target===curC);
+  const el=document.getElementById('docChecklist');
+  el.innerHTML=filtered.map((d,i)=>{
+    const opts=d.options&&d.options.length?d.options:['済み','未対応'];
+    const defVal=d.dest||opts[0]||'';
+    const selOpts=opts.map(o=>`<option value="${o}"${o===defVal?' selected':''}>${o}</option>`).join('');
+    return`<div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:#fff;border-radius:8px;border:1px solid var(--border)">
+      <input type="checkbox" id="kdc_${i}" checked onchange="updateKankoText()" style="width:18px;height:18px;flex-shrink:0;cursor:pointer">
+      <label for="kdc_${i}" style="flex:1;font-size:13px;font-weight:600;cursor:pointer">${d.name}</label>
+      <select id="kdDest_${i}" onchange="updateKankoText()" style="padding:5px 8px;border:1.5px solid var(--border);border-radius:6px;font-size:12px;font-family:inherit;max-width:160px">${selOpts}</select>
+    </div>`;
+  }).join('');
+}
+
+function updateKankoText(){
+  const cli=E.cli||curC;
+  const cName=CLI_FULL_K[cli]||cli;
+  const dateStr=document.getElementById('kankoDate')?.value||new Date().toISOString().slice(0,10);
+  const dsubj=document.getElementById('kankoSubj')?.value||'';
+  const drmk=document.getElementById('kankoRmk')?.value||'';
+  const bar='─────────────────';
+  const fmtN=n=>'¥'+Math.round(n).toLocaleString();
+  const sub=E.items.reduce((s,i)=>s+(i.sub||0),0);
+  const tax=Math.floor(sub*0.1);
+  let lines=[];
+  lines.push('【完工報告】');
+  lines.push(`施工日：${dateStr}`);
+  if(dsubj) lines.push(`現場：${dsubj}`);
+  lines.push(`取引先：${cName}`);
+  lines.push(bar);
+  lines.push('');
+  lines.push('■ 施工内容');
+  if(E.items.length){
+    const grp={};
+    E.items.forEach(ei=>{grp[ei.cat]=grp[ei.cat]||[];grp[ei.cat].push(ei)});
+    for(const[cat,items] of Object.entries(grp)){
+      items.forEach(ei=>{
+        const qStr=ei.qty===1?'':` ×${ei.qty}`;
+        lines.push(`・${ei.name}${qStr}　${fmtN(ei.sub)}`);
+      });
+    }
+    lines.push(`　計：${fmtN(sub)}（税込 ${fmtN(sub+tax)}）`);
+  } else lines.push('（施工内容未入力）');
+  lines.push('');
+  lines.push(bar);
+  lines.push('');
+  lines.push('■ 書類・資料チェック');
+  // チェックリストから出力
+  const filtered=DOCS.filter(d=>d.target==='共通'||d.target==='各社記入'||d.target===cli||d.target===curC);
+  filtered.forEach((d,i)=>{
+    const chk=document.getElementById(`kdc_${i}`);
+    const dest=document.getElementById(`kdDest_${i}`);
+    if(chk&&chk.checked){
+      const destVal=dest?dest.value:'';
+      lines.push(`✅ ${d.name}　→ ${destVal}`);
+    }
+  });
+  lines.push('');
+  lines.push(bar);
+  lines.push('');
+  lines.push('■ 特記事項');
+  lines.push(drmk||'（なし）');
+  const ta=document.getElementById('kankoText');
+  if(ta) ta.value=lines.join('\n');
 }
 
 // ─ 完工報告 LINE出力 ─
