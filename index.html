@@ -206,20 +206,47 @@ body{font-family:'Meiryo UI','Meiryo','Yu Gothic',sans-serif;color:var(--text);f
   <div class="scroll" id="estArea"><div class="empty-msg">← 単価一覧から<br>項目をタップして追加</div></div>
   <div class="est-foot">
     <button class="btn btn-out" style="flex:1" onclick="goS('s1')">＋ 項目追加</button>
-    <button class="btn btn-navy" style="flex:1" onclick="goS('s3')">📄 書類を作る</button>
+    <button class="btn btn-navy" style="flex:1" onclick="goS('s3')">📄 見積書</button>
+    <button class="btn btn-out" style="flex:1;border-color:var(--safe);color:var(--safe)" onclick="goKanko()">✅ 完工報告</button>
   </div>
 </div>
 
 <!-- Screen 3: LINE報告 -->
 <div class="screen" id="s3">
   <div class="scroll">
+    <!-- 完工報告セクション（初期非表示） -->
+    <div id="kankoSection" style="display:none">
+      <div class="doc-form">
+        <div class="fg2">
+          <div class="fld"><label>施工日</label>
+            <input type="date" id="kankoDate" onchange="genKankoLine(c=>({'リケンエナジー':'リケンエナジー有限会社','ATEL':'ATEL株式会社','株式会社キョウエイ':'株式会社キョウエイ','ライズサポート':'ライズサポート株式会社'}[c]||c))">
+          </div>
+        </div>
+        <div class="fld"><label>現場名</label>
+          <input id="kankoSubj" placeholder="例: 山田太郎様邸" oninput="genKankoLine(c=>({'リケンエナジー':'リケンエナジー有限会社','ATEL':'ATEL株式会社','株式会社キョウエイ':'株式会社キョウエイ','ライズサポート':'ライズサポート株式会社'}[c]||c))">
+        </div>
+        <div class="fld"><label>特記事項</label>
+          <textarea id="kankoRmk" rows="2" placeholder="任意" oninput="genKankoLine(c=>({'リケンエナジー':'リケンエナジー有限会社','ATEL':'ATEL株式会社','株式会社キョウエイ':'株式会社キョウエイ','ライズサポート':'ライズサポート株式会社'}[c]||c))"></textarea>
+        </div>
+      </div>
+      <div style="padding:0 10px 8px">
+        <div style="font-size:12px;font-weight:700;color:var(--sub);margin-bottom:6px">📋 完工報告テキスト</div>
+        <textarea id="kankoText" readonly rows="18"
+          style="width:100%;padding:12px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:12px;font-family:'Meiryo UI','Meiryo',monospace;line-height:1.75;resize:none;background:#f8f9fc;color:var(--text)"></textarea>
+      </div>
+      <div style="padding:0 10px 12px;display:flex;gap:8px">
+        <button class="btn btn-ghost" style="flex:1" onclick="document.getElementById('kankoSection').style.display='none';document.getElementById('lineSection').style.display='block'">← 見積書へ</button>
+        <button class="btn btn-primary" style="flex:1;font-size:15px;padding:14px" onclick="copyKanko()">📋 コピーする</button>
+      </div>
+    </div>
+    <!-- 通常セクション（見積書/請求書） -->
+    <div id="lineSection">
     <div class="doc-form">
       <div class="fg2">
         <div class="fld"><label>書類種別</label>
           <select id="docType" onchange="genLine()">
             <option value="見積書">見積書</option>
             <option value="請求書">請求書</option>
-            <option value="完工報告">✅ 完工報告</option>
           </select>
         </div>
         <div class="fld"><label>日付</label>
@@ -262,6 +289,7 @@ body{font-family:'Meiryo UI','Meiryo','Yu Gothic',sans-serif;color:var(--text);f
       </div>
     </div>
 
+    </div><!-- /lineSection -->
     <!-- コピー完了トースト -->
     <div id="copyToast" style="display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#107C10;color:#fff;padding:10px 24px;border-radius:20px;font-size:14px;font-weight:700;z-index:300">✓ コピーしました！</div>
   </div>
@@ -317,9 +345,14 @@ const JSON_URL = 'https://raw.githubusercontent.com/ishikura-sansei/sansei-app/m
 const CLI_MAP = {'リケン':'リケンエナジー','キョウエイ':'株式会社キョウエイ','ライズ':'ライズサポート','ATEL':'ATEL'};
 
 // JSON形式 → アプリ形式に変換
+let DOCS = []; // 書類チェックマスター
+
 function convertJson(raw) {
+  // docsを先に抽出
+  if (raw.docs) DOCS = raw.docs;
   const result = {};
   for (const [key, items] of Object.entries(raw)) {
+    if (key === 'docs') continue;
     const cliName = CLI_MAP[key] || key;
     result[cliName] = items.map(it => ({
       cat: it.category,
@@ -591,14 +624,24 @@ function genLine(){
 }
 
 
+// ─ 完工報告ナビ ─
+function goKanko(){
+  goS('s3');
+  // 完工報告専用UIを表示
+  document.getElementById('kankoSection').style.display='block';
+  document.getElementById('lineSection').style.display='none';
+  genKankoLine(c=>({'リケンエナジー':'リケンエナジー有限会社','ATEL':'ATEL株式会社','株式会社キョウエイ':'株式会社キョウエイ','ライズサポート':'ライズサポート株式会社'}[c]||c));
+}
+
 // ─ 完工報告 LINE出力 ─
 function genKankoLine(cFull){
   const ta=document.getElementById('lineText');
   const cli=E.cli||curC;
   const cName=cFull(cli);
-  const dateStr=document.getElementById('docDate').value||new Date().toISOString().slice(0,10);
-  const dsubj=document.getElementById('docSubj').value;
-  const drmk=document.getElementById('docRmk').value;
+  const kankoDateEl = document.getElementById('kankoDate');
+  const dateStr = (kankoDateEl && kankoDateEl.value) || document.getElementById('docDate').value || new Date().toISOString().slice(0,10);
+  const dsubj = (document.getElementById('kankoSubj')?.value) || document.getElementById('docSubj')?.value || '';
+  const drmk = (document.getElementById('kankoRmk')?.value) || document.getElementById('docRmk')?.value || '';
   const bar='─────────────────';
   const fmtN=n=>'¥'+Math.round(n).toLocaleString();
   const sub=E.items.reduce((s,i)=>s+(i.sub||0),0);
@@ -629,18 +672,36 @@ function genKankoLine(cFull){
   lines.push(bar);
   lines.push('');
   lines.push('■ 書類・資料チェック');
-  lines.push('□ 取扱説明書　　→ お客様・手渡し');
-  lines.push('□ 検査成績書　　→ 持ち帰り（社内）');
-  lines.push('□ 施工写真　　　→ UP先：');
-  if(cli==='ATEL') lines.push('□ 指示書　　　　→ 元請け・返却');
-  lines.push('□ 引き渡し確認書 →');
-  lines.push('□ その他：');
+  // DOCSからクライアント対応の書類を出力
+  const clientDocs = DOCS.length > 0 ? DOCS.filter(d =>
+    d.target === '共通' || d.target === '各社記入' || d.target === cli || d.target === curC
+  ) : [
+    {name:'取扱説明書', dest:'お客様・手渡し'},
+    {name:'検査成績書', dest:'持ち帰り（社内）'},
+    {name:'施工写真', dest:'UP先：'},
+    {name:'引き渡し確認書', dest:''},
+    {name:'その他', dest:''},
+  ];
+  clientDocs.forEach(d => {
+    const dest = d.dest ? ` → ${d.dest}` : ' →';
+    lines.push(`□ ${d.name}${dest}`);
+  });
   lines.push('');
   lines.push(bar);
   lines.push('');
   lines.push('■ 特記事項');
   lines.push(drmk||'（なし）');
-  ta.value=lines.join('\n');
+  const kankoTa = document.getElementById('kankoText');
+  if(kankoTa) kankoTa.value = lines.join('\n');
+  else ta.value = lines.join('\n');
+}
+
+function copyKanko(){
+  const ta = document.getElementById('kankoText');
+  if(!ta||!ta.value){alert('テキストがありません');return;}
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(ta.value).then(()=>showToast('✓ コピーしました！')).catch(()=>{ta.select();document.execCommand('copy');showToast('✓ コピーしました！');});
+  } else { ta.select(); document.execCommand('copy'); showToast('✓ コピーしました！'); }
 }
 
 function copyLine(){

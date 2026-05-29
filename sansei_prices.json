@@ -519,7 +519,7 @@
     {
       "no": 44,
       "id": "E-001",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "MCB15A",
       "price1": 8500,
       "price2": 0,
@@ -531,7 +531,7 @@
     {
       "no": 45,
       "id": "E-002",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "MCB40A",
       "price1": 8500,
       "price2": 0,
@@ -543,7 +543,7 @@
     {
       "no": 46,
       "id": "E-003",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "MCB50A",
       "price1": 8500,
       "price2": 0,
@@ -555,7 +555,7 @@
     {
       "no": 47,
       "id": "E-004",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "MCB60A",
       "price1": 12000,
       "price2": 0,
@@ -567,7 +567,7 @@
     {
       "no": 48,
       "id": "E-005",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "ELB40A",
       "price1": 8500,
       "price2": 0,
@@ -579,7 +579,7 @@
     {
       "no": 49,
       "id": "E-006",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "ELB50A",
       "price1": 8500,
       "price2": 0,
@@ -591,7 +591,7 @@
     {
       "no": 50,
       "id": "E-S01",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "ELB交換（75Aまで）",
       "price1": 15000,
       "price2": 0,
@@ -603,7 +603,7 @@
     {
       "no": 51,
       "id": "E-007",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "スリムブレーカー30A",
       "price1": 2000,
       "price2": 0,
@@ -615,7 +615,7 @@
     {
       "no": 52,
       "id": "E-008",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "東芝スリムブレーカー20A(EQ用)",
       "price1": 2000,
       "price2": 0,
@@ -627,7 +627,7 @@
     {
       "no": 53,
       "id": "E-009",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "端子台",
       "price1": 4000,
       "price2": 0,
@@ -639,7 +639,7 @@
     {
       "no": 54,
       "id": "E-010",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "メーター統一",
       "price1": 10000,
       "price2": 0,
@@ -651,7 +651,7 @@
     {
       "no": 55,
       "id": "E-011",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "EQ1次→2次変更",
       "price1": 3500,
       "price2": 0,
@@ -663,11 +663,35 @@
     {
       "no": 56,
       "id": "E-012",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "送信ユニット",
       "price1": 1000,
       "price2": 0,
       "unit": "式",
+      "inputType": "qty",
+      "baseM": 0,
+      "note": ""
+    },
+    {
+      "no": 901,
+      "id": "OT-001",
+      "category": "その他",
+      "name": "交通費（遠方）",
+      "price1": 10000,
+      "price2": 0,
+      "unit": "回",
+      "inputType": "qty",
+      "baseM": 0,
+      "note": "50km以上"
+    },
+    {
+      "no": 902,
+      "id": "OT-002",
+      "category": "その他",
+      "name": "別日交通費",
+      "price1": 10000,
+      "price2": 0,
+      "unit": "回",
       "inputType": "qty",
       "baseM": 0,
       "note": ""
@@ -1585,6 +1609,30 @@
       "inputType": "none",
       "baseM": 0,
       "note": ""
+    },
+    {
+      "no": 901,
+      "id": "OT-001",
+      "category": "その他",
+      "name": "交通費（遠方）",
+      "price1": 10000,
+      "price2": 0,
+      "unit": "回",
+      "inputType": "qty",
+      "baseM": 0,
+      "note": "50km以上"
+    },
+    {
+      "no": 902,
+      "id": "OT-002",
+      "category": "その他",
+      "name": "別日交通費",
+      "price1": 10000,
+      "price2": 0,
+      "unit": "回",
+      "inputType": "qty",
+      "baseM": 0,
+      "note": ""
     }
   ],
   "キョウエイ": [
@@ -2131,7 +2179,7 @@
     {
       "no": 46,
       "id": "KM-001",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "MCCB交換（60Aまで）",
       "price1": 15000,
       "price2": 0,
@@ -2143,7 +2191,7 @@
     {
       "no": 47,
       "id": "KM-002",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "ELBの交換（75Aまで）",
       "price1": 30000,
       "price2": 0,
@@ -2155,7 +2203,7 @@
     {
       "no": 48,
       "id": "KM-003",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "専用コンセント増設工事",
       "price1": 15000,
       "price2": 0,
@@ -2167,7 +2215,7 @@
     {
       "no": 49,
       "id": "KM-004",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "分電盤交換（機器代別途）",
       "price1": 40000,
       "price2": 0,
@@ -2179,7 +2227,7 @@
     {
       "no": 50,
       "id": "KM-005",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "メーターBOX",
       "price1": 5000,
       "price2": 0,
@@ -2191,7 +2239,7 @@
     {
       "no": 51,
       "id": "KM-006",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "コンクリート基礎コア抜き",
       "price1": 30000,
       "price2": 0,
@@ -2203,7 +2251,7 @@
     {
       "no": 52,
       "id": "KM-007",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "エアコン室外機移設",
       "price1": 70000,
       "price2": 0,
@@ -2215,7 +2263,7 @@
     {
       "no": 53,
       "id": "KM-008",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "レンジフード交換",
       "price1": 70000,
       "price2": 0,
@@ -2227,11 +2275,35 @@
     {
       "no": 54,
       "id": "KM-009",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "電気式オーブン設置",
       "price1": 70000,
       "price2": 0,
       "unit": "台",
+      "inputType": "qty",
+      "baseM": 0,
+      "note": ""
+    },
+    {
+      "no": 901,
+      "id": "OT-001",
+      "category": "その他",
+      "name": "交通費（遠方）",
+      "price1": 10000,
+      "price2": 0,
+      "unit": "回",
+      "inputType": "qty",
+      "baseM": 0,
+      "note": "50km以上"
+    },
+    {
+      "no": 902,
+      "id": "OT-002",
+      "category": "その他",
+      "name": "別日交通費",
+      "price1": 10000,
+      "price2": 0,
+      "unit": "回",
       "inputType": "qty",
       "baseM": 0,
       "note": ""
@@ -2781,7 +2853,7 @@
     {
       "no": 46,
       "id": "RS-001",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "MCCB交換（60Aまで）",
       "price1": 15000,
       "price2": 0,
@@ -2793,7 +2865,7 @@
     {
       "no": 47,
       "id": "RS-002",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "ELBの交換（75Aまで）",
       "price1": 30000,
       "price2": 0,
@@ -2805,7 +2877,7 @@
     {
       "no": 48,
       "id": "RS-003",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "専用コンセント増設工事",
       "price1": 15000,
       "price2": 0,
@@ -2817,7 +2889,7 @@
     {
       "no": 49,
       "id": "RS-004",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "分電盤交換（機器代別途）",
       "price1": 40000,
       "price2": 0,
@@ -2829,7 +2901,7 @@
     {
       "no": 50,
       "id": "RS-005",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "メーターBOX",
       "price1": 5000,
       "price2": 0,
@@ -2841,7 +2913,7 @@
     {
       "no": 51,
       "id": "RS-006",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "コンクリート基礎コア抜き",
       "price1": 30000,
       "price2": 0,
@@ -2853,7 +2925,7 @@
     {
       "no": 52,
       "id": "RS-007",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "エアコン室外機移設",
       "price1": 70000,
       "price2": 0,
@@ -2865,7 +2937,7 @@
     {
       "no": 53,
       "id": "RS-008",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "レンジフード交換",
       "price1": 70000,
       "price2": 0,
@@ -2877,13 +2949,88 @@
     {
       "no": 54,
       "id": "RS-009",
-      "category": "分電盤",
+      "category": "電材等",
       "name": "電気式オーブン設置",
       "price1": 70000,
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
       "baseM": 0,
+      "note": ""
+    },
+    {
+      "no": 901,
+      "id": "OT-001",
+      "category": "その他",
+      "name": "交通費（遠方）",
+      "price1": 10000,
+      "price2": 0,
+      "unit": "回",
+      "inputType": "qty",
+      "baseM": 0,
+      "note": "50km以上"
+    },
+    {
+      "no": 902,
+      "id": "OT-002",
+      "category": "その他",
+      "name": "別日交通費",
+      "price1": 10000,
+      "price2": 0,
+      "unit": "回",
+      "inputType": "qty",
+      "baseM": 0,
+      "note": ""
+    }
+  ],
+  "docs": [
+    {
+      "name": "取扱説明書",
+      "dest": "お客様",
+      "method": "手渡し",
+      "target": "共通",
+      "note": "施主へ直接渡す"
+    },
+    {
+      "name": "検査成績書",
+      "dest": "社内持ち帰り",
+      "method": "持ち帰り",
+      "target": "共通",
+      "note": "会社で保管。後日郵送の場合あり"
+    },
+    {
+      "name": "施工写真",
+      "dest": "UP",
+      "method": "アップロード",
+      "target": "共通",
+      "note": "UP先は現場で確認・記入"
+    },
+    {
+      "name": "指示書",
+      "dest": "元請け",
+      "method": "返却（納品時）",
+      "target": "ATEL",
+      "note": "元請けへ返却。他社は要確認"
+    },
+    {
+      "name": "引き渡し確認書",
+      "dest": "",
+      "method": "",
+      "target": "各社記入",
+      "note": "取引先によって書式が異なる"
+    },
+    {
+      "name": "その他①",
+      "dest": "",
+      "method": "",
+      "target": "共通",
+      "note": ""
+    },
+    {
+      "name": "その他②",
+      "dest": "",
+      "method": "",
+      "target": "共通",
       "note": ""
     }
   ]
