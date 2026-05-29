@@ -671,6 +671,18 @@
       "inputType": "qty",
       "baseM": 0.0,
       "note": ""
+    },
+    {
+      "no": 57,
+      "id": "OT-001",
+      "category": "その他",
+      "name": "遠方交通費(50km)",
+      "price1": 10000,
+      "price2": 0,
+      "unit": "台",
+      "inputType": "qty",
+      "baseM": 0.0,
+      "note": ""
     }
   ],
   "リケン": [
