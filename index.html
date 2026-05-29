@@ -404,9 +404,10 @@ function renderList(){
       </div>
       <div class="cat-body">`;
     gi.forEach(item=>{
-      const vt=item.variants?`<span style="font-size:10px;background:rgba(0,0,0,.06);padding:1px 6px;border-radius:4px;margin-left:4px">▼ ${item.variants.length}択</span>`:'';
+      const vt=item.variants?`<span style="font-size:10px;background:rgba(0,0,0,.06);padding:1px 6px;border-radius:4px;margin-left:4px">▼ ${item.variants.length}択</span>`
+             :item.p2?`<span style="font-size:10px;background:rgba(0,0,0,.06);padding:1px 6px;border-radius:4px;margin-left:4px">2択</span>`:'';
       const p2txt=item.variants?`<div class="irow-p2">${item.variants[0].l} 〜</div>`:
-                  item.p2?`<div class="irow-p2">2択: ${fmt(item.p2)}`:'';
+                  item.p2?`<div class="irow-p2">〜 ${fmt(item.p2)}</div>`:'';
       h+=`<div class="irow" onclick="openSheet(${JSON.stringify(item).replace(/"/g,'&quot;')})">
         <div class="irow-info">
           <div class="irow-name">${item.name}${vt}</div>
@@ -442,6 +443,12 @@ function openSheet(item){
     <select id="shV" onchange="calcPrev()">
     ${item.variants.map((v,i)=>`<option value="${i}">${v.l}　${fmt(v.p)}</option>`).join('')}
     </select></div>`;
+  } else if(item.p2){
+    h+=`<div class="sfld"><label>単価を選択</label>
+    <select id="shP2" onchange="calcPrev()">
+      <option value="${item.p1}">基本　${fmt(item.p1)}</option>
+      <option value="${item.p2}">困難　${fmt(item.p2)}</option>
+    </select></div>`;
   }
   h+=`<div class="sfld"><label>数量（${item.unit}）</label>
   <input type="number" id="shQ" value="1" min="0.5"
@@ -454,7 +461,10 @@ function openSheet(item){
 function calcPrev(){
   const item=pend; if(!item) return;
   const vi=document.getElementById('shV');
-  const price=vi&&item.variants?item.variants[parseInt(vi.value)||0].p:item.p1;
+  const p2sel=document.getElementById('shP2');
+  const price=vi&&item.variants?item.variants[parseInt(vi.value)||0].p
+             :p2sel?parseFloat(p2sel.value)
+             :item.p1;
   const qty=parseFloat(document.getElementById('shQ')?.value)||1;
   document.getElementById('shPrev').textContent=`合計 ${fmt(Math.round(price*qty))}（税抜）`;
 }
@@ -462,9 +472,14 @@ function closeSheet(){document.getElementById('sheetBg').classList.add('hid');pe
 function confirmAdd(){
   const item=pend; if(!item) return;
   const vi=document.getElementById('shV');
+  const p2sel=document.getElementById('shP2');
   const vidx=vi?parseInt(vi.value)||0:0;
-  const price=item.variants?item.variants[vidx].p:item.p1;
-  const label=item.variants?item.variants[vidx].l:'';
+  const price=item.variants?item.variants[vidx].p
+             :p2sel?parseFloat(p2sel.value)
+             :item.p1;
+  const label=item.variants?item.variants[vidx].l
+             :p2sel?p2sel.options[p2sel.selectedIndex].text
+             :'';
   const qty=parseFloat(document.getElementById('shQ')?.value)||1;
   if(E.cli!==curC){E.cli=curC;E.items=[]}
   E.items.push({name:item.name+(label?`（${label}）`:''),unit:item.unit,cat:item.cat,price,qty,sub:Math.round(price*qty),memo:''});
