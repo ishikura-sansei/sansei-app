@@ -9,7 +9,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "太陽光＋蓄電池。21枚〜はR-004/R-S03で別計上"
     },
     {
@@ -21,7 +21,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "蓄電池のみ"
     },
     {
@@ -33,7 +33,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "太陽光＋蓄電池＋エコ"
     },
     {
@@ -45,7 +45,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "フルセット"
     },
     {
@@ -57,7 +57,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "蓄電池＋エコ"
     },
     {
@@ -69,7 +69,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "蓄電池なしセット"
     },
     {
@@ -81,7 +81,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "基本工事と別注文の場合"
     },
     {
@@ -93,7 +93,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "基本工事と同時の場合"
     },
     {
@@ -105,7 +105,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "基本工事と別注文の場合"
     },
     {
@@ -117,7 +117,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "基本工事と同時の場合"
     },
     {
@@ -129,7 +129,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "屋根材が瓦の場合"
     },
     {
@@ -141,7 +141,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "3階＋足場無し"
     },
     {
@@ -153,7 +153,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "勾配6.5寸以上"
     },
     {
@@ -165,7 +165,7 @@
       "price2": 0,
       "unit": "枚",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "21枚目以降の通常パネル"
     },
     {
@@ -177,7 +177,7 @@
       "price2": 0,
       "unit": "枚",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "21枚目以降のハーフ・台形。安い方優先で計上"
     },
     {
@@ -189,7 +189,7 @@
       "price2": 20000,
       "unit": "式",
       "inputType": "choice2",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "基本¥15,000 / 困難¥20,000。手上げ写真必須"
     },
     {
@@ -201,7 +201,7 @@
       "price2": 10000,
       "unit": "式",
       "inputType": "choice2",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "現場判断で2択"
     },
     {
@@ -213,7 +213,7 @@
       "price2": 0,
       "unit": "面",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "3面以降1面につき（3面なら1面計上）"
     },
     {
@@ -225,7 +225,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "m関係なし、固定¥10,000/式"
     },
     {
@@ -237,7 +237,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "追加PCS1台(ELB込み)はS-S02を使う"
     },
     {
@@ -249,7 +249,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "付随ELBは別請求不可"
     },
     {
@@ -273,7 +273,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "重量蓄電池設置時"
     },
     {
@@ -285,7 +285,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "階段搬入発生時"
     },
     {
@@ -297,7 +297,7 @@
       "price2": 10000,
       "unit": "式",
       "inputType": "choice2",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "現場判断で2択"
     },
     {
@@ -309,7 +309,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "床下配線発生時"
     },
     {
@@ -321,7 +321,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "2段ラック設置時"
     },
     {
@@ -333,7 +333,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "リレーボックス設置時"
     },
     {
@@ -345,7 +345,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "セメント処理時のみ。セットは不請求"
     },
     {
@@ -453,7 +453,7 @@
       "price2": 0,
       "unit": "個",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "MDダクトに付随 / T型(チーズ)は不請求"
     },
     {
@@ -465,7 +465,7 @@
       "price2": 0,
       "unit": "系統m",
       "inputType": "dc",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "系統数×実長×¥600"
     },
     {
@@ -489,7 +489,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "配線困難発生時、基本¥5,000"
     },
     {
@@ -501,7 +501,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "長さは課金無関係。実長は報告で記録"
     },
     {
@@ -513,187 +513,163 @@
       "price2": 0,
       "unit": "式",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 44,
       "id": "E-001",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "MCB15A",
       "price1": 8500,
       "price2": 0,
       "unit": "個",
       "inputType": "elb",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "追加PCS付随 or 特定負荷は不請求"
     },
     {
       "no": 45,
       "id": "E-002",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "MCB40A",
       "price1": 8500,
       "price2": 0,
       "unit": "個",
       "inputType": "elb",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "追加PCS付随 or 特定負荷は不請求"
     },
     {
       "no": 46,
       "id": "E-003",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "MCB50A",
       "price1": 8500,
       "price2": 0,
       "unit": "個",
       "inputType": "elb",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "追加PCS付随 or 特定負荷は不請求"
     },
     {
       "no": 47,
       "id": "E-004",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "MCB60A",
       "price1": 12000,
       "price2": 0,
       "unit": "個",
       "inputType": "elb",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "追加PCS付随 or 特定負荷は不請求"
     },
     {
       "no": 48,
       "id": "E-005",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "ELB40A",
       "price1": 8500,
       "price2": 0,
       "unit": "式",
       "inputType": "elb",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "追加PCS付随 or 特定負荷は不請求"
     },
     {
       "no": 49,
       "id": "E-006",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "ELB50A",
       "price1": 8500,
       "price2": 0,
       "unit": "式",
       "inputType": "elb",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "追加PCS付随 or 特定負荷は不請求"
     },
     {
       "no": 50,
       "id": "E-S01",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "ELB交換（75Aまで）",
       "price1": 15000,
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "75A超は別途相談"
     },
     {
       "no": 51,
       "id": "E-007",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "スリムブレーカー30A",
       "price1": 2000,
       "price2": 0,
       "unit": "式",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 52,
       "id": "E-008",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "東芝スリムブレーカー20A(EQ用)",
       "price1": 2000,
       "price2": 0,
       "unit": "式",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 53,
       "id": "E-009",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "端子台",
       "price1": 4000,
       "price2": 0,
       "unit": "個",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 54,
       "id": "E-010",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "メーター統一",
       "price1": 10000,
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "基本¥10,000"
     },
     {
       "no": 55,
       "id": "E-011",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "EQ1次→2次変更",
       "price1": 3500,
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 56,
       "id": "E-012",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "送信ユニット",
       "price1": 1000,
       "price2": 0,
       "unit": "式",
       "inputType": "qty",
-      "baseM": 0,
-      "note": ""
-    },
-    {
-      "no": 901,
-      "id": "OT-001",
-      "category": "その他",
-      "name": "交通費（遠方）",
-      "price1": 10000,
-      "price2": 0,
-      "unit": "回",
-      "inputType": "qty",
-      "baseM": 0,
-      "note": "50km以上"
-    },
-    {
-      "no": 902,
-      "id": "OT-002",
-      "category": "その他",
-      "name": "別日交通費",
-      "price1": 10000,
-      "price2": 0,
-      "unit": "回",
-      "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     }
   ],
@@ -707,7 +683,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "確定"
     },
     {
@@ -719,7 +695,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "+¥10,000"
     },
     {
@@ -731,7 +707,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "+¥10,000"
     },
     {
@@ -743,7 +719,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "+¥10,000"
     },
     {
@@ -755,7 +731,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "+¥10,000"
     },
     {
@@ -767,7 +743,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "+¥10,000"
     },
     {
@@ -779,7 +755,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "+¥10,000"
     },
     {
@@ -791,7 +767,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "+¥10,000"
     },
     {
@@ -803,7 +779,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "¥170,000統一（旧¥165,000廃止）"
     },
     {
@@ -815,7 +791,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -827,7 +803,7 @@
       "price2": 0,
       "unit": "件",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "同日1件目"
     },
     {
@@ -839,7 +815,7 @@
       "price2": 0,
       "unit": "件",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "同日複数件"
     },
     {
@@ -851,7 +827,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "太陽光のみ。+蓄電池-セット割=¥275k"
     },
     {
@@ -863,7 +839,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "+¥10,000"
     },
     {
@@ -875,7 +851,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "+¥10,000"
     },
     {
@@ -887,7 +863,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "+¥10,000"
     },
     {
@@ -899,7 +875,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "+¥10,000"
     },
     {
@@ -911,7 +887,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "+¥10,000"
     },
     {
@@ -923,7 +899,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "+¥10,000"
     },
     {
@@ -935,7 +911,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "+¥10,000"
     },
     {
@@ -971,7 +947,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "1m〜使用時点で計上"
     },
     {
@@ -983,7 +959,7 @@
       "price2": 0,
       "unit": "面",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -995,7 +971,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "実態：屋内モール小規模"
     },
     {
@@ -1043,7 +1019,7 @@
       "price2": 0,
       "unit": "m/系統",
       "inputType": "dc",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "1系統1mにつき"
     },
     {
@@ -1067,7 +1043,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1079,7 +1055,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1091,7 +1067,7 @@
       "price2": 0,
       "unit": "個",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "現場で計上"
     },
     {
@@ -1103,7 +1079,7 @@
       "price2": 0,
       "unit": "本",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "現場で計上"
     },
     {
@@ -1115,7 +1091,7 @@
       "price2": 0,
       "unit": "個",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "現場で計上"
     },
     {
@@ -1127,7 +1103,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "旧¥15,000→¥20,000統一"
     },
     {
@@ -1139,7 +1115,7 @@
       "price2": 15000,
       "unit": "式",
       "inputType": "choice2",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "標準=60A以下 / 困難=60A以上"
     },
     {
@@ -1151,7 +1127,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1163,7 +1139,7 @@
       "price2": 0,
       "unit": "人",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1175,7 +1151,7 @@
       "price2": 0,
       "unit": "人",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "実態確認OK"
     },
     {
@@ -1187,7 +1163,7 @@
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1199,7 +1175,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1211,7 +1187,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1223,7 +1199,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1235,7 +1211,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1247,7 +1223,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1259,7 +1235,7 @@
       "price2": 0,
       "unit": "人",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1271,7 +1247,7 @@
       "price2": 0,
       "unit": "人",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "実態確認OK"
     },
     {
@@ -1283,7 +1259,7 @@
       "price2": 0,
       "unit": "人",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1295,7 +1271,7 @@
       "price2": 0,
       "unit": "人",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "基本工事とは別計上。現場レイアウト次第で人工数を自由入力"
     },
     {
@@ -1307,7 +1283,7 @@
       "price2": 0,
       "unit": "人",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1319,7 +1295,7 @@
       "price2": 0,
       "unit": "人",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "旧¥5,000→¥25,000統一"
     },
     {
@@ -1331,7 +1307,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "実態確認OK"
     },
     {
@@ -1343,7 +1319,7 @@
       "price2": 0,
       "unit": "人",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "ベランダ設置等"
     },
     {
@@ -1355,7 +1331,7 @@
       "price2": 0,
       "unit": "人",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1367,7 +1343,7 @@
       "price2": 0,
       "unit": "人",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1379,7 +1355,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1391,7 +1367,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "実態：難工事をまとめて計上"
     },
     {
@@ -1403,7 +1379,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1415,7 +1391,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1427,7 +1403,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1439,7 +1415,7 @@
       "price2": 0,
       "unit": "箇所",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1451,7 +1427,7 @@
       "price2": 0,
       "unit": "箇所",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1463,7 +1439,7 @@
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "旧¥10,000→¥20,000統一"
     },
     {
@@ -1475,7 +1451,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1487,7 +1463,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1499,7 +1475,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1511,7 +1487,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1523,7 +1499,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "50kmまで基本"
     },
     {
@@ -1535,7 +1511,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1547,7 +1523,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1559,7 +1535,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1571,7 +1547,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1583,7 +1559,7 @@
       "price2": 0,
       "unit": "箇所",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1595,7 +1571,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1607,31 +1583,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
-      "note": ""
-    },
-    {
-      "no": 901,
-      "id": "OT-001",
-      "category": "その他",
-      "name": "交通費（遠方）",
-      "price1": 10000,
-      "price2": 0,
-      "unit": "回",
-      "inputType": "qty",
-      "baseM": 0,
-      "note": "50km以上"
-    },
-    {
-      "no": 902,
-      "id": "OT-002",
-      "category": "その他",
-      "name": "別日交通費",
-      "price1": 10000,
-      "price2": 0,
-      "unit": "回",
-      "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     }
   ],
@@ -1645,7 +1597,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "5寸まで。足場は別途"
     },
     {
@@ -1657,7 +1609,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "5寸まで。足場は別途"
     },
     {
@@ -1669,7 +1621,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "5寸まで。足場は別途"
     },
     {
@@ -1681,7 +1633,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "5寸まで。足場は別途"
     },
     {
@@ -1693,7 +1645,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "上記5kW以上単価に加算"
     },
     {
@@ -1705,7 +1657,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "足場必須"
     },
     {
@@ -1717,7 +1669,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1729,7 +1681,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "標準エコベース使用"
     },
     {
@@ -1741,7 +1693,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "標準エコベース使用"
     },
     {
@@ -1753,7 +1705,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1765,7 +1717,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "応相談"
     },
     {
@@ -1777,7 +1729,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "各配管4mまで、配線10mまで。現調費¥20,000別途"
     },
     {
@@ -1789,7 +1741,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "配線15mまで。現調費¥20,000別途"
     },
     {
@@ -1801,7 +1753,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "メッシュ使用"
     },
     {
@@ -1825,7 +1777,7 @@
       "price2": 0,
       "unit": "m",
       "inputType": "length",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "太陽光・エコキュート"
     },
     {
@@ -1837,7 +1789,7 @@
       "price2": 0,
       "unit": "m",
       "inputType": "length",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1849,7 +1801,7 @@
       "price2": 0,
       "unit": "箇所",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1861,7 +1813,7 @@
       "price2": 0,
       "unit": "箇所",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1873,7 +1825,7 @@
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1885,7 +1837,7 @@
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "架台費用別途実費"
     },
     {
@@ -1897,7 +1849,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "本体支給または現地調達は実費"
     },
     {
@@ -1909,7 +1861,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "本体支給または現地調達は実費"
     },
     {
@@ -1921,7 +1873,7 @@
       "price2": 0,
       "unit": "面",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "4面目から1面につき"
     },
     {
@@ -1933,7 +1885,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "6寸勾配（7寸以上は相談）"
     },
     {
@@ -1945,7 +1897,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "追加補強¥5,000/kW"
     },
     {
@@ -1957,7 +1909,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1969,7 +1921,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1981,7 +1933,7 @@
       "price2": 0,
       "unit": "回",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -1993,7 +1945,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "処分費は別途"
     },
     {
@@ -2005,7 +1957,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "実費"
     },
     {
@@ -2017,7 +1969,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "要相談"
     },
     {
@@ -2029,7 +1981,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "事前相談必要"
     },
     {
@@ -2041,7 +1993,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "パネル20枚まで"
     },
     {
@@ -2053,7 +2005,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "庇本体支給"
     },
     {
@@ -2065,7 +2017,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -2077,7 +2029,7 @@
       "price2": 0,
       "unit": "車両",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "工事店所在地から現地まで"
     },
     {
@@ -2101,7 +2053,7 @@
       "price2": 0,
       "unit": "m",
       "inputType": "length",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -2113,7 +2065,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "応相談（10mまで）"
     },
     {
@@ -2137,7 +2089,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "応相談（単3用分電盤は別途）"
     },
     {
@@ -2149,7 +2101,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "応相談（接続箱〜パワコン/20m毎）"
     },
     {
@@ -2161,7 +2113,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "応相談"
     },
     {
@@ -2173,139 +2125,115 @@
       "price2": 0,
       "unit": "m",
       "inputType": "length",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "10m以上¥500/m。CAT5e以上"
     },
     {
       "no": 46,
       "id": "KM-001",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "MCCB交換（60Aまで）",
       "price1": 15000,
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 47,
       "id": "KM-002",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "ELBの交換（75Aまで）",
       "price1": 30000,
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 48,
       "id": "KM-003",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "専用コンセント増設工事",
       "price1": 15000,
       "price2": 0,
       "unit": "箇所",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "屋内外同一"
     },
     {
       "no": 49,
       "id": "KM-004",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "分電盤交換（機器代別途）",
       "price1": 40000,
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 50,
       "id": "KM-005",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "メーターBOX",
       "price1": 5000,
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 51,
       "id": "KM-006",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "コンクリート基礎コア抜き",
       "price1": 30000,
       "price2": 0,
       "unit": "箇所",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 52,
       "id": "KM-007",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "エアコン室外機移設",
       "price1": 70000,
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "2m以上は追加"
     },
     {
       "no": 53,
       "id": "KM-008",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "レンジフード交換",
       "price1": 70000,
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 54,
       "id": "KM-009",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "電気式オーブン設置",
       "price1": 70000,
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
-      "note": ""
-    },
-    {
-      "no": 901,
-      "id": "OT-001",
-      "category": "その他",
-      "name": "交通費（遠方）",
-      "price1": 10000,
-      "price2": 0,
-      "unit": "回",
-      "inputType": "qty",
-      "baseM": 0,
-      "note": "50km以上"
-    },
-    {
-      "no": 902,
-      "id": "OT-002",
-      "category": "その他",
-      "name": "別日交通費",
-      "price1": 10000,
-      "price2": 0,
-      "unit": "回",
-      "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     }
   ],
@@ -2319,7 +2247,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "5寸まで。足場は別途"
     },
     {
@@ -2331,7 +2259,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "5寸まで。足場は別途"
     },
     {
@@ -2343,7 +2271,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "5寸まで。足場は別途"
     },
     {
@@ -2355,7 +2283,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "5寸まで。足場は別途"
     },
     {
@@ -2367,7 +2295,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "上記5kW以上単価に加算"
     },
     {
@@ -2379,7 +2307,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "足場必須"
     },
     {
@@ -2391,7 +2319,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -2403,7 +2331,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "標準エコベース使用"
     },
     {
@@ -2415,7 +2343,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "標準エコベース使用"
     },
     {
@@ -2427,7 +2355,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -2439,7 +2367,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "応相談"
     },
     {
@@ -2451,7 +2379,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "各配管4mまで、配線10mまで。現調費¥20,000別途"
     },
     {
@@ -2463,7 +2391,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "basic",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "配線15mまで。現調費¥20,000別途"
     },
     {
@@ -2475,7 +2403,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "メッシュ使用"
     },
     {
@@ -2499,7 +2427,7 @@
       "price2": 0,
       "unit": "m",
       "inputType": "length",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "太陽光・エコキュート"
     },
     {
@@ -2511,7 +2439,7 @@
       "price2": 0,
       "unit": "m",
       "inputType": "length",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -2523,7 +2451,7 @@
       "price2": 0,
       "unit": "箇所",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -2535,7 +2463,7 @@
       "price2": 0,
       "unit": "箇所",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -2547,7 +2475,7 @@
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -2559,7 +2487,7 @@
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "架台費用別途実費"
     },
     {
@@ -2571,7 +2499,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "本体支給または現地調達は実費"
     },
     {
@@ -2583,7 +2511,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "本体支給または現地調達は実費"
     },
     {
@@ -2595,7 +2523,7 @@
       "price2": 0,
       "unit": "面",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "4面目から1面につき"
     },
     {
@@ -2607,7 +2535,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "6寸勾配（7寸以上は相談）"
     },
     {
@@ -2619,7 +2547,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "追加補強¥5,000/kW"
     },
     {
@@ -2631,7 +2559,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -2643,7 +2571,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -2655,7 +2583,7 @@
       "price2": 0,
       "unit": "回",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -2667,7 +2595,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "処分費は別途"
     },
     {
@@ -2679,7 +2607,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "実費"
     },
     {
@@ -2691,7 +2619,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "要相談"
     },
     {
@@ -2703,7 +2631,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "事前相談必要"
     },
     {
@@ -2715,7 +2643,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "パネル20枚まで"
     },
     {
@@ -2727,7 +2655,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "庇本体支給"
     },
     {
@@ -2739,7 +2667,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -2751,7 +2679,7 @@
       "price2": 0,
       "unit": "車両",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "工事店所在地から現地まで"
     },
     {
@@ -2775,7 +2703,7 @@
       "price2": 0,
       "unit": "m",
       "inputType": "length",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
@@ -2787,7 +2715,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "応相談（10mまで）"
     },
     {
@@ -2811,7 +2739,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "応相談（単3用分電盤は別途）"
     },
     {
@@ -2823,7 +2751,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "応相談（接続箱〜パワコン/20m毎）"
     },
     {
@@ -2835,7 +2763,7 @@
       "price2": 0,
       "unit": "式",
       "inputType": "none",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "応相談"
     },
     {
@@ -2847,225 +2775,160 @@
       "price2": 0,
       "unit": "m",
       "inputType": "length",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "10m以上¥500/m。CAT5e以上"
     },
     {
       "no": 46,
       "id": "RS-001",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "MCCB交換（60Aまで）",
       "price1": 15000,
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 47,
       "id": "RS-002",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "ELBの交換（75Aまで）",
       "price1": 30000,
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 48,
       "id": "RS-003",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "専用コンセント増設工事",
       "price1": 15000,
       "price2": 0,
       "unit": "箇所",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "屋内外同一"
     },
     {
       "no": 49,
       "id": "RS-004",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "分電盤交換（機器代別途）",
       "price1": 40000,
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 50,
       "id": "RS-005",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "メーターBOX",
       "price1": 5000,
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 51,
       "id": "RS-006",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "コンクリート基礎コア抜き",
       "price1": 30000,
       "price2": 0,
       "unit": "箇所",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 52,
       "id": "RS-007",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "エアコン室外機移設",
       "price1": 70000,
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": "2m以上は追加"
     },
     {
       "no": 53,
       "id": "RS-008",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "レンジフード交換",
       "price1": 70000,
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     },
     {
       "no": 54,
       "id": "RS-009",
-      "category": "電材等",
+      "category": "分電盤",
       "name": "電気式オーブン設置",
       "price1": 70000,
       "price2": 0,
       "unit": "台",
       "inputType": "qty",
-      "baseM": 0,
-      "note": ""
-    },
-    {
-      "no": 901,
-      "id": "OT-001",
-      "category": "その他",
-      "name": "交通費（遠方）",
-      "price1": 10000,
-      "price2": 0,
-      "unit": "回",
-      "inputType": "qty",
-      "baseM": 0,
-      "note": "50km以上"
-    },
-    {
-      "no": 902,
-      "id": "OT-002",
-      "category": "その他",
-      "name": "別日交通費",
-      "price1": 10000,
-      "price2": 0,
-      "unit": "回",
-      "inputType": "qty",
-      "baseM": 0,
+      "baseM": 0.0,
       "note": ""
     }
   ],
   "docs": [
     {
+      "no": 1,
       "name": "取扱説明書",
       "dest": "お客様",
-      "method": "手渡し",
-      "target": "共通",
-      "note": "施主へ直接渡す",
-      "options": [
-        "お客様・手渡し",
-        "元請け・返却",
-        "後日郵送",
-        "未対応"
-      ]
+      "target": "共通"
     },
     {
+      "no": 2,
       "name": "検査成績書",
       "dest": "社内持ち帰り",
-      "method": "持ち帰り",
-      "target": "共通",
-      "note": "会社で保管。後日郵送の場合あり",
-      "options": [
-        "社内持ち帰り",
-        "お客様・手渡し",
-        "後日郵送",
-        "未対応"
-      ]
+      "target": "共通"
     },
     {
+      "no": 3,
       "name": "施工写真",
       "dest": "UP",
-      "method": "アップロード",
-      "target": "共通",
-      "note": "UP先は現場で確認・記入",
-      "options": [
-        "UP済み",
-        "後日UP",
-        "未実施"
-      ]
+      "target": "共通"
     },
     {
+      "no": 4,
       "name": "指示書",
       "dest": "元請け",
-      "method": "返却（納品時）",
-      "target": "ATEL",
-      "note": "元請けへ返却。他社は要確認",
-      "options": [
-        "元請け・返却（納品時）",
-        "後日郵送",
-        "未対応"
-      ]
+      "target": "ATEL"
     },
     {
+      "no": 5,
       "name": "引き渡し確認書",
       "dest": "",
-      "method": "",
-      "target": "各社記入",
-      "note": "取引先によって書式が異なる",
-      "options": [
-        "済み",
-        "未対応"
-      ]
+      "target": "各社記入"
     },
     {
+      "no": 6,
       "name": "その他①",
       "dest": "",
-      "method": "",
-      "target": "共通",
-      "note": "",
-      "options": [
-        "済み",
-        "未対応"
-      ]
+      "target": "共通"
     },
     {
+      "no": 7,
       "name": "その他②",
       "dest": "",
-      "method": "",
-      "target": "共通",
-      "note": "",
-      "options": [
-        "済み",
-        "未対応"
-      ]
+      "target": "共通"
     }
   ]
 }
