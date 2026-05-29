@@ -219,6 +219,7 @@ body{font-family:'Meiryo UI','Meiryo','Yu Gothic',sans-serif;color:var(--text);f
           <select id="docType" onchange="genLine()">
             <option value="見積書">見積書</option>
             <option value="請求書">請求書</option>
+            <option value="完工報告">✅ 完工報告</option>
           </select>
         </div>
         <div class="fld"><label>日付</label>
@@ -530,6 +531,7 @@ function genLine(){
   const CLI_FULL={'リケンエナジー':'リケンエナジー有限会社','ATEL':'ATEL株式会社','株式会社キョウエイ':'株式会社キョウエイ','ライズサポート':'ライズサポート株式会社'};
   const cFull=c=>CLI_FULL[c]||c;
   const dtype = document.getElementById('docType').value;
+  if(dtype==='完工報告'){genKankoLine(cFull);return;}
   const ddate = document.getElementById('docDate').value;
   const dsubj = document.getElementById('docSubj').value;
   const drmk  = document.getElementById('docRmk').value;
@@ -585,6 +587,59 @@ function genLine(){
   lines.push(bar);
   if(drmk) lines.push(`備考：${drmk}`);
 
+  ta.value=lines.join('\n');
+}
+
+
+// ─ 完工報告 LINE出力 ─
+function genKankoLine(cFull){
+  const ta=document.getElementById('lineText');
+  const cli=E.cli||curC;
+  const cName=cFull(cli);
+  const dateStr=document.getElementById('docDate').value||new Date().toISOString().slice(0,10);
+  const dsubj=document.getElementById('docSubj').value;
+  const drmk=document.getElementById('docRmk').value;
+  const bar='─────────────────';
+  const fmtN=n=>'¥'+Math.round(n).toLocaleString();
+  const sub=E.items.reduce((s,i)=>s+(i.sub||0),0);
+  const tax=Math.floor(sub*0.1);
+
+  let lines=[];
+  lines.push('【完工報告】');
+  lines.push(`施工日：${dateStr}`);
+  if(dsubj) lines.push(`現場：${dsubj}`);
+  lines.push(`取引先：${cName}`);
+  lines.push(bar);
+  lines.push('');
+  lines.push('■ 施工内容');
+  if(E.items.length){
+    const grp={};
+    E.items.forEach(ei=>{grp[ei.cat]=grp[ei.cat]||[];grp[ei.cat].push(ei)});
+    for(const [cat,items] of Object.entries(grp)){
+      items.forEach(ei=>{
+        const qStr=ei.qty===1?'':` ×${ei.qty}`;
+        lines.push(`・${ei.name}${qStr}　${fmtN(ei.sub)}`);
+      });
+    }
+    lines.push(`　計：${fmtN(sub)}（税込 ${fmtN(sub+tax)}）`);
+  } else {
+    lines.push('（施工内容未入力）');
+  }
+  lines.push('');
+  lines.push(bar);
+  lines.push('');
+  lines.push('■ 書類・資料チェック');
+  lines.push('□ 取扱説明書　　→ お客様・手渡し');
+  lines.push('□ 検査成績書　　→ 持ち帰り（社内）');
+  lines.push('□ 施工写真　　　→ UP先：');
+  if(cli==='ATEL') lines.push('□ 指示書　　　　→ 元請け・返却');
+  lines.push('□ 引き渡し確認書 →');
+  lines.push('□ その他：');
+  lines.push('');
+  lines.push(bar);
+  lines.push('');
+  lines.push('■ 特記事項');
+  lines.push(drmk||'（なし）');
   ta.value=lines.join('\n');
 }
 
