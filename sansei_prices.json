@@ -3,7 +3,7 @@
     {
       "no": 1,
       "id": "B-002",
-      "category": "基本",
+      "category": "基本工事",
       "name": "P.T 20枚迄",
       "price1": 240000,
       "price2": 0,
@@ -15,7 +15,7 @@
     {
       "no": 2,
       "id": "B-003",
-      "category": "基本",
+      "category": "基本工事",
       "name": "T（蓄電池単体）",
       "price1": 150000,
       "price2": 0,
@@ -27,7 +27,7 @@
     {
       "no": 3,
       "id": "B-S01",
-      "category": "基本",
+      "category": "基本工事",
       "name": "P.T.E（実態セット）",
       "price1": 320000,
       "price2": 0,
@@ -39,7 +39,7 @@
     {
       "no": 4,
       "id": "B-S02",
-      "category": "基本",
+      "category": "基本工事",
       "name": "P.T.E.I（実態セット）",
       "price1": 360000,
       "price2": 0,
@@ -51,7 +51,7 @@
     {
       "no": 5,
       "id": "B-S03",
-      "category": "基本",
+      "category": "基本工事",
       "name": "T.E（実態セット）",
       "price1": 240000,
       "price2": 0,
@@ -63,7 +63,7 @@
     {
       "no": 6,
       "id": "B-S04",
-      "category": "基本",
+      "category": "基本工事",
       "name": "PEI（パネル+エコ+IH）",
       "price1": 260000,
       "price2": 0,
@@ -75,7 +75,7 @@
     {
       "no": 7,
       "id": "B-004",
-      "category": "基本",
+      "category": "基本工事",
       "name": "EQ単体",
       "price1": 120000,
       "price2": 0,
@@ -87,7 +87,7 @@
     {
       "no": 8,
       "id": "B-005",
-      "category": "基本",
+      "category": "基本工事",
       "name": "EQセット",
       "price1": 100000,
       "price2": 0,
@@ -99,7 +99,7 @@
     {
       "no": 9,
       "id": "B-006",
-      "category": "基本",
+      "category": "基本工事",
       "name": "IH単体",
       "price1": 40000,
       "price2": 0,
@@ -111,7 +111,7 @@
     {
       "no": 10,
       "id": "B-007",
-      "category": "基本",
+      "category": "基本工事",
       "name": "IHセット",
       "price1": 20000,
       "price2": 0,
@@ -123,7 +123,7 @@
     {
       "no": 11,
       "id": "R-001",
-      "category": "屋根",
+      "category": "人工・屋根",
       "name": "瓦施工",
       "price1": 15000,
       "price2": 0,
@@ -135,7 +135,7 @@
     {
       "no": 12,
       "id": "R-002",
-      "category": "屋根",
+      "category": "人工・屋根",
       "name": "3階足場無",
       "price1": 15000,
       "price2": 0,
@@ -147,7 +147,7 @@
     {
       "no": 13,
       "id": "R-003",
-      "category": "屋根",
+      "category": "人工・屋根",
       "name": "急勾配（6.5寸以上）",
       "price1": 25000,
       "price2": 0,
@@ -159,7 +159,7 @@
     {
       "no": 14,
       "id": "R-004",
-      "category": "屋根",
+      "category": "基本工事",
       "name": "パネル超過（通常）",
       "price1": 1500,
       "price2": 0,
@@ -171,7 +171,7 @@
     {
       "no": 15,
       "id": "R-S03",
-      "category": "屋根",
+      "category": "基本工事",
       "name": "パネル超過（台形・ハーフ）",
       "price1": 750,
       "price2": 0,
@@ -183,7 +183,7 @@
     {
       "no": 16,
       "id": "R-005",
-      "category": "屋根",
+      "category": "人工・屋根",
       "name": "パネル手上げ",
       "price1": 15000,
       "price2": 20000,
@@ -195,7 +195,7 @@
     {
       "no": 17,
       "id": "R-S02",
-      "category": "屋根",
+      "category": "人工・屋根",
       "name": "パネル搬入困難",
       "price1": 5000,
       "price2": 10000,
@@ -207,7 +207,7 @@
     {
       "no": 18,
       "id": "R-006",
-      "category": "屋根",
+      "category": "人工・屋根",
       "name": "3面以降の追加面",
       "price1": 5000,
       "price2": 0,
@@ -219,7 +219,7 @@
     {
       "no": 19,
       "id": "S-001",
-      "category": "蓄電池",
+      "category": "機器・分電盤",
       "name": "幹線張り替え",
       "price1": 10000,
       "price2": 0,
@@ -231,7 +231,7 @@
     {
       "no": 20,
       "id": "S-002",
-      "category": "蓄電池",
+      "category": "機器・分電盤",
       "name": "PCS追加",
       "price1": 20000,
       "price2": 0,
@@ -243,7 +243,7 @@
     {
       "no": 21,
       "id": "S-S02",
-      "category": "蓄電池",
+      "category": "機器・分電盤",
       "name": "追加PCS1台(ELB込み)",
       "price1": 20000,
       "price2": 0,
@@ -255,7 +255,7 @@
     {
       "no": 22,
       "id": "S-S03",
-      "category": "蓄電池",
+      "category": "配線・ダクト",
       "name": "ヒーターバンド施工費",
       "price1": 3000,
       "price2": 0,
@@ -267,7 +267,7 @@
     {
       "no": 23,
       "id": "S-003",
-      "category": "蓄電池",
+      "category": "人工・屋根",
       "name": "重量蓄電池",
       "price1": 5000,
       "price2": 0,
@@ -279,7 +279,7 @@
     {
       "no": 24,
       "id": "S-004",
-      "category": "蓄電池",
+      "category": "人工・屋根",
       "name": "蓄電池階段搬入",
       "price1": 5000,
       "price2": 0,
@@ -291,7 +291,7 @@
     {
       "no": 25,
       "id": "S-005",
-      "category": "蓄電池",
+      "category": "人工・屋根",
       "name": "蓄電池搬入困難",
       "price1": 5000,
       "price2": 10000,
@@ -303,7 +303,7 @@
     {
       "no": 26,
       "id": "S-006",
-      "category": "蓄電池",
+      "category": "配線・ダクト",
       "name": "床下配線",
       "price1": 5000,
       "price2": 0,
@@ -315,7 +315,7 @@
     {
       "no": 27,
       "id": "S-007",
-      "category": "蓄電池",
+      "category": "人工・屋根",
       "name": "2段ラック",
       "price1": 5000,
       "price2": 0,
@@ -327,7 +327,7 @@
     {
       "no": 28,
       "id": "S-008",
-      "category": "蓄電池",
+      "category": "機器・分電盤",
       "name": "リレーボックス",
       "price1": 8000,
       "price2": 0,
@@ -339,7 +339,7 @@
     {
       "no": 29,
       "id": "S-009",
-      "category": "蓄電池",
+      "category": "人工・屋根",
       "name": "エコベースセメント",
       "price1": 2000,
       "price2": 0,
@@ -351,7 +351,7 @@
     {
       "no": 30,
       "id": "W-001",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "CV-5.5",
       "price1": 800,
       "price2": 0,
@@ -363,7 +363,7 @@
     {
       "no": 31,
       "id": "W-002",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "CV-8",
       "price1": 1000,
       "price2": 0,
@@ -375,7 +375,7 @@
     {
       "no": 32,
       "id": "W-003",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "CV-14",
       "price1": 1200,
       "price2": 0,
@@ -387,7 +387,7 @@
     {
       "no": 33,
       "id": "W-S03",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "PFD16",
       "price1": 850,
       "price2": 0,
@@ -399,7 +399,7 @@
     {
       "no": 34,
       "id": "W-007",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "PFD28",
       "price1": 800,
       "price2": 0,
@@ -411,7 +411,7 @@
     {
       "no": 35,
       "id": "W-008",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "PFD36",
       "price1": 1200,
       "price2": 0,
@@ -423,7 +423,7 @@
     {
       "no": 36,
       "id": "W-004",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "スリムダクト",
       "price1": 1000,
       "price2": 0,
@@ -435,7 +435,7 @@
     {
       "no": 37,
       "id": "W-005",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "MDダクト",
       "price1": 1000,
       "price2": 0,
@@ -447,7 +447,7 @@
     {
       "no": 38,
       "id": "W-006",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "MD役物",
       "price1": 550,
       "price2": 0,
@@ -459,7 +459,7 @@
     {
       "no": 39,
       "id": "W-009",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "DC線延長",
       "price1": 600,
       "price2": 0,
@@ -471,7 +471,7 @@
     {
       "no": 40,
       "id": "W-S04",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "VVFケーブル",
       "price1": 800,
       "price2": 0,
@@ -483,7 +483,7 @@
     {
       "no": 41,
       "id": "W-010",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "配線困難費",
       "price1": 5000,
       "price2": 0,
@@ -495,7 +495,7 @@
     {
       "no": 42,
       "id": "W-S01",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "PCS〜BT間PFD埋設",
       "price1": 1000,
       "price2": 0,
@@ -507,7 +507,7 @@
     {
       "no": 43,
       "id": "W-S02",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "ジャバラ",
       "price1": 1000,
       "price2": 0,
@@ -519,7 +519,7 @@
     {
       "no": 44,
       "id": "E-001",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "MCB15A",
       "price1": 8500,
       "price2": 0,
@@ -531,7 +531,7 @@
     {
       "no": 45,
       "id": "E-002",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "MCB40A",
       "price1": 8500,
       "price2": 0,
@@ -543,7 +543,7 @@
     {
       "no": 46,
       "id": "E-003",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "MCB50A",
       "price1": 8500,
       "price2": 0,
@@ -555,7 +555,7 @@
     {
       "no": 47,
       "id": "E-004",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "MCB60A",
       "price1": 12000,
       "price2": 0,
@@ -567,7 +567,7 @@
     {
       "no": 48,
       "id": "E-005",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "ELB40A",
       "price1": 8500,
       "price2": 0,
@@ -579,7 +579,7 @@
     {
       "no": 49,
       "id": "E-006",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "ELB50A",
       "price1": 8500,
       "price2": 0,
@@ -591,7 +591,7 @@
     {
       "no": 50,
       "id": "E-S01",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "ELB交換（75Aまで）",
       "price1": 15000,
       "price2": 0,
@@ -603,7 +603,7 @@
     {
       "no": 51,
       "id": "E-007",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "スリムブレーカー30A",
       "price1": 2000,
       "price2": 0,
@@ -615,7 +615,7 @@
     {
       "no": 52,
       "id": "E-008",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "東芝スリムブレーカー20A(EQ用)",
       "price1": 2000,
       "price2": 0,
@@ -627,7 +627,7 @@
     {
       "no": 53,
       "id": "E-009",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "端子台",
       "price1": 4000,
       "price2": 0,
@@ -639,7 +639,7 @@
     {
       "no": 54,
       "id": "E-010",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "メーター統一",
       "price1": 10000,
       "price2": 0,
@@ -651,7 +651,7 @@
     {
       "no": 55,
       "id": "E-011",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "EQ1次→2次変更",
       "price1": 3500,
       "price2": 0,
@@ -663,7 +663,7 @@
     {
       "no": 56,
       "id": "E-012",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "送信ユニット",
       "price1": 1000,
       "price2": 0,
@@ -675,7 +675,7 @@
     {
       "no": 57,
       "id": "OT-001",
-      "category": "その他",
+      "category": "交通・申請・その他",
       "name": "遠方交通費(50km)",
       "price1": 10000,
       "price2": 0,
@@ -869,7 +869,7 @@
     {
       "no": 16,
       "id": "KW-001",
-      "category": "ダクト",
+      "category": "配線・ダクト",
       "name": "屋外用ダクト(LD)延長",
       "price1": 1500,
       "price2": 0,
@@ -881,7 +881,7 @@
     {
       "no": 17,
       "id": "KW-005",
-      "category": "ダクト",
+      "category": "配線・ダクト",
       "name": "PFD（16〜36）延長",
       "price1": 1500,
       "price2": 0,
@@ -893,7 +893,7 @@
     {
       "no": 18,
       "id": "KB-EQ2",
-      "category": "ダクト",
+      "category": "配線・ダクト",
       "name": "特殊役物使用(ジャバラ、立面等)",
       "price1": 1000,
       "price2": 0,
@@ -905,7 +905,7 @@
     {
       "no": 19,
       "id": "KB-EQ3",
-      "category": "ダクト",
+      "category": "配線・ダクト",
       "name": "役物多数使用(MD/LD)",
       "price1": 10000,
       "price2": 0,
@@ -917,7 +917,7 @@
     {
       "no": 20,
       "id": "KW-102",
-      "category": "ダクト",
+      "category": "配線・ダクト",
       "name": "宅内用ダクト施工(MD)",
       "price1": 10000,
       "price2": 0,
@@ -929,7 +929,7 @@
     {
       "no": 21,
       "id": "KW-002",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "CV-5.5 延長",
       "price1": 1000,
       "price2": 0,
@@ -941,7 +941,7 @@
     {
       "no": 22,
       "id": "KW-003",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "CV-8 延長",
       "price1": 1500,
       "price2": 0,
@@ -953,7 +953,7 @@
     {
       "no": 23,
       "id": "KW-004",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "CV-14 延長",
       "price1": 2000,
       "price2": 0,
@@ -965,7 +965,7 @@
     {
       "no": 24,
       "id": "KD-001",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "屋根線延長(DC)",
       "price1": 750,
       "price2": 0,
@@ -977,7 +977,7 @@
     {
       "no": 25,
       "id": "KD-002",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "VVF延長",
       "price1": 1200,
       "price2": 0,
@@ -989,7 +989,7 @@
     {
       "no": 26,
       "id": "KB-EQ4",
-      "category": "配線",
+      "category": "配線・ダクト",
       "name": "FCPV線",
       "price1": 800,
       "price2": 0,
@@ -1001,7 +1001,7 @@
     {
       "no": 27,
       "id": "KM-007",
-      "category": "ブレーカー類",
+      "category": "機器・分電盤",
       "name": "リレーボックス設置",
       "price1": 20000,
       "price2": 0,
@@ -1013,7 +1013,7 @@
     {
       "no": 28,
       "id": "KM-008",
-      "category": "ブレーカー類",
+      "category": "機器・分電盤",
       "name": "MCB追加（60A以下／60A以上）",
       "price1": 10000,
       "price2": 15000,
@@ -1025,7 +1025,7 @@
     {
       "no": 29,
       "id": "KM-001",
-      "category": "機器追加",
+      "category": "機器・分電盤",
       "name": "京セラ Enerezza 追加材料費",
       "price1": 15000,
       "price2": 0,
@@ -1037,7 +1037,7 @@
     {
       "no": 30,
       "id": "KM-002",
-      "category": "機器追加",
+      "category": "機器・分電盤",
       "name": "京セラエネレッツァ 追加人工",
       "price1": 25000,
       "price2": 0,
@@ -1049,7 +1049,7 @@
     {
       "no": 31,
       "id": "KM-003",
-      "category": "機器追加",
+      "category": "機器・分電盤",
       "name": "ニチコン19.9 追加人工",
       "price1": 25000,
       "price2": 0,
@@ -1061,7 +1061,7 @@
     {
       "no": 32,
       "id": "KM-004",
-      "category": "機器追加",
+      "category": "機器・分電盤",
       "name": "追加PCS設置",
       "price1": 25000,
       "price2": 0,
@@ -1073,7 +1073,7 @@
     {
       "no": 33,
       "id": "KM-005",
-      "category": "機器追加",
+      "category": "機器・分電盤",
       "name": "AiSEG設置",
       "price1": 20000,
       "price2": 0,
@@ -1085,7 +1085,7 @@
     {
       "no": 34,
       "id": "KM-006",
-      "category": "機器追加",
+      "category": "機器・分電盤",
       "name": "DR対象施工",
       "price1": 10000,
       "price2": 0,
@@ -1097,7 +1097,7 @@
     {
       "no": 35,
       "id": "KM-009",
-      "category": "機器追加",
+      "category": "機器・分電盤",
       "name": "EVコンセント設置",
       "price1": 25000,
       "price2": 0,
@@ -1109,7 +1109,7 @@
     {
       "no": 36,
       "id": "KM-010",
-      "category": "機器追加",
+      "category": "機器・分電盤",
       "name": "機器設備メクラ処理",
       "price1": 5000,
       "price2": 0,
@@ -1121,7 +1121,7 @@
     {
       "no": 37,
       "id": "KM-011",
-      "category": "機器追加",
+      "category": "機器・分電盤",
       "name": "防犯カメラ電源移植（簡易）",
       "price1": 25000,
       "price2": 0,
@@ -1133,7 +1133,7 @@
     {
       "no": 38,
       "id": "KL-002",
-      "category": "人工費",
+      "category": "人工・屋根",
       "name": "屋根急勾配・屋根異勾配(6寸以上、又は難工事等)",
       "price1": 25000,
       "price2": 0,
@@ -1145,7 +1145,7 @@
     {
       "no": 39,
       "id": "KL-004",
-      "category": "人工費",
+      "category": "人工・屋根",
       "name": "瓦屋根施工 追加人工",
       "price1": 25000,
       "price2": 0,
@@ -1157,7 +1157,7 @@
     {
       "no": 40,
       "id": "KL-005",
-      "category": "人工費",
+      "category": "人工・屋根",
       "name": "3F施工（危険作業費・人員増加）",
       "price1": 25000,
       "price2": 0,
@@ -1169,7 +1169,7 @@
     {
       "no": 41,
       "id": "KL-006",
-      "category": "人工費",
+      "category": "人工・屋根",
       "name": "搬入困難 追加人工",
       "price1": 25000,
       "price2": 0,
@@ -1181,7 +1181,7 @@
     {
       "no": 42,
       "id": "KL-009",
-      "category": "人工費",
+      "category": "人工・屋根",
       "name": "パネル手上げ 追加人工",
       "price1": 25000,
       "price2": 0,
@@ -1193,7 +1193,7 @@
     {
       "no": 43,
       "id": "KL-011",
-      "category": "人工費",
+      "category": "人工・屋根",
       "name": "蓄電池2段ラック施工",
       "price1": 25000,
       "price2": 0,
@@ -1205,7 +1205,7 @@
     {
       "no": 44,
       "id": "KL-101",
-      "category": "人工費",
+      "category": "人工・屋根",
       "name": "電気工事難工事一式",
       "price1": 50000,
       "price2": 0,
@@ -1217,7 +1217,7 @@
     {
       "no": 45,
       "id": "KI-011",
-      "category": "屋内モール",
+      "category": "配線・ダクト",
       "name": "床下配線",
       "price1": 10000,
       "price2": 0,
@@ -1229,7 +1229,7 @@
     {
       "no": 46,
       "id": "KI-013",
-      "category": "屋内モール",
+      "category": "配線・ダクト",
       "name": "穴あけ困難（コア・タイル等）",
       "price1": 15000,
       "price2": 0,
@@ -1289,7 +1289,7 @@
     {
       "no": 51,
       "id": "KS-002",
-      "category": "遠方その他",
+      "category": "交通・申請・その他",
       "name": "遠方交通費（100km）",
       "price1": 15000,
       "price2": 0,
@@ -1301,7 +1301,7 @@
     {
       "no": 52,
       "id": "KS-003",
-      "category": "遠方その他",
+      "category": "交通・申請・その他",
       "name": "追加工程分交通費",
       "price1": 10000,
       "price2": 0,
@@ -1313,7 +1313,7 @@
     {
       "no": 53,
       "id": "KS-005",
-      "category": "遠方その他",
+      "category": "交通・申請・その他",
       "name": "ブロック嵩上げ(範囲により)",
       "price1": 10000,
       "price2": 0,
@@ -1325,7 +1325,7 @@
     {
       "no": 54,
       "id": "KS-006",
-      "category": "遠方その他",
+      "category": "交通・申請・その他",
       "name": "土間打ち",
       "price1": 0,
       "price2": 0,
@@ -1337,7 +1337,7 @@
     {
       "no": 55,
       "id": "KS-007",
-      "category": "遠方その他",
+      "category": "交通・申請・その他",
       "name": "追加行程分(状況により)",
       "price1": 50000,
       "price2": 0,
@@ -1351,7 +1351,7 @@
     {
       "no": 1,
       "id": "KE-001",
-      "category": "太陽光（基本）",
+      "category": "基本工事",
       "name": "基本設置 〜4kW スレート屋根",
       "price1": 200000,
       "price2": 0,
@@ -1363,7 +1363,7 @@
     {
       "no": 2,
       "id": "KE-002",
-      "category": "太陽光（基本）",
+      "category": "基本工事",
       "name": "基本設置 〜4kW 瓦屋根",
       "price1": 230000,
       "price2": 0,
@@ -1375,7 +1375,7 @@
     {
       "no": 3,
       "id": "KE-003",
-      "category": "太陽光（基本）",
+      "category": "基本工事",
       "name": "基本設置 5kW以上 スレート屋根",
       "price1": 240000,
       "price2": 0,
@@ -1387,7 +1387,7 @@
     {
       "no": 4,
       "id": "KE-004",
-      "category": "太陽光（基本）",
+      "category": "基本工事",
       "name": "基本設置 5kW以上 瓦屋根",
       "price1": 270000,
       "price2": 0,
@@ -1399,7 +1399,7 @@
     {
       "no": 5,
       "id": "KE-005",
-      "category": "太陽光（基本）",
+      "category": "基本工事",
       "name": "6kW以上 追加（kW毎加算）",
       "price1": 40000,
       "price2": 0,
@@ -1411,7 +1411,7 @@
     {
       "no": 6,
       "id": "KE-006",
-      "category": "太陽光（基本）",
+      "category": "基本工事",
       "name": "足場 2Fまで",
       "price1": 170000,
       "price2": 0,
@@ -1423,7 +1423,7 @@
     {
       "no": 7,
       "id": "KE-007",
-      "category": "太陽光（基本）",
+      "category": "基本工事",
       "name": "屋根足場",
       "price1": 220000,
       "price2": 0,
@@ -1435,7 +1435,7 @@
     {
       "no": 8,
       "id": "KS-001",
-      "category": "蓄電池",
+      "category": "基本工事",
       "name": "蓄電池設置工事（単機能）",
       "price1": 200000,
       "price2": 0,
@@ -1447,7 +1447,7 @@
     {
       "no": 9,
       "id": "KS-002",
-      "category": "蓄電池",
+      "category": "基本工事",
       "name": "蓄電池設置工事（ハイブリッド）",
       "price1": 220000,
       "price2": 0,
@@ -1459,7 +1459,7 @@
     {
       "no": 10,
       "id": "KS-003",
-      "category": "蓄電池",
+      "category": "基本工事",
       "name": "ネット接続（無線中継器）",
       "price1": 15000,
       "price2": 0,
@@ -1471,7 +1471,7 @@
     {
       "no": 11,
       "id": "KS-004",
-      "category": "蓄電池",
+      "category": "基本工事",
       "name": "ネット接続（有線工事）",
       "price1": 0,
       "price2": 0,
@@ -1483,7 +1483,7 @@
     {
       "no": 12,
       "id": "KE-H01",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "エコキュート設置工事（単体）",
       "price1": 160000,
       "price2": 0,
@@ -1495,7 +1495,7 @@
     {
       "no": 13,
       "id": "KE-H02",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "IHクッキングヒーター設置工事",
       "price1": 70000,
       "price2": 0,
@@ -1507,7 +1507,7 @@
     {
       "no": 14,
       "id": "KE-H03",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "事前先行基礎工事（蓄電池・EQ）",
       "price1": 70000,
       "price2": 0,
@@ -1519,7 +1519,7 @@
     {
       "no": 15,
       "id": "KE-H04",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "配管延長（4m以上）",
       "price1": 2000,
       "price2": 0,
@@ -1531,7 +1531,7 @@
     {
       "no": 16,
       "id": "KE-H05",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "配管ダクト使用（太陽光・EQ）",
       "price1": 4000,
       "price2": 0,
@@ -1543,7 +1543,7 @@
     {
       "no": 17,
       "id": "KE-H06",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "エコキュート用ヒーターバンド",
       "price1": 3000,
       "price2": 0,
@@ -1555,7 +1555,7 @@
     {
       "no": 18,
       "id": "KE-H07",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "風呂循環口交換",
       "price1": 5000,
       "price2": 0,
@@ -1567,7 +1567,7 @@
     {
       "no": 19,
       "id": "KE-H08",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "風呂循環口新設",
       "price1": 10000,
       "price2": 0,
@@ -1579,7 +1579,7 @@
     {
       "no": 20,
       "id": "KE-H09",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "リモコン追加・移設",
       "price1": 10000,
       "price2": 0,
@@ -1591,7 +1591,7 @@
     {
       "no": 21,
       "id": "KE-H10",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "ヒートポンプ2段置き架台設置",
       "price1": 5000,
       "price2": 0,
@@ -1603,7 +1603,7 @@
     {
       "no": 22,
       "id": "KE-H11",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "加圧ポンプ設置のみ",
       "price1": 15000,
       "price2": 0,
@@ -1615,7 +1615,7 @@
     {
       "no": 23,
       "id": "KE-H12",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "砂こし器設置のみ",
       "price1": 15000,
       "price2": 0,
@@ -1627,7 +1627,7 @@
     {
       "no": 24,
       "id": "KA-001",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "PV多面設置（4面目から1面）",
       "price1": 15000,
       "price2": 0,
@@ -1639,7 +1639,7 @@
     {
       "no": 25,
       "id": "KA-002",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "急勾配工事（6寸）",
       "price1": 30000,
       "price2": 0,
@@ -1651,7 +1651,7 @@
     {
       "no": 26,
       "id": "KA-003",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "野地板裏補強工事（5kWまで）",
       "price1": 50000,
       "price2": 0,
@@ -1663,7 +1663,7 @@
     {
       "no": 27,
       "id": "KA-004",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "パワコン新規2台設置同時設置",
       "price1": 30000,
       "price2": 0,
@@ -1675,7 +1675,7 @@
     {
       "no": 28,
       "id": "KA-005",
-      "category": "太陽光追加",
+      "category": "撤去・処分",
       "name": "アンテナ移設・撤去",
       "price1": 60000,
       "price2": 0,
@@ -1687,7 +1687,7 @@
     {
       "no": 29,
       "id": "KA-006",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "新築先行配線・配管",
       "price1": 50000,
       "price2": 0,
@@ -1699,7 +1699,7 @@
     {
       "no": 30,
       "id": "KA-007",
-      "category": "太陽光追加",
+      "category": "撤去・処分",
       "name": "温水ソーラー撤去費用",
       "price1": 70000,
       "price2": 0,
@@ -1711,7 +1711,7 @@
     {
       "no": 31,
       "id": "KA-008",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "機器代金（分電盤・アンテナ等）",
       "price1": 0,
       "price2": 0,
@@ -1723,7 +1723,7 @@
     {
       "no": 32,
       "id": "KA-009",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "特殊工事（足場設置不可・難工事等）",
       "price1": 0,
       "price2": 0,
@@ -1735,7 +1735,7 @@
     {
       "no": 33,
       "id": "KA-010",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "搬入困難（工員増員）",
       "price1": 0,
       "price2": 0,
@@ -1747,7 +1747,7 @@
     {
       "no": 34,
       "id": "KA-011",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "ハイブリット蓄電池 系統組換え（PV既設）",
       "price1": 100000,
       "price2": 0,
@@ -1759,7 +1759,7 @@
     {
       "no": 35,
       "id": "KA-012",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "オムロン蓄電池 庇設置取付",
       "price1": 3000,
       "price2": 0,
@@ -1771,7 +1771,7 @@
     {
       "no": 36,
       "id": "KA-013",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "点検口",
       "price1": 10000,
       "price2": 0,
@@ -1783,7 +1783,7 @@
     {
       "no": 37,
       "id": "KA-014",
-      "category": "太陽光追加",
+      "category": "交通・申請・その他",
       "name": "遠方交通費（50km以上片道）",
       "price1": 10000,
       "price2": 0,
@@ -1795,7 +1795,7 @@
     {
       "no": 38,
       "id": "KW-001",
-      "category": "電気配線",
+      "category": "配線・ダクト",
       "name": "電気配線延長（10m以上）",
       "price1": 1500,
       "price2": 0,
@@ -1807,7 +1807,7 @@
     {
       "no": 39,
       "id": "KW-002",
-      "category": "電気配線",
+      "category": "配線・ダクト",
       "name": "リモコン線延長",
       "price1": 1500,
       "price2": 0,
@@ -1819,7 +1819,7 @@
     {
       "no": 40,
       "id": "KW-003",
-      "category": "電気配線",
+      "category": "配線・ダクト",
       "name": "幹線張替工事（CV14まで）",
       "price1": 0,
       "price2": 0,
@@ -1831,7 +1831,7 @@
     {
       "no": 41,
       "id": "KW-004",
-      "category": "電気配線",
+      "category": "配線・ダクト",
       "name": "幹線張替延長（CV14 10m以上）",
       "price1": 2000,
       "price2": 0,
@@ -1843,7 +1843,7 @@
     {
       "no": 42,
       "id": "KW-005",
-      "category": "電気配線",
+      "category": "配線・ダクト",
       "name": "単2→単3切替工事",
       "price1": 0,
       "price2": 0,
@@ -1855,7 +1855,7 @@
     {
       "no": 43,
       "id": "KW-006",
-      "category": "電気配線",
+      "category": "配線・ダクト",
       "name": "ケーブル埋設工事",
       "price1": 0,
       "price2": 0,
@@ -1867,7 +1867,7 @@
     {
       "no": 44,
       "id": "KW-007",
-      "category": "電気配線",
+      "category": "配線・ダクト",
       "name": "ケーブル飛ばし",
       "price1": 0,
       "price2": 0,
@@ -1879,7 +1879,7 @@
     {
       "no": 45,
       "id": "KW-008",
-      "category": "電気配線",
+      "category": "配線・ダクト",
       "name": "LANケーブル（10mまで）",
       "price1": 500,
       "price2": 0,
@@ -1891,7 +1891,7 @@
     {
       "no": 46,
       "id": "KM-001",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "MCCB交換（60Aまで）",
       "price1": 15000,
       "price2": 0,
@@ -1903,7 +1903,7 @@
     {
       "no": 47,
       "id": "KM-002",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "ELBの交換（75Aまで）",
       "price1": 30000,
       "price2": 0,
@@ -1915,7 +1915,7 @@
     {
       "no": 48,
       "id": "KM-003",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "専用コンセント増設工事",
       "price1": 15000,
       "price2": 0,
@@ -1927,7 +1927,7 @@
     {
       "no": 49,
       "id": "KM-004",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "分電盤交換（機器代別途）",
       "price1": 40000,
       "price2": 0,
@@ -1939,7 +1939,7 @@
     {
       "no": 50,
       "id": "KM-005",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "メーターBOX",
       "price1": 5000,
       "price2": 0,
@@ -1951,7 +1951,7 @@
     {
       "no": 51,
       "id": "KM-006",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "コンクリート基礎コア抜き",
       "price1": 30000,
       "price2": 0,
@@ -1963,7 +1963,7 @@
     {
       "no": 52,
       "id": "KM-007",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "エアコン室外機移設",
       "price1": 70000,
       "price2": 0,
@@ -1975,7 +1975,7 @@
     {
       "no": 53,
       "id": "KM-008",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "レンジフード交換",
       "price1": 70000,
       "price2": 0,
@@ -1987,7 +1987,7 @@
     {
       "no": 54,
       "id": "KM-009",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "電気式オーブン設置",
       "price1": 70000,
       "price2": 0,
@@ -2001,7 +2001,7 @@
     {
       "no": 1,
       "id": "RS-001",
-      "category": "太陽光（基本）",
+      "category": "基本工事",
       "name": "基本設置 〜4kW スレート屋根",
       "price1": 200000,
       "price2": 0,
@@ -2013,7 +2013,7 @@
     {
       "no": 2,
       "id": "RS-002",
-      "category": "太陽光（基本）",
+      "category": "基本工事",
       "name": "基本設置 〜4kW 瓦屋根",
       "price1": 230000,
       "price2": 0,
@@ -2025,7 +2025,7 @@
     {
       "no": 3,
       "id": "RS-003",
-      "category": "太陽光（基本）",
+      "category": "基本工事",
       "name": "基本設置 5kW以上 スレート屋根",
       "price1": 240000,
       "price2": 0,
@@ -2037,7 +2037,7 @@
     {
       "no": 4,
       "id": "RS-004",
-      "category": "太陽光（基本）",
+      "category": "基本工事",
       "name": "基本設置 5kW以上 瓦屋根",
       "price1": 270000,
       "price2": 0,
@@ -2049,7 +2049,7 @@
     {
       "no": 5,
       "id": "RS-005",
-      "category": "太陽光（基本）",
+      "category": "基本工事",
       "name": "6kW以上 追加（kW毎加算）",
       "price1": 40000,
       "price2": 0,
@@ -2061,7 +2061,7 @@
     {
       "no": 6,
       "id": "RS-006",
-      "category": "太陽光（基本）",
+      "category": "基本工事",
       "name": "足場 2Fまで",
       "price1": 170000,
       "price2": 0,
@@ -2073,7 +2073,7 @@
     {
       "no": 7,
       "id": "RS-007",
-      "category": "太陽光（基本）",
+      "category": "基本工事",
       "name": "屋根足場",
       "price1": 220000,
       "price2": 0,
@@ -2085,7 +2085,7 @@
     {
       "no": 8,
       "id": "RS-001",
-      "category": "蓄電池",
+      "category": "基本工事",
       "name": "蓄電池設置工事（単機能）",
       "price1": 200000,
       "price2": 0,
@@ -2097,7 +2097,7 @@
     {
       "no": 9,
       "id": "RS-002",
-      "category": "蓄電池",
+      "category": "基本工事",
       "name": "蓄電池設置工事（ハイブリッド）",
       "price1": 220000,
       "price2": 0,
@@ -2109,7 +2109,7 @@
     {
       "no": 10,
       "id": "RS-003",
-      "category": "蓄電池",
+      "category": "基本工事",
       "name": "ネット接続（無線中継器）",
       "price1": 15000,
       "price2": 0,
@@ -2121,7 +2121,7 @@
     {
       "no": 11,
       "id": "RS-004",
-      "category": "蓄電池",
+      "category": "基本工事",
       "name": "ネット接続（有線工事）",
       "price1": 0,
       "price2": 0,
@@ -2133,7 +2133,7 @@
     {
       "no": 12,
       "id": "RS-H01",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "エコキュート設置工事（単体）",
       "price1": 160000,
       "price2": 0,
@@ -2145,7 +2145,7 @@
     {
       "no": 13,
       "id": "RS-H02",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "IHクッキングヒーター設置工事",
       "price1": 70000,
       "price2": 0,
@@ -2157,7 +2157,7 @@
     {
       "no": 14,
       "id": "RS-H03",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "事前先行基礎工事（蓄電池・EQ）",
       "price1": 70000,
       "price2": 0,
@@ -2169,7 +2169,7 @@
     {
       "no": 15,
       "id": "RS-H04",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "配管延長（4m以上）",
       "price1": 2000,
       "price2": 0,
@@ -2181,7 +2181,7 @@
     {
       "no": 16,
       "id": "RS-H05",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "配管ダクト使用（太陽光・EQ）",
       "price1": 4000,
       "price2": 0,
@@ -2193,7 +2193,7 @@
     {
       "no": 17,
       "id": "RS-H06",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "エコキュート用ヒーターバンド",
       "price1": 3000,
       "price2": 0,
@@ -2205,7 +2205,7 @@
     {
       "no": 18,
       "id": "RS-H07",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "風呂循環口交換",
       "price1": 5000,
       "price2": 0,
@@ -2217,7 +2217,7 @@
     {
       "no": 19,
       "id": "RS-H08",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "風呂循環口新設",
       "price1": 10000,
       "price2": 0,
@@ -2229,7 +2229,7 @@
     {
       "no": 20,
       "id": "RS-H09",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "リモコン追加・移設",
       "price1": 10000,
       "price2": 0,
@@ -2241,7 +2241,7 @@
     {
       "no": 21,
       "id": "RS-H10",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "ヒートポンプ2段置き架台設置",
       "price1": 5000,
       "price2": 0,
@@ -2253,7 +2253,7 @@
     {
       "no": 22,
       "id": "RS-H11",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "加圧ポンプ設置のみ",
       "price1": 15000,
       "price2": 0,
@@ -2265,7 +2265,7 @@
     {
       "no": 23,
       "id": "RS-H12",
-      "category": "EQ・IH",
+      "category": "機器・分電盤",
       "name": "砂こし器設置のみ",
       "price1": 15000,
       "price2": 0,
@@ -2277,7 +2277,7 @@
     {
       "no": 24,
       "id": "RS-001",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "PV多面設置（4面目から1面）",
       "price1": 15000,
       "price2": 0,
@@ -2289,7 +2289,7 @@
     {
       "no": 25,
       "id": "RS-002",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "急勾配工事（6寸）",
       "price1": 30000,
       "price2": 0,
@@ -2301,7 +2301,7 @@
     {
       "no": 26,
       "id": "RS-003",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "野地板裏補強工事（5kWまで）",
       "price1": 50000,
       "price2": 0,
@@ -2313,7 +2313,7 @@
     {
       "no": 27,
       "id": "RS-004",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "パワコン新規2台設置同時設置",
       "price1": 30000,
       "price2": 0,
@@ -2325,7 +2325,7 @@
     {
       "no": 28,
       "id": "RS-005",
-      "category": "太陽光追加",
+      "category": "撤去・処分",
       "name": "アンテナ移設・撤去",
       "price1": 60000,
       "price2": 0,
@@ -2337,7 +2337,7 @@
     {
       "no": 29,
       "id": "RS-006",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "新築先行配線・配管",
       "price1": 50000,
       "price2": 0,
@@ -2349,7 +2349,7 @@
     {
       "no": 30,
       "id": "RS-007",
-      "category": "太陽光追加",
+      "category": "撤去・処分",
       "name": "温水ソーラー撤去費用",
       "price1": 70000,
       "price2": 0,
@@ -2361,7 +2361,7 @@
     {
       "no": 31,
       "id": "RS-008",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "機器代金（分電盤・アンテナ等）",
       "price1": 0,
       "price2": 0,
@@ -2373,7 +2373,7 @@
     {
       "no": 32,
       "id": "RS-009",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "特殊工事（足場設置不可・難工事等）",
       "price1": 0,
       "price2": 0,
@@ -2385,7 +2385,7 @@
     {
       "no": 33,
       "id": "RS-010",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "搬入困難（工員増員）",
       "price1": 0,
       "price2": 0,
@@ -2397,7 +2397,7 @@
     {
       "no": 34,
       "id": "RS-011",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "ハイブリット蓄電池 系統組換え（PV既設）",
       "price1": 100000,
       "price2": 0,
@@ -2409,7 +2409,7 @@
     {
       "no": 35,
       "id": "RS-012",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "オムロン蓄電池 庇設置取付",
       "price1": 3000,
       "price2": 0,
@@ -2421,7 +2421,7 @@
     {
       "no": 36,
       "id": "RS-013",
-      "category": "太陽光追加",
+      "category": "人工・屋根",
       "name": "点検口",
       "price1": 10000,
       "price2": 0,
@@ -2433,7 +2433,7 @@
     {
       "no": 37,
       "id": "RS-014",
-      "category": "太陽光追加",
+      "category": "交通・申請・その他",
       "name": "遠方交通費（50km以上片道）",
       "price1": 10000,
       "price2": 0,
@@ -2445,7 +2445,7 @@
     {
       "no": 38,
       "id": "RS-001",
-      "category": "電気配線",
+      "category": "配線・ダクト",
       "name": "電気配線延長（10m以上）",
       "price1": 1500,
       "price2": 0,
@@ -2457,7 +2457,7 @@
     {
       "no": 39,
       "id": "RS-002",
-      "category": "電気配線",
+      "category": "配線・ダクト",
       "name": "リモコン線延長",
       "price1": 1500,
       "price2": 0,
@@ -2469,7 +2469,7 @@
     {
       "no": 40,
       "id": "RS-003",
-      "category": "電気配線",
+      "category": "配線・ダクト",
       "name": "幹線張替工事（CV14まで）",
       "price1": 0,
       "price2": 0,
@@ -2481,7 +2481,7 @@
     {
       "no": 41,
       "id": "RS-004",
-      "category": "電気配線",
+      "category": "配線・ダクト",
       "name": "幹線張替延長（CV14 10m以上）",
       "price1": 2000,
       "price2": 0,
@@ -2493,7 +2493,7 @@
     {
       "no": 42,
       "id": "RS-005",
-      "category": "電気配線",
+      "category": "配線・ダクト",
       "name": "単2→単3切替工事",
       "price1": 0,
       "price2": 0,
@@ -2505,7 +2505,7 @@
     {
       "no": 43,
       "id": "RS-006",
-      "category": "電気配線",
+      "category": "配線・ダクト",
       "name": "ケーブル埋設工事",
       "price1": 0,
       "price2": 0,
@@ -2517,7 +2517,7 @@
     {
       "no": 44,
       "id": "RS-007",
-      "category": "電気配線",
+      "category": "配線・ダクト",
       "name": "ケーブル飛ばし",
       "price1": 0,
       "price2": 0,
@@ -2529,7 +2529,7 @@
     {
       "no": 45,
       "id": "RS-008",
-      "category": "電気配線",
+      "category": "配線・ダクト",
       "name": "LANケーブル（10mまで）",
       "price1": 500,
       "price2": 0,
@@ -2541,7 +2541,7 @@
     {
       "no": 46,
       "id": "RS-001",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "MCCB交換（60Aまで）",
       "price1": 15000,
       "price2": 0,
@@ -2553,7 +2553,7 @@
     {
       "no": 47,
       "id": "RS-002",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "ELBの交換（75Aまで）",
       "price1": 30000,
       "price2": 0,
@@ -2565,7 +2565,7 @@
     {
       "no": 48,
       "id": "RS-003",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "専用コンセント増設工事",
       "price1": 15000,
       "price2": 0,
@@ -2577,7 +2577,7 @@
     {
       "no": 49,
       "id": "RS-004",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "分電盤交換（機器代別途）",
       "price1": 40000,
       "price2": 0,
@@ -2589,7 +2589,7 @@
     {
       "no": 50,
       "id": "RS-005",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "メーターBOX",
       "price1": 5000,
       "price2": 0,
@@ -2601,7 +2601,7 @@
     {
       "no": 51,
       "id": "RS-006",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "コンクリート基礎コア抜き",
       "price1": 30000,
       "price2": 0,
@@ -2613,7 +2613,7 @@
     {
       "no": 52,
       "id": "RS-007",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "エアコン室外機移設",
       "price1": 70000,
       "price2": 0,
@@ -2625,7 +2625,7 @@
     {
       "no": 53,
       "id": "RS-008",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "レンジフード交換",
       "price1": 70000,
       "price2": 0,
@@ -2637,7 +2637,7 @@
     {
       "no": 54,
       "id": "RS-009",
-      "category": "分電盤",
+      "category": "機器・分電盤",
       "name": "電気式オーブン設置",
       "price1": 70000,
       "price2": 0,
