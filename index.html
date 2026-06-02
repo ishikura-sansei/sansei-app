@@ -105,7 +105,7 @@ body{font-family:'Meiryo UI','Meiryo','Yu Gothic',sans-serif;color:var(--text);f
 .handle{width:36px;height:4px;background:#ddd;border-radius:2px;margin:0 auto 14px}
 .sheet-title{font-size:16px;font-weight:700;margin-bottom:4px}
 .sheet-meta{font-size:12px;color:var(--sub);margin-bottom:14px;line-height:1.6}
-.sheet-preview{background:var(--xblue);border-radius:8px;padding:12px;text-align:center;font-size:18px;font-weight:700;color:var(--navy);margin:12px 0;white-space:pre-line;line-height:1.5}
+.sheet-preview{background:var(--xblue);border-radius:8px;padding:12px;text-align:center;font-size:20px;font-weight:700;color:var(--navy);margin:12px 0}
 .sheet-acts{display:flex;gap:8px;margin-top:14px}
 .sfld{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
 .sfld label{font-size:12px;font-weight:700;color:var(--sub)}
@@ -206,55 +206,20 @@ body{font-family:'Meiryo UI','Meiryo','Yu Gothic',sans-serif;color:var(--text);f
   <div class="scroll" id="estArea"><div class="empty-msg">← 単価一覧から<br>項目をタップして追加</div></div>
   <div class="est-foot">
     <button class="btn btn-out" style="flex:1" onclick="goS('s1')">＋ 項目追加</button>
-    <button class="btn btn-navy" style="flex:1" onclick="goS('s3')">📋 明細確認</button>
-    <button class="btn btn-out" style="flex:1;border-color:var(--safe);color:var(--safe)" onclick="goKanko()">✅ 完工報告</button>
+    <button class="btn btn-navy" style="flex:1" onclick="goS('s3')">📄 書類を作る</button>
   </div>
 </div>
 
-<!-- Screen 3: 明細確認 -->
+<!-- Screen 3: LINE報告 -->
 <div class="screen" id="s3">
   <div class="scroll">
-    <!-- 完工報告セクション（初期非表示） -->
-    <div id="kankoSection" style="display:none">
-      <div class="doc-form">
-        <div class="fg2">
-          <div class="fld"><label>施工日</label>
-            <input type="date" id="kankoDate" onchange="updateKankoText()">
-          </div>
-        </div>
-        <div class="fld"><label>現場名</label>
-          <input id="kankoSubj" placeholder="例: 山田太郎様邸" oninput="updateKankoText()">
-        </div>
-      </div>
-      <!-- 書類チェックリスト -->
-      <div style="padding:0 10px 8px">
-        <div style="font-size:12px;font-weight:700;color:var(--sub);margin-bottom:8px">📋 書類・資料チェック</div>
-        <div id="docChecklist" style="display:flex;flex-direction:column;gap:8px"></div>
-      </div>
-      <div class="doc-form" style="padding-top:0">
-        <div class="fld"><label>特記事項</label>
-          <textarea id="kankoRmk" rows="2" placeholder="任意" oninput="updateKankoText()"></textarea>
-        </div>
-      </div>
-      <!-- テキスト出力 -->
-      <div style="padding:0 10px 8px">
-        <div style="font-size:12px;font-weight:700;color:var(--sub);margin-bottom:6px">📱 LINEに貼り付けるテキスト</div>
-        <textarea id="kankoText" readonly rows="16"
-          style="width:100%;padding:12px 10px;border:1.5px solid var(--border);border-radius:8px;font-size:12px;font-family:'Meiryo UI','Meiryo',monospace;line-height:1.75;resize:none;background:#f8f9fc;color:var(--text)"></textarea>
-      </div>
-      <div style="padding:0 10px 12px;display:flex;gap:8px">
-        <button class="btn btn-ghost" style="flex:1" onclick="document.getElementById('kankoSection').style.display='none';document.getElementById('lineSection').style.display='block'">← 明細確認へ</button>
-        <button class="btn btn-primary" style="flex:1;font-size:15px;padding:14px" onclick="copyKanko()">📋 コピーする</button>
-      </div>
-    </div>
-    <!-- 通常セクション（見積書/請求書） -->
-    <div id="lineSection">
     <div class="doc-form">
       <div class="fg2">
         <div class="fld"><label>書類種別</label>
           <select id="docType" onchange="genLine()">
             <option value="見積書">見積書</option>
             <option value="請求書">請求書</option>
+            <option value="完工報告">✅ 完工報告</option>
           </select>
         </div>
         <div class="fld"><label>日付</label>
@@ -297,7 +262,6 @@ body{font-family:'Meiryo UI','Meiryo','Yu Gothic',sans-serif;color:var(--text);f
       </div>
     </div>
 
-    </div><!-- /lineSection -->
     <!-- コピー完了トースト -->
     <div id="copyToast" style="display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:#107C10;color:#fff;padding:10px 24px;border-radius:20px;font-size:14px;font-weight:700;z-index:300">✓ コピーしました！</div>
   </div>
@@ -308,7 +272,7 @@ body{font-family:'Meiryo UI','Meiryo','Yu Gothic',sans-serif;color:var(--text);f
   <button class="bnav-btn on" id="nb1" onclick="goS('s1')"><span class="ico">📋</span>単価一覧</button>
   <button class="bnav-btn" id="nb2" onclick="goS('s2')">
     <span class="ico">🧮</span>
-    <span style="display:flex;align-items:center;gap:3px">明細確認<span class="bdg" id="bdg" style="display:none">0</span></span>
+    <span style="display:flex;align-items:center;gap:3px">見積<span class="bdg" id="bdg" style="display:none">0</span></span>
   </button>
   <button class="bnav-btn" id="nb3" onclick="goS('s3')"><span class="ico">📱</span>LINE報告</button>
 </div>
@@ -353,14 +317,9 @@ const JSON_URL = 'https://raw.githubusercontent.com/ishikura-sansei/sansei-app/m
 const CLI_MAP = {'リケン':'リケンエナジー','キョウエイ':'株式会社キョウエイ','ライズ':'ライズサポート','ATEL':'ATEL'};
 
 // JSON形式 → アプリ形式に変換
-let DOCS = []; // 書類チェックマスター
-
 function convertJson(raw) {
-  // docsを先に抽出
-  if (raw.docs) DOCS = raw.docs;
   const result = {};
   for (const [key, items] of Object.entries(raw)) {
-    if (key === 'docs') continue;
     const cliName = CLI_MAP[key] || key;
     result[cliName] = items.map(it => ({
       cat: it.category,
@@ -369,8 +328,7 @@ function convertJson(raw) {
       p2: it.price2 > 0 ? it.price2 : undefined,
       unit: it.unit,
       note: it.note || '',
-      inputType: it.inputType,
-      baseM: it.baseM || 0  // ★ 超過徴収の基準m数（0=全長課金）
+      inputType: it.inputType
     }));
   }
   return result;
@@ -478,10 +436,10 @@ function toggleCat(el){
 // ─ 数量シート ─
 function openSheet(item){
   pend=item;
+  // ★ ATEL パネル超過 自動計算（追加機能）
+  if(curC==='ATEL' && /パネル超過/.test(item.name)){ openPanelCalc(item); return; }
   document.getElementById('shTitle').textContent=item.name;
-  const bm = item.baseM || 0;
-  const metaNote = bm > 0 ? `${item.cat}　${item.note||''}　※実長を入力→${bm}m超過分のみ計上` : `${item.cat}　${item.note||''}`;
-  document.getElementById('shMeta').textContent=metaNote;
+  document.getElementById('shMeta').textContent=`${item.cat}　${item.note||''}`;
   let h='';
   if(item.variants){
     h+=`<div class="sfld"><label>種別を選択</label>
@@ -495,41 +453,76 @@ function openSheet(item){
       <option value="${item.p2}">困難　${fmt(item.p2)}</option>
     </select></div>`;
   }
-  h+=`<div class="sfld"><label>数量（${item.unit}）${bm > 0 ? '　※実長を入力' : ''}</label>
-  <input type="number" id="shQ" value="${bm > 0 ? bm + 1 : 1}" min="0.5"
-    step="1"
+  h+=`<div class="sfld"><label>数量（${item.unit}）</label>
+  <input type="number" id="shQ" value="1" min="0.5"
+    step="${['m','人','枚','個','本','台','箇所','面'].includes(item.unit)?'1':'1'}"
     oninput="calcPrev()"></div>`;
   document.getElementById('shForm').innerHTML=h;
   calcPrev();
   document.getElementById('sheetBg').classList.remove('hid');
 }
 
-// ★ 修正①: 超過分のみ計算（baseM > 0 の場合）
+// ★ ATEL パネル超過 自動計算ロジック（追加機能）
+//   20枚を基準に21枚目以降が超過。超過分はハーフ→通常の順に充当（安い方優先）。
+function openPanelCalc(item){
+  const list=M[curC]||[];
+  const pN=(list.find(i=>/パネル超過/.test(i.name)&&/通常/.test(i.name))||{}).p1||1500;
+  const pH=(list.find(i=>/パネル超過/.test(i.name)&&/(ハーフ|台形)/.test(i.name))||{}).p1||750;
+  pend={_panel:true,pN,pH,cat:item.cat||'屋根',unit:'枚'};
+  document.getElementById('shTitle').textContent='パネル超過 自動計算';
+  document.getElementById('shMeta').textContent='20枚を基準に21枚目以降が超過。超過分はハーフ→通常の順に充当します。';
+  document.getElementById('shForm').innerHTML=
+    '<div class="sfld"><label>通常パネル 総枚数</label>'
+    +'<input type="number" id="pcN" value="0" min="0" step="1" inputmode="numeric" oninput="calcPrev()"></div>'
+    +'<div class="sfld"><label>ハーフ・台形パネル 総枚数</label>'
+    +'<input type="number" id="pcH" value="0" min="0" step="1" inputmode="numeric" oninput="calcPrev()"></div>'
+    +'<div id="pcDetail" style="font-size:12px;color:var(--sub);line-height:1.8;margin-top:4px"></div>';
+  calcPrev();
+  document.getElementById('sheetBg').classList.remove('hid');
+}
+function panelCompute(){
+  const n=Math.max(0,parseInt(document.getElementById('pcN').value)||0);
+  const h=Math.max(0,parseInt(document.getElementById('pcH').value)||0);
+  const over=Math.max(0,n+h-20);
+  const halfOver=Math.min(over,h);
+  const normalOver=over-halfOver;
+  return {n,h,total:n+h,over,halfOver,normalOver,cost:halfOver*pend.pH+normalOver*pend.pN};
+}
+
 function calcPrev(){
   const item=pend; if(!item) return;
+  // ★ パネル超過モード
+  if(item._panel){
+    const r=panelCompute();
+    document.getElementById('pcDetail').innerHTML=
+      '合計 '+r.total+' 枚 ／ 基準 20 枚 → <b>超過 '+r.over+' 枚</b><br>'
+      +'　ハーフ '+r.halfOver+' 枚 × '+fmt(item.pH)+'<br>'
+      +'　通常 '+r.normalOver+' 枚 × '+fmt(item.pN);
+    document.getElementById('shPrev').textContent='超過費 '+fmt(r.cost)+'（税抜）';
+    return;
+  }
   const vi=document.getElementById('shV');
   const p2sel=document.getElementById('shP2');
   const price=vi&&item.variants?item.variants[parseInt(vi.value)||0].p
              :p2sel?parseFloat(p2sel.value)
              :item.p1;
-  const qty=parseFloat(document.getElementById('shQ')?.value)||0;
-  const bm = item.baseM || 0;
-  const effQty = bm > 0 ? Math.max(0, qty - bm) : qty;
-  const amount = Math.round(price * effQty);
-  let prevText;
-  if (bm > 0) {
-    prevText = `実長 ${qty}m → 超過 ${effQty}m 計上\n合計 ${fmt(amount)}（税抜）`;
-  } else {
-    prevText = `合計 ${fmt(amount)}（税抜）`;
-  }
-  document.getElementById('shPrev').textContent=prevText;
+  const qty=parseFloat(document.getElementById('shQ')?.value)||1;
+  document.getElementById('shPrev').textContent=`合計 ${fmt(Math.round(price*qty))}（税抜）`;
 }
-
 function closeSheet(){document.getElementById('sheetBg').classList.add('hid');pend=null}
-
-// ★ 修正①: 超過分のみを qty・sub に反映
 function confirmAdd(){
   const item=pend; if(!item) return;
+  // ★ パネル超過モード
+  if(item._panel){
+    const r=panelCompute();
+    if(r.over<=0){ alert('21枚以上で超過費が発生します（現在 '+r.total+'枚）'); return; }
+    if(E.cli!==curC){E.cli=curC;E.items=[]}
+    E.items.push({name:'パネル超過費（21枚〜）',unit:'式',cat:item.cat,price:r.cost,qty:1,sub:r.cost,memo:'通常'+r.normalOver+'枚／ハーフ'+r.halfOver+'枚（入力 通常'+r.n+'・ハーフ'+r.h+'）'});
+    sE();updBdg();closeSheet();
+    const b=document.getElementById('shAddBtn');
+    b.textContent='✓ 追加！'; setTimeout(()=>b.textContent='見積に追加',700);
+    return;
+  }
   const vi=document.getElementById('shV');
   const p2sel=document.getElementById('shP2');
   const vidx=vi?parseInt(vi.value)||0:0;
@@ -539,26 +532,13 @@ function confirmAdd(){
   const label=item.variants?item.variants[vidx].l
              :p2sel?p2sel.options[p2sel.selectedIndex].text
              :'';
-  const qty=parseFloat(document.getElementById('shQ')?.value)||0;
-  const bm = item.baseM || 0;
-  const effQty = bm > 0 ? Math.max(0, qty - bm) : qty;
-  // 超過徴収の場合は実長・計上mを名称に付記
-  const bmSuffix = bm > 0 ? `（実長${qty}m→${effQty}m計上）` : '';
+  const qty=parseFloat(document.getElementById('shQ')?.value)||1;
   if(E.cli!==curC){E.cli=curC;E.items=[]}
-  E.items.push({
-    name: item.name + (label ? `（${label}）` : '') + bmSuffix,
-    unit: item.unit,
-    cat: item.cat,
-    price,
-    qty: effQty,
-    sub: Math.round(price * effQty),
-    memo: ''
-  });
+  E.items.push({name:item.name+(label?`（${label}）`:''),unit:item.unit,cat:item.cat,price,qty,sub:Math.round(price*qty),memo:''});
   sE();updBdg();closeSheet();
   const b=document.getElementById('shAddBtn');
   b.textContent='✓ 追加！'; setTimeout(()=>b.textContent='見積に追加',700);
 }
-
 function updBdg(){
   const n=E.items.length,b=document.getElementById('bdg');
   b.textContent=n;b.style.display=n?'inline':'none';
@@ -662,97 +642,14 @@ function genLine(){
 }
 
 
-// ─ 完工報告ナビ ─
-const CLI_FULL_K={'リケンエナジー':'リケンエナジー有限会社','ATEL':'ATEL株式会社','株式会社キョウエイ':'株式会社キョウエイ','ライズサポート':'ライズサポート株式会社'};
-
-function goKanko(){
-  goS('s3');
-  document.getElementById('kankoSection').style.display='block';
-  document.getElementById('lineSection').style.display='none';
-  // 今日の日付をデフォルト
-  const kd=document.getElementById('kankoDate');
-  if(!kd.value) kd.value=new Date().toISOString().slice(0,10);
-  buildDocChecklist();
-  updateKankoText();
-}
-
-function buildDocChecklist(){
-  const cli=E.cli||curC;
-  const filtered=DOCS.filter(d=>d.target==='共通'||d.target==='各社記入'||d.target===cli||d.target===curC);
-  const el=document.getElementById('docChecklist');
-  el.innerHTML=filtered.map((d,i)=>{
-    const opts=d.options&&d.options.length?d.options:['済み','未対応'];
-    const defVal=d.dest||opts[0]||'';
-    const selOpts=opts.map(o=>`<option value="${o}"${o===defVal?' selected':''}>${o}</option>`).join('');
-    return`<div style="display:flex;align-items:center;gap:8px;padding:8px 10px;background:#fff;border-radius:8px;border:1px solid var(--border)">
-      <input type="checkbox" id="kdc_${i}" checked onchange="updateKankoText()" style="width:18px;height:18px;flex-shrink:0;cursor:pointer">
-      <label for="kdc_${i}" style="flex:1;font-size:13px;font-weight:600;cursor:pointer">${d.name}</label>
-      <select id="kdDest_${i}" onchange="updateKankoText()" style="padding:5px 8px;border:1.5px solid var(--border);border-radius:6px;font-size:12px;font-family:inherit;max-width:160px">${selOpts}</select>
-    </div>`;
-  }).join('');
-}
-
-function updateKankoText(){
-  const cli=E.cli||curC;
-  const cName=CLI_FULL_K[cli]||cli;
-  const dateStr=document.getElementById('kankoDate')?.value||new Date().toISOString().slice(0,10);
-  const dsubj=document.getElementById('kankoSubj')?.value||'';
-  const drmk=document.getElementById('kankoRmk')?.value||'';
-  const bar='─────────────────';
-  const fmtN=n=>'¥'+Math.round(n).toLocaleString();
-  const sub=E.items.reduce((s,i)=>s+(i.sub||0),0);
-  const tax=Math.floor(sub*0.1);
-  let lines=[];
-  lines.push('【完工報告】');
-  lines.push(`施工日：${dateStr}`);
-  if(dsubj) lines.push(`現場：${dsubj}`);
-  lines.push(`取引先：${cName}`);
-  lines.push(bar);
-  lines.push('');
-  lines.push('■ 施工内容');
-  if(E.items.length){
-    const grp={};
-    E.items.forEach(ei=>{grp[ei.cat]=grp[ei.cat]||[];grp[ei.cat].push(ei)});
-    for(const[cat,items] of Object.entries(grp)){
-      items.forEach(ei=>{
-        const qStr=ei.qty===1?'':` ×${ei.qty}`;
-        lines.push(`・${ei.name}${qStr}　${fmtN(ei.sub)}`);
-      });
-    }
-    lines.push(`　計：${fmtN(sub)}（税込 ${fmtN(sub+tax)}）`);
-  } else lines.push('（施工内容未入力）');
-  lines.push('');
-  lines.push(bar);
-  lines.push('');
-  lines.push('■ 書類・資料チェック');
-  // チェックリストから出力
-  const filtered=DOCS.filter(d=>d.target==='共通'||d.target==='各社記入'||d.target===cli||d.target===curC);
-  filtered.forEach((d,i)=>{
-    const chk=document.getElementById(`kdc_${i}`);
-    const dest=document.getElementById(`kdDest_${i}`);
-    if(chk&&chk.checked){
-      const destVal=dest?dest.value:'';
-      lines.push(`✅ ${d.name}　→ ${destVal}`);
-    }
-  });
-  lines.push('');
-  lines.push(bar);
-  lines.push('');
-  lines.push('■ 特記事項');
-  lines.push(drmk||'（なし）');
-  const ta=document.getElementById('kankoText');
-  if(ta) ta.value=lines.join('\n');
-}
-
 // ─ 完工報告 LINE出力 ─
 function genKankoLine(cFull){
   const ta=document.getElementById('lineText');
   const cli=E.cli||curC;
   const cName=cFull(cli);
-  const kankoDateEl = document.getElementById('kankoDate');
-  const dateStr = (kankoDateEl && kankoDateEl.value) || document.getElementById('docDate').value || new Date().toISOString().slice(0,10);
-  const dsubj = (document.getElementById('kankoSubj')?.value) || document.getElementById('docSubj')?.value || '';
-  const drmk = (document.getElementById('kankoRmk')?.value) || document.getElementById('docRmk')?.value || '';
+  const dateStr=document.getElementById('docDate').value||new Date().toISOString().slice(0,10);
+  const dsubj=document.getElementById('docSubj').value;
+  const drmk=document.getElementById('docRmk').value;
   const bar='─────────────────';
   const fmtN=n=>'¥'+Math.round(n).toLocaleString();
   const sub=E.items.reduce((s,i)=>s+(i.sub||0),0);
@@ -783,36 +680,18 @@ function genKankoLine(cFull){
   lines.push(bar);
   lines.push('');
   lines.push('■ 書類・資料チェック');
-  // DOCSからクライアント対応の書類を出力
-  const clientDocs = DOCS.length > 0 ? DOCS.filter(d =>
-    d.target === '共通' || d.target === '各社記入' || d.target === cli || d.target === curC
-  ) : [
-    {name:'取扱説明書', dest:'お客様・手渡し'},
-    {name:'検査成績書', dest:'持ち帰り（社内）'},
-    {name:'施工写真', dest:'UP先：'},
-    {name:'引き渡し確認書', dest:''},
-    {name:'その他', dest:''},
-  ];
-  clientDocs.forEach(d => {
-    const dest = d.dest ? ` → ${d.dest}` : ' →';
-    lines.push(`□ ${d.name}${dest}`);
-  });
+  lines.push('□ 取扱説明書　　→ お客様・手渡し');
+  lines.push('□ 検査成績書　　→ 持ち帰り（社内）');
+  lines.push('□ 施工写真　　　→ UP先：');
+  if(cli==='ATEL') lines.push('□ 指示書　　　　→ 元請け・返却');
+  lines.push('□ 引き渡し確認書 →');
+  lines.push('□ その他：');
   lines.push('');
   lines.push(bar);
   lines.push('');
   lines.push('■ 特記事項');
   lines.push(drmk||'（なし）');
-  const kankoTa = document.getElementById('kankoText');
-  if(kankoTa) kankoTa.value = lines.join('\n');
-  else ta.value = lines.join('\n');
-}
-
-function copyKanko(){
-  const ta = document.getElementById('kankoText');
-  if(!ta||!ta.value){alert('テキストがありません');return;}
-  if(navigator.clipboard&&navigator.clipboard.writeText){
-    navigator.clipboard.writeText(ta.value).then(()=>showToast('✓ コピーしました！')).catch(()=>{ta.select();document.execCommand('copy');showToast('✓ コピーしました！');});
-  } else { ta.select(); document.execCommand('copy'); showToast('✓ コピーしました！'); }
+  ta.value=lines.join('\n');
 }
 
 function copyLine(){
