@@ -59,7 +59,7 @@ body{padding-bottom:calc(var(--bnav) + 8px)}
 .cat-body{border-top:1px solid var(--line)}
 .cat-body.closed{display:none}
 
-/* ─ アイデム行（価格非表示） ─ */
+/* ─ アイテム行（価格非表示） ─ */
 .irow{display:flex;align-items:center;padding:12px 14px;
   border-bottom:1px solid var(--line);cursor:pointer;gap:10px;transition:.1s}
 .irow:last-child{border-bottom:none}
@@ -195,7 +195,7 @@ body{padding-bottom:calc(var(--bnav) + 8px)}
   </div>
 </div>
 
-<!-- ══ Screen 3: LINE%報告 ═══ */
+<!-- ══ Screen 3: LINE報告 ══ -->
 <div class="screen" id="s3">
   <div class="doc-wrap">
     <div class="fg2">
@@ -435,7 +435,7 @@ function renderEst(){
   updTot();
 }
 function updTot(){
-  const su=E.items.reduce((s,i)=>s+(i.sub||0),0);
+  const sub=E.items.reduce((s,i)=>s+(i.sub||0),0);
   const tax=Math.floor(sub*.1);
   document.getElementById('estBig').textContent=fmt(sub);
   document.getElementById('estSub').textContent=`税抜 ${fmt(sub)}　税込 ${fmt(sub+tax)}`;
@@ -584,4 +584,4 @@ window.addEventListener('DOMContentLoaded',async()=>{
 });
 </script>
 </body>
-</h
+</html>
