@@ -3,624 +3,585 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>SANSEI 単価アプリ</title>
+<title>SANSEI åä¾¡ã¢ããª</title>
 <style>
-*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+/* ===== ç¾èª¿ã¢ããªæºæ ã«ã©ã¼ ===== */
 :root{
-  /* SANSEI カラーパレット（現調アプリ準拠） */
-  --accent:#2f6f9f;
-  --accent-dark:#1e5077;
-  --accent-soft:#eef4f9;
-  --accent-mid:#3d82b4;
-  --bg:#ffffff;
-  --panel:#ffffff;
-  --line:#e4e7eb;
-  --ink:#222;
-  --sub:#6b7280;
-  --chip:#f3f5f7;
-  --radius:12px;
-  /* カテゴリ補助 */
-  --ok:#2e7d32;
-  --warn:#c08a00;
-  --danger:#C00000;
-  --yellow:#FFF8DC;
-  --bnav:56px;
+  --bg:#ffffff; --panel:#ffffff; --line:#e4e7eb; --ink:#222; --sub:#6b7280;
+  --accent:#2f6f9f; --accent-dark:#1e5077; --accent-soft:#eef4f9;
+  --ok:#2e7d32; --chip:#f3f5f7; --radius:12px;
+  --danger:#C00000; --yellow:#FFF8DC; --bnav:56px;
 }
-html,body{height:100%;overflow:hidden;background:var(--bg)}
-body{font-family:'Meiryo UI','Meiryo','Yu Gothic',sans-serif;color:var(--ink);font-size:14px;display:flex;flex-direction:column}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg);color:var(--ink);
+  font-family:"Hiragino Kaku Gothic ProN","Meiryo",system-ui,sans-serif;
+  font-size:16px;line-height:1.5}
+body{padding-bottom:calc(var(--bnav) + 8px)}
 
-/* ─ ヘッダー ─ */
-.hdr{background:var(--accent);color:#fff;padding:10px 12px;display:flex;align-items:center;gap:10px;flex-shrink:0;box-shadow:0 2px 6px rgba(0,0,0,.2);z-index:20}
-.hdr h1{font-size:15px;font-weight:700;flex:1}
-.hdr select{background:rgba(255,255,255,.18);border:1px solid rgba(255,255,255,.35);color:#fff;padding:5px 26px 5px 10px;border-radius:6px;font-size:13px;font-family:inherit;cursor:pointer;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='white'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 8px center}
+/* â ãããã¼ï¼ç¾èª¿ã¢ããªæºæ ï¼ç½èæ¯ï¼ â */
+.hdr{position:sticky;top:0;background:#fff;border-bottom:2px solid var(--accent);
+  padding:10px 16px;z-index:20}
+.hdr h1{font-size:17px;font-weight:700;color:var(--accent);margin:0 0 6px}
+.hdr select{width:100%;padding:9px 12px;border:1px solid var(--line);border-radius:10px;
+  font-size:15px;font-family:inherit;background:#fff;color:var(--ink);outline:none}
+.hdr select:focus{border-color:var(--accent)}
 
-/* ─ 画面管理 ─ */
-.screen{display:none;flex-direction:column;flex:1;overflow:hidden}
-.screen.active{display:flex}
+/* â ç»é¢ç®¡ç â */
+.screen{display:none}
+.screen.active{display:block}
 
-/* ─ ボトムナビ ─ */
-.bnav{display:flex;background:var(--panel);border-top:1px solid var(--line);flex-shrink:0;height:var(--bnav);box-shadow:0 -2px 8px rgba(0,0,0,.06);z-index:20}
-.bnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;background:none;border:none;cursor:pointer;color:var(--sub);font-size:10px;font-family:inherit;padding:4px 0}
-.bnav-btn .ico{font-size:22px;line-height:1}
-.bnav-btn.on{color:var(--accent);font-weight:700}
-.bdg{background:var(--danger);color:#fff;border-radius:8px;font-size:10px;padding:1px 5px;min-width:16px;text-align:center}
+/* â æ¤ç´¢ãã¼ â */
+.search-wrap{max-width:640px;margin:0 auto;padding:10px 14px 0}
+.search-wrap input{width:100%;padding:10px 14px;border:1px solid var(--line);
+  border-radius:10px;font-size:16px;font-family:inherit;outline:none;background:#fff;color:var(--ink)}
+.search-wrap input:focus{border-color:var(--accent)}
 
-/* ─ 共通 ─ */
-.scroll{flex:1;overflow-y:auto;-webkit-overflow-scrolling:touch}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:4px;padding:9px 16px;border-radius:6px;font-size:13px;font-weight:600;font-family:inherit;cursor:pointer;border:none;transition:.15s;white-space:nowrap}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-accent{background:var(--accent-dark);color:#fff}
-.btn-out{background:var(--panel);color:var(--accent);border:1.5px solid var(--accent)}
-.btn-ghost{background:var(--chip);color:var(--ink);border:1px solid var(--line)}
-.btn-sm{padding:5px 10px;font-size:12px}
-.btn-blk{width:100%}
-
-/* ═══ SCREEN 1: 単価一覧 ═══ */
-.search-bar{background:var(--panel);border-bottom:1px solid var(--line);padding:8px 10px;flex-shrink:0;display:flex;gap:6px}
-.search-bar input{flex:1;padding:8px 12px;border:1.5px solid var(--line);border-radius:8px;font-size:14px;font-family:inherit;outline:none;color:var(--ink)}
-.search-bar input:focus{border-color:var(--accent)}
-.cat-row{display:flex;gap:6px;overflow-x:auto;padding:6px 10px 4px;flex-shrink:0;scrollbar-width:none;background:var(--panel);border-bottom:1px solid var(--line)}
+/* â ã«ãã´ãªã¿ã â */
+.cat-row{max-width:640px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;
+  padding:8px 14px;scrollbar-width:none}
 .cat-row::-webkit-scrollbar{display:none}
-.cpill{padding:4px 12px;border-radius:12px;font-size:12px;font-weight:600;white-space:nowrap;cursor:pointer;border:1.5px solid var(--line);background:var(--chip);color:var(--sub);flex-shrink:0}
-.cpill.on{color:#fff;border-color:transparent}
+.cpill{display:inline-flex;align-items:center;background:var(--chip);
+  border:1px solid var(--line);border-radius:999px;padding:6px 14px;
+  font-size:13px;color:var(--ink);white-space:nowrap;cursor:pointer;flex-shrink:0;
+  font-family:inherit;font-weight:600}
+.cpill.on{background:var(--accent);color:#fff;border-color:var(--accent)}
 
-/* カテゴリセクション */
-.cat-sec{margin:0}
-.cat-hdr{padding:7px 14px;font-size:12px;font-weight:700;color:#fff;letter-spacing:.5px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;user-select:none}
-.cat-hdr .chev{transition:.2s}
-.cat-body{overflow:hidden;background:var(--panel)}
+/* â ã«ãã´ãªã»ã¯ã·ã§ã³ â */
+.list-wrap{max-width:640px;margin:0 auto;padding:4px 14px 12px}
+.cat-sec{background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius);margin:10px 0;overflow:hidden}
+.cat-hdr{padding:12px 14px;display:flex;align-items:center;
+  justify-content:space-between;cursor:pointer;user-select:none}
+.cat-hdr h2{font-size:15px;font-weight:700;margin:0;padding-left:8px;
+  border-left:4px solid var(--accent);color:var(--accent)}
+.cat-hdr .count{font-size:12px;color:var(--sub);font-weight:400;margin-left:6px}
+.cat-hdr .chev{color:var(--sub);font-size:13px;transition:.2s}
+.cat-body{border-top:1px solid var(--line)}
 .cat-body.closed{display:none}
 
-/* アイテム行 */
-.irow{display:flex;align-items:center;padding:12px 14px;border-bottom:1px solid var(--chip);cursor:pointer;transition:.1s;gap:10px}
-.irow:active{background:var(--accent-soft)}
+/* â ã¢ã¤ãã è¡ï¼ä¾¡æ ¼éè¡¨ç¤ºï¼ â */
+.irow{display:flex;align-items:center;padding:12px 14px;
+  border-bottom:1px solid var(--line);cursor:pointer;gap:10px;transition:.1s}
 .irow:last-child{border-bottom:none}
+.irow:active{background:var(--accent-soft)}
 .irow-info{flex:1;min-width:0}
-.irow-name{font-size:13px;font-weight:600;line-height:1.35;color:var(--ink)}
-.irow-note{font-size:11px;color:var(--sub);margin-top:2px}
-/* ★金額非表示 */
-.irow-price{display:none}
-.irow-unit{font-size:12px;color:var(--sub);background:var(--chip);padding:2px 8px;border-radius:10px;white-space:nowrap;flex-shrink:0}
-.add-icon{width:32px;height:32px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0;line-height:1;box-shadow:0 2px 6px rgba(47,111,159,.3)}
+.irow-name{font-size:14px;font-weight:600;line-height:1.35}
+.irow-note{font-size:12px;color:var(--sub);margin-top:2px}
+.irow-unit{font-size:12px;color:var(--sub);white-space:nowrap;flex-shrink:0}
+.add-btn{width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+  flex-shrink:0;line-height:1}
 
-/* ═══ SCREEN 2: 見積明細 ═══ */
-.est-head{background:var(--accent);color:#fff;padding:10px 14px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+/* â ããã ãã â */
+.bnav{position:fixed;left:0;right:0;bottom:0;background:#fff;
+  border-top:1px solid var(--line);height:var(--bnav);display:flex;z-index:20}
+.bnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:2px;background:none;border:none;cursor:pointer;
+  color:var(--sub);font-size:10px;font-family:inherit;padding:4px 0}
+.bnav-btn .ico{font-size:22px;line-height:1}
+.bnav-btn.on{color:var(--accent);font-weight:700}
+.bdg{background:var(--danger);color:#fff;border-radius:8px;font-size:10px;
+  padding:1px 5px;min-width:16px;text-align:center}
+
+/* â å±éãã¿ã³ â */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:4px;
+  padding:10px 18px;border-radius:10px;font-size:14px;font-weight:700;
+  font-family:inherit;cursor:pointer;border:none;transition:.15s}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:active{background:var(--accent-dark)}
+.btn-ghost{background:var(--chip);color:var(--ink);border:1px solid var(--line)}
+.btn-outline{background:#fff;color:var(--accent);border:1.5px solid var(--accent)}
+.btn-sm{padding:7px 14px;font-size:13px}
+.btn-blk{width:100%}
+
+/* âââ SCREEN 2: è¦ç©æç´° âââ */
+.est-head{background:var(--accent);color:#fff;padding:12px 16px;
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:640px;margin:0 auto}
 .est-big{font-size:22px;font-weight:700}
-.est-sub{font-size:11px;opacity:.75;margin-top:1px}
-.ecard{background:var(--panel);margin:6px 10px;border-radius:var(--radius);box-shadow:0 1px 4px rgba(0,0,0,.07);overflow:hidden;border:1px solid var(--line)}
-.ecard-top{display:flex;align-items:flex-start;padding:10px 12px 6px;gap:8px}
-.ecard-name{flex:1;font-size:13px;font-weight:600;line-height:1.35}
-.ecard-del{background:none;border:none;color:#bbb;font-size:20px;cursor:pointer;padding:0;line-height:1}
-.ecard-body{padding:0 12px 10px;display:flex;flex-direction:column;gap:6px}
-.qty-row{display:flex;align-items:center;gap:6px;font-size:13px}
-.qty-row input,.qty-row select{padding:6px 8px;border:1.5px solid var(--line);border-radius:6px;font-size:14px;font-family:inherit;text-align:right;outline:none}
+.est-sub{font-size:11px;opacity:.8;margin-top:2px}
+.est-scroll{max-width:640px;margin:0 auto;padding:8px 14px}
+.ecard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  margin:8px 0;overflow:hidden}
+.ecard-top{display:flex;align-items:flex-start;padding:12px 14px 6px;gap:8px}
+.ecard-name{flex:1;font-size:14px;font-weight:600;line-height:1.35}
+.ecard-del{background:none;border:none;color:#bbb;font-size:20px;cursor:pointer;line-height:1}
+.ecard-body{padding:0 14px 12px;display:flex;flex-direction:column;gap:6px}
+.qty-row{display:flex;align-items:center;gap:8px;font-size:13px}
+.qty-row input,.qty-row select{padding:7px 10px;border:1px solid var(--line);
+  border-radius:8px;font-size:14px;font-family:inherit;outline:none}
 .qty-row input:focus,.qty-row select:focus{border-color:var(--accent)}
 .ecard-sub{text-align:right;font-size:15px;font-weight:700;color:var(--accent);margin-left:auto}
-.memo-in{width:100%;padding:6px 10px;border:1.5px solid var(--line);border-radius:6px;font-size:12px;font-family:inherit;color:var(--sub);outline:none}
-.est-foot{background:var(--panel);border-top:1px solid var(--line);padding:10px 14px;display:flex;gap:8px;flex-shrink:0}
-.empty-msg{text-align:center;padding:50px 20px;color:var(--sub);font-size:13px;line-height:1.8}
+.memo-in{width:100%;padding:7px 10px;border:1px solid var(--line);border-radius:8px;
+  font-size:12px;font-family:inherit;color:var(--sub);outline:none}
+.est-foot{max-width:640px;margin:0 auto;padding:10px 14px;display:flex;gap:8px}
+.empty-msg{text-align:center;padding:50px 20px;color:var(--sub);font-size:14px;line-height:1.8}
 
-/* ═══ SCREEN 3: LINE報告 ═══ */
-.doc-form{padding:12px 10px;display:flex;flex-direction:column;gap:10px}
+/* âââ SCREEN 3: LINEå ±å âââ */
+.doc-wrap{max-width:640px;margin:0 auto;padding:12px 14px;display:flex;flex-direction:column;gap:10px}
 .fld{display:flex;flex-direction:column;gap:4px}
-.fld label{font-size:12px;font-weight:700;color:var(--sub)}
-.fld input,.fld select,.fld textarea{padding:9px 12px;border:1.5px solid var(--line);border-radius:8px;font-size:14px;font-family:inherit;outline:none;background:var(--panel);color:var(--ink)}
-.fld input:focus,.fld select:focus{border-color:var(--accent)}
+.fld label{font-size:13px;font-weight:700;color:var(--sub)}
+.fld input,.fld select,.fld textarea{padding:9px 12px;border:1px solid var(--line);
+  border-radius:10px;font-size:15px;font-family:inherit;outline:none;background:#fff}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--accent)}
 .fg2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.import-sec{margin:0 10px 16px;background:var(--yellow);border-radius:8px;padding:12px;border-left:3px solid #f0b429;font-size:12px;line-height:1.7;color:#5c4800}
-.import-sec strong{display:block;margin-bottom:4px;font-size:13px}
+.note-box{background:var(--accent-soft);border:1px solid #d6e6f2;border-radius:10px;
+  padding:8px 12px;font-size:12px;color:#34536b}
+.line-area{width:100%;padding:12px;border:1px solid var(--line);border-radius:10px;
+  font-size:12px;font-family:"Hiragino Kaku Gothic ProN","Meiryo",monospace;
+  line-height:1.75;resize:none;background:var(--chip);color:var(--ink)}
 
-/* ═══ ボトムシート（数量入力） ═══ */
+/* â æ°éå¥åã·ã¼ã â */
 .sheet-bg{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;display:flex;align-items:flex-end}
 .sheet-bg.hid{display:none}
-.sheet{background:var(--panel);border-radius:14px 14px 0 0;padding:16px;width:100%;max-height:88vh;overflow-y:auto}
+.sheet{background:#fff;border-radius:14px 14px 0 0;padding:16px;width:100%;max-height:80vh;overflow-y:auto}
 .handle{width:36px;height:4px;background:var(--line);border-radius:2px;margin:0 auto 14px}
 .sheet-title{font-size:16px;font-weight:700;margin-bottom:4px;color:var(--ink)}
 .sheet-meta{font-size:12px;color:var(--sub);margin-bottom:14px;line-height:1.6}
-/* ★金額プレビュー非表示 */
-.sheet-preview{display:none}
-.sheet-acts{display:flex;gap:8px;margin-top:14px}
 .sfld{display:flex;flex-direction:column;gap:4px;margin-bottom:10px}
-.sfld label{font-size:12px;font-weight:700;color:var(--sub)}
-.sfld select,.sfld input{padding:9px 12px;border:1.5px solid var(--line);border-radius:8px;font-size:14px;font-family:inherit;outline:none;color:var(--ink)}
+.sfld label{font-size:13px;font-weight:700;color:var(--sub)}
+.sfld select,.sfld input{padding:9px 12px;border:1px solid var(--line);
+  border-radius:10px;font-size:15px;font-family:inherit;outline:none}
 .sfld select:focus,.sfld input:focus{border-color:var(--accent)}
+.sheet-acts{display:flex;gap:8px;margin-top:14px}
 
-@media print{
-  .hdr,.bnav,.screen{display:none!important}
-}
+/* â èª­ã¿è¾¼ã¿ãªã¼ãã¼ã¬ã¤ â */
+#loadOverlay{display:none;position:fixed;inset:0;background:rgba(47,111,159,0.9);
+  z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:#fff}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner{width:44px;height:44px;border:4px solid rgba(255,255,255,.3);
+  border-top-color:#fff;border-radius:50%;animation:spin 0.9s linear infinite}
+
+/* â ãã¼ã¹ã â */
+#copyToast{display:none;position:fixed;bottom:72px;left:50%;transform:translateX(-50%);
+  background:var(--ok);color:#fff;padding:10px 24px;border-radius:20px;
+  font-size:14px;font-weight:700;z-index:300;white-space:nowrap}
 </style>
 </head>
 <body>
 
-<!-- ヘッダー -->
+<!-- ãããã¼ -->
 <div class="hdr">
-  <h1>⚡ SANSEI 単価</h1>
+  <h1>â¡ SANSEI åä¾¡</h1>
   <select id="clientSel" onchange="switchClient(this.value)"></select>
 </div>
 
-<!-- Screen 1: 単価一覧 -->
+<!-- ââ Screen 1: åä¾¡ä¸è¦§ ââ -->
 <div class="screen active" id="s1">
-  <div class="search-bar">
-    <input type="search" id="srch" placeholder="🔍 項目を検索…" oninput="renderList()">
+  <div class="search-wrap">
+    <input type="search" id="srch" placeholder="ð é ç®ãæ¤ç´¢â¦" oninput="renderList()">
   </div>
   <div class="cat-row" id="catRow"></div>
-  <div class="scroll" id="listArea"></div>
+  <div class="list-wrap" id="listArea"></div>
 </div>
 
-<!-- Screen 2: 見積明細 -->
+<!-- ââ Screen 2: è¦ç©æç´° ââ -->
 <div class="screen" id="s2">
-  <div class="est-head">
-    <div>
-      <div class="est-big" id="estBig">¥ 0</div>
-      <div class="est-sub" id="estSub">税抜 ¥0　税込 ¥0</div>
+  <div style="background:#fff">
+    <div class="est-head">
+      <div>
+        <div class="est-big" id="estBig">Â¥ 0</div>
+        <div class="est-sub" id="estSub">ç¨æ Â¥0ãç¨è¾¼ Â¥0</div>
+      </div>
+      <button class="btn btn-ghost btn-sm" onclick="clearEst()">ã¯ãªã¢</button>
     </div>
-    <button class="btn btn-out btn-sm" style="border-color:rgba(255,255,255,.4);color:#fff;background:transparent" onclick="clearEst()">クリア</button>
   </div>
-  <div class="scroll" id="estArea"><div class="empty-msg">← 単価一覧から<br>項目をタップして追加</div></div>
+  <div id="estArea" class="est-scroll">
+    <div class="empty-msg">â åä¾¡ä¸è¦§ãã<br>é ç®ãã¿ãããã¦è¿½å </div>
+  </div>
   <div class="est-foot">
-    <button class="btn btn-out" style="flex:1" onclick="goS('s1')">＋ 項目追加</button>
-    <button class="btn btn-accent" style="flex:1" onclick="goS('s3')">📱 LINE報告</button>
+    <button class="btn btn-outline" style="flex:1" onclick="goS('s1')">ï¼ é ç®è¿½å </button>
+    <button class="btn btn-primary" style="flex:1" onclick="goS('s3')">ð æ¸é¡ãä½ã</button>
   </div>
 </div>
 
-<!-- Screen 3: LINE報告 -->
+<!-- ââ Screen 3: LINEå ±å ââ -->
 <div class="screen" id="s3">
-  <div class="scroll">
-    <div class="doc-form">
-      <div class="fg2">
-        <div class="fld"><label>書類種別</label>
-          <select id="docType" onchange="genLine()">
-            <option value="見積書">見積書</option>
-            <option value="請求書">請求書</option>
-            <option value="完工報告">✅ 完工報告</option>
-          </select>
-        </div>
-        <div class="fld"><label>日付</label>
-          <input type="date" id="docDate" onchange="genLine()">
-        </div>
+  <div class="doc-wrap">
+    <div class="fg2">
+      <div class="fld"><label>æ¸é¡ç¨®å¥</label>
+        <select id="docType" onchange="genLine()">
+          <option value="è¦ç©æ¸">è¦ç©æ¸</option>
+          <option value="è«æ±æ¸">è«æ±æ¸</option>
+          <option value="å®å·¥å ±å">â å®å·¥å ±å</option>
+        </select>
       </div>
-      <div class="fld"><label>件名（現場名）</label>
-        <input id="docSubj" placeholder="例: 山田太郎様邸" oninput="genLine()">
-      </div>
-      <div class="fld"><label>備考</label>
-        <textarea id="docRmk" rows="2" placeholder="任意" oninput="genLine()"></textarea>
+      <div class="fld"><label>æ¥ä»</label>
+        <input type="date" id="docDate" onchange="genLine()">
       </div>
     </div>
-
-    <div style="padding:0 10px 8px">
-      <div style="font-size:12px;font-weight:700;color:var(--sub);margin-bottom:6px">📱 LINEに貼り付けるテキスト</div>
-      <textarea id="lineText" readonly rows="16"
-        style="width:100%;padding:12px 10px;border:1.5px solid var(--line);border-radius:8px;font-size:12px;font-family:'Meiryo UI','Meiryo',monospace;line-height:1.75;resize:none;background:var(--chip);color:var(--ink)"></textarea>
+    <div class="fld"><label>ä»¶åï¼ç¾å ´åï¼</label>
+      <input id="docSubj" placeholder="ä¾: å±±ç°å¤ªéæ§é¸" oninput="genLine()">
     </div>
-
-    <div style="padding:0 10px 12px">
-      <button class="btn btn-primary btn-blk" style="font-size:15px;padding:14px;gap:8px" onclick="copyLine()">
-        📋 コピーする（LINEに貼り付け）
-      </button>
+    <div class="fld"><label>åè</label>
+      <textarea id="docRmk" rows="2" placeholder="ä»»æ" oninput="genLine()"></textarea>
     </div>
-
-    <div class="import-sec">
-      <strong>🔄 単価マスター再取得</strong>
-      GitHubから最新の単価データを取得します。<br>
-      <div style="display:flex;gap:8px;margin-top:8px">
-        <button class="btn btn-ghost btn-sm" onclick="resetMaster()">🔄 最新データに更新</button>
+    <div class="fld">
+      <label>ð± LINEã«è²¼ãä»ãããã­ã¹ã</label>
+      <textarea class="line-area" id="lineText" readonly rows="14"></textarea>
+    </div>
+    <button class="btn btn-primary btn-blk" style="font-size:15px;padding:14px" onclick="copyLine()">
+      ð ã³ãã¼ããï¼LINEã«è²¼ãä»ãï¼
+    </button>
+    <div class="note-box">
+      <strong style="display:block;margin-bottom:4px;font-size:13px">ð¥ åä¾¡ãã¹ã¿ã¼æ´æ°ï¼CSVèª­ã¿è¾¼ã¿ï¼</strong>
+      åé : æè¦ / åä¾¡ / åä½ / è£è¶³ / ã«ãã´ãª
+      <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap">
+        <input type="file" id="csvIn" accept=".csv" style="display:none" onchange="importCSV(this)">
+        <button class="btn btn-ghost btn-sm" onclick="document.getElementById('csvIn').click()">ð CSVãé¸æ</button>
+        <button class="btn btn-ghost btn-sm" onclick="resetMaster()">ð GitHubããååå¾</button>
       </div>
     </div>
-
-    <div id="copyToast" style="display:none;position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--ok);color:#fff;padding:10px 24px;border-radius:20px;font-size:14px;font-weight:700;z-index:300">✓ コピーしました！</div>
   </div>
 </div>
 
-<!-- ボトムナビ -->
+<!-- ããã ãã -->
 <div class="bnav">
-  <button class="bnav-btn on" id="nb1" onclick="goS('s1')"><span class="ico">📋</span>単価一覧</button>
+  <button class="bnav-btn on" id="nb1" onclick="goS('s1')"><span class="ico">ð</span>åä¾¡ä¸è¦§</button>
   <button class="bnav-btn" id="nb2" onclick="goS('s2')">
-    <span class="ico">🧮</span>
-    <span style="display:flex;align-items:center;gap:3px">見積<span class="bdg" id="bdg" style="display:none">0</span></span>
+    <span class="ico">ð§®</span>
+    <span style="display:flex;align-items:center;gap:3px">è¦ç©<span class="bdg" id="bdg" style="display:none">0</span></span>
   </button>
-  <button class="bnav-btn" id="nb3" onclick="goS('s3')"><span class="ico">📱</span>LINE報告</button>
+  <button class="bnav-btn" id="nb3" onclick="goS('s3')"><span class="ico">ð±</span>LINEå ±å</button>
 </div>
 
-<!-- 数量入力シート -->
+<!-- æ°éå¥åã·ã¼ã -->
 <div class="sheet-bg hid" id="sheetBg">
-  <div class="sheet" id="sheetEl">
+  <div class="sheet">
     <div class="handle"></div>
     <div class="sheet-title" id="shTitle"></div>
     <div class="sheet-meta" id="shMeta"></div>
     <div id="shForm"></div>
-    <div class="sheet-preview" id="shPrev">0</div>
     <div class="sheet-acts">
-      <button class="btn btn-ghost" style="flex:1" onclick="closeSheet()">キャンセル</button>
-      <button class="btn btn-primary" style="flex:1" id="shAddBtn" onclick="confirmAdd()">見積に追加</button>
+      <button class="btn btn-ghost" style="flex:1" onclick="closeSheet()">ã­ã£ã³ã»ã«</button>
+      <button class="btn btn-primary" style="flex:1" id="shAddBtn" onclick="confirmAdd()">è¦ç©ã«è¿½å </button>
     </div>
   </div>
 </div>
 
+<!-- èª­ã¿è¾¼ã¿ãªã¼ãã¼ã¬ã¤ -->
+<div id="loadOverlay" style="display:none;position:fixed;inset:0;background:rgba(47,111,159,0.9);z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:#fff">
+  <div class="spinner"></div>
+  <div style="font-size:15px;font-weight:600">åä¾¡ãã¼ã¿ãèª­ã¿è¾¼ã¿ä¸­â¦</div>
+</div>
+
+<!-- ãã¼ã¹ã -->
+<div id="copyToast">â ã³ãã¼ãã¾ããï¼</div>
+
 <script>
-// ════════════════════════════════════════
-//  データ取得 (GitHub JSON)
-// ════════════════════════════════════════
-const JSON_URL = 'https://raw.githubusercontent.com/ishikura-sansei/sansei-app/main/sansei_prices.json';
+const JSON_URL='https://raw.githubusercontent.com/ishikura-sansei/sansei-app/main/sansei_prices.json';
+const CLI_MAP={'ãªã±ã³':'ãªã±ã³ã¨ãã¸ã¼','ã­ã§ã¦ã¨ã¤':'æ ªå¼ä¼ç¤¾ã­ã§ã¦ã¨ã¤','ã©ã¤ãº':'ã©ã¤ãºãµãã¼ã','ATEL':'ATEL','ã¢ã«ãã¡':'ã¢ã«ãã¡ã¨ã¬ã¯ãã­'};
+const LM='sm3',LE='se3';
 
-// クライアント名マッピング
-const CLI_MAP = {
-  'リケン':  'リケンエナジー',
-  'キョウエイ': '株式会社キョウエイ',
-  'ライズ': 'ライズサポート',
-  'ATEL': 'ATEL',
-  'アルファ': 'アルファエレクトロ'
-};
+// ãã¼ãããéé¡ãã­ã¹ããé¤å»
+function filterNote(note){
+  if(!note) return '';
+  return note.replace(/\+?Â¥[\d,]+(?:[ãï½\/][^\sã]*)?/g,'').replace(/\s{2,}/g,' ').trim();
+}
 
-function convertJson(raw) {
-  const result = {};
-  for (const [key, items] of Object.entries(raw)) {
-    const cliName = CLI_MAP[key] || key;
-    result[cliName] = items.map(it => ({
-      cat: it.category,
-      name: it.name,
-      p1: it.price1,
-      p2: it.price2 > 0 ? it.price2 : undefined,
-      unit: it.unit,
-      note: it.note || '',
-      inputType: it.inputType,
-      basicM: it.basicM || 0
+let M={}, pend=null, actCat='all', curC='';
+let E=JSON.parse(localStorage.getItem(LE)||'null')||{cli:'ãªã±ã³ã¨ãã¸ã¼',items:[]};
+const sM=()=>localStorage.setItem(LM,JSON.stringify(M));
+const sE=()=>localStorage.setItem(LE,JSON.stringify(E));
+const fmt=n=>n==null||isNaN(n)?'â':'Â¥'+Math.round(n).toLocaleString();
+
+function convertJson(raw){
+  const result={};
+  for(const [key,items] of Object.entries(raw)){
+    const cliName=CLI_MAP[key]||key;
+    result[cliName]=items.map(it=>({
+      cat:it.category,name:it.name,p1:it.price1,
+      p2:it.price2>0?it.price2:undefined,
+      unit:it.unit,note:it.note||'',inputType:it.inputType,variants:it.variants
     }));
   }
   return result;
 }
 
-async function fetchMaster() {
-  try {
-    const r = await fetch(JSON_URL + '?t=' + Date.now());
-    if (!r.ok) throw new Error('HTTP ' + r.status);
-    const raw = await r.json();
-    return convertJson(raw);
-  } catch(e) {
-    console.warn('JSON fetch failed:', e);
-    return null;
-  }
+async function fetchMaster(){
+  try{
+    const r=await fetch(JSON_URL+'?t='+Date.now());
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    return convertJson(await r.json());
+  }catch(e){console.warn('fetch failed:',e);return null;}
 }
 
-// カテゴリ → 色
-const CAT_C = {
-  '基本工事': '#1a5f8a',
-  '主項目': '#1a5f8a',
-  '配線・ダクト': '#2f6f9f',
-  '機器・分電盤': '#1e7558',
-  '撤去・処分': '#595959',
-  '交通・申請・その他': '#6b5e8a',
-  '人工・屋根': '#7a5500',
-  '追加作業費': '#9a3e00',  // リケン専用（旧:人工・屋根）
-  'その他': '#404040',
-};
-const cc = c => CAT_C[c] || '#404040';
-const fmt = n => n == null || isNaN(n) || n === 0 ? '—' : '¥' + Math.round(n).toLocaleString();
-
-// ─ 状態 ─
-const LM = 'sm_sansei_v6', LE = 'se_sansei_v6';
-let M = {};
-let E = JSON.parse(localStorage.getItem(LE) || 'null') || {cli: 'リケンエナジー', items: []};
-let curC = '', actCat = 'all', pend = null;
-const sM = () => localStorage.setItem(LM, JSON.stringify(M));
-const sE = () => localStorage.setItem(LE, JSON.stringify(E));
-
-// ─ ナビ ─
-function goS(id) {
-  ['s1','s2','s3'].forEach(s => document.getElementById(s).classList.remove('active'));
+// ãã
+function goS(id){
+  ['s1','s2','s3'].forEach(s=>document.getElementById(s).classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  ['nb1','nb2','nb3'].forEach(b => document.getElementById(b).classList.remove('on'));
-  document.getElementById({s1:'nb1', s2:'nb2', s3:'nb3'}[id]).classList.add('on');
-  if (id === 's2') renderEst();
-  if (id === 's3') genLine();
+  ['nb1','nb2','nb3'].forEach(b=>document.getElementById(b).classList.remove('on'));
+  document.getElementById({s1:'nb1',s2:'nb2',s3:'nb3'}[id]).classList.add('on');
+  if(id==='s2') renderEst();
+  if(id==='s3') genLine();
 }
 
-// ─ クライアント ─
-function buildCliSel() {
-  const s = document.getElementById('clientSel');
-  s.innerHTML = Object.keys(M).map(c => `<option${c === curC ? ' selected' : ''}>${c}</option>`).join('');
+// ã¯ã©ã¤ã¢ã³ã
+function buildCliSel(){
+  document.getElementById('clientSel').innerHTML=
+    Object.keys(M).map(c=>`<option${c===curC?' selected':''}>${c}</option>`).join('');
 }
-function switchClient(v) { curC = v; actCat = 'all'; buildCatRow(); renderList(); }
+function switchClient(v){curC=v;actCat='all';buildCatRow();renderList();}
 
-// ─ カテゴリ行 ─
-function buildCatRow() {
-  const cats = [...new Set((M[curC] || []).map(i => i.cat))];
-  document.getElementById('catRow').innerHTML =
-    ['all', ...cats].map(c => {
-      const bg = c === 'all' ? '#333' : cc(c);
-      return `<span class="cpill${c === actCat ? ' on' : ''}"
-        style="${c === actCat ? 'background:' + bg + ';color:#fff;border-color:' + bg : ''}"
-        onclick="setC('${c}')">${c === 'all' ? '全て' : c}</span>`;
-    }).join('');
+// ã«ãã´ãªã¿ã
+function buildCatRow(){
+  const cats=[...new Set((M[curC]||[]).map(i=>i.cat))];
+  document.getElementById('catRow').innerHTML=
+    ['all',...cats].map(c=>
+      `<span class="cpill${c===actCat?' on':''}" onclick="setC('${c}')">${c==='all'?'å¨ã¦':c}</span>`
+    ).join('');
 }
-function setC(c) { actCat = c; buildCatRow(); renderList(); }
+function setC(c){actCat=c;buildCatRow();renderList();}
 
-// ─ 単価一覧 ─
-function renderList() {
-  const q = (document.getElementById('srch').value || '').toLowerCase();
-  const items = (M[curC] || []).filter(i =>
-    (actCat === 'all' || i.cat === actCat) && (!q || i.name.toLowerCase().includes(q))
+// åä¾¡ä¸è¦§ï¼ä¾¡æ ¼éè¡¨ç¤ºã»ãã¼ãéé¡é¤å»ï¼
+function renderList(){
+  const q=(document.getElementById('srch').value||'').toLowerCase();
+  const items=(M[curC]||[]).filter(i=>
+    (actCat==='all'||i.cat===actCat)&&(!q||i.name.toLowerCase().includes(q))
   );
-  const grp = {};
-  items.forEach(i => { grp[i.cat] = grp[i.cat] || []; grp[i.cat].push(i); });
-  let h = '';
-  for (const [cat, gi] of Object.entries(grp)) {
-    const col = cc(cat);
-    h += `<div class="cat-sec">
-      <div class="cat-hdr" style="background:${col}" onclick="toggleCat(this)">
-        <span>${cat}　<span style="font-weight:400;font-size:11px;opacity:.8">${gi.length}項目</span></span>
-        <span class="chev">▼</span>
+  const grp={};
+  items.forEach(i=>{grp[i.cat]=grp[i.cat]||[];grp[i.cat].push(i);});
+  let h='';
+  for(const [cat,gi] of Object.entries(grp)){
+    h+=`<div class="cat-sec">
+      <div class="cat-hdr" onclick="toggleCat(this)">
+        <h2>${cat}<span class="count">${gi.length}é ç®</span></h2>
+        <span class="chev">â¼</span>
       </div>
       <div class="cat-body">`;
-    gi.forEach(item => {
-      const vt = item.variants
-        ? `<span style="font-size:10px;background:rgba(0,0,0,.06);padding:1px 6px;border-radius:4px;margin-left:4px">▼ ${item.variants.length}択</span>`
-        : item.p2 ? `<span style="font-size:10px;background:rgba(0,0,0,.06);padding:1px 6px;border-radius:4px;margin-left:4px">2択</span>` : '';
-      h += `<div class="irow" onclick="openSheet(${JSON.stringify(item).replace(/"/g,'&quot;')})">
+    gi.forEach(item=>{
+      const cn=filterNote(item.note);
+      const ut=item.unit?`/ ${item.unit}`:'';
+      h+=`<div class="irow" onclick="openSheet(${JSON.stringify(item).replace(/"/g,'&quot;')})">
         <div class="irow-info">
-          <div class="irow-name">${item.name}${vt}</div>
-          ${item.note ? `<div class="irow-note">${item.note}</div>` : ''}
+          <div class="irow-name">${item.name}</div>
+          ${cn?`<div class="irow-note">${cn}</div>`:''}
         </div>
-        <div class="irow-unit">/ ${item.unit}</div>
-        <div class="add-icon">＋</div>
+        <div class="irow-unit">${ut}</div>
+        <div class="add-btn">ï¼</div>
       </div>`;
     });
-    h += '</div></div>';
+    h+='</div></div>';
   }
-  if (!h) h = '<div class="empty-msg">該当なし</div>';
-  document.getElementById('listArea').innerHTML = h;
+  if(!h) h='<div class="empty-msg">è©²å½ãªã</div>';
+  document.getElementById('listArea').innerHTML=h;
 }
-function toggleCat(el) {
-  const b = el.nextElementSibling;
-  const c = b.classList.toggle('closed');
-  el.querySelector('.chev').textContent = c ? '▶' : '▼';
+function toggleCat(el){
+  const b=el.nextElementSibling;
+  el.querySelector('.chev').textContent=b.classList.toggle('closed')?'â¶':'â¼';
 }
 
-// ─ 数量シート ─
-function openSheet(item) {
-  pend = item;
-  document.getElementById('shTitle').textContent = item.name;
-  document.getElementById('shMeta').textContent = `${item.cat}`;
-  let h = '';
-  if (item.variants) {
-    h += `<div class="sfld"><label>種別を選択</label>
-    <select id="shV" onchange="calcPrev()">
-    ${item.variants.map((v,i) => `<option value="${i}">${v.l}</option>`).join('')}
+// æ°éã·ã¼ãï¼ä¾¡æ ¼ãã¬ãã¥ã¼ãªãï¼
+function openSheet(item){
+  pend=item;
+  document.getElementById('shTitle').textContent=item.name;
+  document.getElementById('shMeta').textContent=item.cat+(filterNote(item.note)?'ã'+filterNote(item.note):'');
+  let h='';
+  if(item.variants){
+    h+=`<div class="sfld"><label>ç¨®å¥ãé¸æ</label><select id="shV">
+      ${item.variants.map((v,i)=>`<option value="${i}">${v.l}</option>`).join('')}
     </select></div>`;
-  } else if (item.p2) {
-    h += `<div class="sfld"><label>種別を選択</label>
-    <select id="shP2" onchange="calcPrev()">
-      <option value="${item.p1}">基本</option>
-      <option value="${item.p2}">困難</option>
+  } else if(item.p2){
+    h+=`<div class="sfld"><label>ç¨®å¥ãé¸æ</label><select id="shP2">
+      <option value="${item.p1}">åºæ¬</option>
+      <option value="${item.p2}">å°é£</option>
     </select></div>`;
   }
-  h += `<div class="sfld"><label>数量（${item.unit}）</label>
-  <input type="number" id="shQ" value="1" min="0.5" step="1" oninput="calcPrev()"></div>`;
-  document.getElementById('shForm').innerHTML = h;
-  calcPrev();
+  h+=`<div class="sfld"><label>æ°éï¼${item.unit}ï¼</label>
+    <input type="number" id="shQ" value="1" min="0.5" step="1"></div>`;
+  document.getElementById('shForm').innerHTML=h;
   document.getElementById('sheetBg').classList.remove('hid');
 }
-function calcPrev() {
-  // 金額プレビューは非表示のため処理のみ
+function closeSheet(){document.getElementById('sheetBg').classList.add('hid');pend=null;}
+function confirmAdd(){
+  const item=pend;if(!item)return;
+  const vi=document.getElementById('shV');
+  const p2=document.getElementById('shP2');
+  const vidx=vi?parseInt(vi.value)||0:0;
+  const price=item.variants?item.variants[vidx].p:p2?parseFloat(p2.value):item.p1;
+  const label=item.variants?item.variants[vidx].l:p2?p2.options[p2.selectedIndex].text:'';
+  const qty=parseFloat(document.getElementById('shQ')?.value)||1;
+  if(E.cli!==curC){E.cli=curC;E.items=[];}
+  E.items.push({name:item.name+(label?`ï¼${label}ï¼`:''),unit:item.unit,cat:item.cat,price,qty,sub:Math.round(price*qty),memo:''});
+  sE();updBdg();closeSheet();
+  const b=document.getElementById('shAddBtn');
+  b.textContent='â è¿½å ï¼';setTimeout(()=>b.textContent='è¦ç©ã«è¿½å ',700);
 }
-function closeSheet() { document.getElementById('sheetBg').classList.add('hid'); pend = null; }
-function confirmAdd() {
-  const item = pend; if (!item) return;
-  const vi = document.getElementById('shV');
-  const p2sel = document.getElementById('shP2');
-  const vidx = vi ? parseInt(vi.value) || 0 : 0;
-  const price = item.variants ? item.variants[vidx].p
-               : p2sel ? parseFloat(p2sel.value)
-               : item.p1;
-  const label = item.variants ? item.variants[vidx].l
-               : p2sel ? p2sel.options[p2sel.selectedIndex].text
-               : '';
-  const qty = parseFloat(document.getElementById('shQ')?.value) || 1;
-  if (E.cli !== curC) { E.cli = curC; E.items = []; }
-  E.items.push({
-    name: item.name + (label ? `（${label}）` : ''),
-    unit: item.unit, cat: item.cat, price, qty,
-    sub: Math.round(price * qty), memo: ''
-  });
-  sE(); updBdg(); closeSheet();
-  const b = document.getElementById('shAddBtn');
-  b.textContent = '✓ 追加！';
-  setTimeout(() => b.textContent = '見積に追加', 700);
-}
-function updBdg() {
-  const n = E.items.length, b = document.getElementById('bdg');
-  b.textContent = n; b.style.display = n ? 'inline' : 'none';
+function updBdg(){
+  const n=E.items.length,b=document.getElementById('bdg');
+  b.textContent=n;b.style.display=n?'inline':'none';
 }
 
-// ─ 見積明細 ─
-function renderEst() {
-  const area = document.getElementById('estArea');
-  if (!E.items.length) { area.innerHTML = '<div class="empty-msg">← 単価一覧から<br>項目をタップして追加</div>'; updTot(); return; }
-  area.innerHTML = E.items.map((ei,i) => `
-  <div class="ecard">
-    <div class="ecard-top">
-      <div class="ecard-name">${ei.name}</div>
-      <button class="ecard-del" onclick="delI(${i})">✕</button>
-    </div>
-    <div class="ecard-body">
-      <div class="qty-row">
-        <span style="font-size:12px;color:var(--sub)">${fmt(ei.price)} ×</span>
-        <input type="number" value="${ei.qty}" min="0.5" step="0.5" style="width:72px" onchange="updQ(${i},this.value)">
-        <span style="color:var(--sub)">${ei.unit}</span>
-        <div class="ecard-sub">${fmt(ei.sub)}</div>
+// è¦ç©æç´°
+function renderEst(){
+  const area=document.getElementById('estArea');
+  if(!E.items.length){area.innerHTML='<div class="empty-msg">â åä¾¡ä¸è¦§ãã<br>é ç®ãã¿ãããã¦è¿½å </div>';updTot();return;}
+  area.innerHTML=E.items.map((ei,i)=>`
+    <div class="ecard">
+      <div class="ecard-top">
+        <div class="ecard-name">${ei.name}</div>
+        <button class="ecard-del" onclick="delI(${i})">â</button>
       </div>
-      <input class="memo-in" type="text" placeholder="備考（任意）" value="${ei.memo||''}" oninput="updM(${i},this.value)">
-    </div>
-  </div>`).join('');
+      <div class="ecard-body">
+        <div class="qty-row">
+          <span style="font-size:12px;color:var(--sub)">${fmt(ei.price)} Ã</span>
+          <input type="number" value="${ei.qty}" min="0.5" step="0.5" style="width:72px" onchange="updQ(${i},this.value)">
+          <span style="color:var(--sub)">${ei.unit}</span>
+          <div class="ecard-sub">${fmt(ei.sub)}</div>
+        </div>
+        <input class="memo-in" type="text" placeholder="åèï¼ä»»æï¼" value="${ei.memo||''}" oninput="updM(${i},this.value)">
+      </div>
+    </div>`).join('');
   updTot();
 }
-function updTot() {
-  const sub = E.items.reduce((s,i) => s + (i.sub||0), 0);
-  const tax = Math.floor(sub * .1);
-  document.getElementById('estBig').textContent = fmt(sub);
-  document.getElementById('estSub').textContent = `税抜 ${fmt(sub)}　税込 ${fmt(sub+tax)}`;
+function updTot(){
+  const sub=E.items.reduce((s,i)=>s+(i.sub||0),0);
+  const tax=Math.floor(sub*.1);
+  document.getElementById('estBig').textContent=fmt(sub);
+  document.getElementById('estSub').textContent=`ç¨æ ${fmt(sub)}ãç¨è¾¼ ${fmt(sub+tax)}`;
 }
-function delI(i) { E.items.splice(i,1); sE(); renderEst(); updBdg(); }
-function updQ(i, v) { const q=parseFloat(v)||1; E.items[i].qty=q; E.items[i].sub=Math.round(E.items[i].price*q); sE(); renderEst(); }
-function updM(i, v) { E.items[i].memo = v; sE(); }
-function clearEst() { if(confirm('見積をクリアしますか？')) { E.items=[]; sE(); renderEst(); updBdg(); } }
+function delI(i){E.items.splice(i,1);sE();renderEst();updBdg();}
+function updQ(i,v){const q=parseFloat(v)||1;E.items[i].qty=q;E.items[i].sub=Math.round(E.items[i].price*q);sE();renderEst();}
+function updM(i,v){E.items[i].memo=v;sE();}
+function clearEst(){if(confirm('è¦ç©ãã¯ãªã¢ãã¾ããï¼')){E.items=[];sE();renderEst();updBdg();}}
 
-// ─ LINE報告テキスト生成 ─
-const CLI_FULL = {
-  'リケンエナジー': 'リケンエナジー有限会社',
-  'ATEL': 'ATEL株式会社',
-  '株式会社キョウエイ': '株式会社キョウエイ',
-  'ライズサポート': 'ライズサポート株式会社',
-  'アルファエレクトロ': 'アルファエレクトロ株式会社'
-};
-const cFull = c => CLI_FULL[c] || c;
-
-function genLine() {
-  const dtype = document.getElementById('docType').value;
-  if (dtype === '完工報告') { genKankoLine(); return; }
-  const ddate = document.getElementById('docDate').value;
-  const dsubj = document.getElementById('docSubj').value;
-  const drmk  = document.getElementById('docRmk').value;
-  const ta    = document.getElementById('lineText');
-  if (!ddate) { const t=new Date().toISOString().slice(0,10); document.getElementById('docDate').value=t; }
-  if (!E.items.length) { ta.value='← 見積タブから項目を追加してください'; return; }
-  const sub   = E.items.reduce((s,i) => s+(i.sub||0), 0);
-  const tax   = Math.floor(sub*0.1);
-  const grand = sub + tax;
-  const fmtN  = n => '¥'+Math.round(n).toLocaleString();
-  const bar   = '─────────────────';
-  const grp   = {};
-  E.items.forEach(ei => { grp[ei.cat]=grp[ei.cat]||[]; grp[ei.cat].push(ei); });
-  const dateStr = document.getElementById('docDate').value || new Date().toISOString().slice(0,10);
-  let lines = [];
-  lines.push(`【${dtype}】`);
-  lines.push(`日付：${dateStr}`);
-  if (dsubj) lines.push(`現場：${dsubj}`);
-  lines.push(`取引先：${cFull(E.cli||curC)}`);
-  lines.push(bar); lines.push('');
-  for (const [cat, items] of Object.entries(grp)) {
-    lines.push(`■ ${cat}`);
-    items.forEach(ei => {
-      const qStr = ei.qty===1 ? '' : ` ×${ei.qty}`;
-      lines.push(`・${ei.name}${qStr}（${ei.unit}）`);
-      lines.push(`　→ ${fmtN(ei.sub)}`);
-      if (ei.memo) lines.push(`　　備考：${ei.memo}`);
+// LINEå ±å
+function genLine(){
+  const CLI_FULL={'ãªã±ã³ã¨ãã¸ã¼':'ãªã±ã³ã¨ãã¸ã¼æéä¼ç¤¾','ATEL':'ATELæ ªå¼ä¼ç¤¾','æ ªå¼ä¼ç¤¾ã­ã§ã¦ã¨ã¤':'æ ªå¼ä¼ç¤¾ã­ã§ã¦ã¨ã¤','ã©ã¤ãºãµãã¼ã':'ã©ã¤ãºãµãã¼ãæ ªå¼ä¼ç¤¾','ã¢ã«ãã¡ã¨ã¬ã¯ãã­':'ã¢ã«ãã¡ã¨ã¬ã¯ãã­æ ªå¼ä¼ç¤¾'};
+  const cFull=c=>CLI_FULL[c]||c;
+  const dtype=document.getElementById('docType').value;
+  if(dtype==='å®å·¥å ±å'){genKankoLine(cFull);return;}
+  const ddate=document.getElementById('docDate').value||new Date().toISOString().slice(0,10);
+  const dsubj=document.getElementById('docSubj').value;
+  const drmk=document.getElementById('docRmk').value;
+  const ta=document.getElementById('lineText');
+  if(!document.getElementById('docDate').value) document.getElementById('docDate').value=ddate;
+  if(!E.items.length){ta.value='â è¦ç©ã¿ãããé ç®ãè¿½å ãã¦ãã ãã';return;}
+  const sub=E.items.reduce((s,i)=>s+(i.sub||0),0);
+  const tax=Math.floor(sub*0.1);
+  const fmtN=n=>'Â¥'+Math.round(n).toLocaleString();
+  const bar='âââââââââââââââââ';
+  const grp={};E.items.forEach(ei=>{grp[ei.cat]=grp[ei.cat]||[];grp[ei.cat].push(ei);});
+  let lines=[];
+  lines.push(`ã${dtype}ã`);
+  lines.push(`æ¥ä»ï¼${ddate}`);
+  if(dsubj) lines.push(`ç¾å ´ï¼${dsubj}`);
+  lines.push(`åå¼åï¼${cFull(E.cli||curC)}`);
+  lines.push(bar);lines.push('');
+  for(const [cat,items] of Object.entries(grp)){
+    lines.push(`â  ${cat}`);
+    items.forEach(ei=>{
+      const qStr=ei.qty===1?'':` Ã${ei.qty}`;
+      lines.push(`ã»${ei.name}${qStr}ï¼${ei.unit}ï¼`);
+      lines.push(`ãâ ${fmtN(ei.sub)}`);
+      if(ei.memo) lines.push(`ããåèï¼${ei.memo}`);
     });
     lines.push('');
   }
   lines.push(bar);
-  const padL = (s,w) => s+' '.repeat(Math.max(0,w-s.length));
-  lines.push(`${padL('小計（税抜）',8)}　${fmtN(sub)}`);
-  lines.push(`${padL('消費税（10%）',8)}　${fmtN(tax)}`);
-  lines.push(`${padL('合計（税込）',8)}　${fmtN(grand)}`);
+  lines.push(`å°è¨ï¼ç¨æï¼ã${fmtN(sub)}`);
+  lines.push(`æ¶è²»ç¨ï¼10%ï¼ã${fmtN(tax)}`);
+  lines.push(`åè¨ï¼ç¨è¾¼ï¼ã${fmtN(sub+tax)}`);
   lines.push(bar);
-  if (drmk) lines.push(`備考：${drmk}`);
-  ta.value = lines.join('\n');
+  if(drmk) lines.push(`åèï¼${drmk}`);
+  ta.value=lines.join('\n');
 }
 
-function genKankoLine() {
-  const ta = document.getElementById('lineText');
-  const cli = E.cli || curC;
-  const dateStr = document.getElementById('docDate').value || new Date().toISOString().slice(0,10);
-  const dsubj = document.getElementById('docSubj').value;
-  const drmk  = document.getElementById('docRmk').value;
-  const bar   = '─────────────────';
-  const fmtN  = n => '¥'+Math.round(n).toLocaleString();
-  const sub   = E.items.reduce((s,i) => s+(i.sub||0), 0);
-  const tax   = Math.floor(sub*.1);
-  let lines = [];
-  lines.push('【完工報告】');
-  lines.push(`施工日：${dateStr}`);
-  if (dsubj) lines.push(`現場：${dsubj}`);
-  lines.push(`取引先：${cFull(cli)}`);
-  lines.push(bar); lines.push('');
-  lines.push('■ 施工内容');
-  if (E.items.length) {
-    const grp = {};
-    E.items.forEach(ei => { grp[ei.cat]=grp[ei.cat]||[]; grp[ei.cat].push(ei); });
-    for (const [cat, items] of Object.entries(grp)) {
-      items.forEach(ei => {
-        const qStr = ei.qty===1 ? '' : ` ×${ei.qty}`;
-        lines.push(`・${ei.name}${qStr}　${fmtN(ei.sub)}`);
-      });
+function genKankoLine(cFull){
+  const ta=document.getElementById('lineText');
+  const cli=E.cli||curC;
+  const dateStr=document.getElementById('docDate').value||new Date().toISOString().slice(0,10);
+  const dsubj=document.getElementById('docSubj').value;
+  const drmk=document.getElementById('docRmk').value;
+  const bar='âââââââââââââââââ';
+  const fmtN=n=>'Â¥'+Math.round(n).toLocaleString();
+  const sub=E.items.reduce((s,i)=>s+(i.sub||0),0);
+  const tax=Math.floor(sub*.1);
+  let lines=[];
+  lines.push('ãå®å·¥å ±åã');
+  lines.push(`æ½å·¥æ¥ï¼${dateStr}`);
+  if(dsubj) lines.push(`ç¾å ´ï¼${dsubj}`);
+  lines.push(`åå¼åï¼${cFull(cli)}`);
+  lines.push(bar);lines.push('');
+  lines.push('â  æ½å·¥åå®¹');
+  if(E.items.length){
+    const grp={};E.items.forEach(ei=>{grp[ei.cat]=grp[ei.cat]||[];grp[ei.cat].push(ei);});
+    for(const [cat,items] of Object.entries(grp)){
+      items.forEach(ei=>{lines.push(`ã»${ei.name}${ei.qty===1?'':' Ã'+ei.qty}ã${fmtN(ei.sub)}`);});
     }
-    lines.push(`　計：${fmtN(sub)}（税込 ${fmtN(sub+tax)}）`);
-  } else {
-    lines.push('（施工内容未入力）');
-  }
-  lines.push(''); lines.push(bar); lines.push('');
-  lines.push('■ 書類・資料チェック');
-  lines.push('□ 取扱説明書　　→ お客様・手渡し');
-  lines.push('□ 検査成績書　　→ 持ち帰り（社内）');
-  lines.push('□ 施工写真　　　→ UP先：');
-  if (cli === 'ATEL') lines.push('□ 指示書　　　　→ 元請け・返却');
-  lines.push('□ 引き渡し確認書 →');
-  lines.push('□ その他：');
-  lines.push(''); lines.push(bar); lines.push('');
-  lines.push('■ 特記事項');
-  lines.push(drmk || '（なし）');
-  ta.value = lines.join('\n');
+    lines.push(`ãè¨ï¼${fmtN(sub)}ï¼ç¨è¾¼ ${fmtN(sub+tax)}ï¼`);
+  } else {lines.push('ï¼æ½å·¥åå®¹æªå¥åï¼');}
+  lines.push('');lines.push(bar);lines.push('');
+  lines.push('â  æ¸é¡ã»è³æãã§ãã¯');
+  lines.push('â¡ åæ±èª¬ææ¸ãâ ãå®¢æ§ã»ææ¸¡ã');
+  lines.push('â¡ æ¤æ»æç¸¾æ¸ãâ æã¡å¸°ãï¼ç¤¾åï¼');
+  lines.push('â¡ æ½å·¥åçããâ UPåï¼');
+  if(cli==='ATEL') lines.push('â¡ æç¤ºæ¸ãããâ åè«ãã»è¿å´');
+  lines.push('â¡ å¼ãæ¸¡ãç¢ºèªæ¸ â');
+  lines.push('â¡ ãã®ä»ï¼');
+  lines.push('');lines.push(bar);lines.push('');
+  lines.push('â  ç¹è¨äºé ');
+  lines.push(drmk||'ï¼ãªãï¼');
+  ta.value=lines.join('\n');
 }
 
-function copyLine() {
-  const ta = document.getElementById('lineText');
-  if (!ta.value || ta.value.startsWith('←')) { alert('明細が空です\n見積タブで項目を追加してください'); return; }
-  if (navigator.clipboard && navigator.clipboard.writeText) {
-    navigator.clipboard.writeText(ta.value).then(() => showToast('✓ コピーしました！')).catch(() => fallbackCopy(ta));
-  } else { fallbackCopy(ta); }
+function copyLine(){
+  const ta=document.getElementById('lineText');
+  if(!ta.value||ta.value.startsWith('â')){alert('æç´°ãç©ºã§ã\nè¦ç©ã¿ãã§é ç®ãè¿½å ãã¦ãã ãã');return;}
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(ta.value).then(()=>showToast()).catch(()=>fallbackCopy(ta));
+  } else {fallbackCopy(ta);}
 }
-function fallbackCopy(ta) {
-  ta.select();
-  try { document.execCommand('copy'); showToast('✓ コピーしました！'); }
-  catch(e) { alert('コピーできませんでした'); }
-}
-function showToast(msg) {
-  const t = document.getElementById('copyToast');
-  t.textContent = msg; t.style.display = 'block';
-  setTimeout(() => t.style.display = 'none', 2200);
+function fallbackCopy(ta){ta.select();try{document.execCommand('copy');showToast();}catch(e){alert('ã³ãã¼ã§ãã¾ããã§ãã');}}
+function showToast(){
+  const t=document.getElementById('copyToast');
+  t.style.display='block';setTimeout(()=>t.style.display='none',2200);
 }
 
-async function resetMaster() {
-  if (confirm('GitHubから最新の単価データを再取得しますか？')) {
-    document.getElementById('loadOverlay').style.display = 'flex';
-    const fresh = await fetchMaster();
-    document.getElementById('loadOverlay').style.display = 'none';
-    if (fresh) {
-      M = fresh; sM();
-      curC = Object.keys(M)[0];
-      buildCliSel(); buildCatRow(); renderList();
-      alert('最新データに更新しました');
-    } else {
-      alert('取得に失敗しました。ネットワークを確認してください。');
-    }
+function importCSV(input){
+  const file=input.files[0];if(!file)return;
+  const reader=new FileReader();
+  reader.onload=e=>{
+    const rows=e.target.result.trim().split('\n');
+    const items=[];
+    rows.forEach((row,ri)=>{
+      if(ri===0)return;
+      const cols=row.split(',').map(c=>c.trim().replace(/^"|"$/g,''));
+      const name=cols[0]||'',price=parseInt(cols[1])||0,unit=cols[2]||'å¼',note=cols[3]||'',cat=cols[4]||'ãã®ä»';
+      if(name) items.push({name,price,unit,note,cat});
+    });
+    if(items.length){M[curC]=items;sM();buildCatRow();renderList();alert(items.length+'ä»¶ã®ãã¹ã¿ã¼ãæ´æ°ãã¾ãã');}
+    else{alert('æå¹ãªè¡ãããã¾ããã§ãã');}
+  };
+  reader.readAsText(file,'UTF-8');
+  input.value='';
+}
+
+async function resetMaster(){
+  if(confirm('GitHubããææ°ã®åä¾¡ãã¼ã¿ãååå¾ãã¾ããï¼')){
+    document.getElementById('loadOverlay').style.display='flex';
+    const fresh=await fetchMaster();
+    document.getElementById('loadOverlay').style.display='none';
+    if(fresh){M=fresh;sM();curC=Object.keys(M)[0];buildCliSel();buildCatRow();renderList();alert('ææ°ãã¼ã¿ã«æ´æ°ãã¾ãã');}
+    else{alert('åå¾ã«å¤±æãã¾ãã');}
   }
 }
 
-// ─ 初期化 ─
-window.addEventListener('DOMContentLoaded', async () => {
-  document.getElementById('loadOverlay').style.display = 'flex';
-  const fetched = await fetchMaster();
-  if (fetched) {
-    M = fetched;
-  } else {
-    const cached = localStorage.getItem(LM);
-    if (cached) { try { M = JSON.parse(cached); } catch(e) {} }
-  }
-  if (Object.keys(M).length > 0) {
-    curC = Object.keys(M)[0];
+window.addEventListener('DOMContentLoaded',async()=>{
+  document.getElementById('loadOverlay').style.display='flex';
+  const fetched=await fetchMaster();
+  if(fetched){M=fetched;}
+  else{const c=localStorage.getItem(LM);if(c){try{M=JSON.parse(c);}catch(e){}}}
+  if(Object.keys(M).length>0){
+    curC=E.cli&&M[E.cli]?E.cli:Object.keys(M)[0];
     sM();
   }
-  document.getElementById('loadOverlay').style.display = 'none';
+  document.getElementById('loadOverlay').style.display='none';
   buildCliSel();
   switchClient(curC);
   updBdg();
+  document.getElementById('docDate').valueAsDate=new Date();
 });
 </script>
-
-<!-- 読み込み中オーバーレイ -->
-<div id="loadOverlay" style="display:none;position:fixed;inset:0;background:rgba(47,111,159,0.88);z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:#fff">
-  <div style="width:48px;height:48px;border:4px solid rgba(255,255,255,.3);border-top-color:#fff;border-radius:50%;animation:spin 0.9s linear infinite"></div>
-  <div style="font-size:15px;font-weight:600">単価データを読み込み中…</div>
-</div>
-<style>@keyframes spin{to{transform:rotate(360deg)}}</style>
 </body>
 </html>
