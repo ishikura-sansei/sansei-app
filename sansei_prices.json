@@ -1,7 +1,7 @@
 {
   "ATEL": [
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "P.T 20枚迄",
       "price1": 240000,
       "price2": 0,
@@ -11,7 +11,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "T（蓄電池単体）",
       "price1": 150000,
       "price2": 0,
@@ -21,7 +21,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "P.T.E（実態セット）",
       "price1": 320000,
       "price2": 0,
@@ -31,7 +31,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "P.T.E.I（実態セット）",
       "price1": 360000,
       "price2": 0,
@@ -41,7 +41,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "T.E（実態セット）",
       "price1": 240000,
       "price2": 0,
@@ -51,7 +51,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "PEI（パネル+エコ+IH）",
       "price1": 260000,
       "price2": 0,
@@ -61,7 +61,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "EQ単体",
       "price1": 120000,
       "price2": 0,
@@ -71,7 +71,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "EQセット",
       "price1": 100000,
       "price2": 0,
@@ -81,7 +81,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "IH単体",
       "price1": 40000,
       "price2": 0,
@@ -91,7 +91,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "IHセット",
       "price1": 20000,
       "price2": 0,
@@ -101,7 +101,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "瓦施工",
       "price1": 15000,
       "price2": 0,
@@ -111,7 +111,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "3階足場無",
       "price1": 15000,
       "price2": 0,
@@ -121,7 +121,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "急勾配（6.5寸以上）",
       "price1": 25000,
       "price2": 0,
@@ -131,7 +131,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "パネル超過（通常）",
       "price1": 1500,
       "price2": 0,
@@ -141,7 +141,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "パネル超過（台形・ハーフ）",
       "price1": 750,
       "price2": 0,
@@ -151,7 +151,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "パネル手上げ",
       "price1": 15000,
       "price2": 20000,
@@ -161,7 +161,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "パネル搬入困難",
       "price1": 5000,
       "price2": 10000,
@@ -171,7 +171,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "3面以降の追加面",
       "price1": 5000,
       "price2": 0,
@@ -181,7 +181,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "重量蓄電池",
       "price1": 5000,
       "price2": 0,
@@ -191,7 +191,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "蓄電池階段搬入",
       "price1": 5000,
       "price2": 0,
@@ -201,7 +201,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "蓄電池搬入困難",
       "price1": 5000,
       "price2": 10000,
@@ -211,7 +211,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "2段ラック",
       "price1": 5000,
       "price2": 0,
@@ -221,7 +221,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "エコベースセメント",
       "price1": 2000,
       "price2": 0,
@@ -231,7 +231,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "幹線張り替え",
       "price1": 10000,
       "price2": 0,
@@ -241,7 +241,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "ヒーターバンド施工費",
       "price1": 3000,
       "price2": 0,
@@ -251,7 +251,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "床下配線",
       "price1": 5000,
       "price2": 0,
@@ -261,7 +261,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "CV-5.5",
       "price1": 800,
       "price2": 0,
@@ -271,7 +271,7 @@
       "basicM": 10
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "CV-8",
       "price1": 1000,
       "price2": 0,
@@ -281,7 +281,7 @@
       "basicM": 10
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "CV-14",
       "price1": 1200,
       "price2": 0,
@@ -291,7 +291,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "PFD16",
       "price1": 1000,
       "price2": 0,
@@ -301,7 +301,7 @@
       "basicM": 10
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "PFD28",
       "price1": 1000,
       "price2": 0,
@@ -311,7 +311,7 @@
       "basicM": 10
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "PFD36",
       "price1": 1200,
       "price2": 0,
@@ -321,7 +321,7 @@
       "basicM": 5
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "スリムダクト",
       "price1": 1000,
       "price2": 0,
@@ -331,7 +331,7 @@
       "basicM": 10
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "MDダクト",
       "price1": 1000,
       "price2": 0,
@@ -341,7 +341,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "MD役物",
       "price1": 550,
       "price2": 0,
@@ -351,7 +351,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "DC線延長",
       "price1": 600,
       "price2": 0,
@@ -361,7 +361,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "VVFケーブル",
       "price1": 800,
       "price2": 0,
@@ -371,7 +371,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "配線困難費",
       "price1": 5000,
       "price2": 0,
@@ -381,7 +381,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "PCS〜BT間PFD埋設",
       "price1": 1000,
       "price2": 0,
@@ -391,7 +391,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "ジャバラ",
       "price1": 1000,
       "price2": 0,
@@ -401,7 +401,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "MDモール（通常利用分）",
       "price1": 10000,
       "price2": 0,
@@ -411,7 +411,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "PCS追加",
       "price1": 20000,
       "price2": 0,
@@ -421,7 +421,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "追加PCS1台(ELB込み)",
       "price1": 20000,
       "price2": 0,
@@ -431,7 +431,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "リレーボックス",
       "price1": 8000,
       "price2": 0,
@@ -441,7 +441,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "MCB15A",
       "price1": 8500,
       "price2": 0,
@@ -451,7 +451,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "MCB40A",
       "price1": 8500,
       "price2": 0,
@@ -461,7 +461,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "MCB50A",
       "price1": 8500,
       "price2": 0,
@@ -471,7 +471,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "MCB60A",
       "price1": 12000,
       "price2": 0,
@@ -481,7 +481,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "ELB40A",
       "price1": 8500,
       "price2": 0,
@@ -491,7 +491,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "ELB50A",
       "price1": 8500,
       "price2": 0,
@@ -501,7 +501,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "ELB交換（75Aまで）",
       "price1": 15000,
       "price2": 0,
@@ -511,7 +511,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "スリムブレーカー30A",
       "price1": 2000,
       "price2": 0,
@@ -521,7 +521,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "東芝スリムブレーカー20A(EQ用)",
       "price1": 2000,
       "price2": 0,
@@ -531,7 +531,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "端子台",
       "price1": 4000,
       "price2": 0,
@@ -541,7 +541,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "メーター統一",
       "price1": 10000,
       "price2": 0,
@@ -551,7 +551,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "EQ1次→2次変更",
       "price1": 3500,
       "price2": 0,
@@ -561,7 +561,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "送信ユニット",
       "price1": 1000,
       "price2": 0,
@@ -571,7 +571,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "コア抜き",
       "price1": 15000,
       "price2": 0,
@@ -581,7 +581,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "点検口設置",
       "price1": 20000,
       "price2": 0,
@@ -591,7 +591,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "追加PCS設置",
       "price1": 25000,
       "price2": 0,
@@ -601,7 +601,7 @@
       "basicM": 0
     },
     {
-      "category": "撤去・処分",
+      "category": "撜去・処分",
       "name": "宅内PCS撤去・処分",
       "price1": 20000,
       "price2": 0,
@@ -611,7 +611,7 @@
       "basicM": 0
     },
     {
-      "category": "撤去・処分",
+      "category": "撜去・処分",
       "name": "蓄電池撤去処分費（2人工込）",
       "price1": 65000,
       "price2": 0,
@@ -621,7 +621,7 @@
       "basicM": 0
     },
     {
-      "category": "撤去・処分",
+      "category": "撜去・処分",
       "name": "PV撤去費（処分費含む）",
       "price1": 120000,
       "price2": 0,
@@ -631,7 +631,7 @@
       "basicM": 0
     },
     {
-      "category": "撤去・処分",
+      "category": "撜去・処分",
       "name": "処分費",
       "price1": 50000,
       "price2": 0,
@@ -641,7 +641,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "遠方交通費（50km以上）",
       "price1": 10000,
       "price2": 0,
@@ -651,7 +651,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "別日交通費",
       "price1": 10000,
       "price2": 0,
@@ -661,7 +661,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "別工程日費用",
       "price1": 50000,
       "price2": 0,
@@ -671,7 +671,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "東電申請",
       "price1": 30000,
       "price2": 0,
@@ -683,7 +683,7 @@
   ],
   "リケン": [
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "パネル＋蓄電池工事一式（〜4kW・スレート）",
       "price1": 275000,
       "price2": 0,
@@ -693,7 +693,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "パネル＋蓄電池工事一式（5kW・スレート）",
       "price1": 285000,
       "price2": 0,
@@ -703,7 +703,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "パネル＋蓄電池工事一式（6kW・スレート）",
       "price1": 295000,
       "price2": 0,
@@ -713,7 +713,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "パネル＋蓄電池工事一式（7kW・スレート）",
       "price1": 305000,
       "price2": 0,
@@ -723,7 +723,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "パネル＋蓄電池工事一式（8kW・スレート）",
       "price1": 315000,
       "price2": 0,
@@ -733,7 +733,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "太陽光単体工事（〜4kW・スレート）",
       "price1": 150000,
       "price2": 0,
@@ -743,7 +743,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "太陽光単体工事（5kW・スレート）",
       "price1": 160000,
       "price2": 0,
@@ -753,7 +753,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "太陽光単体工事（6kW・スレート）",
       "price1": 170000,
       "price2": 0,
@@ -763,7 +763,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "太陽光単体工事（7kW・スレート）",
       "price1": 180000,
       "price2": 0,
@@ -773,7 +773,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "太陽光単体工事（8kW・スレート）",
       "price1": 190000,
       "price2": 0,
@@ -783,7 +783,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "エコキュート単体工事",
       "price1": 150000,
       "price2": 0,
@@ -793,7 +793,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "蓄電池単体工事",
       "price1": 170000,
       "price2": 0,
@@ -803,7 +803,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "太陽パネル＋蓄電池工事一式＋エコキュート",
       "price1": 415000,
       "price2": 0,
@@ -813,7 +813,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "現調費用（1件目）",
       "price1": 10000,
       "price2": 0,
@@ -823,7 +823,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "現調費用（2件目以降・同日）",
       "price1": 5000,
       "price2": 0,
@@ -833,7 +833,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "屋外用ダクト(LD)延長",
       "price1": 1500,
       "price2": 0,
@@ -843,7 +843,7 @@
       "basicM": 15
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "PFD16延長",
       "price1": 1000,
       "price2": 0,
@@ -853,7 +853,7 @@
       "basicM": 15
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "PFD22延長",
       "price1": 1200,
       "price2": 0,
@@ -863,7 +863,7 @@
       "basicM": 15
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "PFD28延長",
       "price1": 1500,
       "price2": 0,
@@ -873,7 +873,7 @@
       "basicM": 15
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "PFD36延長",
       "price1": 1700,
       "price2": 0,
@@ -883,7 +883,7 @@
       "basicM": 15
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "特殊役物使用(ジャバラ、立面等)",
       "price1": 1000,
       "price2": 0,
@@ -893,7 +893,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "役物多数使用(MD/LD)",
       "price1": 10000,
       "price2": 0,
@@ -903,7 +903,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "宅内用ダクト施工(MD)",
       "price1": 10000,
       "price2": 0,
@@ -913,7 +913,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "CV-5.5 延長",
       "price1": 1000,
       "price2": 0,
@@ -923,7 +923,7 @@
       "basicM": 15
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "CV-8 延長",
       "price1": 1500,
       "price2": 0,
@@ -933,7 +933,7 @@
       "basicM": 15
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "CV-14 延長",
       "price1": 1800,
       "price2": 0,
@@ -943,7 +943,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "屋根線延長(DC)",
       "price1": 750,
       "price2": 0,
@@ -953,7 +953,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "VVF延長",
       "price1": 1200,
       "price2": 0,
@@ -963,7 +963,7 @@
       "basicM": 15
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "FCPV線",
       "price1": 800,
       "price2": 0,
@@ -973,7 +973,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "床下配線",
       "price1": 10000,
       "price2": 0,
@@ -983,7 +983,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "リレーボックス設置",
       "price1": 20000,
       "price2": 0,
@@ -993,7 +993,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "MCB追加（60A以下／60A以上）",
       "price1": 10000,
       "price2": 15000,
@@ -1003,7 +1003,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "京セラ Enerezza 追加材料費",
       "price1": 15000,
       "price2": 0,
@@ -1013,7 +1013,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "京セラEnerezza作業費",
       "price1": 25000,
       "price2": 0,
@@ -1023,7 +1023,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "ニチコン19.9 作業費",
       "price1": 25000,
       "price2": 0,
@@ -1033,7 +1033,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "追加PCS設置",
       "price1": 25000,
       "price2": 0,
@@ -1043,7 +1043,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "AiSEG設置",
       "price1": 20000,
       "price2": 0,
@@ -1053,7 +1053,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "DR対象施工",
       "price1": 10000,
       "price2": 0,
@@ -1063,7 +1063,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "EVコンセント設置",
       "price1": 25000,
       "price2": 0,
@@ -1073,7 +1073,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "機器設備メクラ処理",
       "price1": 5000,
       "price2": 0,
@@ -1083,7 +1083,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "防犯カメラ電源移植（簡易）",
       "price1": 25000,
       "price2": 0,
@@ -1093,7 +1093,7 @@
       "basicM": 0
     },
     {
-      "category": "追加作業費",
+      "category": "追加作業費・追加工事等",
       "name": "屋根急勾配・異勾配（6寸以上）",
       "price1": 25000,
       "price2": 0,
@@ -1103,7 +1103,7 @@
       "basicM": 0
     },
     {
-      "category": "追加作業費",
+      "category": "追加作業費・追加工事等",
       "name": "難工事",
       "price1": 50000,
       "price2": 0,
@@ -1113,7 +1113,7 @@
       "basicM": 0
     },
     {
-      "category": "追加作業費",
+      "category": "追加作業費・追加工事等",
       "name": "瓦屋根施工作業費",
       "price1": 25000,
       "price2": 0,
@@ -1123,7 +1123,7 @@
       "basicM": 0
     },
     {
-      "category": "追加作業費",
+      "category": "追加作業費・追加工事等",
       "name": "3F施工（危険作業費）",
       "price1": 25000,
       "price2": 0,
@@ -1133,7 +1133,7 @@
       "basicM": 0
     },
     {
-      "category": "追加作業費",
+      "category": "追加作業費・追加工事等",
       "name": "搬入困難作業費",
       "price1": 25000,
       "price2": 0,
@@ -1143,7 +1143,7 @@
       "basicM": 0
     },
     {
-      "category": "追加作業費",
+      "category": "追加作業費・追加工事等",
       "name": "パネル手上げ作業費",
       "price1": 25000,
       "price2": 0,
@@ -1153,7 +1153,7 @@
       "basicM": 0
     },
     {
-      "category": "追加作業費",
+      "category": "追加作業費・追加工事等",
       "name": "蓄電池2段ラック施工",
       "price1": 25000,
       "price2": 0,
@@ -1163,7 +1163,7 @@
       "basicM": 0
     },
     {
-      "category": "追加作業費",
+      "category": "追加作業費・追加工事等",
       "name": "電気工事難工事一式",
       "price1": 50000,
       "price2": 0,
@@ -1173,7 +1173,7 @@
       "basicM": 0
     },
     {
-      "category": "追加作業費",
+      "category": "追加作業費・追加工事等",
       "name": "穴あけ困難（コア・タイル等）",
       "price1": 15000,
       "price2": 0,
@@ -1183,7 +1183,7 @@
       "basicM": 0
     },
     {
-      "category": "追加作業費",
+      "category": "追加作業費・追加工事等",
       "name": "ブロック嵩上げ",
       "price1": 10000,
       "price2": 0,
@@ -1193,7 +1193,7 @@
       "basicM": 0
     },
     {
-      "category": "撤去・処分",
+      "category": "撜去・処分",
       "name": "PCS類撤去・処分(1台につき)",
       "price1": 20000,
       "price2": 0,
@@ -1203,7 +1203,7 @@
       "basicM": 0
     },
     {
-      "category": "撤去・処分",
+      "category": "撜去・処分",
       "name": "蓄電池撤去・処分費（1台につき）",
       "price1": 50000,
       "price2": 0,
@@ -1213,7 +1213,7 @@
       "basicM": 0
     },
     {
-      "category": "撤去・処分",
+      "category": "撜去・処分",
       "name": "PV撤去・処分(1枚につき)",
       "price1": 10000,
       "price2": 0,
@@ -1223,7 +1223,7 @@
       "basicM": 0
     },
     {
-      "category": "撤去・処分",
+      "category": "撜去・処分",
       "name": "その他既設機器撤去・処分",
       "price1": 0,
       "price2": 0,
@@ -1233,7 +1233,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "遠方交通費（100km）",
       "price1": 15000,
       "price2": 0,
@@ -1243,7 +1243,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "追加工程分交通費",
       "price1": 10000,
       "price2": 0,
@@ -1253,7 +1253,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "追加行程分(状況により)",
       "price1": 50000,
       "price2": 0,
@@ -1265,7 +1265,7 @@
   ],
   "キョウエイ": [
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "基本設置 〜4kW スレート屋根",
       "price1": 200000,
       "price2": 0,
@@ -1275,7 +1275,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "基本設置 〜4kW 瓦屋根",
       "price1": 230000,
       "price2": 0,
@@ -1285,7 +1285,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "基本設置 5kW以上 スレート屋根",
       "price1": 240000,
       "price2": 0,
@@ -1295,7 +1295,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "基本設置 5kW以上 瓦屋根",
       "price1": 270000,
       "price2": 0,
@@ -1305,7 +1305,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "6kW以上 追加（kW毎加算）",
       "price1": 40000,
       "price2": 0,
@@ -1315,7 +1315,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "足場 2Fまで",
       "price1": 170000,
       "price2": 0,
@@ -1325,7 +1325,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "屋根足場",
       "price1": 220000,
       "price2": 0,
@@ -1335,7 +1335,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "蓄電池設置工事（単機能）",
       "price1": 200000,
       "price2": 0,
@@ -1345,7 +1345,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "蓄電池設置工事（ハイブリッド）",
       "price1": 220000,
       "price2": 0,
@@ -1355,7 +1355,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "ネット接続（無線中継器）",
       "price1": 15000,
       "price2": 0,
@@ -1365,7 +1365,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "エコキュート設置工事（単体）",
       "price1": 160000,
       "price2": 0,
@@ -1375,7 +1375,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "IHクッキングヒーター設置工事",
       "price1": 70000,
       "price2": 0,
@@ -1385,7 +1385,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "PV多面設置（4面目から1面）",
       "price1": 15000,
       "price2": 0,
@@ -1395,7 +1395,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "急勾配工事（6寸）",
       "price1": 30000,
       "price2": 0,
@@ -1405,7 +1405,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "野地板裏補強工事（5kWまで）",
       "price1": 50000,
       "price2": 0,
@@ -1415,7 +1415,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "パワコン新規2台設置同時設置",
       "price1": 30000,
       "price2": 0,
@@ -1425,7 +1425,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "特殊工事（足場設置不可・難工事等）",
       "price1": 0,
       "price2": 0,
@@ -1435,7 +1435,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "搬入困難（工員増員）",
       "price1": 0,
       "price2": 0,
@@ -1445,7 +1445,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "オムロン蓄電池 庇設置取付",
       "price1": 3000,
       "price2": 0,
@@ -1455,7 +1455,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "電気配線延長",
       "price1": 1500,
       "price2": 0,
@@ -1465,7 +1465,7 @@
       "basicM": 10
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "リモコン線延長",
       "price1": 1500,
       "price2": 0,
@@ -1475,7 +1475,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "幹線張替延長（CV14）",
       "price1": 2000,
       "price2": 0,
@@ -1485,7 +1485,7 @@
       "basicM": 10
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "ケーブル埋設工事",
       "price1": 0,
       "price2": 0,
@@ -1495,7 +1495,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "ケーブル飛ばし",
       "price1": 0,
       "price2": 0,
@@ -1505,7 +1505,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "LANケーブル",
       "price1": 500,
       "price2": 0,
@@ -1515,7 +1515,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "配管延長（4m以上）",
       "price1": 2000,
       "price2": 0,
@@ -1525,7 +1525,7 @@
       "basicM": 4
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "配管ダクト使用（太陽光・EQ）",
       "price1": 4000,
       "price2": 0,
@@ -1535,7 +1535,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "エコキュート用ヒーターバンド",
       "price1": 3000,
       "price2": 0,
@@ -1545,7 +1545,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "新築先行配線・配管",
       "price1": 50000,
       "price2": 0,
@@ -1555,7 +1555,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "MCCB交換（60Aまで）",
       "price1": 15000,
       "price2": 0,
@@ -1565,7 +1565,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "ELBの交換（75Aまで）",
       "price1": 30000,
       "price2": 0,
@@ -1575,7 +1575,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "専用コンセント増設工事",
       "price1": 15000,
       "price2": 0,
@@ -1585,7 +1585,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "分電盤交換（機器代別途）",
       "price1": 40000,
       "price2": 0,
@@ -1595,7 +1595,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "メーターBOX",
       "price1": 5000,
       "price2": 0,
@@ -1605,7 +1605,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "コンクリート基礎コア抜き",
       "price1": 30000,
       "price2": 0,
@@ -1615,7 +1615,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "ハイブリット蓄電池 系統組換え（PV既設）",
       "price1": 100000,
       "price2": 0,
@@ -1625,7 +1625,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "点検口",
       "price1": 10000,
       "price2": 0,
@@ -1635,7 +1635,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "機器代金（分電盤・アンテナ等）",
       "price1": 0,
       "price2": 0,
@@ -1645,7 +1645,7 @@
       "basicM": 0
     },
     {
-      "category": "撤去・処分",
+      "category": "撜去・処分",
       "name": "アンテナ移設・撤去",
       "price1": 60000,
       "price2": 0,
@@ -1655,7 +1655,7 @@
       "basicM": 0
     },
     {
-      "category": "撤去・処分",
+      "category": "撜去・処分",
       "name": "温水ソーラー撤去費用",
       "price1": 70000,
       "price2": 0,
@@ -1665,7 +1665,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "事前先行基礎工事（蓄電池・EQ）",
       "price1": 70000,
       "price2": 0,
@@ -1675,7 +1675,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "風呂循環口交換",
       "price1": 5000,
       "price2": 0,
@@ -1685,7 +1685,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "風呂循環口新設",
       "price1": 10000,
       "price2": 0,
@@ -1695,7 +1695,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "リモコン追加・移設",
       "price1": 10000,
       "price2": 0,
@@ -1705,7 +1705,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "ヒートポンプ2段置き架台設置",
       "price1": 5000,
       "price2": 0,
@@ -1715,7 +1715,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "加圧ポンプ設置のみ",
       "price1": 15000,
       "price2": 0,
@@ -1725,7 +1725,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "砂こし器設置のみ",
       "price1": 15000,
       "price2": 0,
@@ -1735,7 +1735,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "エアコン室外機移設",
       "price1": 70000,
       "price2": 0,
@@ -1745,7 +1745,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "レンジフード交換",
       "price1": 70000,
       "price2": 0,
@@ -1755,7 +1755,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "電気式オーブン設置",
       "price1": 70000,
       "price2": 0,
@@ -1765,7 +1765,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "遠方交通費（50km以上片道）",
       "price1": 10000,
       "price2": 0,
@@ -1777,7 +1777,7 @@
   ],
   "ライズ": [
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "基本設置 〜4kW スレート屋根",
       "price1": 200000,
       "price2": 0,
@@ -1787,7 +1787,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "基本設置 〜4kW 瓦屋根",
       "price1": 230000,
       "price2": 0,
@@ -1797,7 +1797,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "基本設置 5kW以上 スレート屋根",
       "price1": 240000,
       "price2": 0,
@@ -1807,7 +1807,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "基本設置 5kW以上 瓦屋根",
       "price1": 270000,
       "price2": 0,
@@ -1817,7 +1817,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "6kW以上 追加（kW毎加算）",
       "price1": 40000,
       "price2": 0,
@@ -1827,7 +1827,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "足場 2Fまで",
       "price1": 170000,
       "price2": 0,
@@ -1837,7 +1837,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "屋根足場",
       "price1": 220000,
       "price2": 0,
@@ -1847,7 +1847,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "蓄電池設置工事（単機能）",
       "price1": 200000,
       "price2": 0,
@@ -1857,7 +1857,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "蓄電池設置工事（ハイブリッド）",
       "price1": 220000,
       "price2": 0,
@@ -1867,7 +1867,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "ネット接続（無線中継器）",
       "price1": 15000,
       "price2": 0,
@@ -1877,7 +1877,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "エコキュート設置工事（単体）",
       "price1": 160000,
       "price2": 0,
@@ -1887,7 +1887,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "IHクッキングヒーター設置工事",
       "price1": 70000,
       "price2": 0,
@@ -1897,7 +1897,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "PV多面設置（4面目から1面）",
       "price1": 15000,
       "price2": 0,
@@ -1907,7 +1907,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "急勾配工事（6寸）",
       "price1": 30000,
       "price2": 0,
@@ -1917,7 +1917,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "野地板裏補強工事（5kWまで）",
       "price1": 50000,
       "price2": 0,
@@ -1927,7 +1927,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "パワコン新規2台設置同時設置",
       "price1": 30000,
       "price2": 0,
@@ -1937,7 +1937,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "特殊工事（足場設置不可・難工事等）",
       "price1": 0,
       "price2": 0,
@@ -1947,7 +1947,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "搬入困難（工員増員）",
       "price1": 0,
       "price2": 0,
@@ -1957,7 +1957,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "オムロン蓄電池 庇設置取付",
       "price1": 3000,
       "price2": 0,
@@ -1967,7 +1967,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "電気配線延長",
       "price1": 1500,
       "price2": 0,
@@ -1977,7 +1977,7 @@
       "basicM": 10
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "リモコン線延長",
       "price1": 1500,
       "price2": 0,
@@ -1987,7 +1987,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "幹線張替延長（CV14）",
       "price1": 2000,
       "price2": 0,
@@ -1997,7 +1997,7 @@
       "basicM": 10
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "ケーブル埋設工事",
       "price1": 0,
       "price2": 0,
@@ -2007,7 +2007,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "ケーブル飛ばし",
       "price1": 0,
       "price2": 0,
@@ -2017,7 +2017,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "LANケーブル",
       "price1": 500,
       "price2": 0,
@@ -2027,7 +2027,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "配管延長（4m以上）",
       "price1": 2000,
       "price2": 0,
@@ -2037,7 +2037,7 @@
       "basicM": 4
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "配管ダクト使用（太陽光・EQ）",
       "price1": 4000,
       "price2": 0,
@@ -2047,7 +2047,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "エコキュート用ヒーターバンド",
       "price1": 3000,
       "price2": 0,
@@ -2057,7 +2057,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "新築先行配線・配管",
       "price1": 50000,
       "price2": 0,
@@ -2067,7 +2067,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "MCCB交換（60Aまで）",
       "price1": 15000,
       "price2": 0,
@@ -2077,7 +2077,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "ELBの交換（75Aまで）",
       "price1": 30000,
       "price2": 0,
@@ -2087,7 +2087,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "専用コンセント増設工事",
       "price1": 15000,
       "price2": 0,
@@ -2097,7 +2097,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "分電盤交換（機器代別途）",
       "price1": 40000,
       "price2": 0,
@@ -2107,7 +2107,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "メーターBOX",
       "price1": 5000,
       "price2": 0,
@@ -2117,7 +2117,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "コンクリート基礎コア抜き",
       "price1": 30000,
       "price2": 0,
@@ -2127,7 +2127,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "ハイブリット蓄電池 系統組換え（PV既設）",
       "price1": 100000,
       "price2": 0,
@@ -2137,7 +2137,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "点検口",
       "price1": 10000,
       "price2": 0,
@@ -2147,7 +2147,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "機器代金（分電盤・アンテナ等）",
       "price1": 0,
       "price2": 0,
@@ -2157,7 +2157,7 @@
       "basicM": 0
     },
     {
-      "category": "撤去・処分",
+      "category": "撜去・処分",
       "name": "アンテナ移設・撤去",
       "price1": 60000,
       "price2": 0,
@@ -2167,7 +2167,7 @@
       "basicM": 0
     },
     {
-      "category": "撤去・処分",
+      "category": "撜去・処分",
       "name": "温水ソーラー撤去費用",
       "price1": 70000,
       "price2": 0,
@@ -2177,7 +2177,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "事前先行基礎工事（蓄電池・EQ）",
       "price1": 70000,
       "price2": 0,
@@ -2187,7 +2187,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "風呂循環口交換",
       "price1": 5000,
       "price2": 0,
@@ -2197,7 +2197,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "風呂循環口新設",
       "price1": 10000,
       "price2": 0,
@@ -2207,7 +2207,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "リモコン追加・移設",
       "price1": 10000,
       "price2": 0,
@@ -2217,7 +2217,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "ヒートポンプ2段置き架台設置",
       "price1": 5000,
       "price2": 0,
@@ -2227,7 +2227,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "加圧ポンプ設置のみ",
       "price1": 15000,
       "price2": 0,
@@ -2237,7 +2237,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "砂こし器設置のみ",
       "price1": 15000,
       "price2": 0,
@@ -2247,7 +2247,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "エアコン室外機移設",
       "price1": 70000,
       "price2": 0,
@@ -2257,7 +2257,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "レンジフード交換",
       "price1": 70000,
       "price2": 0,
@@ -2267,7 +2267,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "電気式オーブン設置",
       "price1": 70000,
       "price2": 0,
@@ -2277,7 +2277,7 @@
       "basicM": 0
     },
     {
-      "category": "交通・申請・その他",
+      "category": "その他",
       "name": "遠方交通費（50km以上片道）",
       "price1": 10000,
       "price2": 0,
@@ -2289,7 +2289,7 @@
   ],
   "アルファ": [
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "パネル＋蓄電池工事一式（〜4kW）",
       "price1": 270000,
       "price2": 0,
@@ -2299,7 +2299,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "パネル＋蓄電池工事一式（5kW）",
       "price1": 278000,
       "price2": 0,
@@ -2309,7 +2309,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "パネル＋蓄電池工事一式（6kW）",
       "price1": 286000,
       "price2": 0,
@@ -2319,7 +2319,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "パネル＋蓄電池工事一式（7kW）",
       "price1": 294000,
       "price2": 0,
@@ -2329,7 +2329,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "パネル＋蓄電池工事一式（8kW）",
       "price1": 302000,
       "price2": 0,
@@ -2339,7 +2339,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "太陽光単体工事（〜4kW）",
       "price1": 110000,
       "price2": 0,
@@ -2349,7 +2349,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "太陽光単体工事（5kW）",
       "price1": 118000,
       "price2": 0,
@@ -2359,7 +2359,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "太陽光単体工事（6kW）",
       "price1": 126000,
       "price2": 0,
@@ -2369,7 +2369,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "太陽光単体工事（7kW）",
       "price1": 134000,
       "price2": 0,
@@ -2379,7 +2379,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "太陽光単体工事（8kW）",
       "price1": 142000,
       "price2": 0,
@@ -2389,7 +2389,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "蓄電池単体工事",
       "price1": 160000,
       "price2": 0,
@@ -2399,7 +2399,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "現調費（1件目）",
       "price1": 20000,
       "price2": 0,
@@ -2409,7 +2409,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（単体）",
       "name": "現調費（2件目以降・同日）",
       "price1": 10000,
       "price2": 0,
@@ -2419,7 +2419,7 @@
       "basicM": 0
     },
     {
-      "category": "基本工事",
+      "category": "基本工事（セット）",
       "name": "パネル6kW以降加算",
       "price1": 8000,
       "price2": 0,
@@ -2429,7 +2429,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "瓦屋根",
       "price1": 25000,
       "price2": 0,
@@ -2439,7 +2439,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "急こう配 6寸",
       "price1": 25000,
       "price2": 0,
@@ -2449,7 +2449,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "パネル手上げ",
       "price1": 25000,
       "price2": 0,
@@ -2459,7 +2459,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "搬入困難",
       "price1": 25000,
       "price2": 0,
@@ -2469,7 +2469,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "PV３面以降",
       "price1": 8000,
       "price2": 0,
@@ -2479,7 +2479,7 @@
       "basicM": 0
     },
     {
-      "category": "人工・屋根",
+      "category": "追加作業費・追加工事等",
       "name": "蓄電池基礎（1台当たり）",
       "price1": 40000,
       "price2": 0,
@@ -2489,7 +2489,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "PFD延長",
       "price1": 1000,
       "price2": 0,
@@ -2499,7 +2499,7 @@
       "basicM": 10
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "スリムダクト延長",
       "price1": 1200,
       "price2": 0,
@@ -2509,7 +2509,7 @@
       "basicM": 10
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "屋根線延長（DC）",
       "price1": 800,
       "price2": 0,
@@ -2519,7 +2519,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "CV5.5 延長",
       "price1": 800,
       "price2": 0,
@@ -2529,7 +2529,7 @@
       "basicM": 10
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "CV8 延長",
       "price1": 1200,
       "price2": 0,
@@ -2539,7 +2539,7 @@
       "basicM": 10
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "CV14",
       "price1": 1500,
       "price2": 0,
@@ -2549,7 +2549,7 @@
       "basicM": 0
     },
     {
-      "category": "配線・ダクト",
+      "category": "配線・電線類",
       "name": "MDモール（通常利用分）",
       "price1": 10000,
       "price2": 0,
@@ -2559,7 +2559,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "MCB・ELB設置 50Aまで",
       "price1": 13000,
       "price2": 0,
@@ -2569,7 +2569,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "MCB・ELB設置 75Aまで",
       "price1": 18000,
       "price2": 0,
@@ -2579,7 +2579,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "フリーボックスW",
       "price1": 7000,
       "price2": 0,
@@ -2589,7 +2589,7 @@
       "basicM": 0
     },
     {
-      "category": "機器・分電盤",
+      "category": "部材追加等",
       "name": "点検口設置",
       "price1": 15000,
       "price2": 0,
