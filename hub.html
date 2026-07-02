@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>SANSEI 管理ハブ</title>
+<style>
+  :root{--orange:#F5820A;--navy:#1F2A44;--cream:#FCEBD9;--line:#e7e7ea;--muted:#6b7280;}
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  body{margin:0;background:#f4f5f7;color:var(--navy);font-family:-apple-system,"Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;line-height:1.5;}
+  header{background:linear-gradient(135deg,var(--navy),#2c3a5e);color:#fff;padding:22px 18px 18px;}
+  .logo{font-size:26px;font-weight:800;letter-spacing:1px;}
+  .logo b{color:var(--orange);}
+  header p{margin:6px 0 0;font-size:13px;opacity:.85;}
+  .wrap{max-width:640px;margin:0 auto;padding:14px 14px 40px;}
+  .sec{margin-top:22px;}
+  .sec h2{font-size:15px;margin:0 0 10px;padding-left:10px;border-left:5px solid var(--orange);}
+  a.card{display:flex;align-items:center;gap:12px;background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:14px 15px;margin-bottom:10px;text-decoration:none;color:var(--navy);box-shadow:0 1px 2px rgba(0,0,0,.04);}
+  a.card:active{background:var(--cream);}
+  .ic{width:40px;height:40px;flex:none;border-radius:11px;background:var(--cream);color:var(--orange);
+    display:flex;align-items:center;justify-content:center;font-size:19px;font-weight:800;}
+  .tx{min-width:0;}
+  .tx .t{font-weight:700;font-size:15px;}
+  .tx .d{font-size:12px;color:var(--muted);margin-top:2px;}
+  .arw{margin-left:auto;color:#c3c6cc;font-size:20px;flex:none;}
+  .note{background:#fff;border:1px dashed var(--line);border-radius:12px;padding:12px 14px;font-size:12.5px;color:var(--muted);margin-top:8px;}
+  footer{text-align:center;font-size:11px;color:var(--muted);padding:20px;}
+</style>
+</head>
+<body>
+<header>
+  <div class="logo"><b>SAN</b>SEI 管理ハブ</div>
+  <p>各システム・シート・アプリの入口／ishikura@sanse-info.com</p>
+</header>
+<div class="wrap">
+
+  <div class="sec">
+    <h2>社員が使うアプリ（スマホ）</h2>
+    <a class="card" href="https://script.google.com/macros/s/AKfycbzPnmPHEfO1UD7e_yjzQyK3NnvR3bQYeM29EqFKr-kaNd53_OYsWnwtmE2644Newe7H/exec" target="_blank"><span class="ic">経</span><span class="tx"><div class="t">経費申請アプリ</div><div class="d">領収書を撮って経費・立替を申請</div></span><span class="arw">›</span></a>
+    <a class="card" href="https://script.google.com/macros/s/AKfycbyMtBVXHBju8VcIn-XcSMbfAy_22CWbarfehuHIpMl5EzvsnZqS9ACfbdlJIS1KdB0X/exec" target="_blank"><span class="ic">請</span><span class="tx"><div class="t">請求書 受け取りアプリ</div><div class="d">受領した請求書を撮って登録</div></span><span class="arw">›</span></a>
+    <a class="card" href="https://sansei-survey.netlify.app" target="_blank"><span class="ic">現</span><span class="tx"><div class="t">現調アプリ</div><div class="d">現地調査シート（記録・写真）</div></span><span class="arw">›</span></a>
+    <a class="card" href="https://ishikura-sansei.github.io/sansei-app/" target="_blank"><span class="ic">単</span><span class="tx"><div class="t">単価アプリ</div><div class="d">工事単価の参照</div></span><span class="arw">›</span></a>
+    <a class="card" href="https://script.google.com/macros/s/AKfycbwWTKB9nET2l4U-ODlpcNUlRUNTpsUdJlJPKzF0ZIUvq6Tval5ed3Mtct7omMN6MSH-/exec" target="_blank"><span class="ic">入</span><span class="tx"><div class="t">入退場アプリ</div><div class="d">現場の入退場記録</div></span><span class="arw">›</span></a>
+  </div>
+
+  <div class="sec">
+    <h2>会計・支出（正本とデータ）</h2>
+    <a class="card" href="https://docs.google.com/spreadsheets/d/1DWor3XpNtoTHqv_H-smTuab173iDQCi6UX3pCWztD-A/edit" target="_blank"><span class="ic">★</span><span class="tx"><div class="t">支出月次 v8 正本</div><div class="d">7タブの司令塔（①〜⑦税理士提出）</div></span><span class="arw">›</span></a>
+    <a class="card" href="https://docs.google.com/spreadsheets/d/1zoTJ964Kifd8UC7orN478payW0kv_mW_s1zE0Fa-FnA/edit" target="_blank"><span class="ic">経</span><span class="tx"><div class="t">経費DB</div><div class="d">経費アプリの送信先（→④/⑥）</div></span><span class="arw">›</span></a>
+    <a class="card" href="https://docs.google.com/spreadsheets/d/1kaIuMnRbzWVGP-Xu0O-tDJuZbPjwqBAEXiRLkNPmkCc/edit" target="_blank"><span class="ic">支</span><span class="tx"><div class="t">支払DB（請求DB）</div><div class="d">請求アプリの送信先（→③）</div></span><span class="arw">›</span></a>
+  </div>
+
+  <div class="sec">
+    <h2>マスタ・台帳（大元）</h2>
+    <a class="card" href="https://docs.google.com/spreadsheets/d/1VhrrGRXwWKTns9RRHlllipa1MqMIs1Eb6vXd-mkNjE0/edit" target="_blank"><span class="ic">台</span><span class="tx"><div class="t">工事単価 データ台帳 v5</div><div class="d">★ここだけ直す→3出力へ反映</div></span><span class="arw">›</span></a>
+    <a class="card" href="https://drive.google.com/file/d/1vTW2zsWy-yysmAH9-FklNqrMSWKOzNFZ/view" target="_blank"><span class="ic">見</span><span class="tx"><div class="t">取引先提出用 単価表 v6</div><div class="d">お客様提出用（台帳から生成）</div></span><span class="arw">›</span></a>
+  </div>
+
+  <div class="sec">
+    <h2>アプリのデータ置き場（DB）</h2>
+    <a class="card" href="https://docs.google.com/spreadsheets/d/1dsdU9KJEKYKohImeKQIJ9kiOB4UiU5Rb7L4_sgex22M/edit" target="_blank"><span class="ic">現</span><span class="tx"><div class="t">現調DB</div><div class="d">現調アプリのデータ</div></span><span class="arw">›</span></a>
+    <a class="card" href="https://docs.google.com/spreadsheets/d/1onPpspv_7Ib-5hn9hG1IrU3jrzQg24AfQx5huI1scUo/edit" target="_blank"><span class="ic">入</span><span class="tx"><div class="t">入退場記録</div><div class="d">入退場アプリのデータ</div></span><span class="arw">›</span></a>
+  </div>
+
+  <div class="sec">
+    <h2>記録・仕様書（本丸）</h2>
+    <a class="card" href="https://drive.google.com/file/d/1zjxszQ7_mCyl7RNZuLt0il4Noueac3hk/view" target="_blank"><span class="ic">仕</span><span class="tx"><div class="t">システム仕様書 20260702</div><div class="d">会計・アプリの総合仕様</div></span><span class="arw">›</span></a>
+    <a class="card" href="https://drive.google.com/file/d/1vZMJVk1_RQq5lmgo4cfcfHXdfnb8er5h/view" target="_blank"><span class="ic">記</span><span class="tx"><div class="t">支出月次 記録</div><div class="d">会計系の現状記録</div></span><span class="arw">›</span></a>
+    <a class="card" href="https://drive.google.com/file/d/1ynP_1UZsVuPrJ_w1NOMBQXFf8vmJ-TJV/view" target="_blank"><span class="ic">変</span><span class="tx"><div class="t">変動情報</div><div class="d">アプリ系の版・IDの正</div></span><span class="arw">›</span></a>
+  </div>
+
+  <div class="note">開かないリンクは共有未設定の可能性があります（ishikura@ で共有）。「1.3住宅用施工写真格納用」は対象外。</div>
+</div>
+<footer>SANSEI 管理ハブ ／ 内勤用インデックス</footer>
+</body>
+</html>
