@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+<title>SANSEI 完工報告</title>
+<style>
+:root{
+  --bg:#f4f5f7;--panel:#ffffff;--line:#e7e9ee;--ink:#111827;--sub:#6b7280;
+  --accent:#f97316;--accent-deep:#c2410c;--accent-soft:#fff1e6;
+  --ok:#2e7d32;--warn:#c08a00;--chip:#f3f5f7;--radius:16px;
+  --danger:#dc2626;--yellow:#fff7e6;--bnav:56px;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+html,body{background:var(--bg);color:var(--ink);
+  font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif;
+  font-size:16px;line-height:1.5}
+body{padding-bottom:112px}
+
+/* ─ ヘッダー ─ */
+.hdr{position:sticky;top:0;background:#fff;border-bottom:1px solid var(--line);
+  padding:10px 16px 12px;z-index:20;box-shadow:0 1px 0 rgba(17,24,39,.02)}
+.hdr::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;
+  background:linear-gradient(90deg,var(--accent),#fbbf24)}
+.hdr h1{font-size:17px;font-weight:800;color:var(--ink);margin:0 0 8px;letter-spacing:.02em}
+.cli-label{display:block;font-size:11px;font-weight:800;color:var(--accent-deep);margin:0 0 4px;letter-spacing:.02em}
+.hdr select{width:100%;padding:12px 38px 12px 13px;border:1.5px solid var(--accent);border-radius:11px;
+  font-size:16px;font-weight:800;font-family:inherit;background-color:var(--accent-soft);color:var(--accent-deep);outline:none;
+  appearance:none;-webkit-appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23c2410c' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'><polyline points='6 9 12 15 18 9'/></svg>");
+  background-repeat:no-repeat;background-position:right 13px center}
+.hdr select:focus{box-shadow:0 0 0 3px var(--accent-soft)}
+
+/* ─ 画面管理 ─ */
+.screen{display:none}
+.screen.active{display:block}
+
+/* ─ 検索バー ─ */
+.search-wrap{max-width:640px;margin:0 auto;padding:12px 14px 0}
+.search-wrap input{width:100%;padding:11px 14px;border:1.5px solid var(--line);
+  border-radius:11px;font-size:16px;font-family:inherit;outline:none;background:#fff;color:var(--ink)}
+.search-wrap input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+
+/* ─ カテゴリタブ ─ */
+.cat-row{max-width:640px;margin:0 auto;display:flex;gap:8px;overflow-x:auto;
+  padding:10px 14px;scrollbar-width:none}
+.cat-row::-webkit-scrollbar{display:none}
+.cpill{display:inline-flex;align-items:center;background:var(--chip);
+  border:1.5px solid var(--line);border-radius:999px;padding:7px 15px;
+  font-size:13px;color:var(--ink);white-space:nowrap;cursor:pointer;flex-shrink:0;
+  font-family:inherit;font-weight:700}
+.cpill.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+
+/* ─ カテゴリセクション ─ */
+.list-wrap{max-width:640px;margin:0 auto;padding:4px 14px 12px}
+.cat-sec{background:var(--panel);border:1px solid var(--line);
+  border-radius:var(--radius);margin:12px 0;overflow:hidden;box-shadow:0 1px 3px rgba(17,24,39,.05)}
+.cat-hdr{padding:13px 15px;display:flex;align-items:center;
+  justify-content:space-between;cursor:pointer;user-select:none}
+.cat-hdr h2{font-size:14px;font-weight:800;margin:0;display:flex;align-items:center;gap:7px;color:var(--accent-deep)}
+.cat-hdr h2::before{content:"";width:4px;height:14px;background:var(--accent);border-radius:2px}
+.cat-hdr .count{font-size:12px;color:var(--sub);font-weight:500;margin-left:2px}
+.cat-hdr .chev{color:var(--sub);font-size:13px;transition:.2s}
+.cat-body{border-top:1px solid var(--line)}
+.cat-body.closed{display:none}
+
+/* ─ アイテム行 ─ */
+.irow{display:flex;align-items:center;padding:12px 15px;
+  border-bottom:1px solid var(--line);cursor:pointer;gap:10px;transition:.1s}
+.irow:last-child{border-bottom:none}
+.irow:active{background:var(--accent-soft)}
+.irow-info{flex:1;min-width:0}
+.irow-name{font-size:14px;font-weight:600;line-height:1.35}
+.irow-note{font-size:12px;color:var(--sub);margin-top:2px}
+.irow-unit{font-size:12px;color:var(--sub);white-space:nowrap;flex-shrink:0}
+.add-btn{width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:20px;
+  flex-shrink:0;line-height:1;box-shadow:0 2px 6px rgba(249,115,22,.3)}
+.rm-btn{width:34px;height:34px;border-radius:50%;background:#fff;border:1.5px solid #f0b6b6;
+  color:var(--danger);font-size:22px;line-height:1;display:flex;align-items:center;justify-content:center;
+  flex-shrink:0;cursor:pointer;font-family:inherit;padding:0}
+.rm-btn:active{background:#fdecea}
+
+/* ─ ボトムナビ ─ */
+.bnav{position:fixed;left:0;right:0;bottom:0;background:#fff;
+  border-top:1px solid var(--line);height:var(--bnav);display:flex;z-index:20;box-shadow:0 -2px 10px rgba(17,24,39,.04)}
+.bnav-btn{flex:1;display:flex;flex-direction:column;align-items:center;
+  justify-content:center;gap:2px;background:none;border:none;cursor:pointer;
+  color:var(--sub);font-size:10px;font-family:inherit;padding:4px 0;font-weight:700}
+.bnav-btn .ico{font-size:22px;line-height:1}
+.bnav-btn .ico-check{font-weight:900;font-size:23px}
+.bnav-btn.on .ico-check{color:var(--accent)}
+.bnav-btn.on{color:var(--accent)}
+.bdg{background:var(--danger);color:#fff;border-radius:8px;font-size:10px;
+  padding:1px 5px;min-width:16px;text-align:center}
+
+/* ─ 共通ボタン ─ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:5px;
+  padding:11px 18px;border-radius:12px;font-size:14px;font-weight:800;
+  font-family:inherit;cursor:pointer;border:none;transition:.15s}
+.btn-primary{background:linear-gradient(180deg,#fb8a2e,var(--accent));color:#fff;box-shadow:0 2px 8px rgba(249,115,22,.35)}
+.btn-primary:active{filter:brightness(.95)}
+.btn-ghost{background:#fff;color:var(--accent-deep);border:1.5px solid var(--accent)}
+.btn-sm{padding:8px 14px;font-size:13px}
+.btn-blk{width:100%}
+
+/* ═══ SCREEN 2: 完工報告 ═══ */
+.doc-wrap{max-width:640px;margin:0 auto;padding:14px;display:flex;flex-direction:column;gap:12px}
+.fld{display:flex;flex-direction:column;gap:5px}
+.fld label{font-size:12.5px;font-weight:700;color:var(--sub)}
+.fld input,.fld select,.fld textarea{padding:11px 12px;border:1.5px solid var(--line);
+  border-radius:11px;font-size:15px;font-family:inherit;outline:none;background:#fff;color:var(--ink);transition:border-color .15s}
+.fld input:focus,.fld select:focus,.fld textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.fg2{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.cli-disp{padding:11px 12px;border:1.5px solid var(--line);border-radius:11px;
+  font-size:15px;background:var(--chip);color:var(--ink);font-weight:700;min-height:46px;
+  display:flex;align-items:center}
+.note-box{background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  padding:12px 14px;font-size:13px;color:var(--ink);box-shadow:0 1px 3px rgba(17,24,39,.05)}
+.line-area{width:100%;padding:13px;border:1.5px solid var(--line);border-radius:12px;
+  font-size:12.5px;font-family:"SFMono-Regular",Consolas,"Hiragino Kaku Gothic ProN","Meiryo",monospace;
+  line-height:1.8;resize:none;background:#fff;color:var(--ink)}
+
+/* ─ 完工報告チェックリスト ─ */
+.check-section{background:#fff;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;box-shadow:0 1px 3px rgba(17,24,39,.05)}
+.check-sec-hdr{background:linear-gradient(180deg,#fb8a2e,var(--accent));color:#fff;padding:12px 15px;
+  font-size:14px;font-weight:800;display:flex;justify-content:space-between;align-items:center}
+.check-group{border-top:1px solid var(--line)}
+.check-group-title{padding:9px 15px;font-size:12.5px;font-weight:800;
+  color:var(--accent-deep);background:var(--accent-soft);border-bottom:1px solid var(--line);
+  display:flex;align-items:center;gap:6px}
+.check-group-title::before{content:"";width:4px;height:13px;background:var(--accent);border-radius:2px}
+.check-item{display:flex;align-items:center;gap:11px;padding:12px 15px;
+  border-bottom:1px solid var(--line);cursor:pointer;transition:.1s;-webkit-tap-highlight-color:transparent}
+.check-item:last-child{border-bottom:none}
+.check-item:active{background:var(--accent-soft)}
+.check-item input[type=checkbox]{width:21px;height:21px;flex-shrink:0;
+  cursor:pointer;accent-color:var(--accent)}
+.check-item label{font-size:14px;cursor:pointer;flex:1;line-height:1.4;user-select:none;font-weight:600}
+.check-item.req label::after{content:'★';color:var(--danger);font-size:10px;margin-left:3px;vertical-align:top}
+.check-item.checked label{color:var(--accent-deep)}
+.check-progress{display:flex;align-items:center;gap:8px}
+.check-progress span{font-size:13px;font-weight:800}
+.progress-bar{width:70px;height:6px;background:rgba(255,255,255,.35);border-radius:3px;overflow:hidden}
+.progress-fill{height:100%;background:#fff;border-radius:3px;transition:.3s}
+
+/* ─ 完工書類（済/未） ─ */
+.doc-row{padding:12px 15px;border-bottom:1px solid var(--line)}
+.doc-row:last-child{border-bottom:none}
+.doc-label{font-size:14px;font-weight:700;margin-bottom:7px}
+.req-star{color:var(--danger);font-size:10px;margin-left:3px;vertical-align:top}
+.doc-opts{display:flex;gap:8px}
+.doc-opts .opt{flex:1;display:flex;align-items:center;justify-content:center;gap:6px;
+  border:1.5px solid var(--line);border-radius:999px;padding:9px 0;font-size:14px;font-weight:700;color:var(--ink);cursor:pointer;user-select:none;background:var(--chip)}
+.doc-opts .opt:has(input:checked){background:var(--accent-soft);border-color:var(--accent);color:var(--accent-deep)}
+.doc-opts input[type=radio]{width:17px;height:17px;accent-color:var(--accent)}
+.doc-reason{width:100%;margin-top:9px;padding:9px 11px;border:1.5px solid var(--danger);
+  border-radius:10px;font-size:14px;font-family:inherit;outline:none;resize:vertical}
+.doc-help{font-size:11.5px;color:#8a6400;background:#fff7e6;
+  padding:9px 15px;line-height:1.6;border-top:1px solid var(--line)}
+.doc-sub{font-size:11.5px;color:var(--sub);margin:-3px 0 8px}
+.check-item.emph{background:#fff7e6}
+.check-item.emph label{font-weight:800;color:var(--accent-deep)}
+.check-item.emph label::before{content:'⚠ ';color:var(--danger)}
+/* ─ 記入漏れヒント ─ */
+.miss-hint{font-size:12.5px;font-weight:800;padding:10px 13px;border-radius:11px;margin-top:2px;line-height:1.5}
+.miss-hint.bad{background:#fdecea;color:#c0392b;border:1px solid #f5c6c0}
+.miss-hint.good{background:#eaf6ea;color:var(--ok);border:1px solid #cfe8cf}
+/* ─ 追加済み表示（施工項目リスト） ─ */
+.irow.added{background:var(--accent-soft);box-shadow:inset 4px 0 0 var(--accent)}
+.irow.added .irow-name{color:var(--accent-deep)}
+.irow.added .add-btn{background:var(--accent);box-shadow:0 2px 6px rgba(249,115,22,.3)}
+.qbadge{display:inline-block;font-size:11px;font-weight:800;color:#fff;background:var(--accent);border-radius:999px;padding:1px 9px;margin-top:4px}
+/* ─ 施工項目サマリー（削除可） ─ */
+.sum-row{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.sum-row:last-child{border-bottom:none}
+.sum-nm{flex:1;font-size:13.5px;line-height:1.5}
+.sum-del{flex:0 0 auto;border:1.5px solid var(--line);background:#fff;color:var(--danger);border-radius:9px;padding:5px 13px;font-size:12px;font-weight:800;cursor:pointer;font-family:inherit}
+.sum-del:active{background:#fdecea}
+/* ─ 単価表にない付帯 ─ */
+.extra-empty{padding:12px 15px;font-size:12.5px;color:var(--sub)}
+.extra-row{padding:12px 15px;border-bottom:1px solid var(--line)}
+.extra-row:last-child{border-bottom:none}
+.extra-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:7px}
+.extra-ttl{font-size:13px;font-weight:800;color:var(--accent-deep)}
+.extra-del{border:1.5px solid var(--line);background:#fff;color:var(--danger);border-radius:9px;padding:5px 13px;font-size:12px;font-weight:700;cursor:pointer;font-family:inherit}
+.extra-content{width:100%;padding:9px 11px;border:1.5px solid var(--line);border-radius:10px;font-size:14px;font-family:inherit;outline:none;resize:vertical}
+.extra-content:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.extra-sub{font-size:12px;font-weight:700;color:var(--sub);margin:9px 0 5px}
+.extra-add-wrap{padding:11px 15px}
+
+/* ─ 数量入力シート ─ */
+.sheet-bg{position:fixed;inset:0;background:rgba(17,24,39,.5);z-index:100;display:flex;align-items:flex-end}
+.sheet-bg.hid{display:none}
+.sheet{background:#fff;border-radius:18px 18px 0 0;padding:18px;width:100%;max-width:640px;margin:0 auto;max-height:80vh;overflow-y:auto}
+.handle{width:38px;height:4px;background:var(--line);border-radius:2px;margin:0 auto 14px}
+.sheet-title{font-size:16px;font-weight:800;margin-bottom:4px;color:var(--ink)}
+.sheet-meta{font-size:12px;color:var(--sub);margin-bottom:14px;line-height:1.6}
+.sfld{display:flex;flex-direction:column;gap:5px;margin-bottom:11px}
+.sfld label{font-size:12.5px;font-weight:700;color:var(--sub)}
+.sfld select,.sfld input{padding:11px 12px;border:1.5px solid var(--line);
+  border-radius:11px;font-size:15px;font-family:inherit;outline:none}
+.sfld select:focus,.sfld input:focus{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.sheet-acts{display:flex;gap:8px;margin-top:14px}
+
+/* ─ 読み込みオーバーレイ ─ */
+#loadOverlay{display:none;position:fixed;inset:0;background:rgba(249,115,22,.92);
+  z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:#fff}
+@keyframes spin{to{transform:rotate(360deg)}}
+.spinner{width:44px;height:44px;border:4px solid rgba(255,255,255,.3);
+  border-top-color:#fff;border-radius:50%;animation:spin 0.9s linear infinite}
+
+/* ─ トースト ─ */
+#copyToast{display:none;position:fixed;bottom:72px;left:50%;transform:translateX(-50%);
+  background:var(--ok);color:#fff;padding:11px 26px;border-radius:22px;
+  font-size:14px;font-weight:800;z-index:300;white-space:nowrap;box-shadow:0 4px 14px rgba(46,125,50,.4)}
+</style>
+</head>
+<body>
+
+<!-- ヘッダー -->
+<div class="hdr">
+  <h1>📋 SANSEI 完工報告</h1>
+  <label class="cli-label" for="clientSel">▼ 取引先を選択（タップで切替）</label>
+  <select id="clientSel" onchange="switchClient(this.value)"></select>
+</div>
+
+<!-- ══ Screen 1: 施工項目 ══ -->
+<div class="screen active" id="s1">
+  <div class="search-wrap">
+    <input type="search" id="srch" placeholder="🔍 項目を検索…" oninput="renderList()">
+  </div>
+  <div class="cat-row" id="catRow"></div>
+  <div class="list-wrap" id="listArea"></div>
+</div>
+
+<!-- ══ Screen 2: 完工報告 ══ -->
+<div class="screen" id="s2">
+  <div class="doc-wrap">
+    <!-- 基本情報 -->
+    <div class="fg2">
+      <div class="fld">
+        <label>施工日</label>
+        <input type="date" id="docDate" onchange="genLine()">
+      </div>
+      <div class="fld">
+        <label>取引先</label>
+        <div class="cli-disp" id="docCli">—</div>
+      </div>
+    </div>
+    <div class="fld">
+      <label>件名（現場名）</label>
+      <input id="docSubj" placeholder="例: 山田太郎様邸" oninput="genLine()">
+    </div>
+    <!-- 工事種別 -->
+    <div class="fld">
+      <label>工事種別</label>
+      <select id="workType" onchange="genLine()">
+        <option value="kanko">完工</option>
+        <option value="zan">残工</option>
+        <option value="tochu">途中工程</option>
+      </select>
+    </div>
+    <!-- 完工報告チェック -->
+    <div class="check-section">
+      <div class="check-sec-hdr">
+        <span>✅ 完工報告チェック</span>
+        <div class="check-progress">
+          <div class="progress-bar"><div class="progress-fill" id="progFill" style="width:0%"></div></div>
+          <span id="progText">0/0</span>
+        </div>
+      </div>
+      <div id="checklistArea"></div>
+    </div>
+    <!-- 施工内容サマリー -->
+    <div id="itemSummary" class="note-box" style="display:none">
+      <strong style="display:block;margin-bottom:4px;font-size:13px">🔧 施工項目</strong>
+      <div id="itemSummaryList" style="font-size:13px;line-height:1.9"></div>
+      <button class="btn btn-ghost btn-sm" style="margin-top:8px;width:100%" onclick="goS('s1')">＋ 項目追加</button>
+    </div>
+    <div id="itemEmpty" style="background:var(--yellow);border:1px solid #e0cc40;border-radius:10px;padding:10px 12px">
+      <div style="font-size:13px;color:#5a4a00">⚠️ 施工項目が未入力です</div>
+      <button class="btn btn-ghost btn-sm" style="margin-top:8px;width:100%" onclick="goS('s1')">📋 施工項目を選択する</button>
+    </div>
+    <!-- LINE出力 -->
+    <div class="fld">
+      <label>📱 LINEに貼り付けるテキスト</label>
+      <textarea class="line-area" id="lineText" readonly rows="16"></textarea>
+    </div>
+    <div id="missHint" class="miss-hint good">✓ 記入OK</div>
+    <button class="btn btn-primary btn-blk" style="font-size:15px;padding:14px" onclick="copyLine()">
+      📋 コピーする（LINEに貼り付け）
+    </button>
+  </div>
+</div>
+
+<!-- ボトムナビ（2ボタン） -->
+<div class="bnav">
+  <button class="bnav-btn on" id="nb1" onclick="goS('s1')">
+    <span class="ico">📋</span>
+    <span style="display:flex;align-items:center;gap:3px">施工項目<span class="bdg" id="bdg" style="display:none">0</span></span>
+  </button>
+  <button class="bnav-btn" id="nb2" onclick="goS('s2')">
+    <span class="ico ico-check">✓</span>完工報告
+  </button>
+</div>
+
+<!-- 数量入力シート -->
+<div class="sheet-bg hid" id="sheetBg">
+  <div class="sheet">
+    <div class="handle"></div>
+    <div class="sheet-title" id="shTitle"></div>
+    <div class="sheet-meta" id="shMeta"></div>
+    <div id="shForm"></div>
+    <div class="sheet-acts">
+      <button class="btn btn-ghost" style="flex:1" onclick="closeSheet()">キャンセル</button>
+      <button class="btn btn-primary" style="flex:1" id="shAddBtn" onclick="confirmAdd()">施工に追加</button>
+    </div>
+  </div>
+</div>
+
+<!-- 読み込みオーバーレイ -->
+<div id="loadOverlay" style="display:none;position:fixed;inset:0;background:rgba(249,115,22,0.92);z-index:9999;flex-direction:column;align-items:center;justify-content:center;gap:16px;color:#fff">
+  <div class="spinner"></div>
+  <div style="font-size:15px;font-weight:600">データを読み込み中…</div>
+</div>
+
+<!-- トースト -->
+<div id="copyToast">✓ コピーしました！</div>
+
+<script>
+const JSON_URL='https://raw.githubusercontent.com/ishikura-sansei/sansei-app/main/sansei_prices.json';
+const CLI_MAP={'リケン':'リケンエナジー','キョウエイ':'株式会社キョウエイ','ライズ':'ライズサポート','ATEL':'ATEL','アルファ':'アルファエレクトロ'};
+const CLI_FULL={'リケンエナジー':'リケンエナジー有限会社','ATEL':'ATEL株式会社','株式会社キョウエイ':'株式会社キョウエイ','ライズサポート':'ライズサポート株式会社','アルファエレクトロ':'アルファエレクトロ株式会社'};
+const LM='sm3',LE='se3';
+
+/* ─ 工事種別ラベル（報告の1行用に残す） ─ */
+const WTYPE_LABEL={kanko:'完工',zan:'残工',tochu:'途中工程'};
+
+/* ─ 完工報告チェック定義 ─ */
+const RPT_CHECKS=[
+  {id:'k1',label:'写真をアルバムに格納した',req:true},
+  {id:'k2',label:'トラブル・不具合がないか確認した',req:true},
+  {id:'k3',label:'退勤アプリを入力した',req:true},
+  {id:'k4',label:'事前見積りの工事内容を確認した',req:true},
+  {id:'k6',label:'単価表にない文言は使用していない（他ツール報告時）',req:true},
+];
+const DOC_DOCS=[
+  {id:'g1',label:'引き渡し確認書',opts:['済み','未','無し'],help:''},
+  {id:'g2',label:'返却ボックス',opts:['済み','未'],help:'自社の完工ファイルを入れる場所'},
+];
+const DOC_MAIL={id:'k5',label:'期日書類の確認（郵送期日があるもの）',req:true,
+  help:'例：ATELは現場終了後に寄らない場合、現場の方へ郵送を依頼する予定。倉庫にシール・レターパックあり。郵送する場合は完工報告LINEに写真を送信し、追跡ラベルを撮影する。'};
+
+/* ─ チェックリスト描画 ─ */
+function renderChecklist(){
+  let h='';
+  // 完工前チェック
+  h+='<div class="check-group"><div class="check-group-title">完工前チェック</div>';
+  RPT_CHECKS.forEach(ck=>{
+    h+=`<div class="check-item req" id="ci_${ck.id}" onclick="toggleCheck('${ck.id}')">
+      <input type="checkbox" id="ck_${ck.id}" onclick="event.stopPropagation();toggleCheck('${ck.id}')">
+      <label for="ck_${ck.id}">${ck.label}</label>
+    </div>`;
+  });
+  h+='</div>';
+  // 完工書類
+  h+='<div class="check-group"><div class="check-group-title">完工書類</div>';
+  DOC_DOCS.forEach(d=>{
+    h+=`<div class="doc-row" id="dr_${d.id}">
+      <div class="doc-label">${d.label}<span class="req-star">★</span></div>`;
+    if(d.help) h+=`<div class="doc-sub">${d.help}</div>`;
+    h+=`<div class="doc-opts">`;
+    d.opts.forEach(o=>{
+      h+=`<label class="opt"><input type="radio" name="rd_${d.id}" value="${o}" onchange="onDoc('${d.id}')">${o}</label>`;
+    });
+    h+=`</div>
+      <textarea class="doc-reason" id="rz_${d.id}" rows="1" placeholder="未の理由を記入" style="display:none" oninput="genLine()"></textarea>
+    </div>`;
+  });
+  // 期日書類（強調）
+  h+=`<div class="check-item req emph" id="ci_${DOC_MAIL.id}" onclick="toggleCheck('${DOC_MAIL.id}')">
+    <input type="checkbox" id="ck_${DOC_MAIL.id}" onclick="event.stopPropagation();toggleCheck('${DOC_MAIL.id}')">
+    <label for="ck_${DOC_MAIL.id}">${DOC_MAIL.label}</label>
+  </div>`;
+  h+=`<div class="doc-help">${DOC_MAIL.help}</div>`;
+  h+='</div>';
+  // 単価表にない付帯（複数可）
+  h+='<div class="check-group"><div class="check-group-title">単価表にない付帯（あれば）</div>';
+  h+='<div id="extrasArea"></div>';
+  h+='<div class="extra-add-wrap"><button type="button" class="btn btn-ghost btn-sm btn-blk" onclick="addExtra()">＋ 付帯を追加</button></div>';
+  h+='</div>';
+  document.getElementById('checklistArea').innerHTML=h;
+  renderExtras();
+  updProgress();
+}
+
+/* ─ 単価表にない付帯（複数可） ─ */
+let extras=[],extraSeq=0;
+function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');}
+function addExtra(){extras.push({id:++extraSeq,content:'',conf:'',from:''});renderExtras();genLine();}
+function removeExtra(id){extras=extras.filter(x=>x.id!==id);renderExtras();genLine();}
+function updateExtra(id,f,v,rerender){
+  const x=extras.find(e=>e.id===id);if(!x)return;
+  x[f]=v;if(f==='conf'&&v!=='確認済み')x.from='';
+  if(rerender)renderExtras();
+  genLine();
+}
+function renderExtras(){
+  const a=document.getElementById('extrasArea');if(!a)return;
+  if(!extras.length){a.innerHTML='<div class="extra-empty">該当なし（あれば「＋ 付帯を追加」）</div>';return;}
+  a.innerHTML=extras.map(x=>`
+    <div class="extra-row">
+      <div class="extra-head">
+        <span class="extra-ttl">付帯 #${x.id}</span>
+        <button type="button" class="extra-del" onclick="removeExtra(${x.id})">削除</button>
+      </div>
+      <textarea class="extra-content" rows="2" placeholder="内容（例：既設撤去 追加分／盤内改造 ほか）" oninput="updateExtra(${x.id},'content',this.value,false)">${esc(x.content)}</textarea>
+      <div class="extra-sub">金額の確認</div>
+      <div class="doc-opts">
+        <label class="opt"><input type="radio" name="ex_${x.id}" ${x.conf==='確認済み'?'checked':''} onchange="updateExtra(${x.id},'conf','確認済み',true)">確認済み</label>
+        <label class="opt"><input type="radio" name="ex_${x.id}" ${x.conf==='未確認'?'checked':''} onchange="updateExtra(${x.id},'conf','未確認',true)">未確認</label>
+      </div>
+      ${x.conf==='確認済み'?`<div class="extra-sub">確認元</div>
+      <div class="doc-opts">
+        <label class="opt"><input type="radio" name="exf_${x.id}" ${x.from==='事務'?'checked':''} onchange="updateExtra(${x.id},'from','事務',false)">事務から確認</label>
+        <label class="opt"><input type="radio" name="exf_${x.id}" ${x.from==='現場'?'checked':''} onchange="updateExtra(${x.id},'from','現場',false)">現場から確認</label>
+      </div>`:''}
+    </div>`).join('');
+}
+
+function onDoc(id){
+  const sel=document.querySelector(`input[name="rd_${id}"]:checked`);
+  const rz=document.getElementById('rz_'+id);
+  rz.style.display=(sel&&sel.value==='未')?'block':'none';
+  updProgress();genLine();
+}
+
+function toggleCheck(id){
+  const cb=document.getElementById('ck_'+id);
+  cb.checked=!cb.checked;
+  document.getElementById('ci_'+id).classList.toggle('checked',cb.checked);
+  updProgress();genLine();
+}
+
+/* ─ 記入漏れ（未入力の洗い出し） ─ */
+function getMissing(){
+  const miss=[];
+  if(!document.getElementById('docDate').value) miss.push('施工日');
+  if(!document.getElementById('docSubj').value.trim()) miss.push('現場名');
+  if(!E.items.length) miss.push('施工項目（1件以上）');
+  RPT_CHECKS.forEach(ck=>{if(!document.getElementById('ck_'+ck.id)?.checked)miss.push(ck.label);});
+  DOC_DOCS.forEach(d=>{
+    const sel=document.querySelector(`input[name="rd_${d.id}"]:checked`);
+    if(!sel) miss.push(d.label+'（済み/未）');
+    else if(sel.value==='未' && !document.getElementById('rz_'+d.id).value.trim()) miss.push(d.label+'（未の理由）');
+  });
+  if(!document.getElementById('ck_'+DOC_MAIL.id)?.checked) miss.push(DOC_MAIL.label);
+  extras.forEach(x=>{
+    if(!x.content.trim()) miss.push('付帯#'+x.id+'の内容');
+    else if(!x.conf) miss.push('付帯#'+x.id+'の金額確認');
+    else if(x.conf==='確認済み' && !x.from) miss.push('付帯#'+x.id+'の確認元');
+  });
+  return miss;
+}
+
+function updProgress(){
+  const total=RPT_CHECKS.length+DOC_DOCS.length+1;
+  let done=0;
+  RPT_CHECKS.forEach(ck=>{if(document.getElementById('ck_'+ck.id)?.checked)done++;});
+  DOC_DOCS.forEach(d=>{if(document.querySelector(`input[name="rd_${d.id}"]:checked`))done++;});
+  if(document.getElementById('ck_'+DOC_MAIL.id)?.checked)done++;
+  document.getElementById('progText').textContent=`${done}/${total}`;
+  document.getElementById('progFill').style.width=total?`${Math.round(done/total*100)}%`:'0%';
+}
+
+/* ─ ノート金額フィルタ ─ */
+function filterNote(note){
+  if(!note) return '';
+  return note.replace(/\+?[¥￥][\d,]+(?:[〜～\/][^\s　]*)?/g,'').replace(/\s{2,}/g,' ').trim();
+}
+
+let M={},pend=null,actCat='all',curC='',openCats=new Set();
+let E=JSON.parse(localStorage.getItem(LE)||'null')||{cli:'リケンエナジー',items:[]};
+const sM=()=>localStorage.setItem(LM,JSON.stringify(M));
+const sE=()=>localStorage.setItem(LE,JSON.stringify(E));
+
+function convertJson(raw){
+  const result={};
+  for(const [key,items] of Object.entries(raw)){
+    const cliName=CLI_MAP[key]||key;
+    result[cliName]=items.map(it=>({
+      cat:it.category,name:it.name,p1:it.price1,
+      p2:it.price2>0?it.price2:undefined,
+      unit:it.unit,note:it.note||'',inputType:it.inputType,variants:it.variants
+    }));
+  }
+  return result;
+}
+
+async function fetchMaster(){
+  try{
+    const r=await fetch(JSON_URL+'?t='+Date.now());
+    if(!r.ok) throw new Error('HTTP '+r.status);
+    return convertJson(await r.json());
+  }catch(e){console.warn('fetch failed:',e);return null;}
+}
+
+/* ─ ナビ ─ */
+function goS(id){
+  ['s1','s2'].forEach(s=>document.getElementById(s).classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  ['nb1','nb2'].forEach(b=>document.getElementById(b).classList.remove('on'));
+  document.getElementById({s1:'nb1',s2:'nb2'}[id]).classList.add('on');
+  if(id==='s2'){updDocCli();updItemSummary();genLine();}
+}
+
+function updDocCli(){
+  document.getElementById('docCli').textContent=curC||'—';
+}
+
+function updItemSummary(){
+  const summary=document.getElementById('itemSummary');
+  const empty=document.getElementById('itemEmpty');
+  if(!E.items.length){summary.style.display='none';empty.style.display='block';return;}
+  empty.style.display='none';summary.style.display='block';
+  let h='';
+  E.items.forEach((ei,i)=>{
+    h+=`<div class="sum-row"><span class="sum-nm">${esc(ei.name)}${ei.qty===1?'':' <b>×'+ei.qty+'</b>'}</span><button type="button" class="sum-del" onclick="removeItem(${i})">削除</button></div>`;
+  });
+  document.getElementById('itemSummaryList').innerHTML=h;
+}
+function removeItem(i){
+  E.items.splice(i,1);
+  sE();updBdg();updItemSummary();renderList();genLine();
+}
+function removeItemByName(name){
+  E.items=E.items.filter(e=>!(e.name===name||e.name.indexOf(name+'（')===0));
+  sE();updBdg();updItemSummary();renderList();genLine();
+}
+
+/* ─ クライアント ─ */
+function buildCliSel(){
+  document.getElementById('clientSel').innerHTML=
+    Object.keys(M).map(c=>`<option${c===curC?' selected':''}>${c}</option>`).join('');
+}
+function switchClient(v){curC=v;actCat='all';openCats.clear();buildCatRow();renderList();updDocCli();}
+
+/* ─ カテゴリタブ ─ */
+function buildCatRow(){
+  const cats=[...new Set((M[curC]||[]).map(i=>i.cat))];
+  document.getElementById('catRow').innerHTML=
+    ['all',...cats].map(c=>
+      `<span class="cpill${c===actCat?' on':''}" onclick="setC('${c}')">${c==='all'?'全て':c}</span>`
+    ).join('');
+}
+function setC(c){actCat=c;buildCatRow();renderList();}
+
+/* ─ 単価一覧 ─ */
+function renderList(){
+  const q=(document.getElementById('srch').value||'').toLowerCase();
+  const items=(M[curC]||[]).filter(i=>
+    (actCat==='all'||i.cat===actCat)&&(!q||i.name.toLowerCase().includes(q))
+  );
+  const grp={};
+  items.forEach(i=>{grp[i.cat]=grp[i.cat]||[];grp[i.cat].push(i);});
+  let h='';
+  for(const [cat,gi] of Object.entries(grp)){
+    const isOpen=q?true:openCats.has(cat);
+    const collapsed=isOpen?'':' closed';
+    const chev=isOpen?'▼':'▶';
+    h+=`<div class="cat-sec">
+      <div class="cat-hdr" data-cat="${cat}" onclick="toggleCat(this)">
+        <h2>${cat}<span class="count">${gi.length}項目</span></h2>
+        <span class="chev">${chev}</span>
+      </div>
+      <div class="cat-body${collapsed}">`;
+    gi.forEach(item=>{
+      const ut=item.unit?`/ ${item.unit}`:'';
+      const addedN=E.items.filter(e=>e.name===item.name||e.name.indexOf(item.name+'（')===0).reduce((s,e)=>s+e.qty,0);
+      const nameAttr=item.name.replace(/\\/g,'\\\\').replace(/'/g,"\\'");
+      const rightBtn=addedN
+        ? `<button type="button" class="rm-btn" title="削除" onclick="event.stopPropagation();removeItemByName('${nameAttr}')">×</button>`
+        : `<div class="add-btn">＋</div>`;
+      h+=`<div class="irow${addedN?' added':''}" onclick="openSheet(${JSON.stringify(item).replace(/"/g,'&quot;')})">
+        <div class="irow-info">
+          <div class="irow-name">${item.name}</div>
+          ${addedN?`<div class="qbadge">✓ 追加済み ×${addedN}</div>`:''}
+        </div>
+        <div class="irow-unit">${ut}</div>
+        ${rightBtn}
+      </div>`;
+    });
+    h+='</div></div>';
+  }
+  if(!h) h='<div style="text-align:center;padding:50px 20px;color:var(--sub);font-size:14px">該当なし</div>';
+  document.getElementById('listArea').innerHTML=h;
+}
+function toggleCat(el){
+  const b=el.nextElementSibling;
+  const closed=b.classList.toggle('closed');
+  el.querySelector('.chev').textContent=closed?'▶':'▼';
+  const cat=el.getAttribute('data-cat');
+  if(cat){if(closed)openCats.delete(cat);else openCats.add(cat);}
+}
+
+/* ─ 数量シート ─ */
+function openSheet(item){
+  pend=item;
+  document.getElementById('shTitle').textContent=item.name;
+  document.getElementById('shMeta').textContent=item.cat;
+  let h='';
+  if(item.variants){
+    h+=`<div class="sfld"><label>種別を選択</label><select id="shV">
+      ${item.variants.map((v,i)=>`<option value="${i}">${v.l}</option>`).join('')}
+    </select></div>`;
+  } else if(item.p2){
+    h+=`<div class="sfld"><label>種別を選択</label><select id="shP2">
+      <option value="${item.p1}">基本</option>
+      <option value="${item.p2}">困難</option>
+    </select></div>`;
+  }
+  h+=`<div class="sfld"><label>数量（${item.unit}）</label>
+    <input type="number" id="shQ" value="1" min="0.5" step="1"></div>`;
+  document.getElementById('shForm').innerHTML=h;
+  document.getElementById('sheetBg').classList.remove('hid');
+}
+function closeSheet(){document.getElementById('sheetBg').classList.add('hid');pend=null;}
+function confirmAdd(){
+  const item=pend;if(!item)return;
+  const vi=document.getElementById('shV');
+  const p2=document.getElementById('shP2');
+  const vidx=vi?parseInt(vi.value)||0:0;
+  const price=item.variants?item.variants[vidx].p:p2?parseFloat(p2.value):item.p1;
+  const label=item.variants?item.variants[vidx].l:p2?p2.options[p2.selectedIndex].text:'';
+  const qty=parseFloat(document.getElementById('shQ')?.value)||1;
+  if(E.cli!==curC){E.cli=curC;E.items=[];}
+  const fullName=item.name+(label?`（${label}）`:'');
+  const ix=E.items.findIndex(e=>e.name===fullName);
+  let updated=false;
+  if(ix>=0){E.items[ix].qty=qty;E.items[ix].sub=Math.round(price*qty);updated=true;}
+  else{E.items.push({name:fullName,unit:item.unit,cat:item.cat,price,qty,sub:Math.round(price*qty)});}
+  sE();updBdg();renderList();closeSheet();
+  const b=document.getElementById('shAddBtn');
+  b.textContent=updated?'✓ 数量を更新！':'✓ 追加！';setTimeout(()=>b.textContent='施工に追加',900);
+}
+function updBdg(){
+  const n=E.items.length,b=document.getElementById('bdg');
+  b.textContent=n;b.style.display=n?'inline':'none';
+}
+
+/* ─ LINE生成 ─ */
+function genLine(){
+  const ta=document.getElementById('lineText');
+  const dateStr=document.getElementById('docDate').value||new Date().toISOString().slice(0,10);
+  const dsubj=document.getElementById('docSubj').value.trim();
+  const wtype=document.getElementById('workType')?.value||'kanko';
+  const sep='────────────';
+  let L=[];
+  L.push('【 完工報告 】');
+  L.push(sep);
+  L.push('施工日　：'+dateStr);
+  L.push('現　場　：'+(dsubj||'（未入力）'));
+  L.push('取引先　：'+(CLI_FULL[curC]||curC||'（未選択）'));
+  L.push('工事種別：'+(WTYPE_LABEL[wtype]||wtype));
+  L.push(sep);
+  L.push('◆ 施工内容');
+  if(E.items.length){
+    const grp={};
+    E.items.forEach(ei=>{grp[ei.cat]=grp[ei.cat]||[];grp[ei.cat].push(ei);});
+    for(const [,items] of Object.entries(grp)){
+      items.forEach(ei=>{L.push('　・'+ei.name+(ei.qty===1?'':' ×'+ei.qty));});
+    }
+  } else {L.push('　（未入力）');}
+  L.push(sep);
+  L.push('◆ 完工前チェック');
+  RPT_CHECKS.forEach(ck=>{
+    const el=document.getElementById('ck_'+ck.id);
+    L.push('　'+(el&&el.checked?'☑':'□')+' '+ck.label);
+  });
+  L.push(sep);
+  L.push('◆ 完工書類');
+  DOC_DOCS.forEach(d=>{
+    const sel=document.querySelector('input[name="rd_'+d.id+'"]:checked');
+    let v='（未選択）';
+    if(sel){
+      if(sel.value==='未'){const rz=document.getElementById('rz_'+d.id);v='未（理由：'+((rz&&rz.value.trim())||'未記入')+'）';}
+      else v=sel.value;
+    }
+    L.push('　・'+d.label+'：'+v);
+  });
+  const mailEl=document.getElementById('ck_'+DOC_MAIL.id);
+  L.push(sep);
+  L.push('★【 期日書類 】'+(mailEl&&mailEl.checked?'確認済み':'未確認')+' ★');
+  L.push(sep);
+  L.push('◆ 単価表にない付帯');
+  if(extras.length){
+    extras.forEach(x=>{
+      L.push('　・'+(x.content.trim()||'（内容未記入）'));
+      let money=x.conf||'（未選択）';
+      if(x.conf==='確認済み'&&x.from)money='確認済み（'+x.from+'から確認）';
+      L.push('　　└ 金額：'+money);
+    });
+  } else { L.push('　（なし）'); }
+  L.push(sep);
+  ta.value=L.join('\n');
+  const hint=document.getElementById('missHint');
+  if(hint){
+    const miss=getMissing();
+    if(miss.length){hint.className='miss-hint bad';hint.textContent='⚠️ 記入漏れ '+miss.length+'件：'+miss.join(' ／ ');}
+    else{hint.className='miss-hint good';hint.textContent='✓ 記入OK（コピーできます）';}
+  }
+}
+
+function copyLine(){
+  const ta=document.getElementById('lineText');
+  if(!ta.value){alert('内容がありません');return;}
+  const miss=getMissing();
+  if(miss.length){
+    alert('記入漏れがあるためコピーできません。\n先に埋めてください：\n\n・'+miss.join('\n・'));
+    return;
+  }
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(ta.value).then(()=>showToast()).catch(()=>fallbackCopy(ta));
+  } else {fallbackCopy(ta);}
+}
+function fallbackCopy(ta){ta.select();try{document.execCommand('copy');showToast();}catch(e){alert('コピーできませんでした');}}
+function showToast(){
+  const t=document.getElementById('copyToast');
+  t.style.display='block';setTimeout(()=>t.style.display='none',2200);
+}
+
+/* 単価マスターのCSV上書き機能は廃止（単価台帳を唯一の正とするため） */
+
+window.addEventListener('DOMContentLoaded',async()=>{
+  document.getElementById('loadOverlay').style.display='flex';
+  const fetched=await fetchMaster();
+  if(fetched){M=fetched;}
+  else{const c=localStorage.getItem(LM);if(c){try{M=JSON.parse(c);}catch(e){}}}
+  if(Object.keys(M).length>0){
+    curC=E.cli&&M[E.cli]?E.cli:Object.keys(M)[0];
+    sM();
+  }
+  document.getElementById('loadOverlay').style.display='none';
+  buildCliSel();
+  switchClient(curC);
+  updBdg();
+  document.getElementById('docDate').valueAsDate=new Date();
+  renderChecklist();
+});
+</script>
+</body>
+</html>
