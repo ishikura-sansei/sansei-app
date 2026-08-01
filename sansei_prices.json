@@ -47,6 +47,15 @@
     },
     {
       "category": "基本工事",
+      "name": "パネル＋蓄電池工事一式（9kW）",
+      "price1": 325000,
+      "price2": 0,
+      "unit": "式",
+      "note": "",
+      "inputType": "none"
+    },
+    {
+      "category": "基本工事",
       "name": "太陽光単体工事（〜4kW）",
       "price1": 150000,
       "price2": 0,
@@ -88,6 +97,15 @@
       "price2": 0,
       "unit": "式",
       "note": "+10,000/kW",
+      "inputType": "none"
+    },
+    {
+      "category": "基本工事",
+      "name": "太陽光単体工事（9kW）",
+      "price1": 200000,
+      "price2": 0,
+      "unit": "式",
+      "note": "",
       "inputType": "none"
     },
     {
@@ -195,7 +213,7 @@
       "price1": 1500,
       "price2": 0,
       "unit": "m",
-      "note": "15m超過分のみ",
+      "note": "15m超過分",
       "inputType": "length"
     },
     {
@@ -213,7 +231,7 @@
       "price1": 1000,
       "price2": 0,
       "unit": "m",
-      "note": "15m超過分のみ",
+      "note": "15m超過分",
       "inputType": "length"
     },
     {
@@ -222,7 +240,7 @@
       "price1": 1500,
       "price2": 0,
       "unit": "m",
-      "note": "15m超過分のみ",
+      "note": "15m超過分",
       "inputType": "length"
     },
     {
@@ -231,7 +249,7 @@
       "price1": 2000,
       "price2": 0,
       "unit": "m",
-      "note": "15m超過分のみ",
+      "note": "15m超過分",
       "inputType": "length"
     },
     {
@@ -240,17 +258,8 @@
       "price1": 1200,
       "price2": 0,
       "unit": "m",
-      "note": "15m超過分のみ",
+      "note": "15m超過分",
       "inputType": "length"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "MDモール（通常利用分）",
-      "price1": 10000,
-      "price2": 0,
-      "unit": "式",
-      "note": "",
-      "inputType": "none"
     },
     {
       "category": "機器・分電盤",
@@ -269,6 +278,15 @@
       "unit": "式",
       "note": "",
       "inputType": "qty"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "MDモール（通常利用分）",
+      "price1": 10000,
+      "price2": 0,
+      "unit": "式",
+      "note": "",
+      "inputType": "none"
     },
     {
       "category": "機器・分電盤",
@@ -377,7 +395,7 @@
       "price1": 240000,
       "price2": 0,
       "unit": "式",
-      "note": "太陽光＋蓄電池。21枚〜はR-004/R-S03で別計上",
+      "note": "太陽光＋蓄電池。21枚〜はATL-014/ATL-015で別計上",
       "inputType": "basic"
     },
     {
@@ -534,6 +552,42 @@
       "inputType": "qty"
     },
     {
+      "category": "配線・ダクト",
+      "name": "幹線張り替え",
+      "price1": 10000,
+      "price2": 0,
+      "unit": "式",
+      "note": "m関係なし、固定¥10,000/式",
+      "inputType": "qty"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "PCS追加",
+      "price1": 20000,
+      "price2": 0,
+      "unit": "式",
+      "note": "追加PCS1台(ELB込み)はATL-021を使う",
+      "inputType": "qty"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "追加PCS1台(ELB込み)",
+      "price1": 20000,
+      "price2": 0,
+      "unit": "式",
+      "note": "付随ELBは別請求不可",
+      "inputType": "qty"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "ヒーターバンド施工費",
+      "price1": 3000,
+      "price2": 0,
+      "unit": "m",
+      "note": "全長×¥3,000",
+      "inputType": "length"
+    },
+    {
       "category": "人工・屋根",
       "name": "重量蓄電池",
       "price1": 5000,
@@ -561,6 +615,15 @@
       "inputType": "choice2"
     },
     {
+      "category": "配線・ダクト",
+      "name": "床下配線",
+      "price1": 5000,
+      "price2": 0,
+      "unit": "式",
+      "note": "床下配線発生時",
+      "inputType": "none"
+    },
+    {
       "category": "人工・屋根",
       "name": "2段ラック",
       "price1": 5000,
@@ -570,39 +633,21 @@
       "inputType": "none"
     },
     {
+      "category": "機器・分電盤",
+      "name": "リレーボックス",
+      "price1": 8000,
+      "price2": 0,
+      "unit": "式",
+      "note": "リレーボックス設置時",
+      "inputType": "none"
+    },
+    {
       "category": "人工・屋根",
       "name": "エコベースセメント",
       "price1": 2000,
       "price2": 0,
       "unit": "式",
       "note": "セメント処理時のみ。セットは不請求",
-      "inputType": "none"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "幹線張り替え",
-      "price1": 10000,
-      "price2": 0,
-      "unit": "式",
-      "note": "m関係なし、固定¥10,000/式",
-      "inputType": "qty"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "ヒーターバンド施工費",
-      "price1": 3000,
-      "price2": 0,
-      "unit": "m",
-      "note": "全長×¥3,000",
-      "inputType": "length"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "床下配線",
-      "price1": 5000,
-      "price2": 0,
-      "unit": "式",
-      "note": "床下配線発生時",
       "inputType": "none"
     },
     {
@@ -733,33 +778,6 @@
     },
     {
       "category": "機器・分電盤",
-      "name": "PCS追加",
-      "price1": 20000,
-      "price2": 0,
-      "unit": "式",
-      "note": "追加PCS1台(ELB込み)はS-S02を使う",
-      "inputType": "qty"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "追加PCS1台(ELB込み)",
-      "price1": 20000,
-      "price2": 0,
-      "unit": "式",
-      "note": "付随ELBは別請求不可",
-      "inputType": "qty"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "リレーボックス",
-      "price1": 8000,
-      "price2": 0,
-      "unit": "式",
-      "note": "リレーボックス設置時",
-      "inputType": "none"
-    },
-    {
-      "category": "機器・分電盤",
       "name": "MCB15A",
       "price1": 8500,
       "price2": 0,
@@ -867,6 +885,15 @@
       "inputType": "none"
     },
     {
+      "category": "交通・申請・その他",
+      "name": "DR施工(補助金施工)",
+      "price1": 5000,
+      "price2": 0,
+      "unit": "式",
+      "note": "",
+      "inputType": "none"
+    },
+    {
       "category": "機器・分電盤",
       "name": "送信ユニット",
       "price1": 1000,
@@ -946,25 +973,7 @@
       "price1": 180000,
       "price2": 0,
       "unit": "式",
-      "note": "確定",
-      "inputType": "none"
-    },
-    {
-      "category": "基本工事",
-      "name": "太陽光パネル＋蓄電池工事一式＋V2H",
-      "price1": 425000,
-      "price2": 0,
-      "unit": "式",
-      "note": "V2H30,000引き",
-      "inputType": "none"
-    },
-    {
-      "category": "基本工事",
-      "name": "蓄電池工事一式＋V2H",
-      "price1": 320000,
-      "price2": 0,
-      "unit": "式",
-      "note": "V2H30,000引き",
+      "note": "",
       "inputType": "none"
     },
     {
@@ -983,6 +992,24 @@
       "price2": 0,
       "unit": "式",
       "note": "",
+      "inputType": "none"
+    },
+    {
+      "category": "基本工事",
+      "name": "太陽光パネル＋蓄電池工事一式＋V2H",
+      "price1": 425000,
+      "price2": 0,
+      "unit": "式",
+      "note": "V2H30,000円引き",
+      "inputType": "none"
+    },
+    {
+      "category": "基本工事",
+      "name": "蓄電池工事一式＋V2H",
+      "price1": 320000,
+      "price2": 0,
+      "unit": "式",
+      "note": "V2H30,000円引き",
       "inputType": "none"
     },
     {
@@ -1100,7 +1127,7 @@
       "price2": 0,
       "unit": "式",
       "note": "1個につき",
-      "inputType": "qty"
+      "inputType": "basic"
     },
     {
       "category": "配線・配管・電材類",
@@ -1109,14 +1136,14 @@
       "price2": 0,
       "unit": "式",
       "note": "",
-      "inputType": "none"
+      "inputType": "basic"
     },
     {
       "category": "配線・配管・電材類",
       "name": "宅内用ダクト施工(MD)",
       "price1": 10000,
       "price2": 0,
-      "unit": "m",
+      "unit": "ｍ",
       "note": "1m〜使用時点で計上",
       "inputType": "none"
     },
@@ -1126,7 +1153,7 @@
       "price1": 1000,
       "price2": 0,
       "unit": "m",
-      "note": "15m超過分のみ",
+      "note": "",
       "inputType": "length"
     },
     {
@@ -1170,7 +1197,7 @@
       "name": "FCPV線",
       "price1": 800,
       "price2": 0,
-      "unit": "m",
+      "unit": "ｍ",
       "note": "1m〜使用時点で計上",
       "inputType": "length"
     },
@@ -1182,6 +1209,15 @@
       "unit": "式",
       "note": "旧¥15,000→¥20,000統一",
       "inputType": "none"
+    },
+    {
+      "category": "追加部材費",
+      "name": "MCB追加（60A以下／60A以上）",
+      "price1": 10000,
+      "price2": 15000,
+      "unit": "式",
+      "note": "標準=60A以下 / 困難=60A以上",
+      "inputType": "choice2"
     },
     {
       "category": "追加作業費・工事費",
@@ -1252,7 +1288,7 @@
       "price1": 5000,
       "price2": 0,
       "unit": "式",
-      "note": "3,000円〜状態による",
+      "note": "3,000円～状態による",
       "inputType": "qty"
     },
     {
@@ -1288,7 +1324,7 @@
       "price1": 25000,
       "price2": 0,
       "unit": "式",
-      "note": "25,000〜 現場レイアウト次第で人工数を自由入力",
+      "note": "基本工事とは別計上。現場レイアウト次第で人工数を自由入力",
       "inputType": "qty"
     },
     {
@@ -1373,33 +1409,6 @@
       "inputType": "none"
     },
     {
-      "category": "追加作業費・工事費",
-      "name": "ブロック嵩上げ(範囲により)",
-      "price1": 10000,
-      "price2": 0,
-      "unit": "式",
-      "note": "",
-      "inputType": "qty"
-    },
-    {
-      "category": "追加作業費・工事費",
-      "name": "土間打ち",
-      "price1": 0,
-      "price2": 0,
-      "unit": "箇所",
-      "note": "要相談",
-      "inputType": "qty"
-    },
-    {
-      "category": "追加部材費",
-      "name": "MCB追加（60A以下／60A以上）",
-      "price1": 10000,
-      "price2": 15000,
-      "unit": "式",
-      "note": "標準=60A以下 / 困難=60A以上",
-      "inputType": "choice2"
-    },
-    {
       "category": "撤去・処分",
       "name": "PV撤去・処分(1枚につき)",
       "price1": 10000,
@@ -1434,6 +1443,24 @@
       "unit": "台",
       "note": "",
       "inputType": "none"
+    },
+    {
+      "category": "追加作業費・工事費",
+      "name": "ブロック嵩上げ(範囲により)",
+      "price1": 10000,
+      "price2": 0,
+      "unit": "式",
+      "note": "",
+      "inputType": "qty"
+    },
+    {
+      "category": "追加作業費・工事費",
+      "name": "土間打ち",
+      "price1": 0,
+      "price2": 0,
+      "unit": "箇所",
+      "note": "要相談",
+      "inputType": "qty"
     },
     {
       "category": "その他",
@@ -1564,66 +1591,12 @@
       "inputType": "basic"
     },
     {
-      "category": "人工・屋根",
-      "name": "PV多面設置（4面目から1面）",
-      "price1": 15000,
-      "price2": 0,
-      "unit": "面",
-      "note": "4面目から1面につき",
-      "inputType": "qty"
-    },
-    {
-      "category": "人工・屋根",
-      "name": "急勾配工事（6寸）",
-      "price1": 30000,
+      "category": "交通・申請・その他",
+      "name": "事前先行基礎工事（蓄電池・EQ）",
+      "price1": 70000,
       "price2": 0,
       "unit": "式",
-      "note": "6寸勾配（7寸以上は相談）",
-      "inputType": "none"
-    },
-    {
-      "category": "人工・屋根",
-      "name": "野地板裏補強工事（5kWまで）",
-      "price1": 50000,
-      "price2": 0,
-      "unit": "式",
-      "note": "追加補強¥5,000/kW",
-      "inputType": "none"
-    },
-    {
-      "category": "人工・屋根",
-      "name": "パワコン新規2台設置同時設置",
-      "price1": 30000,
-      "price2": 0,
-      "unit": "式",
-      "note": "",
-      "inputType": "none"
-    },
-    {
-      "category": "人工・屋根",
-      "name": "特殊工事（足場設置不可・難工事等）",
-      "price1": 0,
-      "price2": 0,
-      "unit": "式",
-      "note": "要相談",
-      "inputType": "none"
-    },
-    {
-      "category": "人工・屋根",
-      "name": "搬入困難（工員増員）",
-      "price1": 0,
-      "price2": 0,
-      "unit": "式",
-      "note": "事前相談必要",
-      "inputType": "none"
-    },
-    {
-      "category": "人工・屋根",
-      "name": "オムロン蓄電池 庇設置取付",
-      "price1": 3000,
-      "price2": 0,
-      "unit": "式",
-      "note": "庇本体支給",
+      "note": "メッシュ使用",
       "inputType": "none"
     },
     {
@@ -1652,195 +1625,6 @@
       "unit": "m",
       "note": "",
       "inputType": "length"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "新築先行配線・配管",
-      "price1": 50000,
-      "price2": 0,
-      "unit": "回",
-      "note": "",
-      "inputType": "qty"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "電気配線延長（10m以上）",
-      "price1": 1500,
-      "price2": 0,
-      "unit": "m",
-      "note": "10m以上（本数関係なく）",
-      "inputType": "length"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "リモコン線延長",
-      "price1": 1500,
-      "price2": 0,
-      "unit": "m",
-      "note": "",
-      "inputType": "length"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "幹線張替工事（CV14まで）",
-      "price1": 0,
-      "price2": 0,
-      "unit": "式",
-      "note": "応相談（10mまで）",
-      "inputType": "none"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "幹線張替延長（CV14 10m以上）",
-      "price1": 2000,
-      "price2": 0,
-      "unit": "m",
-      "note": "CV14 10m以上",
-      "inputType": "length"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "ケーブル埋設工事",
-      "price1": 0,
-      "price2": 0,
-      "unit": "式",
-      "note": "応相談（接続箱〜パワコン/20m毎）",
-      "inputType": "none"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "ケーブル飛ばし",
-      "price1": 0,
-      "price2": 0,
-      "unit": "式",
-      "note": "応相談",
-      "inputType": "none"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "LANケーブル（10mまで）",
-      "price1": 500,
-      "price2": 0,
-      "unit": "m",
-      "note": "10m以上¥500/m。CAT5e以上",
-      "inputType": "length"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "機器代金（分電盤・アンテナ等）",
-      "price1": 0,
-      "price2": 0,
-      "unit": "式",
-      "note": "実費",
-      "inputType": "none"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "ハイブリット蓄電池 系統組換え（PV既設）",
-      "price1": 100000,
-      "price2": 0,
-      "unit": "式",
-      "note": "パネル20枚まで",
-      "inputType": "none"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "点検口",
-      "price1": 10000,
-      "price2": 0,
-      "unit": "式",
-      "note": "",
-      "inputType": "none"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "単2→単3切替工事",
-      "price1": 0,
-      "price2": 0,
-      "unit": "式",
-      "note": "応相談（単3用分電盤は別途）",
-      "inputType": "none"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "MCCB交換（60Aまで）",
-      "price1": 15000,
-      "price2": 0,
-      "unit": "台",
-      "note": "",
-      "inputType": "qty"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "ELBの交換（75Aまで）",
-      "price1": 30000,
-      "price2": 0,
-      "unit": "台",
-      "note": "",
-      "inputType": "qty"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "専用コンセント増設工事",
-      "price1": 15000,
-      "price2": 0,
-      "unit": "箇所",
-      "note": "屋内外同一",
-      "inputType": "qty"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "分電盤交換（機器代別途）",
-      "price1": 40000,
-      "price2": 0,
-      "unit": "台",
-      "note": "",
-      "inputType": "qty"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "メーターBOX",
-      "price1": 5000,
-      "price2": 0,
-      "unit": "台",
-      "note": "",
-      "inputType": "qty"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "コンクリート基礎コア抜き",
-      "price1": 30000,
-      "price2": 0,
-      "unit": "箇所",
-      "note": "",
-      "inputType": "qty"
-    },
-    {
-      "category": "撤去・処分",
-      "name": "アンテナ移設・撤去",
-      "price1": 60000,
-      "price2": 0,
-      "unit": "式",
-      "note": "",
-      "inputType": "none"
-    },
-    {
-      "category": "撤去・処分",
-      "name": "温水ソーラー撤去費用",
-      "price1": 70000,
-      "price2": 0,
-      "unit": "式",
-      "note": "処分費は別途",
-      "inputType": "none"
-    },
-    {
-      "category": "交通・申請・その他",
-      "name": "事前先行基礎工事（蓄電池・EQ）",
-      "price1": 70000,
-      "price2": 0,
-      "unit": "式",
-      "note": "メッシュ使用",
-      "inputType": "none"
     },
     {
       "category": "交通・申請・その他",
@@ -1897,6 +1681,123 @@
       "inputType": "none"
     },
     {
+      "category": "人工・屋根",
+      "name": "PV多面設置（4面目から1面）",
+      "price1": 15000,
+      "price2": 0,
+      "unit": "面",
+      "note": "4面目から1面につき",
+      "inputType": "qty"
+    },
+    {
+      "category": "人工・屋根",
+      "name": "急勾配工事（6寸）",
+      "price1": 30000,
+      "price2": 0,
+      "unit": "式",
+      "note": "6寸勾配（7寸以上は相談）",
+      "inputType": "none"
+    },
+    {
+      "category": "人工・屋根",
+      "name": "野地板裏補強工事（5kWまで）",
+      "price1": 50000,
+      "price2": 0,
+      "unit": "式",
+      "note": "追加補強¥5,000/kW",
+      "inputType": "none"
+    },
+    {
+      "category": "人工・屋根",
+      "name": "パワコン新規2台設置同時設置",
+      "price1": 30000,
+      "price2": 0,
+      "unit": "式",
+      "note": "",
+      "inputType": "none"
+    },
+    {
+      "category": "撤去・処分",
+      "name": "アンテナ移設・撤去",
+      "price1": 60000,
+      "price2": 0,
+      "unit": "式",
+      "note": "",
+      "inputType": "none"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "新築先行配線・配管",
+      "price1": 50000,
+      "price2": 0,
+      "unit": "回",
+      "note": "",
+      "inputType": "qty"
+    },
+    {
+      "category": "撤去・処分",
+      "name": "温水ソーラー撤去費用",
+      "price1": 70000,
+      "price2": 0,
+      "unit": "式",
+      "note": "処分費は別途",
+      "inputType": "none"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "機器代金（分電盤・アンテナ等）",
+      "price1": 0,
+      "price2": 0,
+      "unit": "式",
+      "note": "実費",
+      "inputType": "none"
+    },
+    {
+      "category": "人工・屋根",
+      "name": "特殊工事（足場設置不可・難工事等）",
+      "price1": 0,
+      "price2": 0,
+      "unit": "式",
+      "note": "要相談",
+      "inputType": "none"
+    },
+    {
+      "category": "人工・屋根",
+      "name": "搬入困難（工員増員）",
+      "price1": 0,
+      "price2": 0,
+      "unit": "式",
+      "note": "事前相談必要",
+      "inputType": "none"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "ハイブリット蓄電池 系統組換え（PV既設）",
+      "price1": 100000,
+      "price2": 0,
+      "unit": "式",
+      "note": "パネル20枚まで",
+      "inputType": "none"
+    },
+    {
+      "category": "人工・屋根",
+      "name": "オムロン蓄電池 庇設置取付",
+      "price1": 3000,
+      "price2": 0,
+      "unit": "式",
+      "note": "庇本体支給",
+      "inputType": "none"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "点検口",
+      "price1": 10000,
+      "price2": 0,
+      "unit": "式",
+      "note": "",
+      "inputType": "none"
+    },
+    {
       "category": "交通・申請・その他",
       "name": "遠方交通費（50km以上片道）",
       "price1": 10000,
@@ -1904,6 +1805,132 @@
       "unit": "車両",
       "note": "工事店所在地から現地まで",
       "inputType": "none"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "電気配線延長（10m以上）",
+      "price1": 1500,
+      "price2": 0,
+      "unit": "m",
+      "note": "10m以上（本数関係なく）",
+      "inputType": "length"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "リモコン線延長",
+      "price1": 1500,
+      "price2": 0,
+      "unit": "m",
+      "note": "",
+      "inputType": "length"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "幹線張替工事（CV14まで）",
+      "price1": 0,
+      "price2": 0,
+      "unit": "式",
+      "note": "応相談（10mまで）",
+      "inputType": "none"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "幹線張替延長（CV14 10m以上）",
+      "price1": 2000,
+      "price2": 0,
+      "unit": "m",
+      "note": "CV14 10m以上",
+      "inputType": "length"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "単2→単3切替工事",
+      "price1": 0,
+      "price2": 0,
+      "unit": "式",
+      "note": "応相談（単3用分電盤は別途）",
+      "inputType": "none"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "ケーブル埋設工事",
+      "price1": 0,
+      "price2": 0,
+      "unit": "式",
+      "note": "応相談（接続箱〜パワコン/20m毎）",
+      "inputType": "none"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "ケーブル飛ばし",
+      "price1": 0,
+      "price2": 0,
+      "unit": "式",
+      "note": "応相談",
+      "inputType": "none"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "LANケーブル（10mまで）",
+      "price1": 500,
+      "price2": 0,
+      "unit": "m",
+      "note": "10m以上¥500/m。CAT5e以上",
+      "inputType": "length"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "MCCB交換（60Aまで）",
+      "price1": 15000,
+      "price2": 0,
+      "unit": "台",
+      "note": "",
+      "inputType": "qty"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "ELBの交換（75Aまで）",
+      "price1": 30000,
+      "price2": 0,
+      "unit": "台",
+      "note": "",
+      "inputType": "qty"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "専用コンセント増設工事",
+      "price1": 15000,
+      "price2": 0,
+      "unit": "箇所",
+      "note": "屋内外同一",
+      "inputType": "qty"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "分電盤交換（機器代別途）",
+      "price1": 40000,
+      "price2": 0,
+      "unit": "台",
+      "note": "",
+      "inputType": "qty"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "メーターBOX",
+      "price1": 5000,
+      "price2": 0,
+      "unit": "台",
+      "note": "",
+      "inputType": "qty"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "コンクリート基礎コア抜き",
+      "price1": 30000,
+      "price2": 0,
+      "unit": "箇所",
+      "note": "",
+      "inputType": "qty"
     },
     {
       "category": "交通・申請・その他",
@@ -2052,66 +2079,12 @@
       "inputType": "basic"
     },
     {
-      "category": "人工・屋根",
-      "name": "PV多面設置（4面目から1面）",
-      "price1": 15000,
-      "price2": 0,
-      "unit": "面",
-      "note": "4面目から1面につき",
-      "inputType": "qty"
-    },
-    {
-      "category": "人工・屋根",
-      "name": "急勾配工事（6寸）",
-      "price1": 30000,
+      "category": "交通・申請・その他",
+      "name": "事前先行基礎工事（蓄電池・EQ）",
+      "price1": 70000,
       "price2": 0,
       "unit": "式",
-      "note": "6寸勾配（7寸以上は相談）",
-      "inputType": "none"
-    },
-    {
-      "category": "人工・屋根",
-      "name": "野地板裏補強工事（5kWまで）",
-      "price1": 50000,
-      "price2": 0,
-      "unit": "式",
-      "note": "追加補強¥5,000/kW",
-      "inputType": "none"
-    },
-    {
-      "category": "人工・屋根",
-      "name": "パワコン新規2台設置同時設置",
-      "price1": 30000,
-      "price2": 0,
-      "unit": "式",
-      "note": "",
-      "inputType": "none"
-    },
-    {
-      "category": "人工・屋根",
-      "name": "特殊工事（足場設置不可・難工事等）",
-      "price1": 0,
-      "price2": 0,
-      "unit": "式",
-      "note": "要相談",
-      "inputType": "none"
-    },
-    {
-      "category": "人工・屋根",
-      "name": "搬入困難（工員増員）",
-      "price1": 0,
-      "price2": 0,
-      "unit": "式",
-      "note": "事前相談必要",
-      "inputType": "none"
-    },
-    {
-      "category": "人工・屋根",
-      "name": "オムロン蓄電池 庇設置取付",
-      "price1": 3000,
-      "price2": 0,
-      "unit": "式",
-      "note": "庇本体支給",
+      "note": "メッシュ使用",
       "inputType": "none"
     },
     {
@@ -2140,195 +2113,6 @@
       "unit": "m",
       "note": "",
       "inputType": "length"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "新築先行配線・配管",
-      "price1": 50000,
-      "price2": 0,
-      "unit": "回",
-      "note": "",
-      "inputType": "qty"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "電気配線延長",
-      "price1": 1500,
-      "price2": 0,
-      "unit": "m",
-      "note": "10m以上（本数関係なく）",
-      "inputType": "length"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "リモコン線延長",
-      "price1": 1500,
-      "price2": 0,
-      "unit": "m",
-      "note": "",
-      "inputType": "length"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "幹線張替工事（CV14まで）",
-      "price1": 0,
-      "price2": 0,
-      "unit": "式",
-      "note": "応相談（10mまで）",
-      "inputType": "none"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "幹線張替延長（CV14）",
-      "price1": 2000,
-      "price2": 0,
-      "unit": "m",
-      "note": "CV14 10m以上",
-      "inputType": "length"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "ケーブル埋設工事",
-      "price1": 0,
-      "price2": 0,
-      "unit": "式",
-      "note": "応相談（接続箱〜パワコン/20m毎）",
-      "inputType": "none"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "ケーブル飛ばし",
-      "price1": 0,
-      "price2": 0,
-      "unit": "式",
-      "note": "応相談",
-      "inputType": "none"
-    },
-    {
-      "category": "配線・ダクト",
-      "name": "LANケーブル（10mまで）",
-      "price1": 500,
-      "price2": 0,
-      "unit": "m",
-      "note": "10m以上¥500/m。CAT5e以上",
-      "inputType": "length"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "機器代金（分電盤・アンテナ等）",
-      "price1": 0,
-      "price2": 0,
-      "unit": "式",
-      "note": "実費",
-      "inputType": "none"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "ハイブリット蓄電池 系統組換え（PV既設）",
-      "price1": 100000,
-      "price2": 0,
-      "unit": "式",
-      "note": "パネル20枚まで",
-      "inputType": "none"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "点検口",
-      "price1": 10000,
-      "price2": 0,
-      "unit": "式",
-      "note": "",
-      "inputType": "none"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "単2→単3切替工事",
-      "price1": 0,
-      "price2": 0,
-      "unit": "式",
-      "note": "応相談（単3用分電盤は別途）",
-      "inputType": "none"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "MCCB交換（60Aまで）",
-      "price1": 15000,
-      "price2": 0,
-      "unit": "台",
-      "note": "",
-      "inputType": "qty"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "ELBの交換（75Aまで）",
-      "price1": 30000,
-      "price2": 0,
-      "unit": "台",
-      "note": "",
-      "inputType": "qty"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "専用コンセント増設工事",
-      "price1": 15000,
-      "price2": 0,
-      "unit": "箇所",
-      "note": "屋内外同一",
-      "inputType": "qty"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "分電盤交換（機器代別途）",
-      "price1": 40000,
-      "price2": 0,
-      "unit": "台",
-      "note": "",
-      "inputType": "qty"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "メーターBOX",
-      "price1": 5000,
-      "price2": 0,
-      "unit": "台",
-      "note": "",
-      "inputType": "qty"
-    },
-    {
-      "category": "機器・分電盤",
-      "name": "コンクリート基礎コア抜き",
-      "price1": 30000,
-      "price2": 0,
-      "unit": "箇所",
-      "note": "",
-      "inputType": "qty"
-    },
-    {
-      "category": "撤去・処分",
-      "name": "アンテナ移設・撤去",
-      "price1": 60000,
-      "price2": 0,
-      "unit": "式",
-      "note": "",
-      "inputType": "none"
-    },
-    {
-      "category": "撤去・処分",
-      "name": "温水ソーラー撤去費用",
-      "price1": 70000,
-      "price2": 0,
-      "unit": "式",
-      "note": "処分費は別途",
-      "inputType": "none"
-    },
-    {
-      "category": "交通・申請・その他",
-      "name": "事前先行基礎工事（蓄電池・EQ）",
-      "price1": 70000,
-      "price2": 0,
-      "unit": "式",
-      "note": "メッシュ使用",
-      "inputType": "none"
     },
     {
       "category": "交通・申請・その他",
@@ -2385,6 +2169,123 @@
       "inputType": "none"
     },
     {
+      "category": "人工・屋根",
+      "name": "PV多面設置（4面目から1面）",
+      "price1": 15000,
+      "price2": 0,
+      "unit": "面",
+      "note": "4面目から1面につき",
+      "inputType": "qty"
+    },
+    {
+      "category": "人工・屋根",
+      "name": "急勾配工事（6寸）",
+      "price1": 30000,
+      "price2": 0,
+      "unit": "式",
+      "note": "6寸勾配（7寸以上は相談）",
+      "inputType": "none"
+    },
+    {
+      "category": "人工・屋根",
+      "name": "野地板裏補強工事（5kWまで）",
+      "price1": 50000,
+      "price2": 0,
+      "unit": "式",
+      "note": "追加補強¥5,000/kW",
+      "inputType": "none"
+    },
+    {
+      "category": "人工・屋根",
+      "name": "パワコン新規2台設置同時設置",
+      "price1": 30000,
+      "price2": 0,
+      "unit": "式",
+      "note": "",
+      "inputType": "none"
+    },
+    {
+      "category": "撤去・処分",
+      "name": "アンテナ移設・撤去",
+      "price1": 60000,
+      "price2": 0,
+      "unit": "式",
+      "note": "",
+      "inputType": "none"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "新築先行配線・配管",
+      "price1": 50000,
+      "price2": 0,
+      "unit": "回",
+      "note": "",
+      "inputType": "qty"
+    },
+    {
+      "category": "撤去・処分",
+      "name": "温水ソーラー撤去費用",
+      "price1": 70000,
+      "price2": 0,
+      "unit": "式",
+      "note": "処分費は別途",
+      "inputType": "none"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "機器代金（分電盤・アンテナ等）",
+      "price1": 0,
+      "price2": 0,
+      "unit": "式",
+      "note": "実費",
+      "inputType": "none"
+    },
+    {
+      "category": "人工・屋根",
+      "name": "特殊工事（足場設置不可・難工事等）",
+      "price1": 0,
+      "price2": 0,
+      "unit": "式",
+      "note": "要相談",
+      "inputType": "none"
+    },
+    {
+      "category": "人工・屋根",
+      "name": "搬入困難（工員増員）",
+      "price1": 0,
+      "price2": 0,
+      "unit": "式",
+      "note": "事前相談必要",
+      "inputType": "none"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "ハイブリット蓄電池 系統組換え（PV既設）",
+      "price1": 100000,
+      "price2": 0,
+      "unit": "式",
+      "note": "パネル20枚まで",
+      "inputType": "none"
+    },
+    {
+      "category": "人工・屋根",
+      "name": "オムロン蓄電池 庇設置取付",
+      "price1": 3000,
+      "price2": 0,
+      "unit": "式",
+      "note": "庇本体支給",
+      "inputType": "none"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "点検口",
+      "price1": 10000,
+      "price2": 0,
+      "unit": "式",
+      "note": "",
+      "inputType": "none"
+    },
+    {
       "category": "交通・申請・その他",
       "name": "遠方交通費（50km以上片道）",
       "price1": 10000,
@@ -2392,6 +2293,132 @@
       "unit": "車両",
       "note": "工事店所在地から現地まで",
       "inputType": "none"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "電気配線延長",
+      "price1": 1500,
+      "price2": 0,
+      "unit": "m",
+      "note": "10m以上（本数関係なく）",
+      "inputType": "length"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "リモコン線延長",
+      "price1": 1500,
+      "price2": 0,
+      "unit": "m",
+      "note": "",
+      "inputType": "length"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "幹線張替工事（CV14まで）",
+      "price1": 0,
+      "price2": 0,
+      "unit": "式",
+      "note": "応相談（10mまで）",
+      "inputType": "none"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "幹線張替延長（CV14）",
+      "price1": 2000,
+      "price2": 0,
+      "unit": "m",
+      "note": "CV14 10m以上",
+      "inputType": "length"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "単2→単3切替工事",
+      "price1": 0,
+      "price2": 0,
+      "unit": "式",
+      "note": "応相談（単3用分電盤は別途）",
+      "inputType": "none"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "ケーブル埋設工事",
+      "price1": 0,
+      "price2": 0,
+      "unit": "式",
+      "note": "応相談（接続箱〜パワコン/20m毎）",
+      "inputType": "none"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "ケーブル飛ばし",
+      "price1": 0,
+      "price2": 0,
+      "unit": "式",
+      "note": "応相談",
+      "inputType": "none"
+    },
+    {
+      "category": "配線・ダクト",
+      "name": "LANケーブル（10mまで）",
+      "price1": 500,
+      "price2": 0,
+      "unit": "m",
+      "note": "10m以上¥500/m。CAT5e以上",
+      "inputType": "length"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "MCCB交換（60Aまで）",
+      "price1": 15000,
+      "price2": 0,
+      "unit": "台",
+      "note": "",
+      "inputType": "qty"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "ELBの交換（75Aまで）",
+      "price1": 30000,
+      "price2": 0,
+      "unit": "台",
+      "note": "",
+      "inputType": "qty"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "専用コンセント増設工事",
+      "price1": 15000,
+      "price2": 0,
+      "unit": "箇所",
+      "note": "屋内外同一",
+      "inputType": "qty"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "分電盤交換（機器代別途）",
+      "price1": 40000,
+      "price2": 0,
+      "unit": "台",
+      "note": "",
+      "inputType": "qty"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "メーターBOX",
+      "price1": 5000,
+      "price2": 0,
+      "unit": "台",
+      "note": "",
+      "inputType": "qty"
+    },
+    {
+      "category": "機器・分電盤",
+      "name": "コンクリート基礎コア抜き",
+      "price1": 30000,
+      "price2": 0,
+      "unit": "箇所",
+      "note": "",
+      "inputType": "qty"
     },
     {
       "category": "交通・申請・その他",
@@ -2469,6 +2496,15 @@
     },
     {
       "category": "基本工事",
+      "name": "パネル＋蓄電池工事一式（9kW）",
+      "price1": 310000,
+      "price2": 0,
+      "unit": "式",
+      "note": "",
+      "inputType": "none"
+    },
+    {
+      "category": "基本工事",
       "name": "太陽光単体工事（〜4kW）",
       "price1": 110000,
       "price2": 0,
@@ -2514,6 +2550,15 @@
     },
     {
       "category": "基本工事",
+      "name": "太陽光単体工事（9kW）",
+      "price1": 142000,
+      "price2": 0,
+      "unit": "式",
+      "note": "",
+      "inputType": "none"
+    },
+    {
+      "category": "基本工事",
       "name": "蓄電池単体工事",
       "price1": 160000,
       "price2": 0,
@@ -2537,15 +2582,6 @@
       "price2": 0,
       "unit": "件",
       "note": "同日複数件",
-      "inputType": "qty"
-    },
-    {
-      "category": "基本工事",
-      "name": "パネル6kW以降加算",
-      "price1": 8000,
-      "price2": 0,
-      "unit": "kW",
-      "note": "基本工事に+8,000/kW",
       "inputType": "qty"
     },
     {
@@ -2618,7 +2654,7 @@
       "price2": 0,
       "unit": "m",
       "note": "1系統×実長",
-      "inputType": "dc"
+      "inputType": "length"
     },
     {
       "category": "配線・ダクト",
@@ -2648,15 +2684,6 @@
       "inputType": "length"
     },
     {
-      "category": "配線・ダクト",
-      "name": "MDモール（通常利用分）",
-      "price1": 10000,
-      "price2": 0,
-      "unit": "式",
-      "note": "",
-      "inputType": "none"
-    },
-    {
       "category": "機器・分電盤",
       "name": "MCB・ELB設置 50Aまで",
       "price1": 13000,
@@ -2684,6 +2711,15 @@
       "inputType": "qty"
     },
     {
+      "category": "配線・ダクト",
+      "name": "MDモール（通常利用分）",
+      "price1": 10000,
+      "price2": 0,
+      "unit": "式",
+      "note": "",
+      "inputType": "none"
+    },
+    {
       "category": "機器・分電盤",
       "name": "点検口設置",
       "price1": 15000,
@@ -2708,7 +2744,7 @@
       "price2": 0,
       "unit": "式",
       "note": "",
-      "inputType": "none"
+      "inputType": "qty"
     },
     {
       "category": "撤去・処分",
@@ -2720,13 +2756,31 @@
       "inputType": "qty"
     },
     {
+      "category": "交通・申請・その他",
+      "name": "遠方交通費(1台)※50km～80km",
+      "price1": 5000,
+      "price2": 0,
+      "unit": "台",
+      "note": "",
+      "inputType": "qty"
+    },
+    {
+      "category": "交通・申請・その他",
+      "name": "以降30km～毎",
+      "price1": 5000,
+      "price2": 0,
+      "unit": "台",
+      "note": "",
+      "inputType": "qty"
+    },
+    {
       "category": "人工・屋根",
       "name": "嵩上げ工事(砂利)",
       "price1": 0,
       "price2": 0,
       "unit": "式",
       "note": "要相談",
-      "inputType": "none"
+      "inputType": "qty"
     },
     {
       "category": "人工・屋根",
@@ -2743,24 +2797,6 @@
       "price1": 5000,
       "price2": 0,
       "unit": "式",
-      "note": "",
-      "inputType": "none"
-    },
-    {
-      "category": "交通・申請・その他",
-      "name": "遠方交通費(1台)※50km～80km",
-      "price1": 5000,
-      "price2": 0,
-      "unit": "台",
-      "note": "",
-      "inputType": "qty"
-    },
-    {
-      "category": "交通・申請・その他",
-      "name": "以降30kⅿ～毎",
-      "price1": 5000,
-      "price2": 0,
-      "unit": "台",
       "note": "",
       "inputType": "qty"
     }
