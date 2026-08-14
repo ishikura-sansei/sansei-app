@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>SANSEI ATEL納品マニュアル</title>
+<style>
+  :root{
+    --bg:#f4f5f7; --panel:#ffffff; --line:#e7e9ee;
+    --ink:#111827; --sub:#6b7280;
+    --accent:#f97316; --accent-soft:#fff1e6; --accent-deep:#c2410c;
+    --blue:#2563eb; --blue-soft:#e9f0ff; --blue-deep:#1e40af;
+    --ok:#2e7d32; --warn:#c08a00;
+    --danger:#c0392b; --danger-soft:#fdefed; --danger-line:#f3c8c2;
+    --chip:#f3f5f7; --radius:16px;
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg); color:var(--ink);
+    font-family:-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",Meiryo,sans-serif;
+    font-size:16px; line-height:1.6; padding-bottom:78px;
+    -webkit-text-size-adjust:100%;
+  }
+
+  header{background:var(--panel);padding:10px 16px 11px;border-bottom:3px solid var(--accent);text-align:center;}
+  .mark{font-size:15px;font-weight:800;letter-spacing:.22em;color:var(--ink);}
+  .mark i{color:var(--accent);font-style:normal;}
+  header h1{font-size:17px;margin:3px 0 2px;font-weight:700;letter-spacing:.01em;}
+  header p{margin:0;font-size:11.5px;color:var(--sub);}
+
+  .prog{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.97);
+        border-bottom:1px solid var(--line);padding:7px 14px 8px;}
+  .prog .bar{height:6px;background:#e7e9ee;border-radius:99px;overflow:hidden;}
+  .prog .bar i{display:block;height:100%;width:0%;background:var(--accent);border-radius:99px;transition:width .2s;}
+  .prog .txt{font-size:11px;color:var(--sub);margin-top:4px;display:flex;justify-content:space-between;}
+  .prog .txt b{color:var(--ink);font-variant-numeric:tabular-nums;}
+
+  main{padding:12px 12px 0;}
+
+  .top{background:var(--danger-soft);border:1px solid var(--danger-line);border-radius:var(--radius);
+       padding:10px 13px;margin-bottom:12px;font-size:12.5px;line-height:1.65;color:#7d2b20;}
+  .top b{display:block;color:var(--danger);font-size:12px;margin-bottom:3px;}
+
+  section{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);
+          margin-bottom:10px;overflow:hidden;}
+  .sh{display:flex;align-items:center;gap:10px;padding:12px 14px;cursor:pointer;}
+  .sh .n{flex:0 0 26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;
+         display:flex;align-items:center;justify-content:center;font-weight:800;font-size:13px;}
+  .sh h2{margin:0;font-size:15px;flex:1;font-weight:700;line-height:1.35;}
+  .sh .cnt{font-size:11px;color:var(--sub);font-variant-numeric:tabular-nums;font-weight:700;}
+  .sh .arw{color:#b6bcc7;font-size:12px;transition:transform .2s;}
+  section.closed .arw{transform:rotate(-90deg);}
+  section.closed .sb{display:none;}
+  .sb{padding:0 14px 12px;border-top:1px solid var(--line);padding-top:10px;}
+
+  h3{font-size:12px;margin:13px 0 6px;color:var(--accent-deep);font-weight:800;letter-spacing:.03em;}
+  h3:first-child{margin-top:2px;}
+
+  .ck{display:flex;gap:9px;align-items:flex-start;padding:9px 11px;margin:6px 0;
+      background:var(--chip);border:1px solid var(--line);border-radius:11px;cursor:pointer;transition:opacity .15s;}
+  .ck input{appearance:none;flex:0 0 20px;height:20px;margin:1px 0 0;border:2px solid #b9c0cc;
+            border-radius:5px;background:#fff;cursor:pointer;position:relative;}
+  .ck input:checked{background:var(--ok);border-color:var(--ok);}
+  .ck input:checked::after{content:"✓";position:absolute;inset:0;color:#fff;font-weight:900;font-size:14px;
+            display:flex;align-items:center;justify-content:center;}
+  .ck .t{flex:1;font-size:14px;line-height:1.55;}
+  .ck .t small{display:block;color:var(--sub);font-size:11.5px;line-height:1.5;margin-top:2px;}
+  .ck.done{opacity:.4;}
+  .ck.done .t{text-decoration:line-through;}
+
+  .box{border-radius:11px;padding:9px 11px;margin:8px 0;font-size:12.5px;line-height:1.6;border:1px solid;}
+  .box b.h{display:block;font-size:11.5px;margin-bottom:2px;}
+  .i{background:var(--blue-soft);border-color:#cfdffb;color:var(--blue-deep);}
+  .i b.h{color:var(--blue);}
+  .w{background:var(--accent-soft);border-color:#fbd7b8;color:#8a4a10;}
+  .w b.h{color:var(--accent-deep);}
+  .d{background:var(--danger-soft);border-color:var(--danger-line);color:#7d2b20;}
+  .d b.h{color:var(--danger);}
+
+  .code{display:inline-block;background:#fff;border:1.5px solid var(--accent);border-radius:6px;
+        padding:0 7px;font-weight:800;letter-spacing:.12em;color:var(--accent-deep);
+        font-family:ui-monospace,Menlo,monospace;font-size:13.5px;}
+
+  table{width:100%;border-collapse:collapse;margin:6px 0;font-size:12.5px;}
+  th,td{border:1px solid var(--line);padding:6px 8px;text-align:left;vertical-align:top;line-height:1.5;}
+  th{background:var(--chip);color:var(--sub);font-size:11.5px;font-weight:700;width:62px;}
+
+  details.tm{background:var(--chip);border:1px solid var(--line);border-radius:11px;margin:6px 0;overflow:hidden;}
+  details.tm summary{padding:9px 11px;font-size:13.5px;font-weight:700;cursor:pointer;list-style:none;}
+  details.tm summary::-webkit-details-marker{display:none;}
+  details.tm summary::before{content:"＋";color:var(--accent);font-weight:900;margin-right:6px;}
+  details.tm[open] summary::before{content:"−";}
+  details.tm .dd{padding:0 11px 10px;font-size:12.5px;color:var(--sub);line-height:1.6;}
+  details.tm .dd b{color:var(--ink);}
+
+  .bar2{position:fixed;left:0;right:0;bottom:0;z-index:60;
+        padding:8px 12px calc(8px + env(safe-area-inset-bottom));
+        background:rgba(255,255,255,.97);border-top:1px solid var(--line);display:flex;gap:8px;}
+  .bar2 button{flex:1;background:#fff;color:var(--ink);border:1px solid var(--line);border-radius:10px;
+               padding:11px;font-size:13.5px;font-weight:700;cursor:pointer;font-family:inherit;}
+  .bar2 button.p{background:var(--accent);border-color:var(--accent);color:#fff;}
+
+  footer{padding:14px 16px 10px;color:#9aa1ad;font-size:11px;line-height:1.7;text-align:center;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="mark">SAN<i>SEI</i></div>
+  <h1>ATEL納品マニュアル</h1>
+  <p>翌日工事の積み込み手順（本社 → 黒谷倉庫）</p>
+</header>
+
+<div class="prog">
+  <div class="bar"><i id="pbar"></i></div>
+  <div class="txt"><span>進捗</span><span><b id="pnum">0</b> / <b id="ptot">0</b></span></div>
+</div>
+
+<main>
+
+<div class="top">
+  <b>⚠️ この3つを外すと当日が止まる</b>
+  ① セコムキーを持った　② 翌日の工事ファイルを引き取った　③ 帰り際にセコムのランプが青い
+</div>
+
+<section id="s0">
+  <div class="sh"><div class="n">0</div><h2>出発前</h2><span class="cnt"></span><span class="arw">▾</span></div>
+  <div class="sb">
+    <label class="ck"><input type="checkbox"><span class="t"><b>セコムキーを持った</b><small>無いと事務所も倉庫も開けられない</small></span></label>
+    <label class="ck"><input type="checkbox"><span class="t">現場を出た時点でLINEに到着時間を報告<small>到着目安でOK</small></span></label>
+  </div>
+</section>
+
+<section id="s1">
+  <div class="sh"><div class="n">1</div><h2>本社（末田）に入る</h2><span class="cnt"></span><span class="arw">▾</span></div>
+  <div class="sb">
+    <label class="ck"><input type="checkbox"><span class="t">鍵ボックスから鍵を取る<small>暗証番号 <span class="code">2330</span>（不在時のみ）</small></span></label>
+    <label class="ck"><input type="checkbox"><span class="t"><b>セコムを解除してから中に入る</b><small>解除 → 入室 の順。逆にすると鳴る</small></span></label>
+  </div>
+</section>
+
+<section id="s2">
+  <div class="sh"><div class="n">2</div><h2>ファイル入替（出す・取る）</h2><span class="cnt"></span><span class="arw">▾</span></div>
+  <div class="sb">
+    <label class="ck"><input type="checkbox"><span class="t">当日完工分のATELファイルを「完工」ボックスへ<small>場所不明 → 事務員さんにお客様名を伝える</small></span></label>
+    <label class="ck"><input type="checkbox"><span class="t">翌日の工事ファイルを「これから工事」ボックスから引き取る</span></label>
+    <div class="box w"><b class="h">無いとき＝その場で確認</b>① 事務員さんに聞く　② 黒谷の倉庫にある場合あり。<b>勝手に「無い」と判断しない。</b></div>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="sh"><div class="n">3</div><h2>ゴミ処理【厳守】</h2><span class="cnt"></span><span class="arw">▾</span></div>
+  <div class="sb">
+    <div class="box d"><b class="h">適当に捨てない</b>今後ゴミを捨てられなくなる／元請け様のクレームになります。迷ったら捨てずに聞く。</div>
+    <label class="ck"><input type="checkbox"><span class="t">現場ゴミ袋を本社コンテナへ → <b>シートを戻す</b><small>戻し忘れが一番多い</small></span></label>
+    <label class="ck"><input type="checkbox"><span class="t">段ボールは潰して本社倉庫内へ<small>シャッターが閉まっていたら事務所で鍵を借りる</small></span></label>
+    <label class="ck"><input type="checkbox"><span class="t">手のひらサイズ以下は、段ボール置き場横の<b>大きい別の入れ物</b>へ</span></label>
+    <label class="ck"><input type="checkbox"><span class="t">鉄屑・撤去部材は既にある所に<b>分けて</b>置く<small>不明 → ATELの人 → いなければ山中さん・石倉さん</small></span></label>
+    <div class="box w"><b class="h">段ボールの行き先（間違えやすい）</b>現場で出た分 → <b>本社倉庫</b>／黒谷で出た分 → <b>黒谷</b>。混ぜるとクレーム。</div>
+  </div>
+</section>
+
+<section id="s4">
+  <div class="sh"><div class="n">4</div><h2>現調報告書の確認</h2><span class="cnt"></span><span class="arw">▾</span></div>
+  <div class="sb">
+    <label class="ck"><input type="checkbox"><span class="t">翌日ファイルの現調報告書に目を通した</span></label>
+    <label class="ck"><input type="checkbox"><span class="t"><b>特記事項</b>を確認した<small>積み込み部材が特殊な場合あり</small></span></label>
+    <h3>蓄電池ありの場合：記載サイズのベースを積む</h3>
+    <table>
+      <tr><th>タイガー</th><td>300 / 400 / 500　｜ ボルトは<b>ベース1本につき2本</b></td></tr>
+      <tr><th>エコ</th><td>450 / 500 / 700　｜ 本社倉庫の<b>専用プレート付きセット</b></td></tr>
+    </table>
+    <label class="ck"><input type="checkbox"><span class="t">ベースの<b>サイズ</b>と<b>ボルト</b>を確認して積んだ</span></label>
+    <div class="box d"><b class="h">⚠️ エコベースは中身を開けて確認</b>封が空いてボルトが抜かれていることあり。<b>プレート2枚＋ドブネジボルト＋ステンボルト</b>の3点が揃っているか毎回見る。</div>
+  </div>
+</section>
+
+<section id="s5">
+  <div class="sh"><div class="n">5</div><h2>本社を出る前</h2><span class="cnt"></span><span class="arw">▾</span></div>
+  <div class="sb">
+    <label class="ck"><input type="checkbox"><span class="t">シャッターの鍵を戻した</span></label>
+    <label class="ck"><input type="checkbox"><span class="t">積み込みの忘れ物なし</span></label>
+    <label class="ck"><input type="checkbox"><span class="t">完工ファイルを提出した</span></label>
+    <label class="ck"><input type="checkbox"><span class="t">翌日ファイルを引き取った</span></label>
+    <label class="ck"><input type="checkbox"><span class="t"><b>不在時</b>：セコムをかけ、鍵をボックスに戻した<small><span class="code">2330</span></small></span></label>
+  </div>
+</section>
+
+<section id="s6">
+  <div class="sh"><div class="n">6</div><h2>黒谷倉庫に入る</h2><span class="cnt"></span><span class="arw">▾</span></div>
+  <div class="sb">
+    <label class="ck"><input type="checkbox"><span class="t">鍵ボックス付近のセコムを解除<small>暗証番号 <span class="code">8282</span>（不在時のみ）</small></span></label>
+    <label class="ck"><input type="checkbox"><span class="t">シャッターを<b>両方とも上まで</b>開ける</span></label>
+    <label class="ck"><input type="checkbox"><span class="t">真ん中の支柱を外す</span></label>
+    <div class="box i"><b class="h">支柱の順番</b>外す＝① 上から動かす → ② 下のロック解除 → ③ 支柱を動かす。<b>戻すときは逆順。</b></div>
+    <div class="box i"><b class="h">倉庫内</b>車両を入れてOK ／ 電気は入ってすぐ左 ／ フォークリフト使用OK</div>
+  </div>
+</section>
+
+<section id="s7">
+  <div class="sh"><div class="n">7</div><h2>商材の積み込み</h2><span class="cnt"></span><span class="arw">▾</span></div>
+  <div class="sb">
+    <label class="ck"><input type="checkbox"><span class="t"><b>工事名と商材を照合した</b><small>他案件と混ざっていることがある。置いてあった＝合っている、ではない</small></span></label>
+    <h3>［パネル］</h3>
+    <label class="ck"><input type="checkbox"><span class="t"><b>パレットごとの積み込みは禁止</b><small>パネルパレットはATELに置いていく</small></span></label>
+    <label class="ck"><input type="checkbox"><span class="t">空パレットを置き場に戻した<small>同じサイズでまとめ、置き方も揃える</small></span></label>
+    <label class="ck"><input type="checkbox"><span class="t">架台は<b>図面・納品書</b>と照合してフレーム本数を確認</span></label>
+    <label class="ck"><input type="checkbox"><span class="t"><b>軒カバー・ケーブル・アンカー</b>を積んだ<small>積み忘れが一番多い</small></span></label>
+    <h3>［蓄電池］</h3>
+    <label class="ck"><input type="checkbox"><span class="t">蓄電池を積んだ<small>パレットは基本置いていく</small></span></label>
+    <div class="box w"><b class="h">メーカーごとに違う</b>バラし方・段取りがメーカーで異なる。回数を重ねて覚える。分からないうちは必ず聞く。</div>
+    <div class="box i"><b class="h">コツ</b>ATEL倉庫内でバラして段取りまでしておくと翌日が楽。</div>
+  </div>
+</section>
+
+<section id="s8">
+  <div class="sh"><div class="n">8</div><h2>黒谷で出たゴミ</h2><span class="cnt"></span><span class="arw">▾</span></div>
+  <div class="sb">
+    <label class="ck"><input type="checkbox"><span class="t">ゴミは<b>ATELにあるゴミ袋</b>に入れて捨てる</span></label>
+    <label class="ck"><input type="checkbox"><span class="t">段ボールは潰して黒谷の置き場へ／細かいものは<b>専用の袋</b></span></label>
+    <div class="box d"><b class="h">⚠️ 黒谷に捨ててよいのは黒谷で出た段ボールだけ</b>現場で出た段ボールは<b>本社倉庫の段ボール置き場</b>へ。間違えるとクレームになります。</div>
+  </div>
+</section>
+
+<section id="s9">
+  <div class="sh"><div class="n">9</div><h2>施錠して帰る（黒谷）</h2><span class="cnt"></span><span class="arw">▾</span></div>
+  <div class="sb">
+    <div class="box w"><b class="h">30秒の時間制限あり</b>積み込みを完全に終えてから始める。</div>
+    <label class="ck"><input type="checkbox"><span class="t">① 積み込み完了（倉庫に戻る用事なし）</span></label>
+    <label class="ck"><input type="checkbox"><span class="t">② セコム画面の「セット」をかける</span></label>
+    <label class="ck"><input type="checkbox"><span class="t">③ <b>30秒以内に</b>シャッターを閉める</span></label>
+    <label class="ck"><input type="checkbox"><span class="t">④ 外のセコム機器にセコムキーをタッチ</span></label>
+    <label class="ck"><input type="checkbox"><span class="t">⑤ 鍵をボックスに戻す</span></label>
+    <label class="ck"><input type="checkbox"><span class="t"><b>⑥ ランプが青く点灯しているか確認</b><small>ここまでで完了</small></span></label>
+    <div class="box d"><b class="h">ランプが消えていたら</b>解除モードのままです。中の機器で「セット」からやり直す。</div>
+  </div>
+</section>
+
+<section id="s10" class="closed">
+  <div class="sh"><div class="n">?</div><h2>用語集</h2><span class="cnt" style="display:none"></span><span class="arw">▾</span></div>
+  <div class="sb">
+    <details class="tm"><summary>セコムキー</summary><div class="dd">警備を解除／セットする鍵型の器具。入退室に必須。出発前の最重要持ち物。</div></details>
+    <details class="tm"><summary>キーボックス</summary><div class="dd">建物の鍵が入った暗証番号式の箱。本社＝<span class="code">2330</span>／黒谷＝<span class="code">8282</span>。使ったら必ず戻す。</div></details>
+    <details class="tm"><summary>「これから工事」／「完工」ボックス</summary><div class="dd">本社事務所内のファイル受け渡し場所。<b>これから工事</b>＝取る所、<b>完工</b>＝出す所。毎回2つセット。</div></details>
+    <details class="tm"><summary>現調報告書</summary><div class="dd">現地調査の結果。翌日必要なものが書いてある。特記事項に特殊部材、蓄電池ベースのサイズも記載。</div></details>
+    <details class="tm"><summary>蓄電池ベース</summary><div class="dd">蓄電池の土台。<b>タイガー</b>＝300/400/500、<b>エコ</b>＝450/500/700（専用プレート付きボルトセットが必要）。</div></details>
+    <details class="tm"><summary>ドブネジ／ステンボルト</summary><div class="dd">エコベース専用セットの2種のボルト。プレート2枚と合わせて<b>3点で1セット</b>。</div></details>
+    <details class="tm"><summary>架台・フレーム</summary><div class="dd">パネルを屋根に固定する骨組み。本数を図面・納品書と照合してから積む。</div></details>
+    <details class="tm"><summary>軒カバー</summary><div class="dd">軒先に付ける化粧・保護部材。ケーブル・アンカーと並んで積み忘れが多い。</div></details>
+    <details class="tm"><summary>支柱（黒谷）</summary><div class="dd">シャッター中央の柱。車両を入れるため外す。戻すのは外した逆順。</div></details>
+    <details class="tm"><summary>パレット</summary><div class="dd">商材を載せる台。<b>パネルのパレットはATELに置いていく</b>。蓄電池も基本置いていく。</div></details>
+  </div>
+</section>
+
+<div class="top" style="margin-top:12px;">
+  <b>迷ったら（順番）</b>
+  ① 事務員さん（ファイル・ボックス）→ ② ATELの方（ゴミ・部材）→ ③ 山中さん・石倉さん<br>
+  「たぶんこれだろう」で捨てない・積まない。
+</div>
+
+</main>
+
+<div class="bar2">
+  <button onclick="openAll()">全部ひらく</button>
+  <button class="p" onclick="resetAll()">チェックをリセット</button>
+</div>
+
+<footer>株式会社SANSEI ／ ATEL納品手順書<br>内容の変更・誤りは石倉まで</footer>
+
+<script>
+(function(){
+  var boxes = Array.prototype.slice.call(document.querySelectorAll('.ck input'));
+  document.getElementById('ptot').textContent = boxes.length;
+  function refresh(){
+    var n=0;
+    boxes.forEach(function(b){
+      if(b.checked){n++;b.parentElement.classList.add('done');}
+      else b.parentElement.classList.remove('done');
+    });
+    document.getElementById('pnum').textContent=n;
+    document.getElementById('pbar').style.width=(boxes.length?(n/boxes.length*100):0)+'%';
+    document.querySelectorAll('section').forEach(function(s){
+      var ins=s.querySelectorAll('.ck input'), c=s.querySelector('.cnt');
+      if(!c) return;
+      if(!ins.length){c.textContent='';return;}
+      var d=0; ins.forEach(function(i){if(i.checked)d++;});
+      c.textContent=d+'/'+ins.length;
+    });
+  }
+  boxes.forEach(function(b){b.addEventListener('change',refresh);});
+  document.querySelectorAll('.sh').forEach(function(h){
+    h.addEventListener('click',function(){h.parentElement.classList.toggle('closed');});
+  });
+  window.resetAll=function(){boxes.forEach(function(b){b.checked=false;});refresh();window.scrollTo({top:0,behavior:'smooth'});};
+  window.openAll=function(){document.querySelectorAll('section').forEach(function(s){s.classList.remove('closed');});};
+  refresh();
+})();
+</script>
+</body>
+</html>
