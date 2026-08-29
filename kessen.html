@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>単線結線図メーカー｜SANSEI</title>
+<style>
+  :root{--ink:#111827;--sub:#6b7280;--line:#e7e9ee;--acc:#F97316;--red:#e00}
+  *{box-sizing:border-box}
+  body{margin:0;background:#f4f5f7;color:var(--ink);
+       font-family:-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif;font-size:15px}
+  header{position:sticky;top:0;z-index:20;background:#fff;border-bottom:1px solid var(--line);padding:10px 16px;
+         box-shadow:0 1px 0 rgba(17,24,39,.03)}
+  header::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;
+         background:linear-gradient(90deg,var(--acc),#fbbf24)}
+  .brand{font-weight:800;letter-spacing:.14em;font-size:13px}
+  .brand span{color:var(--acc)}
+  h1{font-size:16px;margin:2px 0 0}
+  .sub{font-size:11px;color:var(--sub)}
+  .bar{display:flex;gap:8px;align-items:center;margin-top:8px;flex-wrap:wrap}
+  button{font:inherit;border-radius:9px;border:1px solid var(--line);background:#fff;padding:8px 14px;cursor:pointer}
+  button.primary{background:var(--acc);border-color:var(--acc);color:#fff;font-weight:700}
+  button:active{transform:translateY(1px)}
+  .wrap{max-width:1180px;margin:0 auto;padding:14px}
+  .card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+  .card h2{font-size:13px;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+  .card h2 .n{background:var(--acc);color:#fff;width:20px;height:20px;border-radius:50%;
+       display:inline-flex;align-items:center;justify-content:center;font-size:11px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(215px,1fr));gap:10px}
+  label{display:block;font-size:11.5px;color:var(--sub);margin-bottom:3px}
+  input,select,textarea{width:100%;font:inherit;font-size:14px;padding:7px 9px;border:1px solid #d7dae1;border-radius:8px;background:#fff}
+  input.miss,select.miss{border-color:var(--red);background:#fff7f7}
+  .hint{font-size:11px;color:var(--sub);margin-top:4px}
+  .alert{border:1.5px solid var(--red);background:#fff6f6;border-radius:9px;padding:10px 13px;margin-bottom:12px;
+         font-size:12.5px;color:#c00;line-height:1.7}
+  .alert b{display:block;margin-bottom:3px}
+  .alert ul{margin:4px 0 0;padding-left:18px}
+  #sheet{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px}
+  .head{display:flex;justify-content:space-between;align-items:flex-end;border-bottom:2px solid #111;padding-bottom:5px;margin-bottom:8px}
+  .head h3{font-size:18px;margin:0}
+  .meta{font-size:11px;color:#333;text-align:right;line-height:1.6}
+  svg{display:block;width:100%;height:auto;background:#fff;border:1px solid #bbb;border-radius:3px}
+  .legend{display:flex;gap:18px;align-items:center;font-size:12px;margin:7px 0 9px}
+  .sw{display:inline-block;width:22px;height:0;border-top:3px solid #111;margin-right:5px;vertical-align:middle}
+  .sw.r{border-top-color:var(--red)}
+  table{width:100%;border-collapse:collapse;font-size:11px;margin-top:9px}
+  th,td{border:1px solid #999;padding:4px 8px;text-align:left;vertical-align:top}
+  th{background:#f2f2f2;white-space:nowrap}
+  .kb{color:#c00;font-weight:700}
+  .warn{color:#c00}
+  .foot{font-size:10.5px;color:#555;margin-top:7px}
+  @page{size:A4 landscape;margin:8mm}
+  @media print{
+    body{background:#fff}
+    header,.card,.noprint{display:none!important}
+    .wrap{max-width:none;padding:0}
+    #sheet{border:0;border-radius:0;padding:0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">SAN<span>SEI</span></div>
+  <h1>単線結線図メーカー</h1>
+  <div class="sub">現調データから提出用の単線結線図をつくります。赤い項目を埋めてから印刷してください。</div>
+  <div class="bar">
+    <button class="primary" onclick="window.print()">🖨 印刷 / PDFで保存</button>
+    <button onclick="draw()">↻ 図を作り直す</button>
+    <span id="stamp" class="sub"></span>
+  </div>
+</header>
+
+<div class="wrap">
+
+<div id="missing" class="alert noprint" style="display:none"></div>
+
+<div class="card noprint">
+  <h2><span class="n">1</span>案件</h2>
+  <div class="grid">
+    <div><label>お客様名</label><input id="custName" placeholder="山田 政明"></div>
+    <div><label>現場住所</label><input id="addr"></div>
+    <div><label>元請け</label><input id="company"></div>
+    <div><label>案件キー</label><input id="caseKey"></div>
+    <div><label>現地調査日</label><input id="surveyDate"></div>
+    <div><label>報告者</label><input id="reporter"></div>
+    <div><label>工事内容</label><input id="surveyType" placeholder="PV＋BT"></div>
+  </div>
+</div>
+
+<div class="card noprint">
+  <h2><span class="n">2</span>電気（ここが図の左半分になります）</h2>
+  <div class="grid">
+    <div><label>契約種別・容量</label><input id="keiyaku" placeholder="単相3線・50A"></div>
+    <div><label>計器No</label><input id="meterNo"></div>
+    <div><label>既設SB</label>
+      <select id="sb">
+        <option value="">— 未確認 —</option>
+        <option>ない</option>
+        <option>ある（30A）</option><option>ある（40A）</option>
+        <option>ある（50A）</option><option>ある（60A）</option>
+        <option>ある（定格不明）</option>
+      </select>
+      <div class="hint">SMだけの家は「ない」。ないなら SM直後にMCBを新設します。</div>
+    </div>
+    <div><label>主幹ELB 定格</label>
+      <select id="mainBreaker"><option value="">— 未確認 —</option>
+        <option>30A</option><option>40A</option><option>50A</option>
+        <option>60A</option><option>75A</option><option>100A</option></select></div>
+    <div><label>主幹ELB 極数・素子数</label>
+      <select id="mainPole"><option value="">— 未確認 —</option>
+        <option>3P3E</option><option>3P2E</option><option>2P1E</option></select></div>
+    <div><label>幹線サイズ</label><input id="kansen" placeholder="CV-14"></div>
+    <div><label>分電盤メーカー</label><input id="panelMaker"></div>
+    <div><label>回路数</label><input id="circuits"></div>
+    <div><label>空き回路数</label><input id="empty"></div>
+    <div><label>アース</label>
+      <select id="earth"><option value="">—</option><option>有</option><option>無</option></select></div>
+  </div>
+</div>
+
+<div class="card noprint">
+  <h2><span class="n">3</span>新設機器</h2>
+  <div class="grid">
+    <div><label>パワコン</label><input id="pcs" placeholder="ニチコン ES-T5　5.9kW"></div>
+    <div><label>蓄電池</label><input id="battery"></div>
+    <div><label>太陽光</label>
+      <select id="pvMode"><option value="new">新設する</option>
+        <option value="exist">既設のみ（今回はPVなし）</option>
+        <option value="none">太陽光なし</option></select></div>
+    <div><label>PV 仕様</label><input id="pvSpec" placeholder="ハンファ Re.RISE-NBC 440 ×2 ／ AG270 ×13"></div>
+    <div><label>PV 容量</label><input id="pvKw" placeholder="合計 4.39kW（15枚）"></div>
+    <div><label>PCS-分電盤</label><input id="cblMain"></div>
+    <div><label>PCS-蓄電池</label><input id="cblBatt"></div>
+  </div>
+  <div style="margin-top:10px"><label>備考（図の下に入ります）</label><textarea id="note" rows="2"></textarea></div>
+</div>
+
+<div id="sheet"></div>
+
+</div>
+
+<script>
+var F=['custName','addr','company','caseKey','surveyDate','reporter','surveyType','keiyaku','meterNo','sb',
+       'mainBreaker','mainPole','kansen','panelMaker','circuits','empty','earth','pcs','battery','pvMode',
+       'pvSpec','pvKw','cblMain','cblBatt','note'];
+var TBD='要確認';
+function el(id){return document.getElementById(id);}
+function g(id){var e=el(id);return e?(e.value||'').trim():'';}
+function esc(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){
+  return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+function vv(id){var x=g(id);return x?x:TBD;}
+
+/* URLのパラメータを流し込む */
+(function boot(){
+  var q=new URLSearchParams(location.search);
+  F.forEach(function(k){ var e=el(k); if(!e) return;
+    var val=q.get(k); if(val===null) return;
+    if(e.tagName==='SELECT'){
+      var hit=[].slice.call(e.options).some(function(o){ if(o.value===val||o.text===val){e.value=o.value;return true;} });
+      if(!hit && val) { var o=document.createElement('option'); o.text=val; o.value=val; e.add(o); e.value=val; }
+    } else { e.value=val; }
+  });
+  if(q.get('pvMode')===null){
+    var st=(q.get('surveyType')||'');
+    el('pvMode').value = st.indexOf('PV')>=0 ? 'new' : (st?'exist':'new');
+  }
+  F.forEach(function(k){ var e=el(k); if(e) e.addEventListener('input',draw); });
+  F.forEach(function(k){ var e=el(k); if(e&&e.tagName==='SELECT') e.addEventListener('change',draw); });
+  el('stamp').textContent='作成 '+new Date().toLocaleDateString('ja-JP');
+  draw();
+})();
+
+function draw(){
+  var d={};F.forEach(function(k){d[k]=g(k);});
+  var sb=d.sb, first;
+  if(/^ある/.test(sb))      first={kind:'sb', label:'SB（契約ブレーカー）', sub:sb.replace('ある','').replace(/[（）]/g,''), nw:false};
+  else if(sb==='ない')      first={kind:'mcb',label:'MCB 50A',            sub:'新設（別ボックス）',        nw:true};
+  else                      first={kind:'q',  label:'SB または MCB',       sub:'既設SB未確認のため要確認',   nw:true};
+
+  var elb=vv('mainBreaker'), pole=vv('mainPole'), kansen=vv('kansen');
+  var miss=[];
+  if(!d.sb) miss.push('既設SBの有無・定格');
+  if(!d.mainBreaker) miss.push('主幹ELB 定格');
+  if(!d.mainPole) miss.push('主幹ELB 極数・素子数');
+  if(!d.kansen) miss.push('幹線サイズ');
+  ['sb','mainBreaker','mainPole','kansen'].forEach(function(k){
+    var e=el(k); if(e) e.classList.toggle('miss', !g(k)); });
+
+  var mb=el('missing');
+  if(miss.length){
+    mb.style.display='';
+    mb.innerHTML='<b>この項目が埋まらないと提出できません（'+miss.length+'件）</b>'
+      +'<ul>'+miss.map(function(m){return '<li>'+esc(m)+'</li>';}).join('')+'</ul>'
+      +'分電盤内部・回路表・主幹ELB銘板・電力量計の写真から読み取れます。';
+  } else { mb.style.display='none'; }
+
+  var S=[];
+  /* 引込・SM */
+  S.push('<line class="e" x1="38" y1="20" x2="66" y2="54"/><line class="e" x1="25" y1="31" x2="53" y2="65"/>'
+    +'<line class="e" x1="12" y1="42" x2="40" y2="76"/><line class="e" x1="44" y1="8" x2="44" y2="108"/>'
+    +'<line class="e" x1="44" y1="62" x2="86" y2="62"/><circle class="ebx" cx="103" cy="62" r="17"/>'
+    +'<text class="tb" x="94" y="67">SM</text>'
+    +'<text class="ts" x="34" y="96">スマートメーター</text>'
+    +'<text class="ts" x="34" y="110">'+esc(vv('keiyaku'))+'</text>'
+    +'<text class="ts" x="34" y="124">No. '+esc(vv('meterNo'))+'</text>');
+
+  /* SM直後 */
+  S.push('<line class="e" x1="120" y1="62" x2="176" y2="62"/>'
+    +'<rect class="'+(first.nw?'nbx':'ebx')+'" x="176" y="38" width="126" height="48" rx="2"/>'
+    +'<text class="'+(first.nw?'r':'tb')+'" x="187" y="60">'+esc(first.label)+'</text>'
+    +'<text class="'+(first.nw?'rs':'ts')+'" x="180" y="78">'+esc(first.sub)+'</text>');
+  if(first.kind==='q') S.push('<text class="rss" x="178" y="104">※SBを残す／外すの判断が未確定</text>');
+
+  /* 自立切替盤 */
+  S.push('<line class="n" x1="302" y1="62" x2="348" y2="62"/>'
+    +'<rect class="nbx" x="348" y="14" width="250" height="112" rx="3"/>'
+    +'<text class="r" x="360" y="32">自立切替住宅用分電盤（新設）</text>'
+    +'<text class="rss" x="360" y="46">ES-B9E-BOX-NB40　1&#934;3W 100A</text>'
+    +'<rect class="nbx" x="360" y="54" width="108" height="60" rx="2"/>'
+    +'<text class="r" x="372" y="76">自動切替</text><text class="r" x="378" y="92">開閉器</text>'
+    +'<text class="rss" x="374" y="108">ES-B9E</text>'
+    +'<rect class="nbx" x="484" y="54" width="102" height="60" rx="2"/>'
+    +'<text class="r" x="504" y="76">漏電BR</text><text class="r" x="510" y="92">40A</text>'
+    +'<text class="rss" x="492" y="108">GE53C 3P3E 30mA</text>');
+
+  /* 既設主幹ELB */
+  S.push('<line class="n" x1="598" y1="62" x2="668" y2="62"/>'
+    +'<rect class="ebx" x="668" y="36" width="150" height="52" rx="2"/>'
+    +'<text class="'+(d.mainBreaker?'tb':'r')+'" x="684" y="58">主幹ELB　'+esc(elb)+'</text>'
+    +'<text class="ts" x="684" y="76">キセツ（触らない）</text>'
+    +'<text class="'+(d.mainPole?'ts':'rs')+'" x="672" y="106">1&#966;3W　'+esc(pole)+'</text>'
+    +'<text class="'+(d.kansen?'ts':'rs')+'" x="672" y="120">幹線 '+esc(kansen)+'</text>');
+
+  /* 既設分電盤 */
+  S.push('<line class="e" x1="818" y1="62" x2="868" y2="62"/>'
+    +'<rect x="868" y="12" width="262" height="228" rx="3" fill="none" stroke="#111" stroke-width="1.4"/>'
+    +'<text class="tb" x="874" y="8">キセツ 分電盤（'+esc(vv('panelMaker'))+'・'+esc(vv('circuits'))+'回路）</text>'
+    +'<line class="e" x1="868" y1="62" x2="902" y2="62"/><line class="e" x1="902" y1="34" x2="902" y2="222"/>');
+  var ys=[44,76,108,140,172],
+      lb=['1･2　電灯コンセント','3･4　電灯コンセント','5･6　キッチン系統','7〜　エアコン（200V含む）','ほか 分岐回路'];
+  for(var i=0;i<ys.length;i++){
+    S.push('<line class="e" x1="902" y1="'+ys[i]+'" x2="936" y2="'+ys[i]+'"/>'
+      +'<rect class="ebx" x="918" y="'+(ys[i]-7)+'" width="13" height="13"/>'
+      +'<text class="ts" x="942" y="'+(ys[i]+4)+'">'+esc(lb[i])+'</text>');
+  }
+  S.push('<text class="'+(d.empty?'ts':'rs')+'" x="942" y="208">空き '+esc(vv('empty'))+' 回路</text>'
+    +'<text class="rs" x="874" y="232">※回路の内訳は回路表の写真から転記</text>');
+
+  /* PCS */
+  S.push('<line class="n" x1="473" y1="126" x2="473" y2="284"/>'
+    +'<rect class="nbx" x="376" y="284" width="196" height="60" rx="3"/>'
+    +'<text class="r" x="394" y="308">パワコン（INV）</text>'
+    +'<text class="rs" x="394" y="326">'+esc(vv('pcs'))+'</text>');
+
+  /* PV */
+  if(d.pvMode==='new'){
+    S.push('<rect class="nbx" x="16" y="262" width="252" height="104" rx="3"/>'
+      +'<text class="r" x="32" y="290">太陽光パネル（新設）</text>'
+      +'<text class="rs" x="32" y="314">'+esc(vv('pvSpec'))+'</text>'
+      +'<text class="r" x="32" y="344">'+esc(vv('pvKw'))+'</text>'
+      +'<line class="n" x1="268" y1="314" x2="376" y2="314"/>');
+  } else if(d.pvMode==='exist'){
+    S.push('<rect class="ebx" x="16" y="262" width="252" height="104" rx="3"/>'
+      +'<text class="tb" x="32" y="290">既設 太陽光（キセツ）</text>'
+      +'<text class="ts" x="32" y="314">既設PCS → 新設PCSへ DC接続</text>'
+      +'<text class="rs" x="32" y="340">既設PVの容量・枚数は要確認</text>'
+      +'<line class="e" x1="268" y1="314" x2="376" y2="314"/>');
+  }
+
+  /* 蓄電池 */
+  var bat=vv('battery'), b1=bat, b2='';
+  if(bat.length>30){ var c=bat.lastIndexOf('　',30); if(c<0)c=bat.lastIndexOf(' ',30); if(c<0)c=30;
+    b1=bat.slice(0,c).trim(); b2=bat.slice(c).trim(); }
+  S.push('<line class="n" x1="572" y1="314" x2="626" y2="314"/>'
+    +'<rect class="nbx" x="626" y="278" width="232" height="74" rx="3"/>'
+    +'<text class="r" x="710" y="300">蓄電池</text>'
+    +'<text class="'+(bat.length>26?'rss':'rs')+'" x="636" y="324">'+esc(b1)+'</text>'
+    +'<text class="'+(bat.length>26?'rss':'rs')+'" x="636" y="340">'+esc(b2)+'</text>');
+
+  /* 接地 */
+  S.push('<line class="e" x1="103" y1="160" x2="103" y2="206"/><line class="e" x1="85" y1="206" x2="121" y2="206"/>'
+    +'<line class="e" x1="91" y1="214" x2="115" y2="214"/><line class="e" x1="97" y1="222" x2="109" y2="222"/>'
+    +'<text class="ts" x="40" y="242">接地 '+esc(d.earth||'—')+'</text>');
+
+  S.push('<text class="ts" x="16" y="420">ケーブル：PCS-分電盤 '+esc(vv('cblMain'))
+    +'／PCS-蓄電池 '+esc(vv('cblBatt'))+'（メーカー規格品）</text>'
+    +'<text class="ts" x="16" y="440">送り方：一次送り（SM直後から自立切替盤を経て既設主幹ELB・既設分電盤へ）。停電時は家全体が使える構成（全負荷）。</text>');
+
+  /* 機器表 */
+  function row(k,n,s,nw,wn){
+    return '<tr><td'+(nw?' class="kb"':'')+'>'+esc(k)+'</td><td>'+esc(n)+'</td>'
+      +'<td'+(wn?' class="warn"':'')+'>'+esc(s)+'</td></tr>';
+  }
+  var R=[];
+  R.push(row('キセツ','電力量計（SM）',vv('keiyaku')+'／No. '+vv('meterNo')));
+  R.push(row('キセツ','SB（契約ブレーカー）',d.sb||'要確認（現調で未取得）',false,!d.sb));
+  R.push(row('キセツ','主幹ELB',elb+'／1φ3W '+pole,false,!d.mainBreaker||!d.mainPole));
+  R.push(row('キセツ','幹線',kansen,false,!d.kansen));
+  R.push(row('キセツ','分電盤',vv('panelMaker')+'　'+vv('circuits')+'回路（空き '+vv('empty')+'）'));
+  if(first.kind==='mcb') R.push(row('新設','MCB（配線用遮断器）','テンパール B-53EC　50A／3P3E 50AF',true));
+  if(first.kind==='q')   R.push(row('新設','SM直後の機器','既設SBの有無が未確認のため確定できず（SBを残すなら新設MCBは不要）',true,true));
+  R.push(row('新設','自立切替住宅用分電盤','ES-B9E-BOX-NB40　1Φ3W(100/200V) 定格100A（長府工産／ボックス：日東工業 HJD-4232）',true));
+  R.push(row('新設','　└ 自動切替開閉器','ニチコン ES-B9E　AC200V 100A（CT内蔵）',true));
+  R.push(row('新設','　└ 漏電ブレーカ','日東工業 GE53C 50AF　40A／3P3E／感度30mA',true));
+  R.push(row('新設','パワーコンディショナ',vv('pcs'),true));
+  R.push(row('新設','蓄電池ユニット',vv('battery'),true));
+  if(d.pvMode==='new') R.push(row('新設','太陽光パネル',vv('pvSpec')+'　'+vv('pvKw'),true));
+
+  var title='単線結線図　'+vv('custName')+' 様邸';
+  document.title=title;
+  el('sheet').innerHTML=
+    '<div class="head"><div><h3>'+esc(title)+'</h3>'
+    +'<div style="font-size:11.5px;color:#333">単相3線式 100/200V ／ '+esc(vv('surveyType'))+' ／ '+esc(vv('battery'))+'</div></div>'
+    +'<div class="meta">'+esc(vv('addr'))+'<br>案件キー '+esc(vv('caseKey'))+'<br>'
+    +'現地調査 '+esc(vv('surveyDate'))+'（'+esc(vv('reporter'))+'）／元請け '+esc(vv('company'))+'<br>株式会社SANSEI</div></div>'
+    +'<div class="legend"><span><span class="sw r"></span><b style="color:#e00">赤＝新設</b></span>'
+    +'<span><span class="sw"></span>黒＝既設（キセツ）</span>'
+    +'<span style="color:#555">蓄電池の押し上げなし</span></div>'
+    +'<svg viewBox="0 0 1140 470"><defs><style>'
+    +'.e{stroke:#111;stroke-width:2;fill:none}.n{stroke:#e00;stroke-width:2.4;fill:none}'
+    +'.ebx{fill:#fff;stroke:#111;stroke-width:1.6}.nbx{fill:#fff;stroke:#e00;stroke-width:2}'
+    +'.tb{font-size:12px;fill:#111;font-weight:700}.ts{font-size:10px;fill:#333}'
+    +'.r{font-size:12px;fill:#e00;font-weight:700}.rs{font-size:10px;fill:#e00}.rss{font-size:9px;fill:#e00}'
+    +'</style></defs>'+S.join('')+'</svg>'
+    +'<table><tr><th style="width:60px">区分</th><th style="width:200px">機器</th><th>仕様</th></tr>'
+    +R.join('')+'</table>'
+    +(d.note?'<div class="foot">'+esc(d.note)+'</div>':'');
+}
+</script>
+</body>
+</html>
