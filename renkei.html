@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>連系のしくみ</title>
+<style>
+  @page{size:A4 portrait;margin:10mm}
+  body{font-family:-apple-system,"Hiragino Kaku Gothic ProN","Noto Sans JP","Meiryo",sans-serif;
+       background:#fff;color:#111;margin:0;padding:14px;line-height:1.7}
+  .wrap{max-width:900px;margin:0 auto}
+  h1{font-size:19px;margin:0 0 4px;border-bottom:2px solid #111;padding-bottom:6px}
+  .sub{font-size:12px;color:#555;margin-bottom:16px}
+  .panel{border:1px solid #999;border-radius:4px;padding:12px 14px;margin-bottom:16px}
+  .panel h2{font-size:15px;margin:0 0 2px}
+  .panel .lead{font-size:12.5px;color:#444;margin:0 0 10px}
+  svg{display:block;width:100%;height:auto}
+  .tag{display:inline-block;border-radius:3px;padding:1px 7px;font-size:11.5px;font-weight:700;margin-left:6px}
+  .ok{background:#e8f5e9;color:#1b5e20;border:1px solid #a5d6a7}
+  .ng{background:#ffebee;color:#b71c1c;border:1px solid #ef9a9a}
+  table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:6px}
+  th,td{border:1px solid #999;padding:5px 8px;text-align:left;vertical-align:top}
+  th{background:#f2f2f2;white-space:nowrap}
+  .caution{border:1.5px solid #e8a33d;background:#fffaf0;border-radius:4px;padding:10px 13px;font-size:12.5px;margin-top:14px}
+  .caution b{color:#a86000}
+  .note{font-size:11.5px;color:#555;margin-top:8px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>蓄電池・太陽光をどこにつなぐか</h1>
+<div class="sub">一次送りと二次送りの違い／MCB追加と主幹交換の違い　　2026-08-27　株式会社SANSEI 社内資料</div>
+
+
+<!-- パネル0 -->
+<div class="panel" style="border-color:#1565c0">
+<h2 style="color:#1565c0">⓪ まず、言葉の絵</h2>
+<p class="lead">この2つが分かれば、あとの図はぜんぶ読めます。</p>
+
+<h3 style="font-size:13.5px;margin:14px 0 4px">A. 「空きコマ」＝ ブレーカーを差す場所の空き</h3>
+<p class="lead" style="margin-bottom:6px">分電盤の蓋を開けると、小さいブレーカーが横に並んでいます。この1個ぶんの場所が「1コマ」。</p>
+<svg viewBox="0 0 860 230">
+<defs><style>
+ .bd0{fill:#fff;stroke:#111;stroke-width:2}
+ .mn0{fill:#eceff1;stroke:#111;stroke-width:1.8}
+ .fl0{fill:#cfd8dc;stroke:#111;stroke-width:1.4}
+ .em0{fill:#fff;stroke:#1565c0;stroke-width:1.6;stroke-dasharray:4 3}
+ .h0{font-size:13px;fill:#111;font-weight:700;font-family:sans-serif}
+ .n0{font-size:11.5px;fill:#444;font-family:sans-serif}
+ .b0{font-size:12px;fill:#1565c0;font-weight:700;font-family:sans-serif}
+ .x0{font-size:12px;fill:#c62828;font-weight:700;font-family:sans-serif}
+</style></defs>
+
+<text class="h0" x="20" y="20">空きあり</text>
+<rect class="bd0" x="20" y="30" width="390" height="110" rx="4"/>
+<rect class="mn0" x="34" y="52" width="76" height="66" rx="2"/>
+<text class="n0" x="42" y="80">主幹</text><text class="n0" x="42" y="98">ELB</text>
+<g>
+<rect class="fl0" x="128" y="60" width="24" height="50" rx="2"/>
+<rect class="fl0" x="158" y="60" width="24" height="50" rx="2"/>
+<rect class="fl0" x="188" y="60" width="24" height="50" rx="2"/>
+<rect class="fl0" x="218" y="60" width="24" height="50" rx="2"/>
+<rect class="fl0" x="248" y="60" width="24" height="50" rx="2"/>
+<rect class="em0" x="290" y="60" width="24" height="50" rx="2"/>
+<rect class="em0" x="320" y="60" width="24" height="50" rx="2"/>
+<rect class="em0" x="350" y="60" width="24" height="50" rx="2"/>
+</g>
+<text class="n0" x="150" y="132">使っている</text>
+<text class="b0" x="292" y="132">空き</text>
+<text class="b0" x="20" y="168">→ 空いている場所に</text>
+<text class="b0" x="20" y="188">　 MCB を1個 差せる</text>
+<text class="n0" x="20" y="212">秋吉様＝24コマ中 7つ空き</text>
+
+<text class="h0" x="460" y="20">空きなし</text>
+<rect class="bd0" x="460" y="30" width="390" height="110" rx="4"/>
+<rect class="mn0" x="474" y="52" width="76" height="66" rx="2"/>
+<text class="n0" x="482" y="80">主幹</text><text class="n0" x="482" y="98">ELB</text>
+<g>
+<rect class="fl0" x="568" y="60" width="24" height="50" rx="2"/>
+<rect class="fl0" x="598" y="60" width="24" height="50" rx="2"/>
+<rect class="fl0" x="628" y="60" width="24" height="50" rx="2"/>
+<rect class="fl0" x="658" y="60" width="24" height="50" rx="2"/>
+<rect class="fl0" x="688" y="60" width="24" height="50" rx="2"/>
+<rect class="fl0" x="718" y="60" width="24" height="50" rx="2"/>
+<rect class="fl0" x="748" y="60" width="24" height="50" rx="2"/>
+<rect class="fl0" x="778" y="60" width="24" height="50" rx="2"/>
+</g>
+<text class="n0" x="600" y="132">ぜんぶ埋まっている</text>
+<text class="x0" x="460" y="168">→ 差す場所がない</text>
+<text class="x0" x="460" y="188">　 <tspan font-weight="700">フリーボックスを設けて</tspan></text>
+<text class="x0" x="460" y="208">　 <tspan font-weight="700">MCBを新設する</tspan></text>
+<text class="n0" x="460" y="228">　 ※ 盤ごと交換にはならない</text>
+</svg>
+
+<h3 style="font-size:13.5px;margin:22px 0 4px">B. 電気が「逆に流れる」とは</h3>
+<svg viewBox="0 0 860 210">
+<defs><style>
+ .k1{fill:#fff;stroke:#111;stroke-width:2}
+ .ar1{stroke:#111;stroke-width:3;fill:none}
+ .ar2{stroke:#e00;stroke-width:3;fill:none}
+ .h1{font-size:13px;fill:#111;font-weight:700;font-family:sans-serif}
+ .r1{font-size:13px;fill:#e00;font-weight:700;font-family:sans-serif}
+ .n1{font-size:11.5px;fill:#444;font-family:sans-serif}
+</style>
+<marker id="fw" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,0 L11,5 L0,10 z" fill="#111"/></marker>
+<marker id="bw" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,0 L11,5 L0,10 z" fill="#e00"/></marker>
+</defs>
+<rect class="k1" x="40" y="20" width="170" height="56" rx="4"/><text class="h1" x="82" y="54">電力会社</text>
+<line class="ar1" x1="220" y1="48" x2="480" y2="48" marker-end="url(#fw)"/>
+<text class="h1" x="286" y="36">ふだん ＝ 買う</text>
+<rect class="k1" x="500" y="20" width="170" height="56" rx="4"/><text class="h1" x="562" y="54">家</text>
+
+<rect class="k1" x="40" y="120" width="170" height="56" rx="4"/><text class="h1" x="82" y="154">電力会社</text>
+<line class="ar2" x1="480" y1="148" x2="220" y2="148" marker-end="url(#bw)"/>
+<text class="r1" x="246" y="136">太陽光が余ったとき ＝ 売る</text>
+<rect class="k1" x="500" y="120" width="170" height="56" rx="4" stroke="#e00"/><text class="r1" x="562" y="154">家</text>
+<text class="n1" x="700" y="152">← この向きが「逆」</text>
+<text class="n1" x="40" y="200">売る電気は、途中にあるブレーカーを通り抜けて出ていきます。どのブレーカーを通るかで話が変わります。</text>
+</svg>
+
+<h3 style="font-size:13.5px;margin:22px 0 4px">C. 「逆接続可能型」＝ 逆向きに使っていいブレーカー</h3>
+<svg viewBox="0 0 860 250">
+<defs><style>
+ .bk{fill:#fff;stroke:#111;stroke-width:2}
+ .ag{stroke:#2e7d32;stroke-width:3.5;fill:none}
+ .ab{stroke:#c62828;stroke-width:3.5;fill:none}
+ .h2b{font-size:13px;fill:#111;font-weight:700;font-family:sans-serif}
+ .n2b{font-size:11.5px;fill:#444;font-family:sans-serif}
+ .g2{font-size:20px;fill:#2e7d32;font-weight:700;font-family:sans-serif}
+ .x2{font-size:20px;fill:#c62828;font-weight:700;font-family:sans-serif}
+</style>
+<marker id="gd2" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,0 L11,5 L0,10 z" fill="#2e7d32"/></marker>
+<marker id="bd2" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,0 L11,5 L0,10 z" fill="#c62828"/></marker>
+</defs>
+
+<text class="h2b" x="42" y="20">ふつうの向き</text>
+<line class="ag" x1="118" y1="34" x2="118" y2="70" marker-end="url(#gd2)"/>
+<rect class="bk" x="60" y="74" width="118" height="86" rx="4"/>
+<text class="n2b" x="88" y="122">ブレーカー</text>
+<line class="ag" x1="118" y1="164" x2="118" y2="198" marker-end="url(#gd2)"/>
+<text class="g2" x="196" y="128">◯</text>
+<text class="n2b" x="42" y="224">上から入って下へ出る</text>
+
+<text class="h2b" x="342" y="20">逆向き・古いタイプ</text>
+<line class="ab" x1="418" y1="198" x2="418" y2="164" marker-end="url(#bd2)"/>
+<rect class="bk" x="360" y="74" width="118" height="86" rx="4" stroke="#c62828"/>
+<text class="n2b" x="388" y="122">ブレーカー</text>
+<line class="ab" x1="418" y1="70" x2="418" y2="36" marker-end="url(#bd2)"/>
+<text class="x2" x="496" y="128">✕</text>
+<text class="n2b" x="332" y="224">下から入る使い方を</text>
+<text class="n2b" x="332" y="242">想定していない</text>
+
+<text class="h2b" x="632" y="20">逆向き・逆接続可能型</text>
+<line class="ag" x1="708" y1="198" x2="708" y2="164" marker-end="url(#gd2)"/>
+<rect class="bk" x="650" y="74" width="118" height="86" rx="4" stroke="#2e7d32"/>
+<text class="n2b" x="678" y="122">ブレーカー</text>
+<line class="ag" x1="708" y1="70" x2="708" y2="36" marker-end="url(#gd2)"/>
+<text class="g2" x="788" y="128">◯</text>
+<text class="n2b" x="622" y="224">どっち向きでもOKと</text>
+<text class="n2b" x="622" y="242">メーカーが認めた型番</text>
+</svg>
+<p class="note" style="margin-top:10px"><b>対応しているかは型番で決まります。</b>だから主幹ELBの銘板の写真が要る。日東工業やパナソニックが「この型番は逆接続可」という一覧を出しているので、事務で調べられます。</p>
+</div>
+
+
+
+<!-- パネル0-1 -->
+<div class="panel" style="border-color:#1565c0;border-width:2px">
+<h2 style="color:#1565c0">⓪-1　主幹MCB・契約容量・幹線サイズの対応（山中さん）</h2>
+<p class="lead"><b>この表が基準です。</b>主幹の定格が決まれば、契約容量も幹線サイズも決まります。</p>
+
+<div style="background:#e3f2fd;border:1px solid #90caf9;border-radius:4px;padding:10px 14px;font-size:14px;margin-bottom:12px;text-align:center">
+<b>主幹MCBの定格（A）　×　200V　＝　契約容量（VA）</b>
+</div>
+
+<table style="font-size:13px">
+<tr><th style="width:150px;text-align:center">主幹MCB</th><th style="width:170px;text-align:center">契約容量</th><th style="text-align:center">幹線サイズ</th></tr>
+<tr><td style="text-align:center;font-weight:700">40A</td><td style="text-align:center">8kVA</td><td style="text-align:center;background:#e8f5e9;color:#1b5e20;font-weight:700">CV-8</td></tr>
+<tr><td style="text-align:center;font-weight:700">50A</td><td style="text-align:center">10kVA</td><td style="text-align:center;background:#e8f5e9;color:#1b5e20;font-weight:700">CV-8</td></tr>
+<tr><td style="text-align:center;font-weight:700">60A</td><td style="text-align:center">12kVA</td><td style="text-align:center;background:#fff8e1;color:#a86000;font-weight:700">CV-14</td></tr>
+<tr><td style="text-align:center;font-weight:700">75A</td><td style="text-align:center">15kVA</td><td style="text-align:center;background:#fff8e1;color:#a86000;font-weight:700">CV-14</td></tr>
+</table>
+
+<div class="caution" style="margin-top:12px">
+<b>幹線の壁は 10kVA と 12kVA の間にあります。</b><br>
+家の幹線が <b>CV-8</b> の状態で、契約を <b>12kVA（主幹MCB 60A）</b> にしたい場合は、
+<b>幹線の張替工事（CV-8 → CV-14）が必要</b>になります。<b>ここが費用の分かれ目です。</b>
+</div>
+
+<h3 style="font-size:13.5px;margin:18px 0 4px">実例（山中さん）</h3>
+<table>
+<tr><th style="width:110px">工事前</th><td>主幹 <b>SB 60A</b>　／　契約 <b>電化上手 6kVA</b></td></tr>
+<tr><th>工事後</th><td>主幹 <b>MCB 40A</b>　／　契約 <b>スマートライフ 8kVA</b> へ変更</td></tr>
+</table>
+
+<div style="background:#fff8e1;border:1.5px solid #e8a33d;border-radius:4px;padding:10px 13px;font-size:12.5px;margin-top:10px">
+<b style="color:#a86000">数字が下がっているのに、容量は上がっています。</b><br>
+主幹は 60A → 40A、でも契約は 6kVA → 8kVA。<b>契約の種別が変わったから</b>です。
+<br>
+・<b>アンペア制</b>（電化上手・従量電灯B など）… 100V換算のアンペアで表す。60A ＝ 6kVA相当<br>
+・<b>kVA制</b>（スマートライフ・従量電灯C など）… 主幹の定格 × 200V で表す。40A ＝ 8kVA<br>
+<b>同じ「40A」でも、契約種別によって意味が違います。</b>ここが一番混乱するところです。
+</div>
+
+<p class="note"><b>出どころ：</b>山中さんの実務基準（2026-08-27）。電力会社の資料で裏を取ったものではありませんが、実際の工事に使われている数字です。</p>
+</div>
+
+<!-- パネル0-2 -->
+<div class="panel" style="border-color:#1565c0">
+<h2 style="color:#1565c0">⓪-2　既設の主幹は何をしていて、新設は何をするのか</h2>
+<p class="lead"><b>役割がぜんぶ違います。だから既設の主幹はそのまま残します。</b></p>
+
+<svg viewBox="0 0 1020 420">
+<defs><style>
+ .l{stroke:#111;stroke-width:2.6;fill:none}
+ .lr{stroke:#e00;stroke-width:2.6;fill:none}
+ .dead{stroke:#bbb;stroke-width:2.6;fill:none;stroke-dasharray:6 5}
+ .b{fill:#fff;stroke:#111;stroke-width:1.9}
+ .bn{fill:#fff;stroke:#e00;stroke-width:2.1}
+ .t{font-size:12.5px;fill:#111;font-weight:700;font-family:sans-serif}
+ .rr{font-size:12.5px;fill:#e00;font-weight:700;font-family:sans-serif}
+ .s{font-size:10.5px;fill:#444;font-family:sans-serif}
+ .rs{font-size:10.5px;fill:#e00;font-family:sans-serif}
+ .gy{font-size:11px;fill:#999;font-family:sans-serif}
+ .hd{font-size:13.5px;fill:#111;font-weight:700;font-family:sans-serif}
+</style>
+<marker id="mf" markerWidth="11" markerHeight="11" refX="8" refY="4.5" orient="auto"><path d="M0,0 L10,4.5 L0,9 z" fill="#111"/></marker>
+<marker id="mr" markerWidth="11" markerHeight="11" refX="8" refY="4.5" orient="auto"><path d="M0,0 L10,4.5 L0,9 z" fill="#e00"/></marker>
+</defs>
+
+<!-- 平常時 -->
+<text class="hd" x="14" y="20">ふだん（系統が生きている）</text>
+<text class="s" x="14" y="66">系統</text>
+<line class="l" x1="46" y1="60" x2="104" y2="60" marker-end="url(#mf)"/>
+<circle class="b" cx="130" cy="60" r="18"/><text class="t" x="121" y="65">SM</text>
+<text class="s" x="104" y="98">測るだけ</text>
+<line class="l" x1="148" y1="60" x2="196" y2="60" marker-end="url(#mf)"/>
+
+<rect class="bn" x="200" y="34" width="128" height="52" rx="3"/>
+<text class="rr" x="222" y="56">MCB（新設）</text>
+<text class="rs" x="240" y="74">50A</text>
+<text class="rs" x="204" y="108">系統との元栓</text>
+<text class="rs" x="204" y="124">SBが無いので作る</text>
+
+<line class="lr" x1="328" y1="60" x2="376" y2="60" marker-end="url(#mr)"/>
+<rect class="bn" x="380" y="34" width="150" height="52" rx="3"/>
+<text class="rr" x="392" y="56">自動切替開閉器</text>
+<text class="rs" x="418" y="74">（新設）</text>
+<text class="rs" x="384" y="108">平常と停電を切り替える</text>
+
+<line class="lr" x1="530" y1="60" x2="578" y2="60" marker-end="url(#mr)"/>
+<rect class="b" x="582" y="34" width="140" height="52" rx="3"/>
+<text class="t" x="600" y="56">既設 主幹ELB</text>
+<text class="s" x="632" y="74">50A</text>
+<text class="s" x="586" y="108">家の中の漏電と</text>
+<text class="s" x="586" y="124">使いすぎを見張る</text>
+
+<line class="l" x1="722" y1="60" x2="770" y2="60" marker-end="url(#mf)"/>
+<rect class="b" x="774" y="34" width="130" height="52" rx="3"/>
+<text class="t" x="812" y="66">家</text>
+
+<line class="lr" x1="455" y1="86" x2="455" y2="140" marker-end="url(#mr)"/>
+<rect class="bn" x="376" y="144" width="160" height="46" rx="3"/>
+<text class="rr" x="396" y="172">蓄電池 ／ PV</text>
+
+<!-- 停電時 -->
+<line x1="0" y1="222" x2="1020" y2="222" stroke="#ddd" stroke-width="1.4"/>
+<text class="hd" x="14" y="252">停電したとき</text>
+<text class="gy" x="14" y="298">系統</text>
+<line class="dead" x1="46" y1="292" x2="196" y2="292"/>
+<text class="gy" x="96" y="278">停電＝電気が来ない</text>
+
+<rect class="b" x="200" y="266" width="128" height="52" rx="3" stroke="#bbb"/>
+<text class="gy" x="228" y="298">MCB</text>
+
+<line class="dead" x1="328" y1="292" x2="376" y2="292"/>
+<rect class="bn" x="380" y="266" width="150" height="52" rx="3"/>
+<text class="rr" x="392" y="288">自動切替開閉器</text>
+<text class="rs" x="386" y="306">系統を切り離す</text>
+
+<line class="lr" x1="530" y1="292" x2="578" y2="292" marker-end="url(#mr)"/>
+<rect class="b" x="582" y="266" width="140" height="52" rx="3"/>
+<text class="t" x="600" y="288">既設 主幹ELB</text>
+<text class="s" x="586" y="340">停電中も、家の中を</text>
+<text class="s" x="586" y="356">守る係は変わらない</text>
+
+<line class="lr" x1="722" y1="292" x2="770" y2="292" marker-end="url(#mr)"/>
+<rect class="b" x="774" y="266" width="130" height="52" rx="3" stroke="#e00"/>
+<text class="rr" x="800" y="298">家 全体</text>
+<text class="rs" x="774" y="340">全負荷で使える</text>
+
+<line class="lr" x1="455" y1="376" x2="455" y2="322" marker-end="url(#mr)"/>
+<rect class="bn" x="376" y="380" width="160" height="40" rx="3"/>
+<text class="rr" x="396" y="406">蓄電池から給電</text>
+</svg>
+
+<table>
+<tr><th style="width:150px">既設 主幹ELB</th><td><b>家の中を守る係。</b>漏電と使いすぎを見張る。<b>工事の前も後も、役割は変わらない。</b>だから残す</td></tr>
+<tr><th>新設 MCB</th><td><b>系統との元栓。</b>SBが無い家には切り離す装置が無いので、そこに作る。工事・点検・事故のときに使う</td></tr>
+<tr><th>新設 自動切替開閉器</th><td><b>平常と停電を切り替える係。</b>停電したら系統を切り離し、蓄電池の電気を家へ流す。CTもここに内蔵されている型がある</td></tr>
+</table>
+<p class="note"><b>まとめると：</b>既設の主幹は「家の中の担当」、新設は「外との境目の担当」。守る場所が違うので、両方いります。</p>
+</div>
+
+<!-- 契約A -->
+<div class="panel" style="border-color:#e8a33d">
+<h2 style="color:#a86000">⓪-3　契約アンペアを現調で聞く理由（山中さん指摘）</h2>
+<table>
+<tr><th style="width:170px">幹線（CV）のサイズが決まらない</th><td>契約アンペアが分からないと、流していい電流が決まらない。つまり<b>電線の太さが選べない</b></td></tr>
+<tr><th>契約が足りないことがある</th><td>例：<b>契約40Aの家に、南向きで7kW発電するパネル</b>を載せる場合<br>7kW ÷ 200V ＝ <b>約35A</b>。この電流が幹線と主幹を通る。40A契約では余裕がなく、<b>契約変更（増量）が必要</b>になる</td></tr>
+<tr><th>SMは必ずある</th><td>今はスマートメーターが全戸に入っている。<b>無いのはSB（契約ブレーカー）</b>のほう。SMは測るだけで、切ってはくれない</td></tr>
+</table>
+<p class="note">現調アプリの<b>③契約種別・容量は必須項目</b>なので、ここは既に毎回取れています。抜けません。</p>
+</div>
+
+
+<!-- パネル0-4 -->
+<div class="panel" style="border-color:#2e7d32">
+<h2 style="color:#1b5e20">⓪-4　契約アンペアと発電量の関係（一次資料で確認）</h2>
+<p class="lead"><b>時代で変わっています。</b>昔の常識のままだと、必要のない契約変更をお客様にお願いすることになります。</p>
+
+<table>
+<tr><th style="width:170px">昔（物理SBの時代）</th><td><b>アンペアブレーカー（SB）は逆潮流でも落ちた。</b>だから「負荷30A＋PV6kW → 契約60A」のように、<b>発電分を上乗せした契約アンペア</b>が必要だった</td></tr>
+<tr><th>今（スマートメーター）</th><td><b>順潮流（買う側）だけを制限する。</b>東京電力：「再生可能エネルギー等発電設備の容量を考慮いただく必要性はなくなります」／九州電力：「需給契約容量については、太陽光発電設備等の容量を考慮いただく必要はございません」</td></tr>
+<tr><th>SBそのもの</th><td>東京電力は<b>2016年6月30日でSBの新規設置を原則廃止。</b>既設で残っている場合は、太陽光工事の際に撤去する（電力会社の資産なので、元請け指示で持ち帰り／東電引取りで現地に置く）</td></tr>
+</table>
+
+<h3 style="font-size:13.5px;margin:16px 0 4px">今も契約を上げる理由として残るもの</h3>
+<table>
+<tr><th style="width:170px">負荷が増える</th><td>蓄電池の充電、オール電化、EV。<b>これは「使う側」なので契約アンペアに効く</b></td></tr>
+<tr><th>計器・引込線の容量超過</th><td>発電12kW超は計器SB設定ができない。引込線の定格を超えると電力会社の設備取替（工事費負担あり）</td></tr>
+<tr><th>60Aの壁</th><td>東京電力：「アンペアブレーカでのご契約は60アンペアまで。60アンペアを超えるご契約をご希望の場合には、電気工事店による屋内配線工事が必要です」</td></tr>
+</table>
+<p class="note"><b>幹線がCV8で足りることが多い理由がこれです。</b>60Aが契約の実質的な上限なので、CV14＋MCB 75Aクラスは「60Aの壁を超えた先」の話になり、住宅ではめったに出てきません。</p>
+
+<div class="caution" style="margin-top:14px">
+<b>まだ確認できていないこと</b><br>
+・「契約を上げる」より「SBを撤去する」ほうが安く済むケースがあるか。手続き（電力会社への申請が要るか）は未確認<br>
+・主幹ブレーカの定格・幹線の許容電流・パワコン定格のうち、実務上どれが先に効くかを順位づけた一次資料は見つからず
+</div>
+
+<p class="note" style="margin-top:10px"><b>出典：</b>
+東京電力「スマートメーターで契約アンペア容量を設定する場合の逆潮流の取扱いについて」（平成28年2月・電気工事店向け）／
+東京電力「スマートメーター展開に伴う契約アンペア容量設定の取扱いについて」／
+東電PG「サービスブレーカ(SB)の新規設置の廃止」／
+九州電力「電流制限機能付スマートメーターにおける逆潮流に対する電流制限」／
+東電EP「60アンペアより大きいブレーカーに変更するには」／
+東電EP 特定小売供給約款
+</p>
+</div>
+
+
+<!-- パネル0-5 -->
+<div class="panel" style="border-color:#7b1fa2">
+<h2 style="color:#6a1b9a">⓪-5　既設のSBを残すか、外すか</h2>
+<p class="lead"><b>古い物理SBは逆潮流でも落ちます。</b>だから判断は「落ちるほど発電するか」の1点です。</p>
+
+<div style="background:#f8f5fb;border:1px solid #ce93d8;border-radius:4px;padding:10px 14px;font-size:13px;margin-bottom:12px">
+<b>発電容量（kW）÷ 200V ＝ 逆潮流の最大電流（A）</b><br>
+　これが SB の定格に対して<b>十分小さい → SBは残す</b><br>
+　　　　　　　　　　　　　　<b>近い／超える → SBを外す、または契約を上げる</b>
+</div>
+
+<h3 style="font-size:13.5px;margin:14px 0 4px">実例</h3>
+<table>
+<tr><th style="width:150px">太陽光 3.6kW／SB 50A</th><td>3.6kW ÷ 200V ＝ <b>18A</b>。50Aに対して余裕たっぷり → <b>「残しでお願いします」</b></td></tr>
+<tr><th>太陽光 7.0kW／SB 40A</th><td>7.0kW ÷ 200V ＝ <b>35A</b>。40Aに対してギリギリ → <b>契約を上げる必要がある</b></td></tr>
+<tr><th>SBなし（山田政明様邸）</th><td>そもそもSBが無いので、この判断は発生しない → <b>MCBを新設</b>してそこを元栓にする</td></tr>
+</table>
+
+<h3 style="font-size:13.5px;margin:18px 0 4px">早見表（SB定格に対する使用率）</h3>
+<table style="font-size:11.5px"><tr><th>発電容量</th><th>逆潮流の<br>最大電流</th><th style="text-align:center">SB 30A</th><th style="text-align:center">SB 40A</th><th style="text-align:center">SB 50A</th><th style="text-align:center">SB 60A</th></tr><tr><th>3.0kW</th><td style="text-align:center">15A</td><td style="background:#fff8e1;color:#a86000;text-align:center;font-weight:700">50%</td><td style="background:#e8f5e9;color:#1b5e20;text-align:center;font-weight:700">37%</td><td style="background:#e8f5e9;color:#1b5e20;text-align:center;font-weight:700">30%</td><td style="background:#e8f5e9;color:#1b5e20;text-align:center;font-weight:700">25%</td></tr><tr><th>3.6kW</th><td style="text-align:center">18A</td><td style="background:#fff8e1;color:#a86000;text-align:center;font-weight:700">60%</td><td style="background:#e8f5e9;color:#1b5e20;text-align:center;font-weight:700">45%</td><td style="background:#e8f5e9;color:#1b5e20;text-align:center;font-weight:700">36%<br><b style="font-size:9.5px">←残し（実例）</b></td><td style="background:#e8f5e9;color:#1b5e20;text-align:center;font-weight:700">30%</td></tr><tr><th>4.0kW</th><td style="text-align:center">20A</td><td style="background:#fff8e1;color:#a86000;text-align:center;font-weight:700">66%</td><td style="background:#fff8e1;color:#a86000;text-align:center;font-weight:700">50%</td><td style="background:#e8f5e9;color:#1b5e20;text-align:center;font-weight:700">40%</td><td style="background:#e8f5e9;color:#1b5e20;text-align:center;font-weight:700">33%</td></tr><tr><th>4.39kW</th><td style="text-align:center">22A</td><td style="background:#fff8e1;color:#a86000;text-align:center;font-weight:700">73%</td><td style="background:#fff8e1;color:#a86000;text-align:center;font-weight:700">54%</td><td style="background:#e8f5e9;color:#1b5e20;text-align:center;font-weight:700">43%</td><td style="background:#e8f5e9;color:#1b5e20;text-align:center;font-weight:700">36%</td></tr><tr><th>5.0kW</th><td style="text-align:center">25A</td><td style="background:#ffebee;color:#b71c1c;text-align:center;font-weight:700">83%</td><td style="background:#fff8e1;color:#a86000;text-align:center;font-weight:700">62%</td><td style="background:#fff8e1;color:#a86000;text-align:center;font-weight:700">50%</td><td style="background:#e8f5e9;color:#1b5e20;text-align:center;font-weight:700">41%</td></tr><tr><th>5.9kW</th><td style="text-align:center">30A</td><td style="background:#ffebee;color:#b71c1c;text-align:center;font-weight:700">98%</td><td style="background:#fff8e1;color:#a86000;text-align:center;font-weight:700">73%</td><td style="background:#fff8e1;color:#a86000;text-align:center;font-weight:700">59%</td><td style="background:#e8f5e9;color:#1b5e20;text-align:center;font-weight:700">49%</td></tr><tr><th>6.0kW</th><td style="text-align:center">30A</td><td style="background:#ffebee;color:#b71c1c;text-align:center;font-weight:700">100%</td><td style="background:#ffebee;color:#b71c1c;text-align:center;font-weight:700">75%</td><td style="background:#fff8e1;color:#a86000;text-align:center;font-weight:700">60%</td><td style="background:#fff8e1;color:#a86000;text-align:center;font-weight:700">50%</td></tr><tr><th>7.0kW</th><td style="text-align:center">35A</td><td style="background:#ffebee;color:#b71c1c;text-align:center;font-weight:700">116%</td><td style="background:#ffebee;color:#b71c1c;text-align:center;font-weight:700">87%<br><b style="font-size:9.5px">←上げる（実例）</b></td><td style="background:#fff8e1;color:#a86000;text-align:center;font-weight:700">70%</td><td style="background:#fff8e1;color:#a86000;text-align:center;font-weight:700">58%</td></tr><tr><th>8.0kW</th><td style="text-align:center">40A</td><td style="background:#ffebee;color:#b71c1c;text-align:center;font-weight:700">133%</td><td style="background:#ffebee;color:#b71c1c;text-align:center;font-weight:700">100%</td><td style="background:#ffebee;color:#b71c1c;text-align:center;font-weight:700">80%</td><td style="background:#fff8e1;color:#a86000;text-align:center;font-weight:700">66%</td></tr><tr><th>9.9kW</th><td style="text-align:center">50A</td><td style="background:#ffebee;color:#b71c1c;text-align:center;font-weight:700">165%</td><td style="background:#ffebee;color:#b71c1c;text-align:center;font-weight:700">123%</td><td style="background:#ffebee;color:#b71c1c;text-align:center;font-weight:700">99%</td><td style="background:#ffebee;color:#b71c1c;text-align:center;font-weight:700">82%</td></tr></table>
+<p class="note"><b>色の境目は未確認です。</b>実例2件（3.6kW/SB50A＝36%で残し、7.0kW/SB40A＝88%で上げる）の位置を目印にしてください。その間のどこに線を引くかは、山中さんかリケンの判断になります。</p>
+<p class="note"><b>kVA表記の契約は読み替えます。</b>例：5kVA契約 ＝ 50A相当。</p>
+
+<div class="caution" style="margin-top:14px">
+<b>※ この判断ルールは、山中さんの実際のやり取りから読み取ったものです。</b>
+「SBを残すか外すかは、発電容量とSBの定格を比べて決めている」という理解で合っているか、
+<b>本人に確認してから正式なルールにしてください。</b>
+</div>
+</div>
+
+<!-- パネル1 -->
+<div class="panel">
+<h2>① 既設のまま（工事前）</h2>
+<p class="lead">電気は左から右へ、一方向にしか流れません。</p>
+<svg viewBox="0 0 860 120">
+<defs><style>
+ .e{stroke:#111;stroke-width:2.4;fill:none}
+ .bx{fill:#fff;stroke:#111;stroke-width:1.8}
+ .tb{font-size:13px;fill:#111;font-weight:700;font-family:sans-serif}
+ .ts{font-size:11px;fill:#444;font-family:sans-serif}
+</style>
+<marker id="a1" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 z" fill="#111"/></marker>
+</defs>
+<line class="e" x1="20" y1="55" x2="90" y2="55" marker-end="url(#a1)"/>
+<text class="ts" x="18" y="44">系統</text>
+<circle class="bx" cx="118" cy="55" r="20"/><text class="tb" x="107" y="60">SM</text>
+<text class="ts" x="92" y="96">測る</text>
+<line class="e" x1="138" y1="55" x2="196" y2="55" marker-end="url(#a1)"/>
+<rect class="bx" x="200" y="34" width="96" height="42" rx="3"/><text class="tb" x="228" y="60">SB</text>
+<text class="ts" x="204" y="96">契約で切る</text>
+<line class="e" x1="296" y1="55" x2="360" y2="55" marker-end="url(#a1)"/>
+<rect class="bx" x="364" y="34" width="112" height="42" rx="3"/><text class="tb" x="392" y="60">主幹ELB</text>
+<text class="ts" x="368" y="96">漏電で切る</text>
+<line class="e" x1="476" y1="55" x2="540" y2="55" marker-end="url(#a1)"/>
+<rect class="bx" x="544" y="20" width="150" height="70" rx="3"/>
+<text class="tb" x="566" y="48">分岐ブレーカー</text><text class="ts" x="592" y="70">各部屋へ</text>
+<text class="ts" x="720" y="48">← ここまでが</text><text class="ts" x="720" y="66">　既設の分電盤</text>
+</svg>
+</div>
+
+<!-- パネル2 -->
+<div class="panel">
+<h2>② 一次送り　<span class="tag ok">既設をほぼ触らない</span></h2>
+<p class="lead">SBと主幹ELBの<b>あいだに割り込ませる</b>方式。見本の鈴木様邸がこれでした。</p>
+<svg viewBox="0 0 860 190">
+<defs><style>
+ .e2{stroke:#111;stroke-width:2.4;fill:none}
+ .n2{stroke:#e00;stroke-width:2.6;fill:none}
+ .bx2{fill:#fff;stroke:#111;stroke-width:1.8}
+ .nx2{fill:#fff;stroke:#e00;stroke-width:2.2}
+ .tb2{font-size:13px;fill:#111;font-weight:700;font-family:sans-serif}
+ .r2{font-size:12.5px;fill:#e00;font-weight:700;font-family:sans-serif}
+ .ts2{font-size:11px;fill:#444;font-family:sans-serif}
+ .rs2{font-size:11px;fill:#e00;font-family:sans-serif}
+</style>
+<marker id="a2" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 z" fill="#111"/></marker>
+<marker id="ar" markerWidth="10" markerHeight="10" refX="8" refY="4" orient="auto"><path d="M0,0 L9,4 L0,8 z" fill="#e00"/></marker>
+</defs>
+<line class="e2" x1="20" y1="55" x2="86" y2="55"/>
+<circle class="bx2" cx="114" cy="55" r="20"/><text class="tb2" x="103" y="60">SM</text>
+<line class="e2" x1="134" y1="55" x2="190" y2="55"/>
+<rect class="bx2" x="194" y="34" width="86" height="42" rx="3"/><text class="tb2" x="217" y="60">SB</text>
+<text class="ts2" x="196" y="94">キセツ</text>
+<line class="e2" x1="280" y1="55" x2="330" y2="55"/>
+<!-- 連系点 -->
+<rect class="nx2" x="330" y="30" width="128" height="50" rx="3"/>
+<text class="r2" x="342" y="52">自動切替</text><text class="r2" x="342" y="70">開閉器（新設）</text>
+<circle cx="394" cy="80" r="4" fill="#e00"/>
+<line class="n2" x1="394" y1="80" x2="394" y2="128"/>
+<rect class="nx2" x="316" y="128" width="156" height="46" rx="3"/>
+<text class="r2" x="330" y="150">蓄電池 ／ PV</text><text class="rs2" x="330" y="167">（PCS）</text>
+<line class="e2" x1="458" y1="55" x2="516" y2="55"/>
+<rect class="bx2" x="520" y="34" width="112" height="42" rx="3"/><text class="tb2" x="548" y="60">主幹ELB</text>
+<text class="ts2" x="524" y="94">キセツのまま</text>
+<line class="e2" x1="632" y1="55" x2="686" y2="55" marker-end="url(#a2)"/>
+<rect class="bx2" x="690" y="24" width="150" height="62" rx="3"/>
+<text class="tb2" x="712" y="50">分岐ブレーカー</text><text class="ts2" x="738" y="70">各部屋へ</text>
+<!-- 逆流の矢印 -->
+<path class="n2" d="M 380 30 L 380 14 L 240 14 L 240 34" marker-end="url(#ar)" stroke-dasharray="6 4"/>
+<text class="rs2" x="252" y="10">余った電気は SB または MCB を経由して東電へ売電される</text>
+</svg>
+<table>
+<tr><th style="width:210px">主幹ELBを逆向きに通るか</th><td><b>通らない</b>（連系点が主幹ELBより手前だから）</td></tr>
+<tr><th>既設の主幹ELB</th><td>そのまま使える</td></tr>
+<tr><th>停電時</th><td>主幹ELBから先＝家全体が使える → <b>全負荷</b></td></tr>
+</table>
+</div>
+
+<!-- パネル3 -->
+<div class="panel">
+<h2>③ 参考：二次送り　<span class="tag ng">SANSEIの案件では基本ありません</span></h2>
+<p class="lead">分電盤の中にMCBを1個増やしてつなぐ方式です。<b>リケン・ATELの案件は一次送りが基本</b>なので、通常この形にはなりません。</p>
+<table>
+<tr><th style="width:190px">この方式のときだけ起きること</th><td>余った電気が<b>主幹ELBを逆向きに通る</b>ので、既設の主幹ELBが「逆接続可能型」でないと主幹交換が必要になる</td></tr>
+<tr><th>一次送りなら起きない</th><td>連系点が主幹ELBより手前なので、<b>逆流が主幹ELBを通らない。</b>だから逆接続の可否を心配する必要がない</td></tr>
+</table>
+<p class="note">※ 覚えておく必要はありません。「そういう方式もある」という程度で十分です。</p>
+</div>
+
+<!-- パネル4 -->
+<div class="panel" style="border-color:#1565c0">
+<h2 style="color:#1565c0">④ MCB追加 と 主幹交換の違い（山中さん訂正版）</h2>
+<table>
+<tr><th style="width:150px">MCB追加</th><td>ブレーカーを1個増やす。<b>分電盤に空きスペースが無い場合は、フリーボックス等を設けてブレーカーを新設する</b>（盤ごと交換にはならない）</td></tr>
+<tr><th>主幹交換（SB→MCB）</th><td><b>SBを外して、その場所にMCBを入れ替えるだけ。</b>大掛かりな工事ではない</td></tr>
+</table>
+
+<h3 style="font-size:13.5px;margin:18px 0 6px">実際の2パターン（山中さんの現場写真より）</h3>
+<div class="two" style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+<div style="border:1.5px solid #e00;border-radius:4px;padding:10px 12px">
+<div style="font-size:13px;font-weight:700;color:#c00;margin-bottom:6px">パターン1：SBなし・空きスペースなし</div>
+<table style="font-size:12px">
+<tr><th style="width:78px">既設</th><td>SBなし／計器（スマートメーター 50A）契約</td></tr>
+<tr><th>状況</th><td>分電盤にMCBを入れる<b>空きスペースが無い</b></td></tr>
+<tr><th>やったこと</th><td><b>フリーボックスを設けて MCB 50A を新設</b></td></tr>
+</table>
+</div>
+<div style="border:1.5px solid #e00;border-radius:4px;padding:10px 12px">
+<div style="font-size:13px;font-weight:700;color:#c00;margin-bottom:6px">パターン2：SBあり</div>
+<table style="font-size:12px">
+<tr><th style="width:78px">既設</th><td>SBが付いている</td></tr>
+<tr><th>やったこと</th><td><b>既存SBとMCB 40A を交換。</b>SBを外して、開いたところにMCBを入れる</td></tr>
+<tr><th>ポイント</th><td>場所を作る必要がないので<b>入れ替えるだけ</b></td></tr>
+</table>
+</div>
+</div>
+<p class="note" style="margin-top:10px"><b>空きスペースが無くても、盤ごと交換にはなりません。</b>フリーボックスを増設してそこにMCBを付ける、という解き方をします。</p>
+</div>
+
+<!-- パネル5 -->
+<div class="panel" style="border-color:#e8a33d">
+<h2 style="color:#a86000">⑤ 契約を上げる理由は、技術だけとは限らない</h2>
+<p class="lead">山中さんのコメント（武井様邸・ATEL案件の単線結線図を見ながら）</p>
+<div style="background:#fffaf0;border:1px solid #e8a33d;border-radius:4px;padding:10px 14px;font-size:13px;margin-bottom:10px">
+「単結見るとわかりやすいよね！変更前と変更後。<br>
+<b>ここの家は太陽光も5キロちょっとなのに、なんで8kVAに上げたか、あんまりよく分からないけど。これはATELだから</b>」
+</div>
+<table>
+<tr><th style="width:150px">この案件</th><td>太陽光 約5kW（＝25A相当）／ 電化上手 6kVA → スマートライフ 8kVA へ変更</td></tr>
+<tr><th>技術的に必要か</th><td>5kW程度なら、容量だけ見れば6kVAでも成立しそうに見える</td></tr>
+<tr><th>実際の理由</th><td><b>元請け（ATEL）の方針。</b>技術的な必然だけで決まっているわけではない</td></tr>
+</table>
+<p class="note"><b>だから現調でやるのは「事実を拾うこと」まで。</b>契約を上げるかどうかは、元請けと営業の判断です。現場が計算して決める話ではありません。</p>
+</div>
+
+<div class="caution">
+<b>だから主幹ELBの銘板写真を必須にしました。</b><br>
+銘板から <b>定格・極数素子数・型番</b> が読めます。型番が分かれば逆接続可能型かどうかも調べられます。
+つまり <b>写真1枚で「MCB追加で済むのか、主幹交換が要るのか」が着工前に判定できる</b>ということです。
+着工後に分かると、追加費用の話が後出しになって揉めます。
+</div>
+
+<p class="note">※ ②③の「主幹ELBを逆向きに通るかどうか」は、回路の構成から導いた説明です。メーカー資料・電力会社の様式で一次送り／二次送りを分けた明記は確認できていません。実際の判断はリケンまたはメーカーの施工店窓口で確認してください。</p>
+
+</div>
+</body>
+</html>
