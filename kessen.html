@@ -161,6 +161,12 @@ function vv(id){var x=g(id);return x?x:TBD;}
       if(!hit && val) { var o=document.createElement('option'); o.text=val; o.value=val; e.add(o); e.value=val; }
     } else { e.value=val; }
   });
+  /* パワコンが未入力なら蓄電池シリーズから決まる分だけ補う（型式のみ・容量は書かない） */
+  if(!g('pcs')){
+    var bt=g('battery');
+    if(/トライブリッド\s*T6/.test(bt))      el('pcs').value='ニチコン ES-T6';
+    else if(/トライブリッド\s*T5/.test(bt)) el('pcs').value='ニチコン ES-T5';
+  }
   if(q.get('pvMode')===null){
     var st=(q.get('surveyType')||'');
     el('pvMode').value = st.indexOf('PV')>=0 ? 'new' : (st?'exist':'new');
