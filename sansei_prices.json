@@ -1958,6 +1958,24 @@
       "unit": "台",
       "note": "",
       "inputType": "qty"
+    },
+    {
+      "category": "撤去・処分",
+      "name": "既設太陽光撤去・処分費(20枚迄)",
+      "price1": 120000,
+      "price2": 0,
+      "unit": "式",
+      "note": "以降は要相談",
+      "inputType": "qty"
+    },
+    {
+      "category": "撤去・処分",
+      "name": "既設蓄電池撤去(１台辺り)",
+      "price1": 50000,
+      "price2": 0,
+      "unit": "台",
+      "note": "",
+      "inputType": "qty"
     }
   ],
   "ライズ": [
